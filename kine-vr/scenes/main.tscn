@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://xobnjksj76nj"]
+[gd_scene load_steps=5 format=3 uid="uid://xobnjksj76nj"]
 
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player.tscn" id="1_6cojc"]
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_ijxrd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5ufg"]
 albedo_color = Color(0.682353, 0.776471, 0.811765, 1)
@@ -9,6 +10,7 @@ albedo_color = Color(0.682353, 0.776471, 0.811765, 1)
 material = SubResource("StandardMaterial3D_y5ufg")
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_ijxrd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_p1ady")
