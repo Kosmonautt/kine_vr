@@ -17,3 +17,7 @@ script = ExtResource("1_ijxrd")
 mesh = SubResource("PlaneMesh_p1ady")
 
 [node name="Player" parent="." instance=ExtResource("1_6cojc")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 40, 6.5)
+shadow_enabled = true
