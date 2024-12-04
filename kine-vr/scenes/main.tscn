@@ -1,13 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://xobnjksj76nj"]
+[gd_scene load_steps=9 format=3 uid="uid://xobnjksj76nj"]
 
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player.tscn" id="1_6cojc"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_ijxrd"]
+[ext_resource type="Texture2D" uid="uid://do1rq22fuy0dy" path="res://Assets/kenney_prototype-textures/PNG/Orange/texture_01.png" id="2_eq6kv"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5ufg"]
-albedo_color = Color(0.682353, 0.776471, 0.811765, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fiu1y"]
+albedo_texture = ExtResource("2_eq6kv")
+uv1_scale = Vector3(40, 40, 40)
+uv1_offset = Vector3(0.5, 0.5, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p1ady"]
-material = SubResource("StandardMaterial3D_y5ufg")
+material = SubResource("StandardMaterial3D_fiu1y")
 size = Vector2(40, 40)
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ho35x"]
