@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://cnk6ayhk71ay"]
+[gd_scene load_steps=3 format=3 uid="uid://cnk6ayhk71ay"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_t66ji"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_vn0st"]
 
 [node name="Player" type="XROrigin3D"]
 
@@ -9,6 +13,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftHand"]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0)
+mesh = SubResource("SphereMesh_t66ji")
+
 [node name="RightHand" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RightHand"]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0)
+mesh = SubResource("SphereMesh_vn0st")
