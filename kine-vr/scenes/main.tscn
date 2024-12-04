@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://xobnjksj76nj"]
+[gd_scene load_steps=9 format=3 uid="uid://xobnjksj76nj"]
 
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player.tscn" id="1_6cojc"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_ijxrd"]
@@ -13,9 +13,6 @@ uv1_offset = Vector3(0.5, 0.5, 0)
 material = SubResource("StandardMaterial3D_fiu1y")
 size = Vector2(40, 40)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gneyc"]
-size = Vector3(40, 1, 40)
-
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ho35x"]
 
 [sub_resource type="Sky" id="Sky_hy3sc"]
@@ -28,15 +25,11 @@ sky = SubResource("Sky_hy3sc")
 [node name="Main" type="Node3D"]
 script = ExtResource("1_ijxrd")
 
-[node name="Floor" type="RigidBody3D" parent="."]
+[node name="Floor" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("PlaneMesh_p1ady")
 skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_gneyc")
 
 [node name="Player" parent="." instance=ExtResource("1_6cojc")]
 
