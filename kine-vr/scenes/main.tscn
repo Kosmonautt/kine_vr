@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://xobnjksj76nj"]
+[gd_scene load_steps=8 format=3 uid="uid://xobnjksj76nj"]
 
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player.tscn" id="1_6cojc"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_ijxrd"]
@@ -10,6 +10,15 @@ albedo_color = Color(0.682353, 0.776471, 0.811765, 1)
 material = SubResource("StandardMaterial3D_y5ufg")
 size = Vector2(40, 40)
 
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ho35x"]
+
+[sub_resource type="Sky" id="Sky_hy3sc"]
+sky_material = SubResource("PhysicalSkyMaterial_ho35x")
+
+[sub_resource type="Environment" id="Environment_w3hm3"]
+background_mode = 2
+sky = SubResource("Sky_hy3sc")
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_ijxrd")
 
@@ -20,4 +29,8 @@ mesh = SubResource("PlaneMesh_p1ady")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 40, 6.5)
+light_energy = 2.0
 shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_w3hm3")
