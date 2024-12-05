@@ -51,4 +51,4 @@ shadow_enabled = true
 environment = SubResource("Environment_w3hm3")
 
 [node name="Parabola" parent="." instance=ExtResource("4_xcj7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, -5)
