@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bni7glj6di7a4"]
+[gd_scene load_steps=6 format=3 uid="uid://bni7glj6di7a4"]
 
+[ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_lwfb7"]
 [ext_resource type="Texture2D" uid="uid://cof3ghb7dfi6d" path="res://Assets/kenney_prototype-textures/PNG/Dark/texture_08.png" id="1_xeser"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5whvu"]
@@ -12,6 +13,7 @@ uv1_scale = Vector3(2, 2, 2)
 material = SubResource("StandardMaterial3D_on8va")
 
 [node name="Projectile" type="RigidBody3D"]
+script = ExtResource("1_lwfb7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_5whvu")

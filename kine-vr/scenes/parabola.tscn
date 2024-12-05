@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=6 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Texture2D" uid="uid://cqdu83knoxx1m" path="res://Assets/kenney_prototype-textures/PNG/Light/texture_12.png" id="1_o8wtf"]
+[ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/projectile.tscn" id="2_xhc3r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdliy"]
 albedo_texture = ExtResource("1_o8wtf")
@@ -33,3 +34,6 @@ shape = SubResource("BoxShape3D_f4i4y")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
+
+[node name="Projectile" parent="." instance=ExtResource("2_xhc3r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1, 0)
