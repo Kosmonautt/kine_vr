@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://d0cykuljffr0m"]
 
-[ext_resource type="Texture2D" uid="uid://cqdu83knoxx1m" path="res://Assets/kenney_prototype-textures/PNG/Light/texture_12.png" id="1_o8wtf"]
+[ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_7qos1"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/projectile.tscn" id="2_xhc3r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdliy"]
-albedo_texture = ExtResource("1_o8wtf")
+albedo_texture = ExtResource("1_7qos1")
 uv1_scale = Vector3(10, 4, 1)
 uv1_offset = Vector3(0.5, 0.5, 0)
 
