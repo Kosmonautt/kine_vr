@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bni7glj6di7a4"]
+
+[ext_resource type="Texture2D" uid="uid://cof3ghb7dfi6d" path="res://Assets/kenney_prototype-textures/PNG/Dark/texture_08.png" id="1_xeser"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5whvu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_on8va"]
+albedo_texture = ExtResource("1_xeser")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5i2v2"]
+material = SubResource("StandardMaterial3D_on8va")
+
+[node name="Projectile" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_5whvu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_5i2v2")
