@@ -43,18 +43,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
 [node name="Projectile" parent="." instance=ExtResource("2_xhc3r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="XZProjection" type="Node3D" parent="Projectile"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+[node name="XZProjection" type="Node3D" parent="."]
 script = ExtResource("3_nu55u")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Projectile/XZProjection"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XZProjection"]
 mesh = SubResource("CylinderMesh_tbeid")
 
-[node name="XYProjection" type="Node3D" parent="Projectile"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -2)
+[node name="XYProjection" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, -2)
 script = ExtResource("4_q1mq6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Projectile/XYProjection"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XYProjection"]
 mesh = SubResource("CylinderMesh_tbeid")
 
 [connection signal="body_exited" from="." to="Projectile" method="_on_parabola_body_exited"]
