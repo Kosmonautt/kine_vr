@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://xobnjksj76nj"]
+[gd_scene load_steps=11 format=3 uid="uid://xobnjksj76nj"]
 
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player.tscn" id="1_6cojc"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_ijxrd"]
 [ext_resource type="Texture2D" uid="uid://do1rq22fuy0dy" path="res://Assets/kenney_prototype-textures/PNG/Orange/texture_01.png" id="2_eq6kv"]
+[ext_resource type="PackedScene" uid="uid://d0cykuljffr0m" path="res://scenes/parabola.tscn" id="4_xcj7v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fiu1y"]
 albedo_texture = ExtResource("2_eq6kv")
@@ -29,6 +30,7 @@ sky = SubResource("Sky_hy3sc")
 script = ExtResource("1_ijxrd")
 
 [node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("PlaneMesh_p1ady")
@@ -47,3 +49,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_w3hm3")
+
+[node name="Parabola" parent="." instance=ExtResource("4_xcj7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -5)
