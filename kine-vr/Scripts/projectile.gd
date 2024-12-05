@@ -4,6 +4,7 @@ const speed: int = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	position = Vector3(-4, 1, 0)
 	linear_velocity = Vector3(speed, speed, 0)
 
 
