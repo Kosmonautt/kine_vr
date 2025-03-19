@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-const initial_position: Vector3 = Vector3(-4, 1, 1.5)
+const initial_position: Vector3 = Vector3(-4.5, 1, 0)
 const intiial_velocity: Vector3 = Vector3(7, 5, -2)
 
 # Called when the node enters the scene tree for the first time.
