@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=13 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_7qos1"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/projectile.tscn" id="2_xhc3r"]
@@ -32,6 +32,11 @@ albedo_color = Color(0.498039, 0.25098, 0, 1)
 [sub_resource type="CylinderMesh" id="CylinderMesh_oaycf"]
 material = SubResource("StandardMaterial3D_n5efx")
 height = 0.01
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5igir"]
+top_radius = 0.1
+bottom_radius = 0.005
+height = 0.5
 
 [node name="Parabola" type="Area3D"]
 
@@ -69,5 +74,15 @@ script = ExtResource("4_q1mq6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XYProjection"]
 mesh = SubResource("CylinderMesh_oaycf")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, 0)
+
+[node name="Drection" type="Node3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/Drection"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_5igir")
 
 [connection signal="body_exited" from="." to="Projectile" method="_on_parabola_body_exited"]
