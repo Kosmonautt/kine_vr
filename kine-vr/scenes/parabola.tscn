@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=14 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_7qos1"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/projectile.tscn" id="2_xhc3r"]
 [ext_resource type="Script" uid="uid://tcgkfksi4flq" path="res://Scripts/xz_projection.gd" id="3_nu55u"]
 [ext_resource type="Script" uid="uid://d2dpihmu2bwia" path="res://Scripts/xy_projection.gd" id="4_q1mq6"]
+[ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://scenes/pivot.gd" id="5_v4dxv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdliy"]
 albedo_texture = ExtResource("1_7qos1")
@@ -78,6 +79,7 @@ mesh = SubResource("CylinderMesh_oaycf")
 
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, 0)
+script = ExtResource("5_v4dxv")
 
 [node name="Drection" type="Node3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
