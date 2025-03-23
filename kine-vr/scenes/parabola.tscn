@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/projectile.tscn" id="2_xhc3r"]
 [ext_resource type="Script" uid="uid://tcgkfksi4flq" path="res://Scripts/xz_projection.gd" id="3_nu55u"]
 [ext_resource type="Script" uid="uid://d2dpihmu2bwia" path="res://Scripts/xy_projection.gd" id="4_q1mq6"]
-[ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://scenes/pivot.gd" id="5_v4dxv"]
+[ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://Scripts/pivot.gd" id="5_v4dxv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdliy"]
 albedo_texture = ExtResource("1_7qos1")
