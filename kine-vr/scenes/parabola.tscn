@@ -70,3 +70,4 @@ projectile = NodePath("../Projectile")
 mode = "XY"
 
 [connection signal="body_exited" from="." to="Projectile" method="_on_parabola_body_exited"]
+[connection signal="launch_button_pressed" from="Pivot" to="Projectile" method="_on_pivot_launch_button_pressed"]

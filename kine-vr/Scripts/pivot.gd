@@ -1,5 +1,7 @@
 extends Node3D
 
+signal launch_button_pressed(launch_direction: Vector3)
+
 # angular speed for both axis in degrees
 const ANGULAR_SPEED_THETA: float =  2 * PI 
 const ANGULAR_SPEED_PHI: float = 2 * PI 
@@ -29,4 +31,5 @@ func _process(delta: float) -> void:
 		projectile.look_at(direction_mesh.global_position, Vector3.UP)
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		projectile.launch(direction_mesh.global_position)
+		launch_button_pressed.emit(direction_mesh.global_position)
+		# projectile.launch(direction_mesh.global_position)

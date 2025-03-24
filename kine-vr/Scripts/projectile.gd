@@ -19,8 +19,7 @@ func _on_parabola_body_exited(_body) -> void:
 	linear_velocity = Vector3.ZERO
 	set_gravity_scale(0.0)
 
-	
-func launch(launch_direction : Vector3) -> void:
+func _on_pivot_launch_button_pressed(launch_direction: Vector3) -> void:
 	set_gravity_scale(1.0)
 	launch_direction = launch_direction - global_position
 	linear_velocity = launch_direction.normalized() * LAUNCH_SPEED
