@@ -22,10 +22,10 @@ func _process(delta: float) -> void:
 		direction.rotate_z(-ANGULAR_SPEED_THETA * delta)
 		projectile.look_at(direction_mesh.global_position, Vector3.UP)
 	elif Input.is_action_pressed("ui_right"):
-		rotate_y(ANGULAR_SPEED_THETA * delta)
+		rotate_y(-ANGULAR_SPEED_THETA * delta)
 		projectile.look_at(direction_mesh.global_position, Vector3.UP)
 	elif Input.is_action_pressed("ui_left"):
-		rotate_y(-ANGULAR_SPEED_THETA * delta)
+		rotate_y(ANGULAR_SPEED_THETA * delta)
 		projectile.look_at(direction_mesh.global_position, Vector3.UP)
 	
 	if Input.is_action_just_pressed("ui_accept"):
