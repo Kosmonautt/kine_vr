@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnk6ayhk71ay"]
+[gd_scene load_steps=5 format=3 uid="uid://cnk6ayhk71ay"]
 
 [ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="1_g2els"]
+[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="2_dqkch"]
 [ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="2_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_qhqgy"]
 
 [node name="Player" type="XROrigin3D"]
 
@@ -14,8 +16,13 @@ tracker = &"left_hand"
 
 [node name="LeftHand" parent="LeftHand" instance=ExtResource("1_g2els")]
 
+[node name="FunctionTeleport" parent="LeftHand" instance=ExtResource("2_dqkch")]
+
 [node name="RightHand" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
 
 [node name="RightHand" parent="RightHand" instance=ExtResource("2_qhqgy")]
+
+[node name="PlayerBody" parent="." instance=ExtResource("3_qhqgy")]
+player_calibrate_height = false
