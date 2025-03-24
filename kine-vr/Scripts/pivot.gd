@@ -13,6 +13,7 @@ func _ready():
 	direction_mesh = direction.get_child(0)
 	projectile = get_parent().get_child(4)
 
+
 func _process(delta: float) -> void:
 	
 	# angle movement

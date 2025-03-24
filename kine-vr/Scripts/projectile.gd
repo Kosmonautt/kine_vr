@@ -8,6 +8,7 @@ func _ready():
 	position = initial_position
 	set_gravity_scale(0.0)
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
@@ -17,6 +18,7 @@ func _on_parabola_body_exited(_body):
 	position = initial_position
 	linear_velocity = Vector3.ZERO
 	set_gravity_scale(0.0)
+
 	
 func launch(launch_direction : Vector3) -> void:
 	set_gravity_scale(1.0)
