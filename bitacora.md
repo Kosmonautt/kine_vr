@@ -30,3 +30,12 @@
         + Se decide tener la escena de proyectil y el problema del "cazador y el mono" para el axuliar del miércoles.
         + Se decide hablar con los auxiliares previo al auxiliar del día míércoles para coordinar todo.
 
+# 23/3/25
+    - Se modificaron los scripts para seguir la style guide de GDScript.
+    - Los nodos ahora se obtienen con variables export, no con los métodos get child/parent.
+    - Los nodos de proyección ahora son escenas propias.
+    - Ahora el proyectil es lanzado con una señal en vez de una función.
+    - Se añadió el addon XR tools de Godot.
+    - Se añadieron manos al jugador.
+    - Se añadió locomoción de teletransportación.
+
