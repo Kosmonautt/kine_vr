@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://d0cykuljffr0m"]
 
-[ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_7qos1"]
+[ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_7qos1"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/projectile.tscn" id="2_xhc3r"]
 [ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/projectile_projection.tscn" id="4_5igir"]
-[ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://Scripts/pivot.gd" id="5_v4dxv"]
+[ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://scripts/pivot.gd" id="5_v4dxv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdliy"]
 albedo_texture = ExtResource("1_7qos1")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://bni7glj6di7a4"]
 
-[ext_resource type="Script" uid="uid://b57k5ijliqvi0" path="res://Scripts/projectile.gd" id="1_lwfb7"]
-[ext_resource type="Texture2D" uid="uid://cof3ghb7dfi6d" path="res://Assets/kenney_prototype-textures/PNG/Dark/texture_08.png" id="1_xeser"]
-[ext_resource type="Texture2D" uid="uid://btmxrhtkoyw4" path="res://Assets/kenney_prototype-textures/PNG/Green/texture_08.png" id="3_softn"]
-[ext_resource type="Texture2D" uid="uid://d0bgp10x2l0ot" path="res://Assets/kenney_prototype-textures/PNG/Purple/texture_08.png" id="4_6q2a6"]
+[ext_resource type="Script" uid="uid://b57k5ijliqvi0" path="res://scripts/projectile.gd" id="1_lwfb7"]
+[ext_resource type="Texture2D" uid="uid://cof3ghb7dfi6d" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_08.png" id="1_xeser"]
+[ext_resource type="Texture2D" uid="uid://btmxrhtkoyw4" path="res://assets/kenney_prototype-textures/PNG/Green/texture_08.png" id="3_softn"]
+[ext_resource type="Texture2D" uid="uid://d0bgp10x2l0ot" path="res://assets/kenney_prototype-textures/PNG/Purple/texture_08.png" id="4_6q2a6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5whvu"]
 
