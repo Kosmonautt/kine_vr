@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://buwtt0qxxv75y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4pas"]
+albedo_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_n4pas"]
+material = SubResource("StandardMaterial3D_n4pas")
+inner_radius = 0.063
+outer_radius = 0.125
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mi6dp"]
+albedo_color = Color(0.494118, 0.054902, 0.0509804, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mi6dp"]
+material = SubResource("StandardMaterial3D_mi6dp")
+top_radius = 0.063
+bottom_radius = 0.063
+height = 0.05
+
+[node name="Button" type="Node3D"]
+
+[node name="base" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_n4pas")
+
+[node name="pulsor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03192, 0)
+mesh = SubResource("CylinderMesh_mi6dp")
