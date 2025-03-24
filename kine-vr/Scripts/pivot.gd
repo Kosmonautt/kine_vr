@@ -32,4 +32,3 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		launch_button_pressed.emit(direction_mesh.global_position)
-		# projectile.launch(direction_mesh.global_position)
