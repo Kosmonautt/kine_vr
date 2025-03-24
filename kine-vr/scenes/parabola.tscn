@@ -78,9 +78,12 @@ projectile = NodePath("../Projectile")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XYProjection"]
 mesh = SubResource("CylinderMesh_oaycf")
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="Pivot" type="Node3D" parent="." node_paths=PackedStringArray("direction", "direction_mesh", "projectile")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, 0)
 script = ExtResource("5_v4dxv")
+direction = NodePath("Drection")
+direction_mesh = NodePath("Drection/MeshInstance3D")
+projectile = NodePath("../Projectile")
 
 [node name="Drection" type="Node3D" parent="Pivot"]
 

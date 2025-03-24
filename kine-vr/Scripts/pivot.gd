@@ -4,14 +4,12 @@ extends Node3D
 const ANGULAR_SPEED_THETA: float =  2 * PI 
 const ANGULAR_SPEED_PHI: float = 2 * PI 
 
-var direction: Node3D
-var direction_mesh: Node3D
-var projectile: Node3D
+@export var direction: Node3D
+@export var direction_mesh: Node3D
+@export var projectile: Node3D
 
 func _ready() -> void:
-	direction = get_child(0)
-	direction_mesh = direction.get_child(0)
-	projectile = get_parent().get_child(4)
+	pass
 
 
 func _process(delta: float) -> void:
