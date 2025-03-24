@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=9 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_7qos1"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/projectile.tscn" id="2_xhc3r"]
-[ext_resource type="Script" uid="uid://tcgkfksi4flq" path="res://Scripts/xz_projection.gd" id="3_nu55u"]
-[ext_resource type="Script" uid="uid://d2dpihmu2bwia" path="res://Scripts/xy_projection.gd" id="4_q1mq6"]
+[ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/projectile_projection.tscn" id="4_5igir"]
 [ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://Scripts/pivot.gd" id="5_v4dxv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdliy"]
@@ -18,21 +17,6 @@ size = Vector2(10, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f4i4y"]
 size = Vector3(10, 4, 4)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6s7jh"]
-albedo_color = Color(0.498039, 0, 0.498039, 1)
-disable_receive_shadows = true
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_tbeid"]
-material = SubResource("StandardMaterial3D_6s7jh")
-height = 0.01
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n5efx"]
-albedo_color = Color(0.498039, 0.25098, 0, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_oaycf"]
-material = SubResource("StandardMaterial3D_n5efx")
-height = 0.01
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_5igir"]
 top_radius = 0.1
@@ -62,22 +46,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
 [node name="Projectile" parent="." instance=ExtResource("2_xhc3r")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.5, 1, 0)
 
-[node name="XZProjection" type="Node3D" parent="." node_paths=PackedStringArray("projectile")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0)
-script = ExtResource("3_nu55u")
-projectile = NodePath("../Projectile")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XZProjection"]
-mesh = SubResource("CylinderMesh_tbeid")
-
-[node name="XYProjection" type="Node3D" parent="." node_paths=PackedStringArray("projectile")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.5, 1, -2)
-script = ExtResource("4_q1mq6")
-projectile = NodePath("../Projectile")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XYProjection"]
-mesh = SubResource("CylinderMesh_oaycf")
-
 [node name="Pivot" type="Node3D" parent="." node_paths=PackedStringArray("direction", "direction_mesh", "projectile")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1, 0)
 script = ExtResource("5_v4dxv")
@@ -90,5 +58,15 @@ projectile = NodePath("../Projectile")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/Drection"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1, 0, 0)
 mesh = SubResource("CylinderMesh_5igir")
+
+[node name="ProjectileProjectionXZ" parent="." node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 0)
+projectile = NodePath("../Projectile")
+mode = "ZX"
+
+[node name="ProjectileProjection2" parent="." node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4.5, 1, -2)
+projectile = NodePath("../Projectile")
+mode = "XY"
 
 [connection signal="body_exited" from="." to="Projectile" method="_on_parabola_body_exited"]
