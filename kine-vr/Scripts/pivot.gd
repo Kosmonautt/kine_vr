@@ -1,14 +1,14 @@
 extends Node3D
 
 # angular speed for both axis in degrees
-const ANGULAR_SPEED_THETA : float =  2 * PI 
-const ANGULAR_SPEED_PHI : float = 2 * PI 
+const ANGULAR_SPEED_THETA: float =  2 * PI 
+const ANGULAR_SPEED_PHI: float = 2 * PI 
 
-var direction : Node3D
-var direction_mesh : Node3D
-var projectile : Node3D
+var direction: Node3D
+var direction_mesh: Node3D
+var projectile: Node3D
 
-func _ready():
+func _ready() -> void:
 	direction = get_child(0)
 	direction_mesh = direction.get_child(0)
 	projectile = get_parent().get_child(4)
