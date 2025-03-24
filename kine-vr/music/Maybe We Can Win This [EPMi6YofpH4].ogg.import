@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bbbdlkk38mh41"
+path="res://.godot/imported/Maybe We Can Win This [EPMi6YofpH4].ogg-a4755f4e42b17a2db00fca2cd041624e.oggvorbisstr"
+
+[deps]
+
+source_file="res://music/Maybe We Can Win This [EPMi6YofpH4].ogg"
+dest_files=["res://.godot/imported/Maybe We Can Win This [EPMi6YofpH4].ogg-a4755f4e42b17a2db00fca2cd041624e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
