@@ -3,8 +3,8 @@ extends Node3D
 signal launch_button_pressed(launch_direction: Vector3)
 
 # angular speed for both axis in degrees
-const ANGULAR_SPEED_THETA: float =  2 * PI 
-const ANGULAR_SPEED_PHI: float = 2 * PI 
+const ANGULAR_SPEED_THETA: float =  PI 
+const ANGULAR_SPEED_PHI: float = PI 
 
 @export var direction: Node3D
 @export var direction_mesh: Node3D
