@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://buwtt0qxxv75y"]
+[gd_scene load_steps=7 format=3 uid="uid://buwtt0qxxv75y"]
+
+[ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="1_mi6dp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4pas"]
 albedo_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
@@ -17,11 +19,22 @@ top_radius = 0.063
 bottom_radius = 0.063
 height = 0.05
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mi6dp"]
+height = 0.05
+radius = 0.063
+
 [node name="Button" type="Node3D"]
 
 [node name="base" type="MeshInstance3D" parent="."]
 mesh = SubResource("TorusMesh_n4pas")
 
 [node name="pulsor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03192, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
 mesh = SubResource("CylinderMesh_mi6dp")
+
+[node name="InteractableAreaButton" parent="." instance=ExtResource("1_mi6dp")]
+button = NodePath("../pulsor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreaButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+shape = SubResource("CylinderShape3D_mi6dp")
