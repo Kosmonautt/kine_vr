@@ -91,18 +91,23 @@ mesh = SubResource("BoxMesh_5igir")
 
 [node name="ThetaUp" parent="Controller/Pole/Panel" instance=ExtResource("5_04ykf")]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, -0.16, 0.17, 0.04)
+mode = "ThetaUp"
 
 [node name="ThetaDown" parent="Controller/Pole/Panel" instance=ExtResource("5_04ykf")]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, -0.16, 0.02, 0.04)
+mode = "ThetaDown"
 
 [node name="PhiLeft" parent="Controller/Pole/Panel" instance=ExtResource("5_04ykf")]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0.1, 0.04)
+mode = "PhiLeft"
 
 [node name="PhiRIght" parent="Controller/Pole/Panel" instance=ExtResource("5_04ykf")]
 transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0.15, 0.1, 0.04)
+mode = "PhiRight"
 
-[node name="Button" parent="Controller/Pole/Panel" instance=ExtResource("5_04ykf")]
+[node name="Launch" parent="Controller/Pole/Panel" instance=ExtResource("5_04ykf")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.07, -0.09, 0.05)
+mode = "Launch"
 
 [connection signal="body_exited" from="." to="Projectile" method="_on_parabola_body_exited"]
 [connection signal="launch_button_pressed" from="Pivot" to="Projectile" method="_on_pivot_launch_button_pressed"]
