@@ -111,3 +111,13 @@ mode = "Launch"
 
 [connection signal="body_exited" from="." to="Projectile" method="_on_parabola_body_exited"]
 [connection signal="launch_button_pressed" from="Pivot" to="Projectile" method="_on_pivot_launch_button_pressed"]
+[connection signal="input_deselected" from="Controller/Pole/Panel/ThetaUp" to="Pivot" method="_on_theta_up_input_deselected"]
+[connection signal="input_selected" from="Controller/Pole/Panel/ThetaUp" to="Pivot" method="_on_theta_up_input_selected"]
+[connection signal="input_deselected" from="Controller/Pole/Panel/ThetaDown" to="Pivot" method="_on_theta_down_input_deselected"]
+[connection signal="input_selected" from="Controller/Pole/Panel/ThetaDown" to="Pivot" method="_on_theta_down_input_selected"]
+[connection signal="input_deselected" from="Controller/Pole/Panel/PhiLeft" to="Pivot" method="_on_phi_left_input_deselected"]
+[connection signal="input_selected" from="Controller/Pole/Panel/PhiLeft" to="Pivot" method="_on_phi_left_input_selected"]
+[connection signal="input_deselected" from="Controller/Pole/Panel/PhiRIght" to="Pivot" method="_on_phi_r_ight_input_deselected"]
+[connection signal="input_selected" from="Controller/Pole/Panel/PhiRIght" to="Pivot" method="_on_phi_r_ight_input_selected"]
+[connection signal="input_deselected" from="Controller/Pole/Panel/Launch" to="Pivot" method="_on_launch_input_deselected"]
+[connection signal="input_selected" from="Controller/Pole/Panel/Launch" to="Pivot" method="_on_launch_input_selected"]
