@@ -1,12 +1,13 @@
 extends Node3D
 
-signal input_chosen(mode: String)
+signal input_selected(mode: String)
+signal input_deselected(mode: String)
 
 @export var mode: String
 
 func _on_interactable_area_button_button_pressed(button: Variant) -> void:
-	input_chosen.emit(mode)
+	input_selected.emit(mode)
 
 
 func _on_interactable_area_button_button_released(button: Variant) -> void:
-	input_chosen.emit(mode)
+	input_deselected.emit(mode)
