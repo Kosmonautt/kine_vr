@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5art2vnwq8pi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
+size = Vector3(20, 8, 6)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_doxax"]
+size = Vector2(20, 6)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_abopq"]
+size = Vector2(20, 8)
+
+[node name="Scenery" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, 3)
+shape = SubResource("BoxShape3D_doxax")
+
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="Floor" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 3)
+mesh = SubResource("PlaneMesh_doxax")
+
+[node name="Wall" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 4, 0)
+mesh = SubResource("PlaneMesh_abopq")
