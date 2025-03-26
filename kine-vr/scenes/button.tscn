@@ -12,7 +12,6 @@ inner_radius = 0.063
 outer_radius = 0.125
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mi6dp"]
-albedo_color = Color(0.494118, 0.054902, 0.0509804, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_mi6dp"]
 material = SubResource("StandardMaterial3D_mi6dp")
