@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://10gt8y7a3au2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e06ql"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_60fnl"]
+material = SubResource("StandardMaterial3D_e06ql")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq701"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_um401"]
+material = SubResource("StandardMaterial3D_eq701")
+size = Vector3(1, 0.5, 0.05)
+
+[node name="Controller" type="Node3D"]
+
+[node name="Pole" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+mesh = SubResource("CylinderMesh_60fnl")
+
+[node name="Panel" type="MeshInstance3D" parent="Pole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.07)
+mesh = SubResource("BoxMesh_um401")
