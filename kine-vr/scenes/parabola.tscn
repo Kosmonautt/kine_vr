@@ -1,23 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=6 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/scenery.tscn" id="1_v4dxv"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/projectile.tscn" id="2_xhc3r"]
 [ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/projectile_projection.tscn" id="4_5igir"]
-[ext_resource type="PackedScene" uid="uid://buwtt0qxxv75y" path="res://scenes/button.tscn" id="5_04ykf"]
 [ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://scripts/pivot.gd" id="5_v4dxv"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_5igir"]
 top_radius = 0.1
 bottom_radius = 0.005
 height = 0.5
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_v4dxv"]
-top_radius = 0.05
-bottom_radius = 0.05
-height = 1.2
-
-[sub_resource type="BoxMesh" id="BoxMesh_5igir"]
-size = Vector3(0.5, 0.5, 0.05)
 
 [node name="Parabola" type="Node3D"]
 
@@ -52,37 +43,6 @@ mode = "ZX"
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 0)
 projectile = NodePath("../Projectile")
 mode = "XY"
-
-[node name="Controller" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 7)
-
-[node name="Pole" type="MeshInstance3D" parent="Controller"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
-mesh = SubResource("CylinderMesh_v4dxv")
-
-[node name="Panel" type="MeshInstance3D" parent="Controller/Pole"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.07)
-mesh = SubResource("BoxMesh_5igir")
-
-[node name="ThetaUp" parent="Controller/Pole/Panel" instance=ExtResource("5_04ykf")]
-transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, -0.16, 0.17, 0.04)
-mode = "ThetaUp"
-
-[node name="ThetaDown" parent="Controller/Pole/Panel" instance=ExtResource("5_04ykf")]
-transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, -0.16, 0.02, 0.04)
-mode = "ThetaDown"
-
-[node name="PhiLeft" parent="Controller/Pole/Panel" instance=ExtResource("5_04ykf")]
-transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0.1, 0.04)
-mode = "PhiLeft"
-
-[node name="PhiRIght" parent="Controller/Pole/Panel" instance=ExtResource("5_04ykf")]
-transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0.15, 0.1, 0.04)
-mode = "PhiRight"
-
-[node name="Launch" parent="Controller/Pole/Panel" instance=ExtResource("5_04ykf")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.07, -0.09, 0.05)
-mode = "Launch"
 
 [connection signal="body_exited" from="Scenery" to="Projectile" method="_on_scenery_body_exited"]
 [connection signal="launch_button_pressed" from="Pivot" to="Projectile" method="_on_pivot_launch_button_pressed"]
