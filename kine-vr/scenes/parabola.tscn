@@ -50,3 +50,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 7)
 
 [connection signal="body_exited" from="Scenery" to="Projectile" method="_on_scenery_body_exited"]
 [connection signal="launch_button_pressed" from="Pivot" to="Projectile" method="_on_pivot_launch_button_pressed"]
+[connection signal="buttons_state_changed" from="Controller" to="Pivot" method="_on_controller_buttons_state_changed"]
