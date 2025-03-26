@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://10gt8y7a3au2"]
+[gd_scene load_steps=6 format=3 uid="uid://10gt8y7a3au2"]
+
+[ext_resource type="PackedScene" uid="uid://buwtt0qxxv75y" path="res://scenes/button.tscn" id="1_60fnl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e06ql"]
 
@@ -23,3 +25,23 @@ mesh = SubResource("CylinderMesh_60fnl")
 [node name="Panel" type="MeshInstance3D" parent="Pole"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.07)
 mesh = SubResource("BoxMesh_um401")
+
+[node name="ThetaUp" parent="Pole/Panel" instance=ExtResource("1_60fnl")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.5, 0.25, 0.05)
+button_color = Color(0.0862745, 0.768627, 0.498039, 1)
+
+[node name="ThetaDown" parent="Pole/Panel" instance=ExtResource("1_60fnl")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.5, -0.25, 0.05)
+button_color = Color(0.0862745, 0.768627, 0.498039, 1)
+
+[node name="PhiLeft" parent="Pole/Panel" instance=ExtResource("1_60fnl")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.75, 0, 0.05)
+button_color = Color(1, 0.839216, 0.352941, 1)
+
+[node name="PhiRight" parent="Pole/Panel" instance=ExtResource("1_60fnl")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.25, 0, 0.05)
+button_color = Color(1, 0.839216, 0.352941, 1)
+
+[node name="Button" parent="Pole/Panel" instance=ExtResource("1_60fnl")]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, 0.5, 0, 0.1)
+button_color = Color(0.976471, 0.219608, 0.152941, 1)
