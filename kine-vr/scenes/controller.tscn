@@ -12,7 +12,7 @@ height = 1.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_um401"]
 material = SubResource("StandardMaterial3D_eq701")
-size = Vector3(1, 0.5, 0.05)
+size = Vector3(2, 1, 0.05)
 
 [node name="Controller" type="Node3D"]
 
