@@ -9,7 +9,6 @@
 material = SubResource("StandardMaterial3D_e06ql")
 top_radius = 0.05
 bottom_radius = 0.05
-height = 1.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq701"]
 
@@ -25,7 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 mesh = SubResource("CylinderMesh_60fnl")
 
 [node name="Panel" type="MeshInstance3D" parent="Pole"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.07)
 mesh = SubResource("BoxMesh_um401")
 
 [node name="ThetaUp" parent="Pole/Panel" instance=ExtResource("1_60fnl")]
