@@ -41,41 +41,41 @@ func _process(delta: float) -> void:
 		launch = false
 
 
-func _on_theta_up_input_selected(mode: String) -> void:
-	theta_up = true
-
-
-func _on_theta_down_input_selected(mode: String) -> void:
-	theta_down = true
-
-
-func _on_phi_left_input_selected(mode: String) -> void:
-	phi_left = true
-
-
-func _on_phi_r_ight_input_selected(mode: String) -> void:
-	phi_right = true
-
-
-func _on_launch_input_selected(mode: String) -> void:
-	launch = true
-
-
-func _on_theta_up_input_deselected(mode: String) -> void:
-	theta_up = false
-
-
-func _on_theta_down_input_deselected(mode: String) -> void:
-	theta_down = false
-
-
-func _on_phi_left_input_deselected(mode: String) -> void:
-	phi_left = false
-
-
-func _on_phi_r_ight_input_deselected(mode: String) -> void:
-	phi_right = false
-
-
-func _on_launch_input_deselected(mode: String) -> void:
-	launch = false
+#func _on_theta_up_input_selected(mode: String) -> void:
+	#theta_up = true
+#
+#
+#func _on_theta_down_input_selected(mode: String) -> void:
+	#theta_down = true
+#
+#
+#func _on_phi_left_input_selected(mode: String) -> void:
+	#phi_left = true
+#
+#
+#func _on_phi_r_ight_input_selected(mode: String) -> void:
+	#phi_right = true
+#
+#
+#func _on_launch_input_selected(mode: String) -> void:
+	#launch = true
+#
+#
+#func _on_theta_up_input_deselected(mode: String) -> void:
+	#theta_up = false
+#
+#
+#func _on_theta_down_input_deselected(mode: String) -> void:
+	#theta_down = false
+#
+#
+#func _on_phi_left_input_deselected(mode: String) -> void:
+	#phi_left = false
+#
+#
+#func _on_phi_r_ight_input_deselected(mode: String) -> void:
+	#phi_right = false
+#
+#
+#func _on_launch_input_deselected(mode: String) -> void:
+	#launch = false
