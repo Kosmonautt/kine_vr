@@ -5,8 +5,8 @@ signal buttons_state_changed(state: Dictionary)
 var buttons_state: Dictionary = {
 	"theta_up": false,
 	"theta_down": false,
-	"phi_up": false,
-	"phi_down": false,
+	"phi_left": false,
+	"phi_right": false,
 	"launch": false
 }
 
@@ -58,4 +58,3 @@ func _on_phi_right_input_deselected() -> void:
 func _on_launch_input_deselected() -> void:
 	buttons_state["launch"] = false
 	buttons_state_changed.emit(buttons_state)
-
