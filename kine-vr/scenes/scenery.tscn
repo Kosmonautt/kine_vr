@@ -22,8 +22,11 @@ uv1_scale = Vector3(20, 8, 1)
 material = SubResource("StandardMaterial3D_abopq")
 size = Vector2(20, 8)
 
-[node name="Scenery" type="Area3D"]
+[node name="Scenery" type="Area3D" node_paths=PackedStringArray("wall", "floor", "collision")]
 script = ExtResource("1_27upa")
+wall = NodePath("Mesh/Wall")
+floor = NodePath("Mesh/Floor")
+collision = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, 3)
