@@ -1,4 +1,3 @@
-@tool
 extends Area3D
 
 const DEFAULT_WIDTH = 20.0
@@ -30,18 +29,22 @@ const DEFAULT_DEPTH = 6.0
 @onready var wall_mesh: PlaneMesh = wall.get_mesh()
 @onready var floor_mesh: PlaneMesh = floor.get_mesh()
 @onready var collision_box_shape: BoxShape3D = collision.get_shape()
+@onready var wall_mesh_material: StandardMaterial3D = wall_mesh.get_material()
+@onready var floor_mesh_material: StandardMaterial3D = floor_mesh.get_material()
 
 
-func set_size(width: float, height: float, depth: float) -> void:
+func set_size(w: float, h: float, d: float) -> void:
 	# wall change
-	wall_mesh.set_size(Vector2(width, height))
-	wall.set_position(Vector3(width/2, height/2, 0))
-	
+	wall_mesh.set_size(Vector2(w, h))
+	wall.set_position(Vector3(w/2, h/2, 0))
+	wall_mesh_material.set_uv1_scale(Vector3(w, h, 1))
+
 	# floor change
-	floor_mesh.set_size(Vector2(width, depth))
-	floor.set_position(Vector3(width/2, 0, depth/2))
+	floor_mesh.set_size(Vector2(w, d))
+	floor.set_position(Vector3(w/2, 0, d/2))
+	floor_mesh_material.set_uv1_scale(Vector3(w, d, 1))
 	
 	# collision change
-	collision_box_shape.set_size(Vector3(width, height, depth))
-	collision.set_position(Vector3(width/2, height/2, depth/2))
+	collision_box_shape.set_size(Vector3(w, h, d))
+	collision.set_position(Vector3(w/2, h/2, d/2))
 	
