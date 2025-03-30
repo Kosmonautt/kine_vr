@@ -31,6 +31,11 @@ const DEFAULT_DEPTH = 6.0
 		set_size(width, height, value)
 
 func set_size(width: float, height: float, depth: float) -> void:
+	# wall change
 	wall_mesh.set_size(Vector2(width, height))
 	wall.set_position(Vector3(width/2, height/2, 0))
+	
+	# floor change
+	floor_mesh.set_size(Vector2(width, depth))
+	floor.set_position(Vector3(width/2, 0, depth/2))
 	
