@@ -38,6 +38,7 @@ func set_size(w: float, h: float, d: float) -> void:
 	wall_mesh.set_size(Vector2(w, h))
 	wall.set_position(Vector3(w/2, h/2, 0))
 	wall_mesh_material.set_uv1_scale(Vector3(w, h, 1))
+	wall_mesh_material.set_uv1_offset(Vector3(0, -h, 0))
 
 	# floor change
 	floor_mesh.set_size(Vector2(w, d))
