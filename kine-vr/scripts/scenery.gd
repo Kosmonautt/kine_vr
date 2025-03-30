@@ -20,15 +20,16 @@ const DEFAULT_DEPTH = 6.0
 	set(value):
 		set_size(width, value, depth)
 		
-@onready var wall_mesh: PlaneMesh = wall.get_mesh()
-@onready var floor_mesh: PlaneMesh = floor.get_mesh()
-@onready var collision_box_shape: BoxShape3D = collision.get_shape()
-
 @export_range(1.0, 100.0) var depth: float = DEFAULT_DEPTH:
 	get:
 		return depth
 	set(value):
 		set_size(width, height, value)
+		
+@onready var wall_mesh: PlaneMesh = wall.get_mesh()
+@onready var floor_mesh: PlaneMesh = floor.get_mesh()
+@onready var collision_box_shape: BoxShape3D = collision.get_shape()
+
 
 func set_size(width: float, height: float, depth: float) -> void:
 	# wall change
@@ -38,4 +39,8 @@ func set_size(width: float, height: float, depth: float) -> void:
 	# floor change
 	floor_mesh.set_size(Vector2(width, depth))
 	floor.set_position(Vector3(width/2, 0, depth/2))
+	
+	# collision change
+	collision_box_shape.set_size(Vector3(width, height, depth))
+	collision.set_position(Vector3(width/2, height/2, depth/2))
 	
