@@ -20,7 +20,7 @@ const DEFAULT_DEPTH = 6.0
 	set(value):
 		set_size(width, value, depth)
 		
-@export_range(1.0, 100.0, 0.1) var depth: float = DEFAULT_DEPTH:
+@export_range(1.0, 20.0, 0.1) var depth: float = DEFAULT_DEPTH:
 	get:
 		return depth
 	set(value):
