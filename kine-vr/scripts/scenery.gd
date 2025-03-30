@@ -12,19 +12,24 @@ const DEFAULT_DEPTH = 6.0
 	get:
 		return width
 	set(value):
-		set_size(value, height, depth)
+		size_vector.x = value
+		set_size(size_vector.x, size_vector.y, size_vector.z)
 
 @export_range(1.0, 100.0, 0.1) var height: float = DEFAULT_HEIGHT:
 	get:
 		return height
 	set(value):
-		set_size(width, value, depth)
+		size_vector.y = value
+		set_size(size_vector.x, size_vector.y, size_vector.z)
 		
 @export_range(1.0, 20.0, 0.1) var depth: float = DEFAULT_DEPTH:
 	get:
 		return depth
 	set(value):
-		set_size(width, height, value)
+		size_vector.z = value
+		set_size(size_vector.x, size_vector.y, size_vector.z)
+		
+var size_vector := Vector3(DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_DEPTH)
 		
 @onready var wall_mesh: PlaneMesh = wall.get_mesh()
 @onready var floor_mesh: PlaneMesh = floor.get_mesh()
