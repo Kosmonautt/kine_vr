@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5art2vnwq8pi"]
+[gd_scene load_steps=8 format=3 uid="uid://b5art2vnwq8pi"]
 
+[ext_resource type="Script" uid="uid://b1hh1rlyn7f4d" path="res://scripts/scenery.gd" id="1_27upa"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_abopq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
@@ -22,6 +23,7 @@ material = SubResource("StandardMaterial3D_abopq")
 size = Vector2(20, 8)
 
 [node name="Scenery" type="Area3D"]
+script = ExtResource("1_27upa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, 3)
