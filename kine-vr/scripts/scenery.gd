@@ -5,7 +5,7 @@ const DEFAULT_HEIGHT = 8.0
 const DEFAULT_DEPTH = 6.0
 
 @export var wall: MeshInstance3D
-@export var floor: MeshInstance3D
+@export var floor_n: MeshInstance3D
 @export var collision: CollisionShape3D
 
 @export_range(1.0, 100.0, 0.1) var width: float = DEFAULT_WIDTH:
@@ -32,7 +32,7 @@ const DEFAULT_DEPTH = 6.0
 var size_vector := Vector3(DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_DEPTH)
 		
 @onready var wall_mesh: PlaneMesh = wall.get_mesh()
-@onready var floor_mesh: PlaneMesh = floor.get_mesh()
+@onready var floor_mesh: PlaneMesh = floor_n.get_mesh()
 @onready var collision_box_shape: BoxShape3D = collision.get_shape()
 @onready var wall_mesh_material: StandardMaterial3D = wall_mesh.get_material()
 @onready var floor_mesh_material: StandardMaterial3D = floor_mesh.get_material()
@@ -47,7 +47,7 @@ func set_size(w: float, h: float, d: float) -> void:
 
 	# floor change
 	floor_mesh.set_size(Vector2(w, d))
-	floor.set_position(Vector3(w/2, 0, d/2))
+	floor_n.set_position(Vector3(w/2, 0, d/2))
 	floor_mesh_material.set_uv1_scale(Vector3(w, d, 1))
 	
 	# collision change
