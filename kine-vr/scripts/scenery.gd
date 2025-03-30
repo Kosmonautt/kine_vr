@@ -1,3 +1,4 @@
+@tool
 extends Area3D
 
 const DEFAULT_WIDTH = 20.0
@@ -8,19 +9,19 @@ const DEFAULT_DEPTH = 6.0
 @export var floor: MeshInstance3D
 @export var collision: CollisionShape3D
 
-@export_range(1.0, 100.0) var width: float = DEFAULT_WIDTH:
+@export_range(1.0, 100.0, 0.1) var width: float = DEFAULT_WIDTH:
 	get:
 		return width
 	set(value):
 		set_size(value, height, depth)
 
-@export_range(1.0, 100.0) var height: float = DEFAULT_HEIGHT:
+@export_range(1.0, 100.0, 0.1) var height: float = DEFAULT_HEIGHT:
 	get:
 		return height
 	set(value):
 		set_size(width, value, depth)
 		
-@export_range(1.0, 100.0) var depth: float = DEFAULT_DEPTH:
+@export_range(1.0, 100.0, 0.1) var depth: float = DEFAULT_DEPTH:
 	get:
 		return depth
 	set(value):
