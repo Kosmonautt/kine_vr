@@ -1,1 +1,1 @@
-https://polyhaven.com/a/aerial_beach_01
+https://polyhaven.com/a/stone_embedded_tiles
