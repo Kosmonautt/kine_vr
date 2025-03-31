@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=3 uid="uid://b5art2vnwq8pi"]
 
-[ext_resource type="Script" uid="uid://b1hh1rlyn7f4d" path="res://scripts/scenery.gd" id="1_27upa"]
-[ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_abopq"]
+[ext_resource type="Script" uid="uid://b1hh1rlyn7f4d" path="res://scenes/scenery/scenery.gd" id="1_r4rvs"]
+[ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_p2ted"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
 size = Vector3(20, 8, 6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27upa"]
-albedo_texture = ExtResource("1_abopq")
+albedo_texture = ExtResource("2_p2ted")
 uv1_scale = Vector3(20, 6, 6)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_doxax"]
@@ -15,7 +15,7 @@ material = SubResource("StandardMaterial3D_27upa")
 size = Vector2(20, 6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abopq"]
-albedo_texture = ExtResource("1_abopq")
+albedo_texture = ExtResource("2_p2ted")
 uv1_scale = Vector3(20, 8, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_abopq"]
@@ -23,7 +23,7 @@ material = SubResource("StandardMaterial3D_abopq")
 size = Vector2(20, 8)
 
 [node name="Scenery" type="Area3D" node_paths=PackedStringArray("wall", "floor_n", "collision")]
-script = ExtResource("1_27upa")
+script = ExtResource("1_r4rvs")
 wall = NodePath("Mesh/Wall")
 floor_n = NodePath("Mesh/Floor")
 collision = NodePath("CollisionShape3D")
