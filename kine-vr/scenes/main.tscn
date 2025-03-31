@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://xobnjksj76nj"]
+[gd_scene load_steps=16 format=3 uid="uid://xobnjksj76nj"]
 
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player.tscn" id="1_6cojc"]
 [ext_resource type="Script" uid="uid://220qqx46024i" path="res://scripts/main.gd" id="1_ijxrd"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bgrpvpbvr3gnp" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_rough_1k.jpg" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://d0cykuljffr0m" path="res://scenes/parabola.tscn" id="4_xcj7v"]
 [ext_resource type="AudioStream" uid="uid://bbbdlkk38mh41" path="res://music/Maybe We Can Win This [EPMi6YofpH4].ogg" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bdivnb586x0gf" path="res://scenes/interactables/lever_smooth.tscn" id="8_tipki"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fiu1y"]
 albedo_texture = ExtResource("2_tbgi4")
@@ -81,3 +82,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, -6)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_tbgi4")
+
+[node name="LeverSmooth" parent="." instance=ExtResource("8_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02765, 0)
