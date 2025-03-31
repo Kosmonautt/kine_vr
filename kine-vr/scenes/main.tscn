@@ -31,7 +31,6 @@ sky = SubResource("Sky_hy3sc")
 script = ExtResource("1_ijxrd")
 
 [node name="Floor" type="StaticBody3D" parent="."]
-visible = false
 collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
