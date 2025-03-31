@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://xobnjksj76nj"]
+[gd_scene load_steps=15 format=3 uid="uid://xobnjksj76nj"]
 
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player.tscn" id="1_6cojc"]
 [ext_resource type="Script" uid="uid://220qqx46024i" path="res://scripts/main.gd" id="1_ijxrd"]
@@ -23,6 +23,9 @@ size = Vector2(250, 250)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lttkb"]
 size = Vector3(250, 1, 250)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_o6xl0"]
+size = Vector3(1, 4, 250)
+
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ho35x"]
 
 [sub_resource type="Sky" id="Sky_hy3sc"]
@@ -45,6 +48,22 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_lttkb")
+
+[node name="Border1" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.5, 1, 0)
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="Border2" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125.5, 1, 0)
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="Border3" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 125.5)
+shape = SubResource("BoxShape3D_o6xl0")
+
+[node name="Border4" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, -125.5)
+shape = SubResource("BoxShape3D_o6xl0")
 
 [node name="Player" parent="." instance=ExtResource("1_6cojc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.001, 8)
