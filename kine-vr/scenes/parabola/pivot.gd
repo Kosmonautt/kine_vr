@@ -41,3 +41,16 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") or buttons_state["launch"]:
 		launch_button_pressed.emit(direction_mesh.global_position)
 		buttons_state["launch"] = false
+
+
+func _on_interactable_lever_hinge_moved(angle: Variant) -> void:
+	# angle [-45, 45] degrees to [0.0, 1.0]
+	var percentage: float = smoothstep(45, -45, angle)
+	
+	# number [0.0, 1.0] transformed to [-PI/2, PI/2] radians
+	var theta: float = lerp(-PI/2, PI/2, percentage)
+	
+	# set z rotation angle
+	direction.rotation.z = theta
+	projectile.look_at(direction_mesh.global_position, Vector3.UP)
+	
