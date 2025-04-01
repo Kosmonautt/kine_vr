@@ -41,7 +41,3 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") or buttons_state["launch"]:
 		launch_button_pressed.emit(direction_mesh.global_position)
 		buttons_state["launch"] = false
-
-
-func _on_controller_buttons_state_changed(state: Dictionary) -> void:
-	buttons_state = state
