@@ -65,3 +65,7 @@ func _on_interactable_lever_phi_hinge_moved(angle: Variant) -> void:
 	# set y rotation angle
 	direction.rotation.y = phi
 	projectile.look_at(direction_mesh.global_position, Vector3.UP)
+
+
+func _on_interactable_area_button_button_pressed(button: Variant) -> void:
+	launch_button_pressed.emit(direction_mesh.global_position)
