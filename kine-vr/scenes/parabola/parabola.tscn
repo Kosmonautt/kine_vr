@@ -47,6 +47,13 @@ projectile = NodePath("../Projectile")
 [node name="Controller" parent="." instance=ExtResource("5_04ykf")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.5, 0, 7)
 
+[node name="GrabPointHandLeft" parent="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HingeBody/MeshInstance3D" index="0"]
+transform = Transform3D(0.365998, 0.906308, -0.211309, -0.5, 0, -0.866025, -0.784886, 0.422618, 0.453154, 0.04, 0.075, 0)
+
+[node name="GrabPointHandRight" parent="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HingeBody/MeshInstance3D" index="1"]
+transform = Transform3D(-0.540992, -0.831012, -0.129409, 0.469846, -0.17101, -0.866025, 0.697547, -0.529316, 0.482963, -0.04, 0.075, -0.045)
+visible = true
+
 [connection signal="body_exited" from="Scenery" to="Projectile" method="_on_scenery_body_exited"]
 [connection signal="launch_button_pressed" from="Pivot" to="Projectile" method="_on_pivot_launch_button_pressed"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_theta_hinge_moved"]
