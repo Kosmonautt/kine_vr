@@ -37,6 +37,3 @@ button = NodePath("../pulsor")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreaButton"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
 shape = SubResource("CylinderShape3D_mi6dp")
-
-[connection signal="button_pressed" from="InteractableAreaButton" to="." method="_on_interactable_area_button_button_pressed"]
-[connection signal="button_released" from="InteractableAreaButton" to="." method="_on_interactable_area_button_button_released"]
