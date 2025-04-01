@@ -50,6 +50,7 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 [connection signal="body_exited" from="Scenery" to="Projectile" method="_on_scenery_body_exited"]
 [connection signal="launch_button_pressed" from="Pivot" to="Projectile" method="_on_pivot_launch_button_pressed"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_theta_hinge_moved"]
+[connection signal="hinge_moved" from="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_phi_hinge_moved"]
 
 [editable path="Controller"]
 [editable path="Controller/Pole/Panel/LeverTheta"]
