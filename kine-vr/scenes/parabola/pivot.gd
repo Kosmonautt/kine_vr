@@ -59,7 +59,6 @@ func _on_interactable_lever_phi_hinge_moved(angle: Variant) -> void:
 	# angle [-45, 45] degrees to [0.0, 1.0]
 	var percentage: float = smoothstep(-45.0, 45.0, angle)
 
-	print(percentage)
 	# number [0.0, 1.0] transformed to [0, -PI] radians
 	var phi: float = lerp(PI/2, -PI/2, percentage)
 
