@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bgrpvpbvr3gnp" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_rough_1k.jpg" id="4_ouso4"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="5_blune"]
 [ext_resource type="PackedScene" uid="uid://d0cykuljffr0m" path="res://scenes/parabola/parabola.tscn" id="6_th5th"]
-[ext_resource type="PackedScene" uid="uid://bdivnb586x0gf" path="res://scenes/interactables/lever_smooth.tscn" id="8_raeie"]
+[ext_resource type="PackedScene" uid="uid://bdivnb586x0gf" path="res://scenes/interactables/lever.tscn" id="8_raeie"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fiu1y"]
 albedo_texture = ExtResource("2_b1x3f")
