@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bdivnb586x0gf" path="res://scenes/interactables/lever.tscn" id="1_0x6nu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e06ql"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.156863)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_60fnl"]
 material = SubResource("StandardMaterial3D_e06ql")
@@ -11,6 +13,8 @@ bottom_radius = 0.05
 height = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq701"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.156863)
 
 [sub_resource type="BoxMesh" id="BoxMesh_um401"]
 material = SubResource("StandardMaterial3D_eq701")
