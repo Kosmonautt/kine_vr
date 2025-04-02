@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d13nuv6k48x4a"]
+
+[ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="1_bvkus"]
+[ext_resource type="PackedScene" uid="uid://ca3daqmpo0tua" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_redirect.tscn" id="2_58pe3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bvkus"]
+margin = 0.12
+radius = 0.06
+
+[node name="HandleOrigin" type="Node3D"]
+
+[node name="InteractableHandle" parent="." instance=ExtResource("1_bvkus")]
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableHandle"]
+shape = SubResource("SphereShape3D_bvkus")
+
+[node name="GrabPointRedirectLeft" parent="InteractableHandle" instance=ExtResource("2_58pe3")]
+
+[node name="GrabPointRedirectRight" parent="InteractableHandle" instance=ExtResource("2_58pe3")]
