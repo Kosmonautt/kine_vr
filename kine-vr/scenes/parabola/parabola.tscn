@@ -61,5 +61,7 @@ transform = Transform3D(-0.540992, -0.831012, -0.129409, 0.469846, -0.17101, -0.
 
 [editable path="Controller"]
 [editable path="Controller/Pole/Panel/LeverTheta"]
+[editable path="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever/HandleOrigin"]
 [editable path="Controller/Pole/Panel/LeverPhi"]
+[editable path="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HandleOrigin"]
 [editable path="Controller/Pole/Panel/Button"]
