@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 const INITIAL_POSITION: Vector3 = Vector3(1.0, 1.0, 4.0)
-const LAUNCH_SPEED: float = 10
+const LAUNCH_SPEED: float = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
