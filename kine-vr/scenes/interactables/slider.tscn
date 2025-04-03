@@ -39,7 +39,7 @@ metadata/_custom_type_script = "uid://cf8voa7ut3qul"
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, -0.2, 0)
 
 [node name="InteractableSlider" parent="SliderOrigin" instance=ExtResource("1_tp4hn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 
 [node name="SliderBody" type="StaticBody3D" parent="SliderOrigin/InteractableSlider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
@@ -67,6 +67,7 @@ transform = Transform3D(0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, 
 hand_pose = SubResource("Resource_u7ab8")
 
 [node name="HandleOrigin" parent="SliderOrigin/InteractableSlider" instance=ExtResource("7_oqvre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.2)
 
 [node name="GrabPointRedirectLeft" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle" index="1" node_paths=PackedStringArray("target")]
 target = NodePath("../../../SliderBody/HandleMesh/GrabPointHandLeft")
