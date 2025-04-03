@@ -36,10 +36,9 @@ metadata/_custom_type_script = "uid://cf8voa7ut3qul"
 [node name="Slider" type="Node3D"]
 
 [node name="SliderOrigin" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, -0.2, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="InteractableSlider" parent="SliderOrigin" instance=ExtResource("1_tp4hn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 
 [node name="SliderBody" type="StaticBody3D" parent="SliderOrigin/InteractableSlider"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
