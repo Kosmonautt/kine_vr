@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://0etylgnnbicm"]
+
+[ext_resource type="PackedScene" uid="uid://dnr37vvwt2rxo" path="res://scenes/interactables/slider.tscn" id="1_6i6up"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e06ql"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.156863)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yekwy"]
+material = SubResource("StandardMaterial3D_e06ql")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.75
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq701"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.156863)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6i6up"]
+material = SubResource("StandardMaterial3D_eq701")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="SceneryController" type="Node3D"]
+
+[node name="Pole" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
+mesh = SubResource("CylinderMesh_yekwy")
+
+[node name="Panel" type="MeshInstance3D" parent="Pole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
+mesh = SubResource("BoxMesh_6i6up")
+
+[node name="SliderY" parent="Pole/Panel" instance=ExtResource("1_6i6up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.25, 0.25)
+
+[node name="InteractableSlider" parent="Pole/Panel/SliderY/SliderOrigin" index="0"]
+slider_limit_max = 0.5
+
+[node name="SliderX" parent="Pole/Panel" instance=ExtResource("1_6i6up")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -0.25, 0.25, 0.25)
+
+[node name="InteractableSlider" parent="Pole/Panel/SliderX/SliderOrigin" index="0"]
+slider_limit_max = 0.5
+
+[editable path="Pole/Panel/SliderY"]
+[editable path="Pole/Panel/SliderY/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="Pole/Panel/SliderX"]
+[editable path="Pole/Panel/SliderX/SliderOrigin/InteractableSlider/HandleOrigin"]
