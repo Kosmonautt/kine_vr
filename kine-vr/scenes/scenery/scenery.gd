@@ -8,21 +8,21 @@ const DEFAULT_DEPTH = 6.0
 @export var floor_n: MeshInstance3D
 @export var collision: CollisionShape3D
 
-@export_range(1.0, 100.0, 0.1) var width: float = DEFAULT_WIDTH:
+var width: float = DEFAULT_WIDTH:
 	get:
 		return width
 	set(value):
 		size_vector.x = value
 		set_size(size_vector.x, size_vector.y, size_vector.z)
 
-@export_range(1.0, 100.0, 0.1) var height: float = DEFAULT_HEIGHT:
+var height: float = DEFAULT_HEIGHT:
 	get:
 		return height
 	set(value):
 		size_vector.y = value
 		set_size(size_vector.x, size_vector.y, size_vector.z)
 		
-@export_range(1.0, 20.0, 0.1) var depth: float = DEFAULT_DEPTH:
+var depth: float = DEFAULT_DEPTH:
 	get:
 		return depth
 	set(value):
@@ -54,3 +54,24 @@ func set_size(w: float, h: float, d: float) -> void:
 	collision_box_shape.set_size(Vector3(w, h, d))
 	collision.set_position(Vector3(w/2, h/2, d/2))
 	
+
+func _on_interactable_slider_y_slider_moved(position: Variant) -> void:
+	# position [0.0, 5.0] meters to [0.0, 1.0]
+	var percentage: float = smoothstep(0.0, 1.0, position)
+	
+	# number [0.0, 1.0] transformed to [8.0, 100.0] meters
+	var h: float = lerp(8.0, 100.0, percentage)
+
+	# set height
+	height = h
+
+
+func _on_interactable_slider_x_slider_moved(position: Variant) -> void:
+	# position [0.0, 5.0] meters to [0.0, 1.0]
+	var percentage: float = smoothstep(0.0, 1.0, position)
+
+	# number [0.0, 1.0] transformed to [20.0, 100.0] meters
+	var w: float = lerp(20.0, 100.0, percentage)
+
+	# set width
+	width = w
