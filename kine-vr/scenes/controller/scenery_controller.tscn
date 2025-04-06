@@ -18,7 +18,7 @@ albedo_color = Color(1, 1, 1, 0.156863)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6i6up"]
 material = SubResource("StandardMaterial3D_eq701")
-size = Vector3(0.5, 0.5, 0.5)
+size = Vector3(0.75, 0.75, 0.75)
 
 [node name="SceneryController" type="Node3D"]
 
@@ -27,23 +27,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
 mesh = SubResource("CylinderMesh_yekwy")
 
 [node name="Panel" type="MeshInstance3D" parent="Pole"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 mesh = SubResource("BoxMesh_6i6up")
 
 [node name="SliderX" parent="Pole/Panel" instance=ExtResource("1_6i6up")]
-transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -0.25, 0.25, 0.25)
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -0.25, 0.375, 0.25)
 
 [node name="InteractableSlider" parent="Pole/Panel/SliderX/SliderOrigin" index="0"]
 slider_limit_max = 0.5
 
 [node name="SliderY" parent="Pole/Panel" instance=ExtResource("1_6i6up")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.25, 0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.25, 0.375)
 
 [node name="InteractableSlider" parent="Pole/Panel/SliderY/SliderOrigin" index="0"]
 slider_limit_max = 0.5
 
 [node name="SliderZ" parent="Pole/Panel" instance=ExtResource("1_6i6up")]
-transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.25, 0.25, -0.25)
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, -0.375, 0.25, -0.25)
 
 [node name="InteractableSlider" parent="Pole/Panel/SliderZ/SliderOrigin" index="0"]
 slider_limit_max = 0.5
