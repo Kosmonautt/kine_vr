@@ -55,9 +55,9 @@ func set_size(w: float, h: float, d: float) -> void:
 	collision.set_position(Vector3(w/2, h/2, d/2))
 	
 
-func _on_interactable_slider_y_slider_moved(position: Variant) -> void:
+func _on_interactable_slider_y_slider_moved(p: Variant) -> void:
 	# position [0.0, 0.5] meters to [0.0, 1.0]
-	var percentage: float = smoothstep(0.0, 1.0, position)
+	var percentage: float = smoothstep(0.0, 1.0, p)
 	
 	# number [0.0, 1.0] transformed to [8.0, 100.0] meters
 	var h: float = lerp(8.0, 100.0, percentage)
@@ -66,9 +66,9 @@ func _on_interactable_slider_y_slider_moved(position: Variant) -> void:
 	height = h
 
 
-func _on_interactable_slider_x_slider_moved(position: Variant) -> void:
+func _on_interactable_slider_x_slider_moved(p: Variant) -> void:
 	# position [0.0, 0.5] meters to [0.0, 1.0]
-	var percentage: float = smoothstep(0.0, 1.0, position)
+	var percentage: float = smoothstep(0.0, 1.0, p)
 
 	# number [0.0, 1.0] transformed to [20.0, 100.0] meters
 	var w: float = lerp(20.0, 100.0, percentage)
@@ -77,9 +77,9 @@ func _on_interactable_slider_x_slider_moved(position: Variant) -> void:
 	width = w
 
 
-func _on_interactable_slider_z_slider_moved(position: Variant) -> void:
+func _on_interactable_slider_z_slider_moved(p: Variant) -> void:
 	# position [0.0, 0.5] meters to [0.0, 1.0]
-	var percentage: float = smoothstep(0.0, 1.0, position)
+	var percentage: float = smoothstep(0.0, 1.0, p)
 
 	# number [0.0, 1.0] transformed to [6.0, 20.0] meters
 	var d: float = lerp(6.0, 100.0, percentage)
