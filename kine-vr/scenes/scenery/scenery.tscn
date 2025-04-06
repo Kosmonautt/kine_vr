@@ -25,6 +25,8 @@ material = SubResource("StandardMaterial3D_abopq")
 size = Vector2(20, 8)
 
 [node name="Scenery" type="Area3D" node_paths=PackedStringArray("wall", "floor_n", "collision")]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_r4rvs")
 wall = NodePath("Mesh/Wall")
 floor_n = NodePath("Mesh/Floor")
