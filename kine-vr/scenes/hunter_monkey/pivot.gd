@@ -3,6 +3,9 @@ extends Node3D
 @export var direction: Node3D
 @export var direction_mesh: Node3D
 @export var projectile: Node3D
+@export var target: Node3D
+
+@export var radius: float = 50.0
 
 func _on_interactable_lever_theta_hinge_moved(angle: Variant) -> void:
 	# angle [-45, 45] degrees to [0.0, 1.0]
@@ -14,6 +17,9 @@ func _on_interactable_lever_theta_hinge_moved(angle: Variant) -> void:
 	# set z rotation angle
 	direction.rotation.z = theta
 	projectile.look_at(direction_mesh.global_position, Vector3.UP)
+	
+	# set target position
+	target.set_position(Vector3(radius * cos(projectile.rotation.x) , radius * sin(projectile.rotation.x) , 3.0))
 
 
 func _on_interactable_lever_phi_hinge_moved(angle: Variant) -> void:
