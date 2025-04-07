@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://df7s2w6t06bpu"]
+[gd_scene load_steps=21 format=3 uid="uid://df7s2w6t06bpu"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_ep48d"]
 [ext_resource type="Script" uid="uid://b1hh1rlyn7f4d" path="res://scenes/hunter_monkey/scenery.gd" id="2_6k4wf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://0etylgnnbicm" path="res://scenes/controller/scenery_controller.tscn" id="5_stpkj"]
 [ext_resource type="Script" uid="uid://crxwplfx1pust" path="res://scenes/hunter_monkey/target.gd" id="7_dp2id"]
 [ext_resource type="PackedScene" uid="uid://bdivnb586x0gf" path="res://scenes/interactables/lever.tscn" id="8_6ykcc"]
+[ext_resource type="PackedScene" uid="uid://dnr37vvwt2rxo" path="res://scenes/interactables/slider.tscn" id="9_b2vc3"]
 [ext_resource type="PackedScene" uid="uid://buwtt0qxxv75y" path="res://scenes/button/button.tscn" id="9_pmmic"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
@@ -105,11 +106,17 @@ mesh = SubResource("BoxMesh_um401")
 [node name="LeverTheta" parent="Controller/Pole/Panel" instance=ExtResource("8_6ykcc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 
-[node name="LeverPhi" parent="Controller/Pole/Panel" instance=ExtResource("8_6ykcc")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.2, 0, 0)
+[node name="SliderRadius" parent="Controller/Pole/Panel" instance=ExtResource("9_b2vc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.2, 0)
+
+[node name="InteractableSlider" parent="Controller/Pole/Panel/SliderRadius/SliderOrigin" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+slider_limit_max = 0.4
+slider_position = 0.2
+default_position = 0.2
 
 [node name="Button" parent="Controller/Pole/Panel" instance=ExtResource("9_pmmic")]
-transform = Transform3D(1, 0, 0, 0, -8.9407e-08, -1, 0, 1, -8.9407e-08, 0.5, 0, 0.05)
+transform = Transform3D(1, 0, 0, 0, -8.9407e-08, -1, 0, 1, -8.9407e-08, 0.15, 0, 0.05)
 
 [node name="SceneryController" parent="." instance=ExtResource("5_stpkj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
@@ -117,7 +124,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
 [connection signal="body_exited" from="Scenery" to="Projectile" method="_on_scenery_body_exited"]
 [connection signal="body_exited" from="Scenery" to="Target" method="_on_scenery_body_exited"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_theta_hinge_moved"]
-[connection signal="hinge_moved" from="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_phi_hinge_moved"]
 [connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Projectile" method="_on_interactable_area_button_button_pressed"]
 [connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Target" method="_on_interactable_area_button_button_pressed"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_x_slider_moved"]
@@ -127,8 +133,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
 [editable path="Pivot"]
 [editable path="Controller/Pole/Panel/LeverTheta"]
 [editable path="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever/HandleOrigin"]
-[editable path="Controller/Pole/Panel/LeverPhi"]
-[editable path="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HandleOrigin"]
+[editable path="Controller/Pole/Panel/SliderRadius"]
+[editable path="Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider/HandleOrigin"]
 [editable path="Controller/Pole/Panel/Button"]
 [editable path="SceneryController"]
 [editable path="SceneryController/Pole/Panel/SliderX"]
