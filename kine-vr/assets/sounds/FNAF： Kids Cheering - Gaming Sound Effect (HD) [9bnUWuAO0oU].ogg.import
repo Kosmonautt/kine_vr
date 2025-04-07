@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://blph60w1140yc"
+path="res://.godot/imported/FNAF： Kids Cheering - Gaming Sound Effect (HD) [9bnUWuAO0oU].ogg-1769e8fac6198e6aca2a18ca6e1c80e0.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/FNAF： Kids Cheering - Gaming Sound Effect (HD) [9bnUWuAO0oU].ogg"
+dest_files=["res://.godot/imported/FNAF： Kids Cheering - Gaming Sound Effect (HD) [9bnUWuAO0oU].ogg-1769e8fac6198e6aca2a18ca6e1c80e0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
