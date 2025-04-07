@@ -54,18 +54,7 @@ func set_size(w: float, h: float, d: float) -> void:
 	collision_box_shape.set_size(Vector3(w, h, d))
 	collision.set_position(Vector3(w/2, h/2, d/2))
 	
-
-func _on_interactable_slider_y_slider_moved(p: Variant) -> void:
-	# position [0.0, 0.5] meters to [0.0, 1.0]
-	var percentage: float = smoothstep(0.0, 1.0, p)
 	
-	# number [0.0, 1.0] transformed to [8.0, 100.0] meters
-	var h: float = lerp(8.0, 100.0, percentage)
-
-	# set height
-	height = h
-
-
 func _on_interactable_slider_x_slider_moved(p: Variant) -> void:
 	# position [0.0, 0.5] meters to [0.0, 1.0]
 	var percentage: float = smoothstep(0.0, 1.0, p)
@@ -75,8 +64,18 @@ func _on_interactable_slider_x_slider_moved(p: Variant) -> void:
 
 	# set width
 	width = w
+	
+func _on_interactable_slider_y_slider_moved(p: Variant) -> void:
+	# position [0.0, 0.5] meters to [0.0, 1.0]
+	var percentage: float = smoothstep(0.0, 1.0, p)
+	
+	# number [0.0, 1.0] transformed to [8.0, 100.0] meters
+	var h: float = lerp(8.0, 100.0, percentage)
 
-
+	# set height
+	height = h
+	
+	
 func _on_interactable_slider_z_slider_moved(p: Variant) -> void:
 	# position [0.0, 0.5] meters to [0.0, 1.0]
 	var percentage: float = smoothstep(0.0, 1.0, p)

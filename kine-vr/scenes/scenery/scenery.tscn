@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5art2vnwq8pi"]
+[gd_scene load_steps=7 format=3 uid="uid://b5art2vnwq8pi"]
 
-[ext_resource type="Script" uid="uid://b1hh1rlyn7f4d" path="res://scenes/scenery/scenery.gd" id="1_r4rvs"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_p2ted"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
@@ -24,13 +23,9 @@ disable_receive_shadows = true
 material = SubResource("StandardMaterial3D_abopq")
 size = Vector2(20, 8)
 
-[node name="Scenery" type="Area3D" node_paths=PackedStringArray("wall", "floor_n", "collision")]
+[node name="Scenery" type="Area3D"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_r4rvs")
-wall = NodePath("Mesh/Wall")
-floor_n = NodePath("Mesh/Floor")
-collision = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, 3)

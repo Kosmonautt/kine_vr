@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=16 format=3 uid="uid://d0cykuljffr0m"]
 
-[ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/scenery/scenery.tscn" id="1_v4dxv"]
+[ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_j2chm"]
+[ext_resource type="Script" uid="uid://bwixhl1gcv3qf" path="res://scenes/parabola/scenery.gd" id="2_oi5j8"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/projectile/projectile.tscn" id="2_xhc3r"]
 [ext_resource type="Script" uid="uid://b57k5ijliqvi0" path="res://scenes/parabola/projectile.gd" id="3_julcx"]
 [ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/projectile_projection/projectile_projection.tscn" id="4_5igir"]
@@ -10,9 +11,50 @@
 [ext_resource type="PackedScene" uid="uid://0etylgnnbicm" path="res://scenes/controller/scenery_controller.tscn" id="6_2fupf"]
 [ext_resource type="Script" uid="uid://dj7n2q4j6ogv5" path="res://scenes/parabola/projectile_projection.gd" id="6_im3vq"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
+size = Vector3(20, 8, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27upa"]
+albedo_texture = ExtResource("2_j2chm")
+uv1_scale = Vector3(20, 6, 6)
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_doxax"]
+material = SubResource("StandardMaterial3D_27upa")
+size = Vector2(20, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abopq"]
+albedo_texture = ExtResource("2_j2chm")
+uv1_scale = Vector3(20, 8, 1)
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_abopq"]
+material = SubResource("StandardMaterial3D_abopq")
+size = Vector2(20, 8)
+
 [node name="Parabola" type="Node3D"]
 
-[node name="Scenery" parent="." instance=ExtResource("1_v4dxv")]
+[node name="Scenery" type="Area3D" parent="." node_paths=PackedStringArray("wall", "floor_n", "collision")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_oi5j8")
+wall = NodePath("Mesh/Wall")
+floor_n = NodePath("Mesh/Floor")
+collision = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, 3)
+shape = SubResource("BoxShape3D_doxax")
+
+[node name="Mesh" type="Node3D" parent="Scenery"]
+
+[node name="Floor" type="MeshInstance3D" parent="Scenery/Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 3)
+mesh = SubResource("PlaneMesh_doxax")
+
+[node name="Wall" type="MeshInstance3D" parent="Scenery/Mesh"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 4, 0)
+mesh = SubResource("PlaneMesh_abopq")
 
 [node name="Projectile" parent="." node_paths=PackedStringArray("direction_mesh") instance=ExtResource("2_xhc3r")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1, 4)
