@@ -41,6 +41,7 @@ metadata/_custom_type_script = "uid://cf8voa7ut3qul"
 
 [node name="HingeBody" type="StaticBody3D" parent="LeverOrigin/InteractableLever"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
+collision_layer = 262144
 
 [node name="BarCollision" type="CollisionShape3D" parent="LeverOrigin/InteractableLever/HingeBody"]
 shape = SubResource("BoxShape3D_yvxfy")
