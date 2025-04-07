@@ -106,14 +106,14 @@ mesh = SubResource("BoxMesh_um401")
 [node name="LeverTheta" parent="Controller/Pole/Panel" instance=ExtResource("8_6ykcc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 
+[node name="InteractableLever" parent="Controller/Pole/Panel/LeverTheta/LeverOrigin" index="0"]
+hinge_limit_max = 0.0
+
 [node name="SliderRadius" parent="Controller/Pole/Panel" instance=ExtResource("9_b2vc3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.2, 0)
 
 [node name="InteractableSlider" parent="Controller/Pole/Panel/SliderRadius/SliderOrigin" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 slider_limit_max = 0.4
-slider_position = 0.2
-default_position = 0.2
 
 [node name="Button" parent="Controller/Pole/Panel" instance=ExtResource("9_pmmic")]
 transform = Transform3D(1, 0, 0, 0, -8.9407e-08, -1, 0, 1, -8.9407e-08, 0.15, 0, 0.05)
