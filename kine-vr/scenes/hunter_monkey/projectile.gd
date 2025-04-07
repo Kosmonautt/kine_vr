@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-const INITIAL_POSITION: Vector3 = Vector3(1.0, 1.0, 4.0)
+const INITIAL_POSITION: Vector3 = Vector3(0.0, 0.0, 3.0)
 const LAUNCH_SPEED: float = 20
 
 @export var direction_mesh: Node3D

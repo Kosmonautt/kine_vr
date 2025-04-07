@@ -1,7 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://df7s2w6t06bpu"]
+[gd_scene load_steps=8 format=3 uid="uid://df7s2w6t06bpu"]
 
 [ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/scenery/scenery.tscn" id="1_xqhjh"]
+[ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/projectile/projectile.tscn" id="2_pk44x"]
+[ext_resource type="PackedScene" uid="uid://qlto2rluch77" path="res://scenes/pivot/pivot.tscn" id="3_7luox"]
+[ext_resource type="Script" uid="uid://dkjwimy8qbko4" path="res://scenes/hunter_monkey/projectile.gd" id="3_7qyho"]
+[ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/controller/controller.tscn" id="4_g12cy"]
+[ext_resource type="Script" uid="uid://bhcwiol7lgw6q" path="res://scenes/hunter_monkey/pivot.gd" id="5_ep48d"]
+[ext_resource type="PackedScene" uid="uid://0etylgnnbicm" path="res://scenes/controller/scenery_controller.tscn" id="5_stpkj"]
 
 [node name="HunterMonkey" type="Node3D"]
 
 [node name="Scenery" parent="." instance=ExtResource("1_xqhjh")]
+
+[node name="Projectile" parent="." node_paths=PackedStringArray("direction_mesh") instance=ExtResource("2_pk44x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+script = ExtResource("3_7qyho")
+direction_mesh = NodePath("../Pivot/Direction/MeshInstance3D")
+
+[node name="Pivot" parent="." node_paths=PackedStringArray("direction", "direction_mesh", "projectile") instance=ExtResource("3_7luox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+script = ExtResource("5_ep48d")
+direction = NodePath("Direction")
+direction_mesh = NodePath("Direction/MeshInstance3D")
+projectile = NodePath("../Projectile")
+
+[node name="Controller" parent="." instance=ExtResource("4_g12cy")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.5, 0, 7)
+
+[node name="SceneryController" parent="." instance=ExtResource("5_stpkj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
+
+[connection signal="body_exited" from="Scenery" to="Projectile" method="_on_scenery_body_exited"]
+[connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_theta_hinge_moved"]
+[connection signal="hinge_moved" from="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_phi_hinge_moved"]
+[connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Projectile" method="_on_interactable_area_button_button_pressed"]
+
+[editable path="Pivot"]
+[editable path="Controller"]
+[editable path="Controller/Pole/Panel/LeverTheta"]
+[editable path="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever/HandleOrigin"]
+[editable path="Controller/Pole/Panel/LeverPhi"]
+[editable path="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HandleOrigin"]
+[editable path="Controller/Pole/Panel/Button"]
+[editable path="SceneryController"]
+[editable path="SceneryController/Pole/Panel/SliderX"]
+[editable path="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="SceneryController/Pole/Panel/SliderY"]
+[editable path="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="SceneryController/Pole/Panel/SliderZ"]
+[editable path="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider/HandleOrigin"]
