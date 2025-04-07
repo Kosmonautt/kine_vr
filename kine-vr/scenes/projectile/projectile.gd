@@ -3,6 +3,8 @@ extends RigidBody3D
 const INITIAL_POSITION: Vector3 = Vector3(1.0, 1.0, 4.0)
 const LAUNCH_SPEED: float = 20
 
+@export var direction_mesh: Node3D
+
 var can_launch: bool = true
 
 # Called when the node enters the scene tree for the first time.
@@ -22,9 +24,10 @@ func _on_scenery_body_exited(_body: Node3D) -> void:
 	set_gravity_scale(0.0)
 	can_launch = true
 
-func _on_pivot_launch_button_pressed(launch_direction: Vector3) -> void:
+
+func _on_interactable_area_button_button_pressed(_button: Variant) -> void:
 	if can_launch:
 		set_gravity_scale(1.0)
-		launch_direction = launch_direction - global_position
+		var launch_direction: Vector3 = direction_mesh.global_position - global_position
 		linear_velocity = launch_direction.normalized() * LAUNCH_SPEED
 		can_launch = false

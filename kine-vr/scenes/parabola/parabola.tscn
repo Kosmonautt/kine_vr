@@ -20,8 +20,9 @@ height = 0.5
 transform = Transform3D(0.888697, 0, -0.458494, 0, 1, 0, 0.458494, 0, 0.888697, 0, 2, 10)
 current = true
 
-[node name="Projectile" parent="." instance=ExtResource("2_xhc3r")]
+[node name="Projectile" parent="." node_paths=PackedStringArray("direction_mesh") instance=ExtResource("2_xhc3r")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1, 4)
+direction_mesh = NodePath("../Pivot/Drection/MeshInstance3D")
 
 [node name="Pivot" type="Node3D" parent="." node_paths=PackedStringArray("direction", "direction_mesh", "projectile")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 4)
@@ -58,10 +59,9 @@ transform = Transform3D(-0.540992, -0.831012, -0.129409, 0.469846, -0.17101, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
 
 [connection signal="body_exited" from="Scenery" to="Projectile" method="_on_scenery_body_exited"]
-[connection signal="launch_button_pressed" from="Pivot" to="Projectile" method="_on_pivot_launch_button_pressed"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_theta_hinge_moved"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_phi_hinge_moved"]
-[connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Pivot" method="_on_interactable_area_button_button_pressed"]
+[connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Projectile" method="_on_interactable_area_button_button_pressed"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_x_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_y_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_z_slider_moved"]
