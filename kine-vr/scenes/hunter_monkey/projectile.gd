@@ -18,11 +18,12 @@ func _process(_delta) -> void:
 	pass
 
 
-func _on_scenery_body_exited(_body: Node3D) -> void:
-	position = INITIAL_POSITION
-	linear_velocity = Vector3.ZERO
-	set_gravity_scale(0.0)
-	can_launch = true
+func _on_scenery_body_exited(body: Node3D) -> void:
+	if body == self:
+		position = INITIAL_POSITION
+		linear_velocity = Vector3.ZERO
+		set_gravity_scale(0.0)
+		can_launch = true
 
 
 func _on_interactable_area_button_button_pressed(_button: Variant) -> void:
