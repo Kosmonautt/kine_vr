@@ -4,15 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/projectile/projectile.tscn" id="2_xhc3r"]
 [ext_resource type="Script" uid="uid://b57k5ijliqvi0" path="res://scenes/parabola/projectile.gd" id="3_julcx"]
 [ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/projectile_projection/projectile_projection.tscn" id="4_5igir"]
+[ext_resource type="PackedScene" uid="uid://qlto2rluch77" path="res://scenes/pivot/pivot.tscn" id="4_im3vq"]
 [ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/controller/controller.tscn" id="5_04ykf"]
 [ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://scenes/parabola/pivot.gd" id="5_v4dxv"]
 [ext_resource type="PackedScene" uid="uid://0etylgnnbicm" path="res://scenes/controller/scenery_controller.tscn" id="6_2fupf"]
 [ext_resource type="Script" uid="uid://dj7n2q4j6ogv5" path="res://scenes/parabola/projectile_projection.gd" id="6_im3vq"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_5igir"]
-top_radius = 0.1
-bottom_radius = 0.005
-height = 0.5
 
 [node name="Parabola" type="Node3D"]
 
@@ -21,20 +17,14 @@ height = 0.5
 [node name="Projectile" parent="." node_paths=PackedStringArray("direction_mesh") instance=ExtResource("2_xhc3r")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1, 4)
 script = ExtResource("3_julcx")
-direction_mesh = NodePath("../Pivot/Drection/MeshInstance3D")
+direction_mesh = NodePath("../Pivot/Direction/MeshInstance3D")
 
-[node name="Pivot" type="Node3D" parent="." node_paths=PackedStringArray("direction", "direction_mesh", "projectile")]
+[node name="Pivot" parent="." node_paths=PackedStringArray("direction", "direction_mesh", "projectile") instance=ExtResource("4_im3vq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 4)
 script = ExtResource("5_v4dxv")
-direction = NodePath("Drection")
-direction_mesh = NodePath("Drection/MeshInstance3D")
+direction = NodePath("Direction")
+direction_mesh = NodePath("Direction/MeshInstance3D")
 projectile = NodePath("../Projectile")
-
-[node name="Drection" type="Node3D" parent="Pivot"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/Drection"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1, 0, 0)
-mesh = SubResource("CylinderMesh_5igir")
 
 [node name="ProjectileProjectionZX" parent="." node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
@@ -67,6 +57,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_y_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_z_slider_moved"]
 
+[editable path="Pivot"]
 [editable path="Controller"]
 [editable path="Controller/Pole/Panel/LeverTheta"]
 [editable path="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever/HandleOrigin"]
