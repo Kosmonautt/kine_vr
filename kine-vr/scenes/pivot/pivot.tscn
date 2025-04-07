@@ -2,7 +2,7 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_y0tj4"]
 top_radius = 0.1
-bottom_radius = 0.005
+bottom_radius = 0.0
 height = 0.5
 
 [node name="Pivot" type="Node3D"]
