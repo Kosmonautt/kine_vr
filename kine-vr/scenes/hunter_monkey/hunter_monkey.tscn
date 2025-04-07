@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://df7s2w6t06bpu"]
+
+[ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/scenery/scenery.tscn" id="1_xqhjh"]
+
+[node name="HunterMonkey" type="Node3D"]
+
+[node name="Scenery" parent="." instance=ExtResource("1_xqhjh")]
