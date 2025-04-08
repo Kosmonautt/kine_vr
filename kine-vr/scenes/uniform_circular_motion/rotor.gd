@@ -1,7 +1,7 @@
 extends Node3D
 
 const DEFAULT_ANGULAR_SPEED = 0
-const DEFAULT_RADIUS = 0
+const DEFAULT_RADIUS = 1.0
 
 
 @export var blade: MeshInstance3D
@@ -24,3 +24,11 @@ func set_size(r: float) -> void:
 	# blade size and position
 	blade_mesh.set_size(Vector2(0.05, radius))
 	blade.set_position(Vector3(0.0, r/2 , 0.0))
+
+
+func _on_interactable_slider_angular_speed_slider_moved(p: Variant) -> void:
+	# position [0.0, 0.4] meters to [0.0, 1.0]
+	var percentage: float = smoothstep(0.0, 0.4, p)
+
+	# number [0.0, 1.0] transformed to [0.0, 4PI] radians/s
+	angular_speed = lerp(0.0, 4 * PI, percentage)
