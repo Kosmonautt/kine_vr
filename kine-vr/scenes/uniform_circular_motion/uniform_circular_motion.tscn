@@ -1,19 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dffrcd63007q7"]
+[gd_scene load_steps=5 format=3 uid="uid://dffrcd63007q7"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_6p47d"]
+[ext_resource type="PackedScene" uid="uid://dtvq8tpe31emx" path="res://scenes/rotor/rotor.tscn" id="2_tj3cp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abopq"]
 albedo_texture = ExtResource("1_6p47d")
-uv1_scale = Vector3(20, 8, 1)
+uv1_scale = Vector3(8, 8, 0.4)
 disable_receive_shadows = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_abopq"]
 material = SubResource("StandardMaterial3D_abopq")
-size = Vector2(20, 8)
+size = Vector2(8, 8)
 
 [node name="UniformCircularMotion" type="Node3D"]
 
 [node name="Wall" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 4, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4, 4, 0)
 mesh = SubResource("PlaneMesh_abopq")
 skeleton = NodePath("")
+
+[node name="Rotor" parent="." instance=ExtResource("2_tj3cp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 4, 0)
