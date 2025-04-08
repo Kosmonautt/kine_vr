@@ -122,10 +122,7 @@ transform = Transform3D(1, 0, 0, 0, -8.9407e-08, -1, 0, 1, -8.9407e-08, 0.15, 0,
 transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, -2.98023e-08, 1, 0.5, -0.2, 0)
 
 [node name="InteractableSlider" parent="Controller/Pole/Panel/SliderSpeed/SliderOrigin" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 slider_limit_max = 0.4
-slider_position = 0.2
-default_position = 0.2
 
 [node name="SceneryController" parent="." instance=ExtResource("5_stpkj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
