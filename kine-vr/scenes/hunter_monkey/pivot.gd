@@ -38,8 +38,8 @@ func _on_interactable_slider_radius_slider_moved(p: Variant) -> void:
 	# position [0.0, 0.4] meters to [0.0, 1.0]
 	var percentage: float = smoothstep(0.0, 1.0, p)
 	
-	# number [0.0, 1.0] transformed to [8.0, 95.0] meters
-	radius = lerp(8.0, 95.0, percentage)
+	# number [0.0, 1.0] transformed to [8.0, 150.0] meters
+	radius = lerp(8.0, 150.0, percentage)
 	
 	# set target position
 	target.set_position(Vector3(radius * cos(projectile.rotation.x) , radius * sin(projectile.rotation.x) , 3.0))
