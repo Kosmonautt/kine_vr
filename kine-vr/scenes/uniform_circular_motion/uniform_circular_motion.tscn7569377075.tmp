@@ -20,13 +20,10 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4, 4, 
 mesh = SubResource("PlaneMesh_abopq")
 skeleton = NodePath("")
 
-[node name="Rotor" parent="." node_paths=PackedStringArray("blade") instance=ExtResource("2_tj3cp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.00034, 4, 0.001)
+[node name="Rotor" parent="." instance=ExtResource("2_tj3cp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 0.001)
 script = ExtResource("3_mqfbx")
-blade = NodePath("Blade")
-
-[node name="Blade" parent="Rotor" index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0)
+angular_speed = 6.092
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 3)
