@@ -1,7 +1,7 @@
 extends Node3D
 
 const DEFAULT_ANGULAR_SPEED = 0
-const DEFAULT_RADIUS = 1.0
+const DEFAULT_RADIUS = 0.5
 
 
 @export var blade: MeshInstance3D
@@ -32,3 +32,11 @@ func _on_interactable_slider_angular_speed_slider_moved(p: Variant) -> void:
 
 	# number [0.0, 1.0] transformed to [0.0, 4PI] radians/s
 	angular_speed = lerp(0.0, 4 * PI, percentage)
+
+
+func _on_interactable_slider_radius_slider_moved(p: Variant) -> void:
+	# position [0.0, 0.4] meters to [0.0, 1.0]
+	var percentage: float = smoothstep(0.0, 0.4, p)
+
+	# number [0.0, 1.0] transformed to [0.5, 4.0] meters
+	radius = lerp(0.5, 4.0, percentage)
