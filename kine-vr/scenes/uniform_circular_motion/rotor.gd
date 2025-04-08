@@ -1,12 +1,12 @@
 extends Node3D
 
-const DEFAULT_RADIUS = 1.0
+const DEFAULT_ANGULAR_SPEED = 0
+const DEFAULT_RADIUS = 0
 
 
 @export var blade: MeshInstance3D
-@export var angular_speed: float = PI
-
-@export var radius: float = DEFAULT_RADIUS:
+var angular_speed: float = DEFAULT_ANGULAR_SPEED
+var radius: float = DEFAULT_RADIUS:
 	get:
 		return radius
 	set(value):
