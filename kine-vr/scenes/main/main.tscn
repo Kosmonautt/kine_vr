@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://xobnjksj76nj"]
+[gd_scene load_steps=16 format=3 uid="uid://xobnjksj76nj"]
 
 [ext_resource type="Script" uid="uid://220qqx46024i" path="res://scenes/main/main.gd" id="1_yyfjg"]
 [ext_resource type="Texture2D" uid="uid://x5vvcnocsuc6" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_diff_1k.jpg" id="2_b1x3f"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="5_blune"]
 [ext_resource type="PackedScene" uid="uid://d0cykuljffr0m" path="res://scenes/parabola/parabola.tscn" id="6_th5th"]
 [ext_resource type="PackedScene" uid="uid://df7s2w6t06bpu" path="res://scenes/hunter_monkey/hunter_monkey.tscn" id="7_hujxm"]
+[ext_resource type="PackedScene" uid="uid://dffrcd63007q7" path="res://scenes/uniform_circular_motion/uniform_circular_motion.tscn" id="8_yyfjg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fiu1y"]
 albedo_texture = ExtResource("2_b1x3f")
@@ -81,3 +82,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.001, 2)
 
 [node name="HunterMonkey" parent="." instance=ExtResource("7_hujxm")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0.001, -2)
+
+[node name="UniformCircularMotion" parent="." instance=ExtResource("8_yyfjg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 2)
