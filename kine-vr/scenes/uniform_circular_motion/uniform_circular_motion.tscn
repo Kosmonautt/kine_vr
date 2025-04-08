@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dffrcd63007q7"]
+[gd_scene load_steps=6 format=3 uid="uid://dffrcd63007q7"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_6p47d"]
 [ext_resource type="PackedScene" uid="uid://dtvq8tpe31emx" path="res://scenes/rotor/rotor.tscn" id="2_tj3cp"]
+[ext_resource type="Script" uid="uid://6528gx0ttpoy" path="res://scenes/uniform_circular_motion/rotor.gd" id="3_mqfbx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abopq"]
 albedo_texture = ExtResource("1_6p47d")
@@ -21,3 +22,4 @@ skeleton = NodePath("")
 
 [node name="Rotor" parent="." instance=ExtResource("2_tj3cp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 0.001)
+script = ExtResource("3_mqfbx")
