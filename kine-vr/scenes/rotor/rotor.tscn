@@ -4,8 +4,8 @@
 size = Vector2(0.05, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_6jx4l"]
-top_radius = 0.05
-bottom_radius = 0.05
+top_radius = 0.1
+bottom_radius = 0.1
 height = 0.001
 
 [node name="Rotor" type="Node3D"]
