@@ -90,6 +90,7 @@ transform = Transform3D(-0.540992, -0.831012, -0.129409, 0.469846, -0.17101, -0.
 
 [node name="SceneryController" parent="." instance=ExtResource("6_2fupf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
+visible = false
 
 [connection signal="body_exited" from="Scenery" to="Projectile" method="_on_scenery_body_exited"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_theta_hinge_moved"]

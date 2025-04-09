@@ -126,6 +126,7 @@ slider_limit_max = 0.4
 
 [node name="SceneryController" parent="." instance=ExtResource("5_stpkj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
+visible = false
 
 [connection signal="body_exited" from="Scenery" to="Projectile" method="_on_scenery_body_exited"]
 [connection signal="body_exited" from="Scenery" to="Target" method="_on_scenery_body_exited"]

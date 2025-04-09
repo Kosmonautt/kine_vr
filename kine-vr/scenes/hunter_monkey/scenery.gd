@@ -37,6 +37,10 @@ var size_vector := Vector3(DEFAULT_WIDTH, DEFAULT_HEIGHT, DEFAULT_DEPTH)
 @onready var wall_mesh_material: StandardMaterial3D = wall_mesh.get_material()
 @onready var floor_mesh_material: StandardMaterial3D = floor_mesh.get_material()
 
+func _ready() -> void:
+	width = 100.0
+	height = 100.0
+	depth = 100.0
 
 func set_size(w: float, h: float, d: float) -> void:
 	# wall change
