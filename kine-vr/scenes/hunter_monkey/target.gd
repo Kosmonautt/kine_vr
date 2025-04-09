@@ -4,6 +4,8 @@ const INITIAL_POSITION: Vector3 = Vector3(16.0, 4.0, 3.0)
 
 var can_launch: bool = true
 
+var respawn_position: Vector3 = INITIAL_POSITION
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	position = INITIAL_POSITION
@@ -17,7 +19,7 @@ func _process(_delta) -> void:
 
 func _on_scenery_body_exited(body: Node3D) -> void:
 	if body == self:
-		position = INITIAL_POSITION
+		position = respawn_position
 		linear_velocity = Vector3.ZERO
 		set_gravity_scale(0.0)
 		can_launch = true

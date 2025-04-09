@@ -20,7 +20,8 @@ func _on_interactable_lever_theta_hinge_moved(angle: Variant) -> void:
 	
 	# set target position
 	target.set_position(Vector3(radius * cos(projectile.rotation.x) , radius * sin(projectile.rotation.x) , 3.0))
-
+	# refresh target respawn position
+	target.respawn_position = target.get_position()
 
 func _on_interactable_lever_phi_hinge_moved(angle: Variant) -> void:
 	# angle [-45, 45] degrees to [0.0, 1.0]
@@ -43,3 +44,5 @@ func _on_interactable_slider_radius_slider_moved(p: Variant) -> void:
 	
 	# set target position
 	target.set_position(Vector3(radius * cos(projectile.rotation.x) , radius * sin(projectile.rotation.x) , 3.0))
+	# refresh target respawn position
+	target.respawn_position = target.get_position()
