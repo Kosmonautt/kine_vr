@@ -20,6 +20,7 @@ tracker = &"left_hand"
 [node name="LeftPhysicsHand" parent="LeftHand" instance=ExtResource("1_dqkch")]
 
 [node name="FunctionTeleport" parent="LeftHand" instance=ExtResource("2_dqkch")]
+teleport_button_action = "by_button"
 
 [node name="MovementTurn" parent="LeftHand" instance=ExtResource("3_tuyoq")]
 turn_mode = 1
