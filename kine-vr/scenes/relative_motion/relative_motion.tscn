@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dg8fy7pyqqur8"]
+
+[node name="RelativeMotion" type="Node3D"]
