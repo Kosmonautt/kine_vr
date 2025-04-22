@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://d04d3jk8287so"]
+[gd_scene load_steps=5 format=3 uid="uid://d04d3jk8287so"]
+
+[ext_resource type="Script" uid="uid://blpbbn270v07o" path="res://scenes/wagon/wagon.gd" id="1_mm4mv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_krpfv"]
 size = Vector3(1, 0.15, 2)
@@ -11,43 +13,46 @@ top_radius = 0.125
 bottom_radius = 0.125
 height = 0.05
 
-[node name="Wagon" type="Node3D"]
+[node name="Wagon" type="RigidBody3D"]
+gravity_scale = 0.0
+script = ExtResource("1_mm4mv")
 
-[node name="Body" type="RigidBody3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Body"]
 shape = SubResource("BoxShape3D_krpfv")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Body"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 mesh = SubResource("BoxMesh_krpfv")
+skeleton = NodePath("")
 
-[node name="Wheels" type="Node3D" parent="Body"]
+[node name="Wheels" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
-[node name="Wheel1" type="Node3D" parent="Body/Wheels"]
+[node name="Wheel1" type="Node3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525, -0.125, -0.8)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Wheels/Wheel1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/Wheel1"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_krpfv")
 
-[node name="Wheel2" type="Node3D" parent="Body/Wheels"]
+[node name="Wheel2" type="Node3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525, -0.125, 0.8)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Wheels/Wheel2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/Wheel2"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_krpfv")
 
-[node name="Wheel3" type="Node3D" parent="Body/Wheels"]
+[node name="Wheel3" type="Node3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525, -0.125, -0.8)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Wheels/Wheel3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/Wheel3"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_krpfv")
 
-[node name="Wheel4" type="Node3D" parent="Body/Wheels"]
+[node name="Wheel4" type="Node3D" parent="Wheels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525, -0.125, 0.8)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Wheels/Wheel4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/Wheel4"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_krpfv")
