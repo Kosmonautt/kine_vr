@@ -5,8 +5,8 @@
 
 [node name="RelativeMotion" type="Node3D"]
 
-[node name="Wagon" parent="." instance=ExtResource("1_qtbu6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 1)
-
 [node name="Scenery" parent="." instance=ExtResource("2_rumb4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Wagon" parent="Scenery" instance=ExtResource("1_qtbu6")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 2)
