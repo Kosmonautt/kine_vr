@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d04d3jk8287so"]
+[gd_scene load_steps=7 format=3 uid="uid://d04d3jk8287so"]
 
 [ext_resource type="Script" uid="uid://blpbbn270v07o" path="res://scenes/wagon/wagon.gd" id="1_mm4mv"]
+[ext_resource type="Texture2D" uid="uid://c3lq5bjmdnjbf" path="res://assets/kenney_prototype-textures/PNG/Purple/texture_05.png" id="2_6wpp6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_krpfv"]
 size = Vector3(1, 0.15, 2)
@@ -8,7 +9,11 @@ size = Vector3(1, 0.15, 2)
 [sub_resource type="BoxMesh" id="BoxMesh_krpfv"]
 size = Vector3(1, 0.15, 2)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68lq8"]
+albedo_texture = ExtResource("2_6wpp6")
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_krpfv"]
+material = SubResource("StandardMaterial3D_68lq8")
 top_radius = 0.125
 bottom_radius = 0.125
 height = 0.05
