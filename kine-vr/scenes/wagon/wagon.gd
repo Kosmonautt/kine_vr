@@ -1,13 +1,15 @@
 extends RigidBody3D
 
-@export var linear_speed: float = 1.0
+@export var linear_speed: float = 0.1
 
 @export var wheel_1: Node3D
 @export var wheel_2: Node3D
 @export var wheel_3: Node3D
 @export var wheel_4: Node3D
 
-var angular_speed: float = PI
+# radius of the wheels
+var radius: float = 0.125
+var angular_speed: float = linear_speed / radius
 
 func _ready() -> void:
 	set_linear_velocity(Vector3(linear_speed, 0.0, 0.0))
