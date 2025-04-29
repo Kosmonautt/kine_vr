@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg8fy7pyqqur8"]
+[gd_scene load_steps=7 format=3 uid="uid://dg8fy7pyqqur8"]
 
 [ext_resource type="Script" uid="uid://bb6uk8kjulgnp" path="res://scenes/relative_motion/relative_motion.gd" id="1_kxshb"]
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/wagon/wagon.tscn" id="1_qtbu6"]
 [ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/scenery/scenery.tscn" id="2_rumb4"]
+[ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/projectile/projectile.tscn" id="4_7on3u"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7on3u"]
+bounce = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxshb"]
 size = Vector3(6, 2, 1)
@@ -20,6 +24,14 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 
 [node name="Wagon" parent="Scenery" instance=ExtResource("1_qtbu6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 0, 3)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Projectile" parent="Scenery/Wagon" instance=ExtResource("4_7on3u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+collision_layer = 0
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_7on3u")
 
 [node name="Boundary" type="Area3D" parent="Scenery"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)

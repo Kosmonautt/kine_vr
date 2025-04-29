@@ -3,6 +3,7 @@ extends Node3D
 @export var linear_speed: float = 1
 
 @export var wagon: RigidBody3D
+@export var projectile: RigidBody3D
 @export var wheel_1: Node3D
 @export var wheel_2: Node3D
 @export var wheel_3: Node3D
@@ -14,6 +15,7 @@ var angular_speed: float = linear_speed / radius
 
 func _ready() -> void:
 	wagon.set_linear_velocity(Vector3(0.0, 0.0, linear_speed))
+	projectile.set_linear_velocity(Vector3(0.0, 0.0, linear_speed))
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
