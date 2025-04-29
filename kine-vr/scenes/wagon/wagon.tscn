@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://d04d3jk8287so"]
+[gd_scene load_steps=10 format=3 uid="uid://d04d3jk8287so"]
 
 [ext_resource type="Texture2D" uid="uid://c3lq5bjmdnjbf" path="res://assets/kenney_prototype-textures/PNG/Purple/texture_05.png" id="2_6wpp6"]
+[ext_resource type="Texture2D" uid="uid://dbdoy30y6hk4w" path="res://assets/kenney_prototype-textures/PNG/Green/texture_01.png" id="2_68lq8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_krpfv"]
 size = Vector3(2, 0.15, 3)
@@ -21,6 +22,16 @@ material = SubResource("StandardMaterial3D_68lq8")
 top_radius = 0.125
 bottom_radius = 0.125
 height = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1svnm"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.784314)
+albedo_texture = ExtResource("2_68lq8")
+uv1_scale = Vector3(3, 4, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mm4mv"]
+material = SubResource("StandardMaterial3D_1svnm")
+size = Vector2(3, 4)
 
 [node name="Wagon" type="RigidBody3D"]
 gravity_scale = 0.0
@@ -65,3 +76,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.125, 0.8)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/Wheel4"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_krpfv")
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 1.5, 2, 0)
+mesh = SubResource("PlaneMesh_mm4mv")
