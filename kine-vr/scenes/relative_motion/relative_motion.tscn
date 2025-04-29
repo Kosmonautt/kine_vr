@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dg8fy7pyqqur8"]
+[gd_scene load_steps=4 format=3 uid="uid://dg8fy7pyqqur8"]
 
+[ext_resource type="Script" uid="uid://bb6uk8kjulgnp" path="res://scenes/relative_motion/relative_motion.gd" id="1_kxshb"]
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/wagon/wagon.tscn" id="1_qtbu6"]
 [ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/scenery/scenery.tscn" id="2_rumb4"]
 
-[node name="RelativeMotion" type="Node3D"]
+[node name="RelativeMotion" type="Node3D" node_paths=PackedStringArray("wagon", "wheel_1", "wheel_2", "wheel_3", "wheel_4")]
+script = ExtResource("1_kxshb")
+wagon = NodePath("Scenery/Wagon")
+wheel_1 = NodePath("Scenery/Wagon/Wheels/Wheel1")
+wheel_2 = NodePath("Scenery/Wagon/Wheels/Wheel2")
+wheel_3 = NodePath("Scenery/Wagon/Wheels/Wheel3")
+wheel_4 = NodePath("Scenery/Wagon/Wheels/Wheel4")
 
 [node name="Scenery" parent="." instance=ExtResource("2_rumb4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
@@ -14,3 +21,5 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 4, 10)
 fov = 90.0
+
+[editable path="Scenery/Wagon"]
