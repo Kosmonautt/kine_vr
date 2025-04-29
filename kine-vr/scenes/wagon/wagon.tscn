@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c3lq5bjmdnjbf" path="res://assets/kenney_prototype-textures/PNG/Purple/texture_05.png" id="2_6wpp6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_krpfv"]
-size = Vector3(2, 0.15, 2.5)
+size = Vector3(2, 0.15, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wpp6"]
 transparency = 1
@@ -11,7 +11,7 @@ albedo_color = Color(1, 1, 1, 0.156863)
 
 [sub_resource type="BoxMesh" id="BoxMesh_krpfv"]
 material = SubResource("StandardMaterial3D_6wpp6")
-size = Vector3(2, 0.15, 2.5)
+size = Vector3(2, 0.15, 3)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68lq8"]
 albedo_texture = ExtResource("2_6wpp6")
