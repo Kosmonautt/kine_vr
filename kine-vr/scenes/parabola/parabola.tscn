@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=15 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_j2chm"]
 [ext_resource type="Script" uid="uid://bwixhl1gcv3qf" path="res://scenes/parabola/scenery.gd" id="2_oi5j8"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/controller/controller.tscn" id="5_04ykf"]
 [ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://scenes/parabola/pivot.gd" id="5_v4dxv"]
 [ext_resource type="PackedScene" uid="uid://0etylgnnbicm" path="res://scenes/controller/scenery_controller.tscn" id="6_2fupf"]
-[ext_resource type="Script" uid="uid://dj7n2q4j6ogv5" path="res://scenes/parabola/projectile_projection.gd" id="6_im3vq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
 size = Vector3(20, 8, 6)
@@ -68,17 +67,6 @@ direction = NodePath("Direction")
 direction_mesh = NodePath("Direction/MeshInstance3D")
 projectile = NodePath("../Projectile")
 
-[node name="ProjectileProjectionZX" parent="." node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
-script = ExtResource("6_im3vq")
-projectile = NodePath("../Projectile")
-mode = 2
-
-[node name="ProjectileProjectionXY" parent="." node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 0)
-script = ExtResource("6_im3vq")
-projectile = NodePath("../Projectile")
-
 [node name="Controller" parent="." instance=ExtResource("5_04ykf")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.5, 0, 7)
 
@@ -87,6 +75,15 @@ transform = Transform3D(0.365998, 0.906308, -0.211309, -0.5, 0, -0.866025, -0.78
 
 [node name="GrabPointHandRight" parent="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HingeBody/MeshInstance3D" index="1"]
 transform = Transform3D(-0.540992, -0.831012, -0.129409, 0.469846, -0.17101, -0.866025, 0.697547, -0.529316, 0.482963, -0.04, 0.075, -0.045)
+
+[node name="ProjectileProjection" parent="." node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 0)
+projectile = NodePath("../Projectile")
+
+[node name="ProjectileProjection2" parent="." node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+projectile = NodePath("../Projectile")
+mode = 2
 
 [node name="SceneryController" parent="." instance=ExtResource("6_2fupf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
