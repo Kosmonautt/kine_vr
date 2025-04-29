@@ -14,8 +14,8 @@ var radius: float = 0.125
 var angular_speed: float = linear_speed / radius
 
 func _ready() -> void:
-	wagon.set_linear_velocity(Vector3(0.0, 0.0, linear_speed))
-	projectile.set_linear_velocity(Vector3(0.0, 0.0, linear_speed))
+	wagon.set_linear_velocity(Vector3(linear_speed, 0.0, 0.0))
+	projectile.set_linear_velocity(Vector3(linear_speed, 0.0, 0.0))
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
