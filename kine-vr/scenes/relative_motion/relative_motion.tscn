@@ -27,7 +27,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 [node name="Boundary" type="Area3D" parent="Scenery"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 collision_layer = 0
-collision_mask = 2
+collision_mask = 2147483648
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Boundary"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -0.5)
@@ -39,13 +39,12 @@ shape = SubResource("BoxShape3D_kxshb")
 
 [node name="Wagon" parent="Scenery" instance=ExtResource("1_qtbu6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 0, 3)
-collision_layer = 2
-collision_mask = 0
+collision_layer = 2147483648
 
 [node name="Projectile" parent="Scenery/Wagon" instance=ExtResource("4_7on3u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 collision_layer = 0
-collision_mask = 2
+collision_mask = 2147483648
 physics_material_override = SubResource("PhysicsMaterial_7on3u")
 
 [node name="ProjectileProjection" parent="Scenery/Wagon" node_paths=PackedStringArray("projectile") instance=ExtResource("5_adyim")]

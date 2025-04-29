@@ -34,6 +34,8 @@ material = SubResource("StandardMaterial3D_1svnm")
 size = Vector2(3, 4)
 
 [node name="Wagon" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.0
 linear_damp_mode = 1
 
