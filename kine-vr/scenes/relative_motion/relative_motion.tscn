@@ -58,10 +58,6 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.5, 2
 projectile = NodePath("../Projectile")
 mode = 1
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 4, 10)
-fov = 90.0
-
 [connection signal="body_entered" from="Scenery/Boundary" to="." method="_on_boundary_body_entered"]
 
 [editable path="Scenery/Wagon"]
