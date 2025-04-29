@@ -21,3 +21,8 @@ func _process(delta) -> void:
 	wheel_2.rotate_x(angular_speed * delta)
 	wheel_3.rotate_x(angular_speed * delta)
 	wheel_4.rotate_x(angular_speed * delta)
+
+
+func _on_boundary_body_entered(body: Node3D) -> void:
+	if body == wagon:
+		wagon.set_position(Vector3(1.5, 0.0, 3.0))
