@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://10gt8y7a3au2"]
 
-[ext_resource type="PackedScene" uid="uid://bdivnb586x0gf" path="res://scenes/interactables/lever.tscn" id="1_0x6nu"]
-[ext_resource type="PackedScene" uid="uid://buwtt0qxxv75y" path="res://scenes/button/button.tscn" id="2_r0o73"]
+[ext_resource type="PackedScene" uid="uid://bdivnb586x0gf" path="res://scenes/utils/interactables/lever.tscn" id="1_0x6nu"]
+[ext_resource type="PackedScene" uid="uid://buwtt0qxxv75y" path="res://scenes/utils/interactables/button.tscn" id="2_r0o73"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e06ql"]
 transparency = 1

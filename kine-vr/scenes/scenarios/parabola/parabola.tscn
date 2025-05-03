@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_j2chm"]
-[ext_resource type="Script" uid="uid://bwixhl1gcv3qf" path="res://scenes/parabola/scenery.gd" id="2_oi5j8"]
-[ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/projectile/projectile.tscn" id="2_xhc3r"]
-[ext_resource type="Script" uid="uid://b57k5ijliqvi0" path="res://scenes/parabola/projectile.gd" id="3_julcx"]
-[ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/projectile_projection/projectile_projection.tscn" id="4_5igir"]
-[ext_resource type="PackedScene" uid="uid://qlto2rluch77" path="res://scenes/pivot/pivot.tscn" id="4_im3vq"]
-[ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/controller/controller.tscn" id="5_04ykf"]
-[ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://scenes/parabola/pivot.gd" id="5_v4dxv"]
-[ext_resource type="PackedScene" uid="uid://0etylgnnbicm" path="res://scenes/controller/scenery_controller.tscn" id="6_2fupf"]
+[ext_resource type="Script" uid="uid://bwixhl1gcv3qf" path="res://scenes/scenarios/parabola/scenery.gd" id="2_oi5j8"]
+[ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="2_xhc3r"]
+[ext_resource type="Script" uid="uid://b57k5ijliqvi0" path="res://scenes/scenarios/parabola/projectile.gd" id="3_julcx"]
+[ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/utils/projectile_projection/projectile_projection.tscn" id="4_5igir"]
+[ext_resource type="PackedScene" uid="uid://qlto2rluch77" path="res://scenes/utils/pivot.tscn" id="4_im3vq"]
+[ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/utils/controller/controller.tscn" id="5_04ykf"]
+[ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://scenes/scenarios/parabola/pivot.gd" id="5_v4dxv"]
+[ext_resource type="PackedScene" uid="uid://0etylgnnbicm" path="res://scenes/utils/controller/scenery_controller.tscn" id="6_2fupf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
 size = Vector3(20, 8, 6)

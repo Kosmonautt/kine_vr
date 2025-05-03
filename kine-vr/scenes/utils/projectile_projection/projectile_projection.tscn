@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://buss7ukafa06w"]
 
-[ext_resource type="Script" uid="uid://cfvigohc8fu0u" path="res://scenes/projectile_projection/projectile_projection.gd" id="1_hunse"]
+[ext_resource type="Script" uid="uid://cfvigohc8fu0u" path="res://scenes/utils/projectile_projection/projectile_projection.gd" id="1_hunse"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1rv4l"]
 disable_receive_shadows = true
