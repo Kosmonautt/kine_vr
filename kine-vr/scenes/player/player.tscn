@@ -19,9 +19,6 @@ tracker = &"left_hand"
 
 [node name="LeftPhysicsHand" parent="LeftHand" instance=ExtResource("1_dqkch")]
 
-[node name="FunctionTeleport" parent="LeftHand" instance=ExtResource("2_dqkch")]
-teleport_button_action = "by_button"
-
 [node name="MovementDirect" parent="LeftHand" instance=ExtResource("4_tuyoq")]
 strafe = true
 
@@ -36,6 +33,10 @@ tracker = &"right_hand"
 
 [node name="MovementTurn" parent="RightHand" instance=ExtResource("3_tuyoq")]
 turn_mode = 1
+
+[node name="FunctionTeleport" parent="RightHand" instance=ExtResource("2_dqkch")]
+teleport_button_action = "by_button"
+rotation_action = "none"
 
 [node name="FunctionPickup" parent="RightHand" instance=ExtResource("5_fjrip")]
 ranged_enable = false
