@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnk6ayhk71ay"]
+[gd_scene load_steps=9 format=3 uid="uid://cnk6ayhk71ay"]
 
 [ext_resource type="PackedScene" uid="uid://b8hc2ex21u8xj" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_physics_fullglove_low.tscn" id="1_dqkch"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="2_dqkch"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="3_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="4_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="5_fjrip"]
+[ext_resource type="Script" uid="uid://drwgrsiips70j" path="res://addons/godot-xr-tools/functions/movement_sprint.gd" id="7_qek5x"]
 
 [node name="Player" type="XROrigin3D"]
 
@@ -40,6 +41,10 @@ rotation_action = "none"
 
 [node name="FunctionPickup" parent="RightHand" instance=ExtResource("5_fjrip")]
 ranged_enable = false
+
+[node name="XRToolsMovementSprint" type="Node" parent="." groups=["movement_providers"]]
+script = ExtResource("7_qek5x")
+metadata/_custom_type_script = "uid://drwgrsiips70j"
 
 [node name="PlayerBody" parent="." instance=ExtResource("3_qhqgy")]
 player_calibrate_height = false
