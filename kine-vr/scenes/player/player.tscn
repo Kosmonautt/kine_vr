@@ -21,6 +21,7 @@ tracker = &"left_hand"
 [node name="LeftPhysicsHand" parent="LeftHand" instance=ExtResource("1_dqkch")]
 
 [node name="MovementDirect" parent="LeftHand" instance=ExtResource("4_tuyoq")]
+max_speed = 1.5
 strafe = true
 
 [node name="FunctionPickup" parent="LeftHand" instance=ExtResource("5_fjrip")]
