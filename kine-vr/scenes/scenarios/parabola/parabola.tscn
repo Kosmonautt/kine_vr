@@ -35,7 +35,7 @@ size = Vector2(20, 8)
 
 [node name="Scenery" type="Area3D" parent="." node_paths=PackedStringArray("wall", "floor_n", "collision")]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 16777216
 script = ExtResource("2_oi5j8")
 wall = NodePath("Mesh/Wall")
 floor_n = NodePath("Mesh/Floor")
@@ -57,6 +57,7 @@ mesh = SubResource("PlaneMesh_abopq")
 
 [node name="Projectile" parent="." node_paths=PackedStringArray("direction_mesh") instance=ExtResource("2_xhc3r")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1, 4)
+collision_layer = 16777216
 script = ExtResource("3_julcx")
 direction_mesh = NodePath("../Pivot/Direction/MeshInstance3D")
 
