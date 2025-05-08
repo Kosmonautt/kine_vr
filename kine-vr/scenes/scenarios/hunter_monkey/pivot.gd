@@ -12,7 +12,7 @@ func _on_interactable_lever_theta_hinge_moved(angle: Variant) -> void:
 	var percentage: float = smoothstep(45.0, -45.0, angle)
 	
 	# number [0.0, 1.0] transformed to [-PI/2, PI/2] radians
-	var theta: float = lerp(-PI/2, PI/2, percentage)
+	var theta: float = lerp(0.0, PI/2, percentage)
 	
 	# set z rotation angle
 	direction.rotation.z = theta
