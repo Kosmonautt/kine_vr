@@ -26,6 +26,15 @@ mesh = SubResource("CylinderMesh_irqos")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Base/StaticBody3D"]
 shape = SubResource("CylinderShape3D_irqos")
 
+[node name="Top" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("CylinderMesh_irqos")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Top"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Top/StaticBody3D"]
+shape = SubResource("CylinderShape3D_irqos")
+
 [node name="TeleportArea" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportArea"]
