@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnisjpdmd6po1"]
+[gd_scene load_steps=14 format=3 uid="uid://bnisjpdmd6po1"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_xop3s"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="2_83fnu"]
@@ -33,6 +33,12 @@ size = Vector3(15, 5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m1cnh"]
 size = Vector3(15, 5, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_83fnu"]
+bounce = 1.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xsfa6"]
+bounce = 1.0
 
 [node name="Monetum" type="Node3D"]
 
@@ -78,13 +84,15 @@ shape = SubResource("BoxShape3D_m1cnh")
 [node name="Projectile" parent="." instance=ExtResource("2_83fnu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 1.5)
 collision_mask = 2
-mass = 7.0
+physics_material_override = SubResource("PhysicsMaterial_83fnu")
 gravity_scale = 0.0
-linear_velocity = Vector3(1, 0, 0)
+linear_velocity = Vector3(5, 0, 0)
 
 [node name="Projectile2" parent="." instance=ExtResource("2_83fnu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 1.5)
 collision_mask = 2
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_xsfa6")
 gravity_scale = 0.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
