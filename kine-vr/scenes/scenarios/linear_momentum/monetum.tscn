@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnisjpdmd6po1"]
+[gd_scene load_steps=11 format=3 uid="uid://bnisjpdmd6po1"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_xop3s"]
 
@@ -19,6 +19,19 @@ material = SubResource("StandardMaterial3D_xop3s")
 size = Vector2(15, 2.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xop3s"]
+size = Vector3(1, 5, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_83fnu"]
+size = Vector3(15, 1, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xsfa6"]
+size = Vector3(15, 1, 2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8rtgg"]
+size = Vector3(15, 5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m1cnh"]
+size = Vector3(15, 5, 1)
 
 [node name="Monetum" type="Node3D"]
 
@@ -45,16 +58,16 @@ shape = SubResource("BoxShape3D_xop3s")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Scenery/Border"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-shape = SubResource("BoxShape3D_xop3s")
+shape = SubResource("BoxShape3D_83fnu")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Scenery/Border"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
-shape = SubResource("BoxShape3D_xop3s")
+shape = SubResource("BoxShape3D_xsfa6")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="Scenery/Border"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.75)
-shape = SubResource("BoxShape3D_xop3s")
+shape = SubResource("BoxShape3D_8rtgg")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="Scenery/Border"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.75)
-shape = SubResource("BoxShape3D_xop3s")
+shape = SubResource("BoxShape3D_m1cnh")
