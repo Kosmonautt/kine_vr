@@ -75,9 +75,11 @@ shape = SubResource("BoxShape3D_m1cnh")
 
 [node name="Projectile" parent="." instance=ExtResource("2_83fnu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 1.5)
+gravity_scale = 0.0
 
 [node name="Projectile2" parent="." instance=ExtResource("2_83fnu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 1.5)
+gravity_scale = 0.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 7.5, 3.5, 6.5)
