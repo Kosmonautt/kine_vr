@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnisjpdmd6po1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_26b1m"]
+size = Vector3(15, 5, 2.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_26b1m"]
+size = Vector2(15, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xop3s"]
+size = Vector2(15, 2.5)
+
+[node name="Monetum" type="Node3D"]
+
+[node name="Scenery" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 1.25)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery"]
+shape = SubResource("BoxShape3D_26b1m")
+
+[node name="Wall" type="MeshInstance3D" parent="Scenery"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1.25)
+mesh = SubResource("PlaneMesh_26b1m")
+
+[node name="Floor" type="MeshInstance3D" parent="Scenery"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
+mesh = SubResource("PlaneMesh_xop3s")
