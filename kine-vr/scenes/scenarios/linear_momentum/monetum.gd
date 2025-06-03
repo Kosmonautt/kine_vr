@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 	var p1ke: float = (projectile1.get_mass() * pow(projectile1.linear_velocity.length(), 2) )/2
 	var p2ke: float = (projectile2.get_mass() * pow(projectile2.linear_velocity.length(), 2) )/2
 	var p1gpe: float = projectile1.get_mass() * 9.8 * (projectile1.get_position().y - 0.5) 
-	var p2gpe: float = projectile2.get_mass() * 9.8 * (projectile1.get_position().y - 0.5)
+	var p2gpe: float = projectile2.get_mass() * 9.8 * (projectile2.get_position().y - 0.5)
 	var message: String = message_format % [p1momentum, p2momentum, p1momentum + p2momentum, p1ke + p1gpe]
 	var energy_message: String = energy_format % [p1ke, p1gpe, p1ke + p1gpe]
 	
