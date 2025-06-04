@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dg8fy7pyqqur8"]
 
-[ext_resource type="Script" uid="uid://bb6uk8kjulgnp" path="res://scenes/scenarios/relative_motion/relative_motion.gd" id="1_kxshb"]
-[ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/scenarios/relative_motion/wagon.tscn" id="1_qtbu6"]
+[ext_resource type="Script" uid="uid://bb6uk8kjulgnp" path="res://scenes/relative_motion/relative_motion.gd" id="1_kxshb"]
+[ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_qtbu6"]
 [ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/utils/scenery.tscn" id="2_rumb4"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="4_7on3u"]
 [ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/utils/projectile_projection/projectile_projection.tscn" id="5_adyim"]

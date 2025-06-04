@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bnisjpdmd6po1"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_xop3s"]
-[ext_resource type="Script" uid="uid://fqe6i7kthpig" path="res://scenes/scenarios/linear_momentum/monetum.gd" id="1_xsfa6"]
+[ext_resource type="Script" uid="uid://fqe6i7kthpig" path="res://scenes/linear_momentum/monetum.gd" id="1_xsfa6"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="2_83fnu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83fnu"]
