@@ -13,9 +13,25 @@ extends Node3D
 var radius: float = 0.125
 var angular_speed: float = linear_speed / radius
 
+var xr_interface: XRInterface
+
 func _ready() -> void:
 	wagon.set_linear_velocity(Vector3(linear_speed, 0.0, 0.0))
 	projectile.set_linear_velocity(Vector3(linear_speed, 0.0, 0.0))
+
+	Engine.max_fps = 90
+	
+	xr_interface = XRServer.find_interface("OpenXR")
+	if xr_interface and xr_interface.is_initialized():
+		print("OpenXR initialized successfully")
+
+		# Turn off v-sync!
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+
+		# Change our main viewport to output to the HMD
+		get_viewport().use_xr = true
+	else:
+		print("OpenXR not initialized, please check if your headset is connected")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
