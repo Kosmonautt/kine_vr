@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dg8fy7pyqqur8"]
+[gd_scene load_steps=9 format=3 uid="uid://dg8fy7pyqqur8"]
 
 [ext_resource type="Script" uid="uid://bb6uk8kjulgnp" path="res://scenes/relative_motion/relative_motion.gd" id="1_kxshb"]
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_qtbu6"]
 [ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/utils/scenery.tscn" id="2_rumb4"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="4_7on3u"]
 [ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/utils/projectile_projection/projectile_projection.tscn" id="5_adyim"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_adyim"]
+size = Vector3(250, 1, 250)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxshb"]
 size = Vector3(6, 2, 1)
@@ -20,6 +23,12 @@ wheel_1 = NodePath("Scenery/Wagon/Wheels/Wheel1")
 wheel_2 = NodePath("Scenery/Wagon/Wheels/Wheel2")
 wheel_3 = NodePath("Scenery/Wagon/Wheels/Wheel3")
 wheel_4 = NodePath("Scenery/Wagon/Wheels/Wheel4")
+
+[node name="Floot" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_adyim")
 
 [node name="Scenery" parent="." instance=ExtResource("2_rumb4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
