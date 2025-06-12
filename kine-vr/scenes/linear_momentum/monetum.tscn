@@ -1,8 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bnisjpdmd6po1"]
+[gd_scene load_steps=16 format=3 uid="uid://bnisjpdmd6po1"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_xop3s"]
 [ext_resource type="Script" uid="uid://fqe6i7kthpig" path="res://scenes/linear_momentum/monetum.gd" id="1_xsfa6"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="2_83fnu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rf48c"]
+size = Vector3(250, 1, 250)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83fnu"]
 albedo_texture = ExtResource("1_xop3s")
@@ -45,6 +48,12 @@ bounce = 1.0
 script = ExtResource("1_xsfa6")
 projectile1 = NodePath("Projectile")
 projectile2 = NodePath("Projectile2")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_rf48c")
 
 [node name="Scenery" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 1.25)
