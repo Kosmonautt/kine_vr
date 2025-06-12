@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://5ph2vjph6j01"]
+
+[ext_resource type="Script" uid="uid://dovkkapc1kkdj" path="res://scenes/utils/teleporter/teleporter.gd" id="1_knkxw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cseux"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_cseux"]
+
+[node name="Teleporter" type="Node3D"]
+script = ExtResource("1_knkxw")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 524288
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_cseux")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+mesh = SubResource("SphereMesh_cseux")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
