@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=18 format=3 uid="uid://d0cykuljffr0m"]
 
+[ext_resource type="Script" uid="uid://bc6a0jfhlnlmw" path="res://scenes/parabola/parabola.gd" id="1_j2chm"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_j2chm"]
 [ext_resource type="Script" uid="uid://bwixhl1gcv3qf" path="res://scenes/parabola/scenery.gd" id="2_oi5j8"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="2_xhc3r"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/utils/controller/controller.tscn" id="5_04ykf"]
 [ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://scenes/parabola/pivot.gd" id="5_v4dxv"]
 [ext_resource type="PackedScene" uid="uid://0etylgnnbicm" path="res://scenes/utils/controller/scenery_controller.tscn" id="6_2fupf"]
+[ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="10_oi5j8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_im3vq"]
 size = Vector3(260, 1, 250)
@@ -35,6 +37,7 @@ material = SubResource("StandardMaterial3D_abopq")
 size = Vector2(20, 8)
 
 [node name="Parabola" type="Node3D"]
+script = ExtResource("1_j2chm")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -98,6 +101,9 @@ mode = 2
 [node name="SceneryController" parent="." instance=ExtResource("6_2fupf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
 visible = false
+
+[node name="Player" parent="." instance=ExtResource("10_oi5j8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 10)
 
 [connection signal="body_exited" from="Scenery" to="Projectile" method="_on_scenery_body_exited"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_theta_hinge_moved"]
