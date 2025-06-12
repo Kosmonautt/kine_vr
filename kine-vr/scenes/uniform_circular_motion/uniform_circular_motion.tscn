@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dffrcd63007q7"]
+[gd_scene load_steps=12 format=3 uid="uid://dffrcd63007q7"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_6p47d"]
 [ext_resource type="PackedScene" uid="uid://dtvq8tpe31emx" path="res://scenes/uniform_circular_motion/rotor.tscn" id="2_tj3cp"]
 [ext_resource type="Script" uid="uid://6528gx0ttpoy" path="res://scenes/uniform_circular_motion/rotor.gd" id="3_mqfbx"]
 [ext_resource type="PackedScene" uid="uid://dnr37vvwt2rxo" path="res://scenes/utils/interactables/slider.tscn" id="4_6d6dl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6d6dl"]
+size = Vector3(25, 1, 25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abopq"]
 albedo_texture = ExtResource("1_6p47d")
@@ -34,6 +37,12 @@ size = Vector3(1.5, 0.5, 0.05)
 
 [node name="UniformCircularMotion" type="Node3D"]
 
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_6d6dl")
+
 [node name="Wall" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4, 4, 0)
 mesh = SubResource("PlaneMesh_abopq")
@@ -43,9 +52,6 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.00034, 4, 0.001)
 script = ExtResource("3_mqfbx")
 blade = NodePath("Blade")
-
-[node name="Blade" parent="Rotor" index="0"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 4, 3)
