@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://df7s2w6t06bpu"]
+[gd_scene load_steps=22 format=3 uid="uid://df7s2w6t06bpu"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_ep48d"]
 [ext_resource type="Script" uid="uid://b1hh1rlyn7f4d" path="res://scenes/hunter_monkey/scenery.gd" id="2_6k4wf"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://bdivnb586x0gf" path="res://scenes/utils/interactables/lever.tscn" id="8_6ykcc"]
 [ext_resource type="PackedScene" uid="uid://dnr37vvwt2rxo" path="res://scenes/utils/interactables/slider.tscn" id="9_b2vc3"]
 [ext_resource type="PackedScene" uid="uid://buwtt0qxxv75y" path="res://scenes/utils/interactables/button.tscn" id="9_pmmic"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pmmic"]
+size = Vector3(250, 1, 250)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
 size = Vector3(20, 8, 6)
@@ -52,6 +55,12 @@ material = SubResource("StandardMaterial3D_eq701")
 size = Vector3(1.5, 0.5, 0.05)
 
 [node name="HunterMonkey" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_pmmic")
 
 [node name="Scenery" type="Area3D" parent="." node_paths=PackedStringArray("wall", "floor_n", "collision")]
 collision_layer = 0
