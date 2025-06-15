@@ -28,6 +28,10 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
 import/blender/enabled=false
 
+[global_group]
+
+"Player Controller"="Represents XR and non XR player controller"
+
 [layer_names]
 
 3d_physics/layer_1="Static World"
