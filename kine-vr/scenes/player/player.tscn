@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="5_fjrip"]
 [ext_resource type="Script" uid="uid://drwgrsiips70j" path="res://addons/godot-xr-tools/functions/movement_sprint.gd" id="7_qek5x"]
 
-[node name="Player" type="XROrigin3D"]
+[node name="Player" type="XROrigin3D" groups=["player_body"]]
 
 [node name="Head" type="XRCamera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
