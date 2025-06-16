@@ -37,11 +37,11 @@ script = ExtResource("1_yyfjg")
 [node name="Boundary" type="StaticBody3D" parent="."]
 collision_layer = 2
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Boundary"]
+[node name="FloorMesh" type="MeshInstance3D" parent="Boundary"]
 mesh = SubResource("PlaneMesh_p1ady")
 skeleton = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
+[node name="FloorCollision" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_lttkb")
 
