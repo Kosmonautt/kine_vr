@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="10_oi5j8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_im3vq"]
-size = Vector3(260, 1, 250)
+size = Vector3(115, 1, 115)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
 size = Vector3(20, 8, 6)
@@ -46,6 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_im3vq")
 
 [node name="Scenery" type="Area3D" parent="." node_paths=PackedStringArray("wall", "floor_n", "collision")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -57)
 collision_layer = 0
 collision_mask = 16777216
 script = ExtResource("2_oi5j8")
@@ -67,21 +68,30 @@ mesh = SubResource("PlaneMesh_doxax")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 4, 0)
 mesh = SubResource("PlaneMesh_abopq")
 
-[node name="Projectile" parent="." node_paths=PackedStringArray("direction_mesh") instance=ExtResource("2_xhc3r")]
+[node name="Projectile" parent="Scenery" node_paths=PackedStringArray("direction_mesh") instance=ExtResource("2_xhc3r")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1, 4)
 collision_layer = 16777216
 script = ExtResource("3_julcx")
 direction_mesh = NodePath("../Pivot/Direction/MeshInstance3D")
 
-[node name="Pivot" parent="." node_paths=PackedStringArray("direction", "direction_mesh", "projectile") instance=ExtResource("4_im3vq")]
+[node name="Pivot" parent="Scenery" node_paths=PackedStringArray("direction", "direction_mesh", "projectile") instance=ExtResource("4_im3vq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 4)
 script = ExtResource("5_v4dxv")
 direction = NodePath("Direction")
 direction_mesh = NodePath("Direction/MeshInstance3D")
 projectile = NodePath("../Projectile")
 
+[node name="ProjectileProjection" parent="Scenery" node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 0)
+projectile = NodePath("../Projectile")
+
+[node name="ProjectileProjection2" parent="Scenery" node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+projectile = NodePath("../Projectile")
+mode = 2
+
 [node name="Controller" parent="." instance=ExtResource("5_04ykf")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.5, 0, 7)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55, 0, -50)
 
 [node name="GrabPointHandLeft" parent="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HingeBody/MeshInstance3D" index="0"]
 transform = Transform3D(0.365998, 0.906308, -0.211309, -0.5, 0, -0.866025, -0.784886, 0.422618, 0.453154, 0.04, 0.075, 0)
@@ -89,31 +99,22 @@ transform = Transform3D(0.365998, 0.906308, -0.211309, -0.5, 0, -0.866025, -0.78
 [node name="GrabPointHandRight" parent="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HingeBody/MeshInstance3D" index="1"]
 transform = Transform3D(-0.540992, -0.831012, -0.129409, 0.469846, -0.17101, -0.866025, 0.697547, -0.529316, 0.482963, -0.04, 0.075, -0.045)
 
-[node name="ProjectileProjection" parent="." node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 0)
-projectile = NodePath("../Projectile")
-
-[node name="ProjectileProjection2" parent="." node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
-projectile = NodePath("../Projectile")
-mode = 2
-
 [node name="SceneryController" parent="." instance=ExtResource("6_2fupf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -45)
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("10_oi5j8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0.001, -48)
 
-[connection signal="body_exited" from="Scenery" to="Projectile" method="_on_scenery_body_exited"]
-[connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_theta_hinge_moved"]
-[connection signal="hinge_moved" from="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_phi_hinge_moved"]
-[connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Projectile" method="_on_interactable_area_button_button_pressed"]
+[connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
+[connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
+[connection signal="hinge_moved" from="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_phi_hinge_moved"]
+[connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Scenery/Projectile" method="_on_interactable_area_button_button_pressed"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_x_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_y_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_z_slider_moved"]
 
-[editable path="Pivot"]
+[editable path="Scenery/Pivot"]
 [editable path="Controller"]
 [editable path="Controller/Pole/Panel/LeverTheta"]
 [editable path="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever/HandleOrigin"]
