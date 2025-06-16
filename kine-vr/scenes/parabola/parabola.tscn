@@ -1,10 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=23 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Script" uid="uid://bc6a0jfhlnlmw" path="res://scenes/parabola/parabola.gd" id="1_j2chm"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_j2chm"]
+[ext_resource type="Texture2D" uid="uid://x5vvcnocsuc6" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_diff_1k.jpg" id="2_k51ul"]
 [ext_resource type="Script" uid="uid://bwixhl1gcv3qf" path="res://scenes/parabola/scenery.gd" id="2_oi5j8"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="2_xhc3r"]
 [ext_resource type="Script" uid="uid://b57k5ijliqvi0" path="res://scenes/parabola/projectile.gd" id="3_julcx"]
+[ext_resource type="Texture2D" uid="uid://dn8cftxp6snf4" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_nor_gl_1k.jpg" id="3_k7fxw"]
+[ext_resource type="Texture2D" uid="uid://bgrpvpbvr3gnp" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_rough_1k.jpg" id="3_rsm2s"]
 [ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/utils/projectile_projection/projectile_projection.tscn" id="4_5igir"]
 [ext_resource type="PackedScene" uid="uid://qlto2rluch77" path="res://scenes/utils/pivot.tscn" id="4_im3vq"]
 [ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/utils/controller/controller.tscn" id="5_04ykf"]
@@ -14,6 +17,17 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_im3vq"]
 size = Vector3(115, 1, 115)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rsm2s"]
+albedo_texture = ExtResource("2_k51ul")
+roughness_texture = ExtResource("3_rsm2s")
+normal_enabled = true
+normal_texture = ExtResource("3_k7fxw")
+uv1_scale = Vector3(115, 115, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j2chm"]
+material = SubResource("StandardMaterial3D_rsm2s")
+size = Vector2(115, 115)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
 size = Vector3(20, 8, 6)
@@ -41,12 +55,15 @@ script = ExtResource("1_j2chm")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
+[node name="FloorCollision" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_im3vq")
 
+[node name="FloorMesh" type="MeshInstance3D" parent="Boundary"]
+mesh = SubResource("PlaneMesh_j2chm")
+
 [node name="Scenery" type="Area3D" parent="." node_paths=PackedStringArray("wall", "floor_n", "collision")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -57)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0.001, -57)
 collision_layer = 0
 collision_mask = 16777216
 script = ExtResource("2_oi5j8")
