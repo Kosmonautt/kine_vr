@@ -12,15 +12,15 @@ albedo_texture = ExtResource("2_b1x3f")
 roughness_texture = ExtResource("4_ouso4")
 normal_enabled = true
 normal_texture = ExtResource("3_a8run")
-uv1_scale = Vector3(200, 200, 200)
+uv1_scale = Vector3(25, 25, 1)
 uv1_offset = Vector3(1, 0.8, 0)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p1ady"]
 material = SubResource("StandardMaterial3D_fiu1y")
-size = Vector2(250, 250)
+size = Vector2(25, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lttkb"]
-size = Vector3(250, 1, 250)
+size = Vector3(25, 1, 25)
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ho35x"]
 
