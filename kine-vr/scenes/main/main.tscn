@@ -49,19 +49,19 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_lttkb")
 
-[node name="Wall1" type="CollisionShape3D" parent="Boundary"]
+[node name="Wall1Collision" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 13)
 shape = SubResource("BoxShape3D_ow5a4")
 
-[node name="Wall2" type="CollisionShape3D" parent="Boundary"]
+[node name="Wall2Collision" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -13)
 shape = SubResource("BoxShape3D_ow5a4")
 
-[node name="Wall3" type="CollisionShape3D" parent="Boundary"]
+[node name="Wall3Collision" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13, 5, 0)
 shape = SubResource("BoxShape3D_ow5a4")
 
-[node name="Wall4" type="CollisionShape3D" parent="Boundary"]
+[node name="Wall4Collision" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13, 5, 0)
 shape = SubResource("BoxShape3D_ow5a4")
 
