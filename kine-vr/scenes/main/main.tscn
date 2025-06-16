@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://xobnjksj76nj"]
+[gd_scene load_steps=15 format=3 uid="uid://xobnjksj76nj"]
 
 [ext_resource type="Script" uid="uid://220qqx46024i" path="res://scenes/main/main.gd" id="1_yyfjg"]
 [ext_resource type="Texture2D" uid="uid://x5vvcnocsuc6" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_diff_1k.jpg" id="2_b1x3f"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bgrpvpbvr3gnp" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_rough_1k.jpg" id="4_ouso4"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="5_blune"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="6_ow5a4"]
+[ext_resource type="PackedScene" uid="uid://d0cykuljffr0m" path="res://scenes/parabola/parabola.tscn" id="7_hujxm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fiu1y"]
 albedo_texture = ExtResource("2_b1x3f")
@@ -77,3 +78,4 @@ environment = SubResource("Environment_w3hm3")
 
 [node name="Teleporter" parent="." instance=ExtResource("6_ow5a4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+packed_scene = ExtResource("7_hujxm")
