@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=27 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Script" uid="uid://bc6a0jfhlnlmw" path="res://scenes/parabola/parabola.gd" id="1_j2chm"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_j2chm"]
@@ -52,6 +52,15 @@ disable_receive_shadows = true
 [sub_resource type="PlaneMesh" id="PlaneMesh_abopq"]
 material = SubResource("StandardMaterial3D_abopq")
 size = Vector2(20, 8)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_k7fxw"]
+
+[sub_resource type="Sky" id="Sky_k7fxw"]
+sky_material = SubResource("PhysicalSkyMaterial_k7fxw")
+
+[sub_resource type="Environment" id="Environment_k7fxw"]
+background_mode = 2
+sky = SubResource("Sky_k7fxw")
 
 [node name="Parabola" type="Node3D"]
 script = ExtResource("1_j2chm")
@@ -145,6 +154,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0.001, -48)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k7fxw")
 
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
