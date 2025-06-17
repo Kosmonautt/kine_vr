@@ -1,14 +1,28 @@
-[gd_scene load_steps=14 format=3 uid="uid://dffrcd63007q7"]
+[gd_scene load_steps=19 format=3 uid="uid://dffrcd63007q7"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_6p47d"]
 [ext_resource type="Script" uid="uid://dyn2iuog4gaie" path="res://scenes/uniform_circular_motion/uniform_circular_motion.gd" id="1_qhga1"]
 [ext_resource type="PackedScene" uid="uid://dtvq8tpe31emx" path="res://scenes/uniform_circular_motion/rotor.tscn" id="2_tj3cp"]
+[ext_resource type="Texture2D" uid="uid://x5vvcnocsuc6" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_diff_1k.jpg" id="2_wmc2b"]
+[ext_resource type="Texture2D" uid="uid://bgrpvpbvr3gnp" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_rough_1k.jpg" id="3_5p8r0"]
 [ext_resource type="Script" uid="uid://6528gx0ttpoy" path="res://scenes/uniform_circular_motion/rotor.gd" id="3_mqfbx"]
+[ext_resource type="Texture2D" uid="uid://dn8cftxp6snf4" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_nor_gl_1k.jpg" id="3_qfw4u"]
 [ext_resource type="PackedScene" uid="uid://dnr37vvwt2rxo" path="res://scenes/utils/interactables/slider.tscn" id="4_6d6dl"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="5_kaps1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6d6dl"]
 size = Vector3(25, 1, 25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5p8r0"]
+albedo_texture = ExtResource("2_wmc2b")
+roughness_texture = ExtResource("3_5p8r0")
+normal_enabled = true
+normal_texture = ExtResource("3_qfw4u")
+uv1_scale = Vector3(25, 25, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qhga1"]
+material = SubResource("StandardMaterial3D_5p8r0")
+size = Vector2(25, 25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abopq"]
 albedo_texture = ExtResource("1_6p47d")
@@ -42,9 +56,12 @@ script = ExtResource("1_qhga1")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
+[node name="FloorCollision" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_6d6dl")
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Boundary"]
+mesh = SubResource("PlaneMesh_qhga1")
 
 [node name="Wall" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4, 4, 0)
