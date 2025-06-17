@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=24 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Script" uid="uid://bc6a0jfhlnlmw" path="res://scenes/parabola/parabola.gd" id="1_j2chm"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_j2chm"]
@@ -28,6 +28,9 @@ uv1_scale = Vector3(115, 115, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_j2chm"]
 material = SubResource("StandardMaterial3D_rsm2s")
 size = Vector2(115, 115)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k7fxw"]
+size = Vector3(1, 10, 115)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
 size = Vector3(20, 8, 6)
@@ -61,6 +64,22 @@ shape = SubResource("BoxShape3D_im3vq")
 
 [node name="FloorMesh" type="MeshInstance3D" parent="Boundary"]
 mesh = SubResource("PlaneMesh_j2chm")
+
+[node name="Wall1Collision" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 5, 0)
+shape = SubResource("BoxShape3D_k7fxw")
+
+[node name="Wall1Collision2" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 5, 0)
+shape = SubResource("BoxShape3D_k7fxw")
+
+[node name="Wall1Collision3" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, -58)
+shape = SubResource("BoxShape3D_k7fxw")
+
+[node name="Wall1Collision4" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, 58)
+shape = SubResource("BoxShape3D_k7fxw")
 
 [node name="Scenery" type="Area3D" parent="." node_paths=PackedStringArray("wall", "floor_n", "collision")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0.001, -57)
