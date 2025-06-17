@@ -66,7 +66,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13, 5,
 shape = SubResource("BoxShape3D_ow5a4")
 
 [node name="Player" parent="." instance=ExtResource("5_blune")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 40, 6.5)
@@ -77,5 +77,5 @@ shadow_enabled = true
 environment = SubResource("Environment_w3hm3")
 
 [node name="Teleporter" parent="." instance=ExtResource("6_ow5a4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -7)
 packed_scene = ExtResource("7_hujxm")
