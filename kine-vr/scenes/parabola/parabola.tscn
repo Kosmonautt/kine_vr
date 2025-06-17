@@ -142,6 +142,10 @@ visible = false
 [node name="Player" parent="." instance=ExtResource("10_oi5j8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0.001, -48)
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+shadow_enabled = true
+
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_phi_hinge_moved"]
