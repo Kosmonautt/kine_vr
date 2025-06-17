@@ -29,7 +29,7 @@ uv1_scale = Vector3(115, 115, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_s6tcq"]
 material = SubResource("StandardMaterial3D_s6tcq")
-size = Vector2(115, 155)
+size = Vector2(115, 115)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
 size = Vector3(20, 8, 6)
