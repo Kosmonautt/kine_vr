@@ -105,22 +105,22 @@ mesh = SubResource("PlaneMesh_doxax")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 4, 0)
 mesh = SubResource("PlaneMesh_abopq")
 
-[node name="Projectile" parent="." node_paths=PackedStringArray("direction_mesh") instance=ExtResource("2_pk44x")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 3)
+[node name="Projectile" parent="Scenery" node_paths=PackedStringArray("direction_mesh") instance=ExtResource("2_pk44x")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.001, 3)
 collision_layer = 16777216
 script = ExtResource("3_7qyho")
 direction_mesh = NodePath("../Pivot/Direction/MeshInstance3D")
 
-[node name="Pivot" parent="." node_paths=PackedStringArray("direction", "direction_mesh", "projectile", "target") instance=ExtResource("3_7luox")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+[node name="Pivot" parent="Scenery" node_paths=PackedStringArray("direction", "direction_mesh", "projectile", "target") instance=ExtResource("3_7luox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.001, 3)
 script = ExtResource("5_ep48d")
 direction = NodePath("Direction")
 direction_mesh = NodePath("Direction/MeshInstance3D")
 projectile = NodePath("../Projectile")
 target = NodePath("../Target")
 
-[node name="Target" parent="." instance=ExtResource("2_pk44x")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16, 4, 3)
+[node name="Target" parent="Scenery" instance=ExtResource("2_pk44x")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16, 3.999, 3)
 collision_layer = 16777216
 script = ExtResource("7_dp2id")
 
@@ -160,18 +160,18 @@ visible = false
 [node name="Player" parent="." instance=ExtResource("12_b2vc3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 10)
 
-[connection signal="body_exited" from="Scenery" to="Projectile" method="_on_scenery_body_exited"]
-[connection signal="body_exited" from="Scenery" to="Target" method="_on_scenery_body_exited"]
-[connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Pivot" method="_on_interactable_lever_theta_hinge_moved"]
-[connection signal="slider_moved" from="Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider" to="Pivot" method="_on_interactable_slider_radius_slider_moved"]
-[connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Projectile" method="_on_interactable_area_button_button_pressed"]
-[connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Target" method="_on_interactable_area_button_button_pressed"]
-[connection signal="slider_moved" from="Controller/Pole/Panel/SliderSpeed/SliderOrigin/InteractableSlider" to="Projectile" method="_on_interactable_slider_speed_slider_moved"]
+[connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
+[connection signal="body_exited" from="Scenery" to="Scenery/Target" method="_on_scenery_body_exited"]
+[connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
+[connection signal="slider_moved" from="Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider" to="Scenery/Pivot" method="_on_interactable_slider_radius_slider_moved"]
+[connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Scenery/Projectile" method="_on_interactable_area_button_button_pressed"]
+[connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Scenery/Target" method="_on_interactable_area_button_button_pressed"]
+[connection signal="slider_moved" from="Controller/Pole/Panel/SliderSpeed/SliderOrigin/InteractableSlider" to="Scenery/Projectile" method="_on_interactable_slider_speed_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_x_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_y_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_z_slider_moved"]
 
-[editable path="Pivot"]
+[editable path="Scenery/Pivot"]
 [editable path="Controller/Pole/Panel/LeverTheta"]
 [editable path="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever/HandleOrigin"]
 [editable path="Controller/Pole/Panel/SliderRadius"]
