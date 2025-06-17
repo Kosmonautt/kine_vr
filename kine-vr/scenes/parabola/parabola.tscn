@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=29 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Script" uid="uid://bc6a0jfhlnlmw" path="res://scenes/parabola/parabola.gd" id="1_j2chm"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_j2chm"]
@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://scenes/parabola/pivot.gd" id="5_v4dxv"]
 [ext_resource type="PackedScene" uid="uid://0etylgnnbicm" path="res://scenes/utils/controller/scenery_controller.tscn" id="6_2fupf"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="10_oi5j8"]
+[ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="15_booeb"]
+[ext_resource type="PackedScene" uid="uid://xobnjksj76nj" path="res://scenes/main/main.tscn" id="16_8ean0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_im3vq"]
 size = Vector3(115, 1, 115)
@@ -158,6 +160,10 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_k7fxw")
+
+[node name="Teleporter" parent="." instance=ExtResource("15_booeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 1, -56)
+packed_scene = ExtResource("16_8ean0")
 
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
