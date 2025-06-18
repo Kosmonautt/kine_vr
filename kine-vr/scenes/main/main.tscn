@@ -75,10 +75,25 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_w3hm3")
 
-[node name="TeleporterParabola" parent="." instance=ExtResource("6_ow5a4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, -10)
+[node name="Teleporters" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="TeleporterParabola" parent="Teleporters" instance=ExtResource("6_ow5a4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10)
 destination = 1
 
-[node name="TeleporterHunterMonkey" parent="." instance=ExtResource("6_ow5a4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, -5)
+[node name="TeleporterHunterMonkey" parent="Teleporters" instance=ExtResource("6_ow5a4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -10)
 destination = 2
+
+[node name="TeleporterUniformCircularMotion" parent="Teleporters" instance=ExtResource("6_ow5a4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+destination = 3
+
+[node name="TeleporterRelativeMotion" parent="Teleporters" instance=ExtResource("6_ow5a4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -10)
+destination = 4
+
+[node name="TeleporterLinearMomentum" parent="Teleporters" instance=ExtResource("6_ow5a4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
+destination = 5
