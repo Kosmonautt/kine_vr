@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dg8fy7pyqqur8"]
+[gd_scene load_steps=11 format=3 uid="uid://dg8fy7pyqqur8"]
 
 [ext_resource type="Script" uid="uid://bb6uk8kjulgnp" path="res://scenes/relative_motion/relative_motion.gd" id="1_kxshb"]
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_qtbu6"]
@@ -9,6 +9,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_adyim"]
 size = Vector3(50, 1, 25)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xvbri"]
+size = Vector2(50, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxshb"]
 size = Vector3(6, 2, 1)
@@ -31,7 +34,11 @@ wheel_4 = NodePath("Scenery/Wagon/Wheels/Wheel4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_adyim")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boundary"]
+mesh = SubResource("PlaneMesh_xvbri")
+
 [node name="Scenery" parent="." instance=ExtResource("2_rumb4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
 
 [node name="Boundary" type="Area3D" parent="Scenery"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
