@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dg8fy7pyqqur8"]
+[gd_scene load_steps=20 format=3 uid="uid://dg8fy7pyqqur8"]
 
 [ext_resource type="Script" uid="uid://bb6uk8kjulgnp" path="res://scenes/relative_motion/relative_motion.gd" id="1_kxshb"]
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_qtbu6"]
@@ -35,6 +35,15 @@ size = Vector3(6, 2, 1)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7on3u"]
 bounce = 1.0
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_mi5n7"]
+
+[sub_resource type="Sky" id="Sky_6oo03"]
+sky_material = SubResource("PhysicalSkyMaterial_mi5n7")
+
+[sub_resource type="Environment" id="Environment_mi5n7"]
+background_mode = 2
+sky = SubResource("Sky_6oo03")
 
 [node name="RelativeMotion" type="Node3D" node_paths=PackedStringArray("wagon", "projectile", "wheel_1", "wheel_2", "wheel_3", "wheel_4")]
 script = ExtResource("1_kxshb")
@@ -113,6 +122,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 10)
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 light_energy = 2.0
 shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mi5n7")
 
 [connection signal="body_entered" from="Scenery/Boundary" to="." method="_on_boundary_body_entered"]
 
