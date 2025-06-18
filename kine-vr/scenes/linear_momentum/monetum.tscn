@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bnisjpdmd6po1"]
+[gd_scene load_steps=18 format=3 uid="uid://bnisjpdmd6po1"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_xop3s"]
 [ext_resource type="Script" uid="uid://fqe6i7kthpig" path="res://scenes/linear_momentum/monetum.gd" id="1_xsfa6"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rf48c"]
 size = Vector3(50, 1, 25)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_idi3l"]
+size = Vector2(50, 25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83fnu"]
 albedo_texture = ExtResource("1_xop3s")
@@ -56,8 +59,11 @@ projectile2 = NodePath("Projectile2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_rf48c")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Boundary"]
+mesh = SubResource("PlaneMesh_idi3l")
+
 [node name="Scenery" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.5, 1.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.501, 1.25)
 
 [node name="Wall" type="MeshInstance3D" parent="Scenery"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1.25)
