@@ -75,19 +75,19 @@ shape = SubResource("BoxShape3D_im3vq")
 [node name="FloorMesh" type="MeshInstance3D" parent="Boundary"]
 mesh = SubResource("PlaneMesh_j2chm")
 
-[node name="Wall1Collision" type="CollisionShape3D" parent="Boundary"]
+[node name="WallCollision1" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 5, 0)
 shape = SubResource("BoxShape3D_k7fxw")
 
-[node name="Wall1Collision2" type="CollisionShape3D" parent="Boundary"]
+[node name="WallCollision2" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 5, 0)
 shape = SubResource("BoxShape3D_k7fxw")
 
-[node name="Wall1Collision3" type="CollisionShape3D" parent="Boundary"]
+[node name="WallCollision3" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, -58)
 shape = SubResource("BoxShape3D_k7fxw")
 
-[node name="Wall1Collision4" type="CollisionShape3D" parent="Boundary"]
+[node name="WallCollision4" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, 58)
 shape = SubResource("BoxShape3D_k7fxw")
 
