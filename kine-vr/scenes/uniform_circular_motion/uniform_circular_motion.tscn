@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dffrcd63007q7"]
+[gd_scene load_steps=23 format=3 uid="uid://dffrcd63007q7"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_6p47d"]
 [ext_resource type="Script" uid="uid://dyn2iuog4gaie" path="res://scenes/uniform_circular_motion/uniform_circular_motion.gd" id="1_qhga1"]
@@ -53,6 +53,15 @@ albedo_color = Color(1, 1, 1, 0.156863)
 [sub_resource type="BoxMesh" id="BoxMesh_um401"]
 material = SubResource("StandardMaterial3D_eq701")
 size = Vector3(1.5, 0.5, 0.05)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_qfw4u"]
+
+[sub_resource type="Sky" id="Sky_detkr"]
+sky_material = SubResource("PhysicalSkyMaterial_qfw4u")
+
+[sub_resource type="Environment" id="Environment_qfw4u"]
+background_mode = 2
+sky = SubResource("Sky_detkr")
 
 [node name="UniformCircularMotion" type="Node3D"]
 script = ExtResource("1_qhga1")
@@ -125,6 +134,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 10)
 transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0)
 light_energy = 2.0
 shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qfw4u")
 
 [connection signal="slider_moved" from="Controller/Pole/Panel/SliderAngularSpeed/SliderOrigin/InteractableSlider" to="Rotor" method="_on_interactable_slider_angular_speed_slider_moved"]
 [connection signal="slider_moved" from="Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider" to="Rotor" method="_on_interactable_slider_radius_slider_moved"]
