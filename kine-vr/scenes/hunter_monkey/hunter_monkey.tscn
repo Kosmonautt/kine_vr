@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://df7s2w6t06bpu"]
+[gd_scene load_steps=33 format=3 uid="uid://df7s2w6t06bpu"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_ep48d"]
 [ext_resource type="Script" uid="uid://beajsl6rmc22i" path="res://scenes/hunter_monkey/hunter_monkey.gd" id="1_s6tcq"]
@@ -72,6 +72,15 @@ albedo_color = Color(1, 1, 1, 0.156863)
 [sub_resource type="BoxMesh" id="BoxMesh_um401"]
 material = SubResource("StandardMaterial3D_eq701")
 size = Vector3(1.5, 0.5, 0.05)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_0j5li"]
+
+[sub_resource type="Sky" id="Sky_0j5li"]
+sky_material = SubResource("PhysicalSkyMaterial_0j5li")
+
+[sub_resource type="Environment" id="Environment_0j5li"]
+background_mode = 2
+sky = SubResource("Sky_0j5li")
 
 [node name="HunterMonkey" type="Node3D"]
 script = ExtResource("1_s6tcq")
@@ -183,6 +192,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 10)
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 light_energy = 2.0
 shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0j5li")
 
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="body_exited" from="Scenery" to="Scenery/Target" method="_on_scenery_body_exited"]
