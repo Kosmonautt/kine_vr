@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="6_xvbri"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_adyim"]
-size = Vector3(250, 1, 250)
+size = Vector3(50, 1, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxshb"]
 size = Vector3(6, 2, 1)
@@ -27,7 +27,7 @@ wheel_4 = NodePath("Scenery/Wagon/Wheels/Wheel4")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundary"]
+[node name="FloorCollision" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_adyim")
 
