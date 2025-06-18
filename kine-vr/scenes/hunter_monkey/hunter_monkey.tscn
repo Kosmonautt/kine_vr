@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://df7s2w6t06bpu"]
+[gd_scene load_steps=34 format=3 uid="uid://df7s2w6t06bpu"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_ep48d"]
 [ext_resource type="Script" uid="uid://beajsl6rmc22i" path="res://scenes/hunter_monkey/hunter_monkey.gd" id="1_s6tcq"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dnr37vvwt2rxo" path="res://scenes/utils/interactables/slider.tscn" id="9_b2vc3"]
 [ext_resource type="PackedScene" uid="uid://buwtt0qxxv75y" path="res://scenes/utils/interactables/button.tscn" id="9_pmmic"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="12_b2vc3"]
+[ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="17_it3m0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pmmic"]
 size = Vector3(115, 1, 115)
@@ -195,6 +196,9 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0j5li")
+
+[node name="Teleporter" parent="." instance=ExtResource("17_it3m0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 1, -56)
 
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="body_exited" from="Scenery" to="Scenery/Target" method="_on_scenery_body_exited"]
