@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dg8fy7pyqqur8"]
+[gd_scene load_steps=17 format=3 uid="uid://dg8fy7pyqqur8"]
 
 [ext_resource type="Script" uid="uid://bb6uk8kjulgnp" path="res://scenes/relative_motion/relative_motion.gd" id="1_kxshb"]
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_qtbu6"]
@@ -24,6 +24,12 @@ uv1_scale = Vector3(50, 25, 1)
 material = SubResource("StandardMaterial3D_v4dst")
 size = Vector2(50, 25)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mi5n7"]
+size = Vector3(1, 10, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6oo03"]
+size = Vector3(50, 10, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxshb"]
 size = Vector3(6, 2, 1)
 
@@ -47,6 +53,22 @@ shape = SubResource("BoxShape3D_adyim")
 
 [node name="FloorMesh" type="MeshInstance3D" parent="Boundary"]
 mesh = SubResource("PlaneMesh_xvbri")
+
+[node name="WallCollision1" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, 5, 0)
+shape = SubResource("BoxShape3D_mi5n7")
+
+[node name="WallCollision2" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 5, 0)
+shape = SubResource("BoxShape3D_mi5n7")
+
+[node name="WallCollision3" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 13)
+shape = SubResource("BoxShape3D_6oo03")
+
+[node name="WallCollision4" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -13)
+shape = SubResource("BoxShape3D_6oo03")
 
 [node name="Scenery" parent="." instance=ExtResource("2_rumb4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
