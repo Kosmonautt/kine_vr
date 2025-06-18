@@ -59,7 +59,7 @@ projectile2 = NodePath("Projectile2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_rf48c")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Boundary"]
+[node name="FloorMesh" type="MeshInstance3D" parent="Boundary"]
 mesh = SubResource("PlaneMesh_idi3l")
 
 [node name="Scenery" type="Node3D" parent="."]
