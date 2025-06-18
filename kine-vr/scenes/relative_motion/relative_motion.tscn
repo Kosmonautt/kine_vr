@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dg8fy7pyqqur8"]
+[gd_scene load_steps=15 format=3 uid="uid://dg8fy7pyqqur8"]
 
 [ext_resource type="Script" uid="uid://bb6uk8kjulgnp" path="res://scenes/relative_motion/relative_motion.gd" id="1_kxshb"]
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_qtbu6"]
 [ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/utils/scenery.tscn" id="2_rumb4"]
+[ext_resource type="Texture2D" uid="uid://x5vvcnocsuc6" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_diff_1k.jpg" id="2_ya8ql"]
+[ext_resource type="Texture2D" uid="uid://dn8cftxp6snf4" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_nor_gl_1k.jpg" id="3_mi5n7"]
+[ext_resource type="Texture2D" uid="uid://bgrpvpbvr3gnp" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_rough_1k.jpg" id="3_v4dst"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="4_7on3u"]
 [ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/utils/projectile_projection/projectile_projection.tscn" id="5_adyim"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="6_xvbri"]
@@ -10,7 +13,15 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_adyim"]
 size = Vector3(50, 1, 25)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4dst"]
+albedo_texture = ExtResource("2_ya8ql")
+roughness_texture = ExtResource("3_v4dst")
+normal_enabled = true
+normal_texture = ExtResource("3_mi5n7")
+uv1_scale = Vector3(50, 25, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_xvbri"]
+material = SubResource("StandardMaterial3D_v4dst")
 size = Vector2(50, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxshb"]
