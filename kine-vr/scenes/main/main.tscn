@@ -75,6 +75,6 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_w3hm3")
 
-[node name="Teleporter" parent="." instance=ExtResource("6_ow5a4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -7)
+[node name="TeleporterParabola" parent="." instance=ExtResource("6_ow5a4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, -10)
 destination = 1
