@@ -111,7 +111,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, 
 shape = SubResource("BoxShape3D_0j5li")
 
 [node name="Scenery" type="Area3D" parent="." node_paths=PackedStringArray("wall", "floor_n", "collision")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0.001, -57)
 collision_layer = 0
 collision_mask = 16777216
 script = ExtResource("2_6k4wf")
@@ -153,7 +153,7 @@ collision_layer = 16777216
 script = ExtResource("7_dp2id")
 
 [node name="Controller" type="Node3D" parent="."]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.5, 0, 7)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55, 0, -50)
 
 [node name="Pole" type="MeshInstance3D" parent="Controller"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
