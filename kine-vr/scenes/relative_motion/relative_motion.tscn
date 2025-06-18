@@ -109,6 +109,11 @@ mode = 1
 [node name="Player" parent="." instance=ExtResource("6_xvbri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 10)
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+light_energy = 2.0
+shadow_enabled = true
+
 [connection signal="body_entered" from="Scenery/Boundary" to="." method="_on_boundary_body_entered"]
 
 [editable path="Scenery/Wagon"]
