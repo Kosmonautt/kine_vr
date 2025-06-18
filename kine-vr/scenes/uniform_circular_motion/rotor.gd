@@ -17,7 +17,7 @@ var radius: float = DEFAULT_RADIUS:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:
-	rotate_z(-angular_speed * delta)
+	rotate_y(-angular_speed * delta)
 	
 	
 func set_size(r: float) -> void:
