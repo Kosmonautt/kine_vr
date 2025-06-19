@@ -81,6 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 1.5)
 collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_83fnu")
 gravity_scale = 0.0
+linear_velocity = Vector3(5, 0, 0)
 
 [node name="Projectile2" parent="Scenery" instance=ExtResource("2_83fnu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.5, 2.5, 1.5)
@@ -90,6 +91,8 @@ physics_material_override = SubResource("PhysicsMaterial_xsfa6")
 gravity_scale = 0.0
 
 [node name="Boundary" type="StaticBody3D" parent="Scenery"]
+collision_layer = 2
+collision_mask = 0
 
 [node name="WallCollision1" type="CollisionShape3D" parent="Scenery/Boundary"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 4, 3)
