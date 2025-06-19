@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dffrcd63007q7"]
+[gd_scene load_steps=35 format=3 uid="uid://dffrcd63007q7"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_6p47d"]
 [ext_resource type="Script" uid="uid://dyn2iuog4gaie" path="res://scenes/uniform_circular_motion/uniform_circular_motion.gd" id="1_qhga1"]
@@ -61,6 +61,14 @@ uv1_scale = Vector3(4, 4, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ablaw"]
 material = SubResource("StandardMaterial3D_voqfm")
+size = Vector2(4, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ilodd"]
+material = SubResource("StandardMaterial3D_detkr")
+size = Vector2(4, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_voqfm"]
+material = SubResource("StandardMaterial3D_ablaw")
 size = Vector2(4, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e06ql"]
@@ -138,6 +146,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
 mesh = SubResource("PlaneMesh_ablaw")
 
 [node name="Sine" type="Node3D" parent="Wall"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="Wall1" type="MeshInstance3D" parent="Wall/Sine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+mesh = SubResource("PlaneMesh_ilodd")
+
+[node name="Wall2" type="MeshInstance3D" parent="Wall/Sine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+mesh = SubResource("PlaneMesh_voqfm")
 
 [node name="Cosine" type="Node3D" parent="Wall"]
 
