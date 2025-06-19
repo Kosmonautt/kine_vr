@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dffrcd63007q7"]
+[gd_scene load_steps=40 format=3 uid="uid://dffrcd63007q7"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_6p47d"]
 [ext_resource type="Script" uid="uid://dyn2iuog4gaie" path="res://scenes/uniform_circular_motion/uniform_circular_motion.gd" id="1_qhga1"]
@@ -32,6 +32,7 @@ size = Vector2(25, 25)
 size = Vector3(1, 10, 25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_detkr"]
+transparency = 1
 albedo_texture = ExtResource("1_6p47d")
 uv1_scale = Vector3(4, 4, 1)
 
@@ -48,6 +49,7 @@ material = SubResource("StandardMaterial3D_ablaw")
 size = Vector2(4, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ilodd"]
+transparency = 1
 albedo_texture = ExtResource("7_ablaw")
 uv1_scale = Vector3(4, 4, 1)
 
@@ -63,12 +65,37 @@ uv1_scale = Vector3(4, 4, 1)
 material = SubResource("StandardMaterial3D_voqfm")
 size = Vector2(4, 4)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww3wn"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.784314)
+albedo_texture = ExtResource("1_6p47d")
+uv1_scale = Vector3(4, 4, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_ilodd"]
-material = SubResource("StandardMaterial3D_detkr")
+material = SubResource("StandardMaterial3D_ww3wn")
 size = Vector2(4, 4)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxcxv"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.784314)
+albedo_texture = ExtResource("6_mq4om")
+uv1_scale = Vector3(4, 4, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_voqfm"]
-material = SubResource("StandardMaterial3D_ablaw")
+material = SubResource("StandardMaterial3D_oxcxv")
+size = Vector2(4, 4)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ilodd"]
+load_path = "res://.godot/imported/texture_01.png-9fd6a3debfd0818a4a509df39d564500.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4ojt"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.784314)
+albedo_texture = SubResource("CompressedTexture2D_ilodd")
+uv1_scale = Vector3(4, 4, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hx0fm"]
+material = SubResource("StandardMaterial3D_k4ojt")
 size = Vector2(4, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e06ql"]
@@ -165,7 +192,7 @@ mesh = SubResource("PlaneMesh_voqfm")
 
 [node name="Wall2" type="MeshInstance3D" parent="Wall/Cosine"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
-mesh = SubResource("PlaneMesh_qfw4u")
+mesh = SubResource("PlaneMesh_hx0fm")
 
 [node name="Rotor" parent="Wall" node_paths=PackedStringArray("blade") instance=ExtResource("2_tj3cp")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.000339985, 0.001, 0)
