@@ -1,12 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://bnisjpdmd6po1"]
+[gd_scene load_steps=15 format=3 uid="uid://bnisjpdmd6po1"]
 
-[ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_xop3s"]
 [ext_resource type="Script" uid="uid://fqe6i7kthpig" path="res://scenes/linear_momentum/monetum.gd" id="1_xsfa6"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="2_83fnu"]
 [ext_resource type="Texture2D" uid="uid://x5vvcnocsuc6" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_diff_1k.jpg" id="2_myyo7"]
 [ext_resource type="Texture2D" uid="uid://dn8cftxp6snf4" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_nor_gl_1k.jpg" id="3_pixqy"]
 [ext_resource type="Texture2D" uid="uid://bgrpvpbvr3gnp" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_rough_1k.jpg" id="3_xa32y"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="4_idi3l"]
+[ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/utils/scenery.tscn" id="5_pixqy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rf48c"]
 size = Vector3(50, 1, 25)
@@ -27,37 +27,6 @@ size = Vector3(1, 10, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mem3d"]
 size = Vector3(1, 10, 50)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83fnu"]
-albedo_texture = ExtResource("1_xop3s")
-uv1_scale = Vector3(15, 5, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_26b1m"]
-material = SubResource("StandardMaterial3D_83fnu")
-size = Vector2(15, 5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xop3s"]
-albedo_texture = ExtResource("1_xop3s")
-uv1_scale = Vector3(15, 2.5, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_xop3s"]
-material = SubResource("StandardMaterial3D_xop3s")
-size = Vector2(15, 2.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_xop3s"]
-size = Vector3(1, 5, 2.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_83fnu"]
-size = Vector3(15, 1, 2.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_xsfa6"]
-size = Vector3(15, 1, 2.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8rtgg"]
-size = Vector3(15, 5, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_m1cnh"]
-size = Vector3(15, 5, 1)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_83fnu"]
 bounce = 1.0
@@ -95,44 +64,8 @@ shape = SubResource("BoxShape3D_mem3d")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, -13)
 shape = SubResource("BoxShape3D_mem3d")
 
-[node name="Scenery" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 2.501, 1.25)
-
-[node name="Wall" type="MeshInstance3D" parent="Scenery"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1.25)
-mesh = SubResource("PlaneMesh_26b1m")
-
-[node name="Floor" type="MeshInstance3D" parent="Scenery"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
-mesh = SubResource("PlaneMesh_xop3s")
-
-[node name="Border" type="StaticBody3D" parent="Scenery"]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Border"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
-shape = SubResource("BoxShape3D_xop3s")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Scenery/Border"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
-shape = SubResource("BoxShape3D_xop3s")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Scenery/Border"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-shape = SubResource("BoxShape3D_83fnu")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Scenery/Border"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
-shape = SubResource("BoxShape3D_xsfa6")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Scenery/Border"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.75)
-shape = SubResource("BoxShape3D_8rtgg")
-
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="Scenery/Border"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.75)
-shape = SubResource("BoxShape3D_m1cnh")
+[node name="Scenery" parent="." instance=ExtResource("5_pixqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
 
 [node name="Projectile" parent="." instance=ExtResource("2_83fnu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 1.5)
