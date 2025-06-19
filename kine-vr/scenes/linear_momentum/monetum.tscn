@@ -36,8 +36,8 @@ bounce = 1.0
 
 [node name="Monetum" type="Node3D" node_paths=PackedStringArray("projectile1", "projectile2")]
 script = ExtResource("1_xsfa6")
-projectile1 = NodePath("Projectile")
-projectile2 = NodePath("Projectile2")
+projectile1 = NodePath("Scenery/Projectile")
+projectile2 = NodePath("Scenery/Projectile2")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
@@ -67,16 +67,21 @@ shape = SubResource("BoxShape3D_mem3d")
 [node name="Scenery" parent="." instance=ExtResource("5_pixqy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
 
-[node name="Projectile" parent="." instance=ExtResource("2_83fnu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, 1.5)
+[node name="Projectile" parent="Scenery" instance=ExtResource("2_83fnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.499, 1.5)
 collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_83fnu")
+gravity_scale = 0.0
 
-[node name="Projectile2" parent="." instance=ExtResource("2_83fnu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.5, 1.5)
+[node name="Projectile2" parent="Scenery" instance=ExtResource("2_83fnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2.499, 1.5)
 collision_mask = 2
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_xsfa6")
+gravity_scale = 0.0
 
 [node name="Player" parent="." instance=ExtResource("4_idi3l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 10)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8)
