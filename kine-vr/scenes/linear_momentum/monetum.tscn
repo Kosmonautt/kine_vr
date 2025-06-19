@@ -36,7 +36,7 @@ bounce = 1.0
 
 [node name="Monetum" type="Node3D" node_paths=PackedStringArray("projectile1", "projectile2")]
 script = ExtResource("1_xsfa6")
-projectile1 = NodePath("Scenery/Projectile")
+projectile1 = NodePath("Scenery/Projectile1")
 projectile2 = NodePath("Scenery/Projectile2")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
@@ -67,7 +67,7 @@ shape = SubResource("BoxShape3D_mem3d")
 [node name="Scenery" parent="." instance=ExtResource("5_pixqy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
 
-[node name="Projectile" parent="Scenery" instance=ExtResource("2_83fnu")]
+[node name="Projectile1" parent="Scenery" instance=ExtResource("2_83fnu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.499, 1.5)
 collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_83fnu")
