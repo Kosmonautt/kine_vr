@@ -139,6 +139,9 @@ environment = SubResource("Environment_qfw4u")
 [node name="Teleporter" parent="." instance=ExtResource("10_detkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.79486, 0, -0.606793, 0, 1, 0, 0.606793, 0, 0.79486, -2.8269, 3.69891, 8.88792)
+
 [connection signal="slider_moved" from="Controller/Pole/Panel/SliderAngularSpeed/SliderOrigin/InteractableSlider" to="Wall/Rotor" method="_on_interactable_slider_angular_speed_slider_moved"]
 [connection signal="slider_moved" from="Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider" to="Wall/Rotor" method="_on_interactable_slider_radius_slider_moved"]
 
