@@ -1,6 +1,5 @@
-[gd_scene load_steps=24 format=3 uid="uid://dffrcd63007q7"]
+[gd_scene load_steps=21 format=3 uid="uid://dffrcd63007q7"]
 
-[ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_6p47d"]
 [ext_resource type="Script" uid="uid://dyn2iuog4gaie" path="res://scenes/uniform_circular_motion/uniform_circular_motion.gd" id="1_qhga1"]
 [ext_resource type="PackedScene" uid="uid://dtvq8tpe31emx" path="res://scenes/uniform_circular_motion/rotor.tscn" id="2_tj3cp"]
 [ext_resource type="Texture2D" uid="uid://x5vvcnocsuc6" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_diff_1k.jpg" id="2_wmc2b"]
@@ -27,15 +26,6 @@ size = Vector2(25, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qfw4u"]
 size = Vector3(1, 10, 25)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abopq"]
-albedo_texture = ExtResource("1_6p47d")
-uv1_scale = Vector3(8, 8, 0.4)
-disable_receive_shadows = true
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_abopq"]
-material = SubResource("StandardMaterial3D_abopq")
-size = Vector2(8, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e06ql"]
 transparency = 1
@@ -92,10 +82,8 @@ shape = SubResource("BoxShape3D_qfw4u")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, 13)
 shape = SubResource("BoxShape3D_qfw4u")
 
-[node name="Wall" type="MeshInstance3D" parent="."]
+[node name="Wall" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4, 0)
-mesh = SubResource("PlaneMesh_abopq")
-skeleton = NodePath("")
 
 [node name="Rotor" parent="Wall" node_paths=PackedStringArray("blade") instance=ExtResource("2_tj3cp")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.000339985, 0.001, 0)
