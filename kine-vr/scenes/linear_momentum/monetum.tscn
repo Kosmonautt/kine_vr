@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bnisjpdmd6po1"]
+[gd_scene load_steps=18 format=3 uid="uid://bnisjpdmd6po1"]
 
 [ext_resource type="Script" uid="uid://fqe6i7kthpig" path="res://scenes/linear_momentum/monetum.gd" id="1_xsfa6"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="2_83fnu"]
@@ -33,6 +33,15 @@ bounce = 1.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xsfa6"]
 bounce = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_acgeu"]
+size = Vector3(1, 8, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2nt1c"]
+size = Vector3(1, 8, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1okqf"]
+size = Vector3(20, 1, 6)
 
 [node name="Monetum" type="Node3D" node_paths=PackedStringArray("projectile1", "projectile2")]
 script = ExtResource("1_xsfa6")
@@ -79,6 +88,32 @@ collision_mask = 2
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_xsfa6")
 gravity_scale = 0.0
+
+[node name="Boundary" type="StaticBody3D" parent="Scenery"]
+
+[node name="WallCollision1" type="CollisionShape3D" parent="Scenery/Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 4, 3)
+shape = SubResource("BoxShape3D_acgeu")
+
+[node name="WallCollision2" type="CollisionShape3D" parent="Scenery/Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 4, 3)
+shape = SubResource("BoxShape3D_acgeu")
+
+[node name="WallCollision3" type="CollisionShape3D" parent="Scenery/Boundary"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 4, 6.5)
+shape = SubResource("BoxShape3D_2nt1c")
+
+[node name="WallCollision4" type="CollisionShape3D" parent="Scenery/Boundary"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 4, -0.5)
+shape = SubResource("BoxShape3D_2nt1c")
+
+[node name="FloorCollision" type="CollisionShape3D" parent="Scenery/Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -0.5, 3)
+shape = SubResource("BoxShape3D_1okqf")
+
+[node name="RoofCollision" type="CollisionShape3D" parent="Scenery/Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 8.5, 3)
+shape = SubResource("BoxShape3D_1okqf")
 
 [node name="Player" parent="." instance=ExtResource("4_idi3l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 10)
