@@ -157,6 +157,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
 mesh = SubResource("PlaneMesh_voqfm")
 
 [node name="Cosine" type="Node3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 3.999)
+
+[node name="Wall1" type="MeshInstance3D" parent="Wall/Cosine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+mesh = SubResource("PlaneMesh_voqfm")
+
+[node name="Wall2" type="MeshInstance3D" parent="Wall/Cosine"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+mesh = SubResource("PlaneMesh_qfw4u")
 
 [node name="Rotor" parent="Wall" node_paths=PackedStringArray("blade") instance=ExtResource("2_tj3cp")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.000339985, 0.001, 0)
