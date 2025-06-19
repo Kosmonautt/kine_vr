@@ -1,6 +1,6 @@
 extends Node3D
 
-const DEFAULT_ANGULAR_SPEED = 0
+const DEFAULT_ANGULAR_SPEED = 3
 const DEFAULT_RADIUS = 0.5
 
 
