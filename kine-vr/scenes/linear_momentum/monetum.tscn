@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bnisjpdmd6po1"]
+[gd_scene load_steps=21 format=3 uid="uid://bnisjpdmd6po1"]
 
 [ext_resource type="Script" uid="uid://fqe6i7kthpig" path="res://scenes/linear_momentum/monetum.gd" id="1_xsfa6"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="2_83fnu"]
@@ -42,6 +42,15 @@ size = Vector3(1, 8, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1okqf"]
 size = Vector3(20, 1, 6)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_pixqy"]
+
+[sub_resource type="Sky" id="Sky_mem3d"]
+sky_material = SubResource("PhysicalSkyMaterial_pixqy")
+
+[sub_resource type="Environment" id="Environment_pixqy"]
+background_mode = 2
+sky = SubResource("Sky_mem3d")
 
 [node name="Monetum" type="Node3D" node_paths=PackedStringArray("projectile1", "projectile2")]
 script = ExtResource("1_xsfa6")
@@ -125,3 +134,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 10)
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 light_energy = 2.0
 shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pixqy")
