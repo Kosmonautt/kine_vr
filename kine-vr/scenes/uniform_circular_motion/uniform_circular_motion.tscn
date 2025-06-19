@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://dffrcd63007q7"]
+[gd_scene load_steps=33 format=3 uid="uid://dffrcd63007q7"]
 
+[ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_6p47d"]
 [ext_resource type="Script" uid="uid://dyn2iuog4gaie" path="res://scenes/uniform_circular_motion/uniform_circular_motion.gd" id="1_qhga1"]
 [ext_resource type="PackedScene" uid="uid://dtvq8tpe31emx" path="res://scenes/uniform_circular_motion/rotor.tscn" id="2_tj3cp"]
 [ext_resource type="Texture2D" uid="uid://x5vvcnocsuc6" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_diff_1k.jpg" id="2_wmc2b"]
@@ -8,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dn8cftxp6snf4" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_nor_gl_1k.jpg" id="3_qfw4u"]
 [ext_resource type="PackedScene" uid="uid://dnr37vvwt2rxo" path="res://scenes/utils/interactables/slider.tscn" id="4_6d6dl"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="5_kaps1"]
+[ext_resource type="Texture2D" uid="uid://byn7tx5uptoqb" path="res://assets/kenney_prototype-textures/PNG/Purple/texture_01.png" id="6_mq4om"]
+[ext_resource type="Texture2D" uid="uid://do1rq22fuy0dy" path="res://assets/kenney_prototype-textures/PNG/Orange/texture_01.png" id="7_ablaw"]
+[ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="8_ilodd"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="10_detkr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6d6dl"]
@@ -27,16 +31,36 @@ size = Vector2(25, 25)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qfw4u"]
 size = Vector3(1, 10, 25)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_detkr"]
+albedo_texture = ExtResource("1_6p47d")
+uv1_scale = Vector3(4, 4, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_detkr"]
+material = SubResource("StandardMaterial3D_detkr")
 size = Vector2(4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ablaw"]
+albedo_texture = ExtResource("6_mq4om")
+uv1_scale = Vector3(4, 4, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mq4om"]
+material = SubResource("StandardMaterial3D_ablaw")
 size = Vector2(4, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ilodd"]
+albedo_texture = ExtResource("7_ablaw")
+uv1_scale = Vector3(4, 4, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qfw4u"]
+material = SubResource("StandardMaterial3D_ilodd")
 size = Vector2(4, 4)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_voqfm"]
+albedo_texture = ExtResource("8_ilodd")
+uv1_scale = Vector3(4, 4, 1)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_ablaw"]
+material = SubResource("StandardMaterial3D_voqfm")
 size = Vector2(4, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e06ql"]
