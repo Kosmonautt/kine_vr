@@ -195,8 +195,6 @@ mesh = SubResource("PlaneMesh_ilodd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
 mesh = SubResource("PlaneMesh_voqfm")
 
-[node name="Follower" type="Node3D" parent="Wall/Sine"]
-
 [node name="Sphere" type="MeshInstance3D" parent="Wall/Sine"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 mesh = SubResource("SphereMesh_voqfm")
