@@ -5,8 +5,8 @@ const DEFAULT_RADIUS = 0.5
 
 
 @export var blade: MeshInstance3D
-var angular_speed: float = DEFAULT_ANGULAR_SPEED
-var radius: float = DEFAULT_RADIUS:
+@export var angular_speed: float = DEFAULT_ANGULAR_SPEED
+@export var radius: float = DEFAULT_RADIUS:
 	get:
 		return radius
 	set(value):
