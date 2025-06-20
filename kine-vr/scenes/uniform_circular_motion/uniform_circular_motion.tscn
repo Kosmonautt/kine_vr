@@ -212,7 +212,7 @@ mesh = SubResource("PlaneMesh_voqfm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 mesh = SubResource("PlaneMesh_hx0fm")
 
-[node name="Follower" type="MeshInstance3D" parent="Wall/Cosine"]
+[node name="Sphere" type="MeshInstance3D" parent="Wall/Cosine"]
 mesh = SubResource("SphereMesh_ww3wn")
 
 [node name="Rotor" parent="Wall" node_paths=PackedStringArray("blade", "sphere") instance=ExtResource("2_tj3cp")]
