@@ -5,6 +5,7 @@ const DEFAULT_RADIUS = 0.5
 
 
 @export var blade: MeshInstance3D
+@export var sphere: MeshInstance3D
 @export var angular_speed: float = DEFAULT_ANGULAR_SPEED
 @export var radius: float = DEFAULT_RADIUS:
 	get:
@@ -24,6 +25,8 @@ func set_size(r: float) -> void:
 	# blade size and position
 	blade_mesh.set_size(Vector2(0.05, radius))
 	blade.set_position(Vector3(0.0, r/2 , 0.0))
+	# sphere position
+	sphere.set_position(Vector3(0, r, 0))
 
 
 func _on_interactable_slider_angular_speed_slider_moved(p: Variant) -> void:
