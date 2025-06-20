@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dffrcd63007q7"]
+[gd_scene load_steps=44 format=3 uid="uid://dffrcd63007q7"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_6p47d"]
 [ext_resource type="Script" uid="uid://dyn2iuog4gaie" path="res://scenes/uniform_circular_motion/uniform_circular_motion.gd" id="1_qhga1"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://byn7tx5uptoqb" path="res://assets/kenney_prototype-textures/PNG/Purple/texture_01.png" id="6_mq4om"]
 [ext_resource type="Texture2D" uid="uid://do1rq22fuy0dy" path="res://assets/kenney_prototype-textures/PNG/Orange/texture_01.png" id="7_ablaw"]
 [ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="8_ilodd"]
+[ext_resource type="Script" uid="uid://bra68pa0ibru6" path="res://scenes/uniform_circular_motion/sphere.gd" id="9_voqfm"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="10_detkr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6d6dl"]
@@ -195,9 +196,11 @@ mesh = SubResource("PlaneMesh_ilodd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
 mesh = SubResource("PlaneMesh_voqfm")
 
-[node name="Sphere" type="MeshInstance3D" parent="Wall/Sine"]
+[node name="Sphere" type="MeshInstance3D" parent="Wall/Sine" node_paths=PackedStringArray("rotor_sphere")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 mesh = SubResource("SphereMesh_voqfm")
+script = ExtResource("9_voqfm")
+rotor_sphere = NodePath("../../Rotor/Sphere")
 
 [node name="Cosine" type="Node3D" parent="Wall"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 3.999)
@@ -210,8 +213,11 @@ mesh = SubResource("PlaneMesh_voqfm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 mesh = SubResource("PlaneMesh_hx0fm")
 
-[node name="Sphere" type="MeshInstance3D" parent="Wall/Cosine"]
+[node name="Sphere" type="MeshInstance3D" parent="Wall/Cosine" node_paths=PackedStringArray("rotor_sphere")]
 mesh = SubResource("SphereMesh_ww3wn")
+script = ExtResource("9_voqfm")
+rotor_sphere = NodePath("../../Rotor/Sphere")
+mode = 1
 
 [node name="Rotor" parent="Wall" node_paths=PackedStringArray("blade", "sphere") instance=ExtResource("2_tj3cp")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.000339985, 0.001, 0)
