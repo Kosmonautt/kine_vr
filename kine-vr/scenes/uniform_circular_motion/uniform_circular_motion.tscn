@@ -283,6 +283,7 @@ environment = SubResource("Environment_qfw4u")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
 
 [connection signal="timeout" from="Wall/Timer" to="Wall/Sine/Sphere" method="_on_timer_timeout"]
+[connection signal="timeout" from="Wall/Timer" to="Wall/Cosine/Sphere" method="_on_timer_timeout"]
 [connection signal="slider_moved" from="Controller/Pole/Panel/SliderAngularSpeed/SliderOrigin/InteractableSlider" to="Wall/Rotor" method="_on_interactable_slider_angular_speed_slider_moved"]
 [connection signal="slider_moved" from="Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider" to="Wall/Rotor" method="_on_interactable_slider_radius_slider_moved"]
 
