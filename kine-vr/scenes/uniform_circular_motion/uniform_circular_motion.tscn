@@ -67,7 +67,7 @@ size = Vector2(4, 4)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww3wn"]
 albedo_color = Color(1, 1, 1, 0.784314)
 albedo_texture = ExtResource("1_6p47d")
-uv1_scale = Vector3(4, 4, 1)
+uv1_scale = Vector3(8, 4, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ilodd"]
 material = SubResource("StandardMaterial3D_ww3wn")
@@ -79,7 +79,7 @@ load_path = "res://.godot/imported/texture_01.png-7076b86823fa2e4aaa78094bfc3d5f
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hx0fm"]
 albedo_color = Color(1, 1, 1, 0.784314)
 albedo_texture = SubResource("CompressedTexture2D_voqfm")
-uv1_scale = Vector3(4, 4, 1)
+uv1_scale = Vector3(8, 4, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xfncr"]
 material = SubResource("StandardMaterial3D_hx0fm")
@@ -92,7 +92,7 @@ height = 0.25
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxcxv"]
 albedo_color = Color(1, 1, 1, 0.784314)
 albedo_texture = ExtResource("6_mq4om")
-uv1_scale = Vector3(4, 4, 1)
+uv1_scale = Vector3(4, 8, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_voqfm"]
 material = SubResource("StandardMaterial3D_oxcxv")
@@ -104,7 +104,7 @@ load_path = "res://.godot/imported/texture_01.png-9fd6a3debfd0818a4a509df39d5645
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4ojt"]
 albedo_color = Color(1, 1, 1, 0.784314)
 albedo_texture = SubResource("CompressedTexture2D_ww3wn")
-uv1_scale = Vector3(4, 4, 1)
+uv1_scale = Vector3(4, 8, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hx0fm"]
 material = SubResource("StandardMaterial3D_k4ojt")
