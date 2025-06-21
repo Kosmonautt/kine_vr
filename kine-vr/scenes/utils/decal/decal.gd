@@ -1,4 +1,4 @@
-extends Decal
+extends Node3D
 
 # speed in m/s
 @export var speed: float = 3.0
