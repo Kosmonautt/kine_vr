@@ -203,11 +203,12 @@ mesh = SubResource("PlaneMesh_ilodd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
 mesh = SubResource("PlaneMesh_xfncr")
 
-[node name="Sphere" type="MeshInstance3D" parent="Wall/Sine" node_paths=PackedStringArray("rotor_sphere")]
+[node name="Sphere" type="MeshInstance3D" parent="Wall/Sine" node_paths=PackedStringArray("rotor_sphere", "plane")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 mesh = SubResource("SphereMesh_voqfm")
 script = ExtResource("9_voqfm")
 rotor_sphere = NodePath("../../Rotor/Sphere")
+plane = NodePath("..")
 
 [node name="Cosine" type="Node3D" parent="Wall"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 3.999)
@@ -220,10 +221,11 @@ mesh = SubResource("PlaneMesh_voqfm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
 mesh = SubResource("PlaneMesh_hx0fm")
 
-[node name="Sphere" type="MeshInstance3D" parent="Wall/Cosine" node_paths=PackedStringArray("rotor_sphere")]
+[node name="Sphere" type="MeshInstance3D" parent="Wall/Cosine" node_paths=PackedStringArray("rotor_sphere", "plane")]
 mesh = SubResource("SphereMesh_ww3wn")
 script = ExtResource("9_voqfm")
 rotor_sphere = NodePath("../../Rotor/Sphere")
+plane = NodePath("..")
 mode = 1
 
 [node name="Rotor" parent="Wall" node_paths=PackedStringArray("blade", "sphere") instance=ExtResource("2_tj3cp")]

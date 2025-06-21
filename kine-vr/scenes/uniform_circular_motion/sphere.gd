@@ -1,6 +1,7 @@
 extends MeshInstance3D
 
 @export var rotor_sphere: MeshInstance3D
+@export var plane: Node3D
 @export_enum("Sine", "Cosine") var mode: int
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
