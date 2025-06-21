@@ -1,12 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp2ohwbfhxmkp"]
+[gd_scene load_steps=4 format=3 uid="uid://cp2ohwbfhxmkp"]
 
 [ext_resource type="Texture2D" uid="uid://bm6srb8l26hvk" path="res://assets/decals/circle.png" id="1_1xfdb"]
 [ext_resource type="Script" uid="uid://b7ti2x8p8ye1c" path="res://scenes/utils/decal/decal.gd" id="2_d8bf1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1xfdb"]
 radius = 0.125
-
-[sub_resource type="SphereMesh" id="SphereMesh_d8bf1"]
 
 [node name="Decal" type="Decal"]
 size = Vector3(0.25, 0.25, 0.25)
@@ -17,6 +15,3 @@ script = ExtResource("2_d8bf1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_1xfdb")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_d8bf1")
