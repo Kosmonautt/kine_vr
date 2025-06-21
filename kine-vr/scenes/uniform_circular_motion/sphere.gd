@@ -24,6 +24,10 @@ func _on_timer_timeout() -> void:
 		plane.add_child(decal)
 		# the initial position is set
 		decal.set_global_position(Vector3(get_global_position()))
-	if mode == 1:
-		pass
-		
+	elif mode == 1:
+		# a decal is spawned
+		var decal = decal_scene.instantiate()
+		# decal is added to the plane
+		plane.add_child(decal)
+		# the initial position is set
+		decal.set_global_position(Vector3(get_global_position()))
