@@ -11,12 +11,19 @@ func _process(_delta: float) -> void:
 	if mode == 0:
 		# sphere follows rotor
 		set_global_position(Vector3(4, rotor_sphere.get_global_position().y, -4))
+	# cosine mode
+	if mode == 1:
+		set_global_position(Vector3(rotor_sphere.get_global_position().x, 0, -4))
+
+
+func _on_timer_timeout() -> void:
+	if mode == 0:
 		# a decal is spawned
 		var decal = decal_scene.instantiate()
 		# decal is added to the plane
 		plane.add_child(decal)
 		# the initial position is set
 		decal.set_global_position(Vector3(get_global_position()))
-	# cosine mode
 	if mode == 1:
-		set_global_position(Vector3(rotor_sphere.get_global_position().x, 0, -4))
+		pass
+		
