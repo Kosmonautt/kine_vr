@@ -7,6 +7,6 @@ extends MeshInstance3D
 func _process(_delta: float) -> void:
 	# sine mode
 	if mode == 0:
-		set_global_position(Vector3(4, rotor_sphere.get_global_position().y, 0))
+		set_global_position(Vector3(4, rotor_sphere.get_global_position().y, -4))
 	if mode == 1:
-		set_global_position(Vector3(rotor_sphere.get_global_position().x, 0, 0))
+		set_global_position(Vector3(rotor_sphere.get_global_position().x, 0, -4))
