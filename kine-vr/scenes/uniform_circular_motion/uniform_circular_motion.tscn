@@ -177,6 +177,10 @@ shape = SubResource("BoxShape3D_qfw4u")
 [node name="Wall" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4, -4)
 
+[node name="Timer" type="Timer" parent="Wall"]
+wait_time = 0.25
+autostart = true
+
 [node name="Wall1" type="MeshInstance3D" parent="Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
 mesh = SubResource("PlaneMesh_detkr")
@@ -211,10 +215,6 @@ script = ExtResource("9_voqfm")
 rotor_sphere = NodePath("../../Rotor/Sphere")
 plane = NodePath("..")
 decal_scene = ExtResource("10_ww3wn")
-
-[node name="Timer" type="Timer" parent="Wall/Sine/Sphere"]
-wait_time = 0.25
-autostart = true
 
 [node name="Cosine" type="Node3D" parent="Wall"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 3.999)
@@ -282,7 +282,7 @@ environment = SubResource("Environment_qfw4u")
 [node name="Teleporter" parent="." instance=ExtResource("10_detkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
 
-[connection signal="timeout" from="Wall/Sine/Sphere/Timer" to="Wall/Sine/Sphere" method="_on_timer_timeout"]
+[connection signal="timeout" from="Wall/Timer" to="Wall/Sine/Sphere" method="_on_timer_timeout"]
 [connection signal="slider_moved" from="Controller/Pole/Panel/SliderAngularSpeed/SliderOrigin/InteractableSlider" to="Wall/Rotor" method="_on_interactable_slider_angular_speed_slider_moved"]
 [connection signal="slider_moved" from="Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider" to="Wall/Rotor" method="_on_interactable_slider_radius_slider_moved"]
 
