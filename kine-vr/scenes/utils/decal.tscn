@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp2ohwbfhxmkp"]
 
-[ext_resource type="Texture2D" uid="uid://bmvekhuse0fxc" path="res://assets/decals/circle.png" id="1_1xfdb"]
+[ext_resource type="Texture2D" uid="uid://bm6srb8l26hvk" path="res://assets/decals/circle.png" id="1_1xfdb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tsj68"]
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Decal" type="Decal"]
+size = Vector3(0.25, 0.25, 0.25)
 texture_albedo = ExtResource("1_1xfdb")
 
 [node name="Area3D" type="Area3D" parent="."]
