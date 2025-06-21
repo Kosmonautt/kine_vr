@@ -12,6 +12,8 @@ texture_albedo = ExtResource("1_1xfdb")
 script = ExtResource("2_d8bf1")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8388608
+collision_mask = 8388608
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_1xfdb")
