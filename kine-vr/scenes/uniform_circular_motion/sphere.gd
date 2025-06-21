@@ -17,17 +17,9 @@ func _process(_delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	if mode == 0:
-		# a decal is spawned
-		var decal = decal_scene.instantiate()
-		# decal is added to the plane
-		plane.add_child(decal)
-		# the initial position is set
-		decal.set_global_position(Vector3(get_global_position()))
-	elif mode == 1:
-		# a decal is spawned
-		var decal = decal_scene.instantiate()
-		# decal is added to the plane
-		plane.add_child(decal)
-		# the initial position is set
-		decal.set_global_position(Vector3(get_global_position()))
+	# a decal is spawned
+	var decal = decal_scene.instantiate()
+	# decal is added to the plane
+	plane.add_child(decal)
+	# the initial position is set
+	decal.set_global_position(Vector3(get_global_position()))
