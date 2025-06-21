@@ -182,7 +182,7 @@ shape = SubResource("BoxShape3D_qfw4u")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4, -4)
 
 [node name="Timer" type="Timer" parent="Wall"]
-wait_time = 0.25
+wait_time = 0.15
 autostart = true
 
 [node name="Wall1" type="MeshInstance3D" parent="Wall"]
