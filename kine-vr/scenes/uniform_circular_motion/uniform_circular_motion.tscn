@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dffrcd63007q7"]
+[gd_scene load_steps=49 format=3 uid="uid://dffrcd63007q7"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_6p47d"]
 [ext_resource type="Script" uid="uid://dyn2iuog4gaie" path="res://scenes/uniform_circular_motion/uniform_circular_motion.gd" id="1_qhga1"]
@@ -64,6 +64,9 @@ uv1_scale = Vector3(4, 4, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_ablaw"]
 material = SubResource("StandardMaterial3D_voqfm")
 size = Vector2(4, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ww3wn"]
+size = Vector3(8, 1, 8)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ww3wn"]
 albedo_color = Color(1, 1, 1, 0.784314)
@@ -196,6 +199,12 @@ mesh = SubResource("PlaneMesh_qfw4u")
 [node name="Wall4" type="MeshInstance3D" parent="Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
 mesh = SubResource("PlaneMesh_ablaw")
+
+[node name="Despawner" type="Area3D" parent="Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall/Despawner"]
+shape = SubResource("BoxShape3D_ww3wn")
 
 [node name="Sine" type="Node3D" parent="Wall"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 4, 0, 0)
