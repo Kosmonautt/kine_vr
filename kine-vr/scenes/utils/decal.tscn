@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bm6srb8l26hvk" path="res://assets/decals/circle.png" id="1_1xfdb"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tsj68"]
-size = Vector3(0.1, 0.1, 0.1)
+[sub_resource type="SphereShape3D" id="SphereShape3D_1xfdb"]
+radius = 0.125
 
 [node name="Decal" type="Decal"]
 size = Vector3(0.25, 0.25, 0.25)
@@ -12,4 +12,4 @@ texture_albedo = ExtResource("1_1xfdb")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("BoxShape3D_tsj68")
+shape = SubResource("SphereShape3D_1xfdb")
