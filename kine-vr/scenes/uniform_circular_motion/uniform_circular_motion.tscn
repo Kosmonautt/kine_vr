@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dffrcd63007q7"]
+[gd_scene load_steps=48 format=3 uid="uid://dffrcd63007q7"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_6p47d"]
 [ext_resource type="Script" uid="uid://dyn2iuog4gaie" path="res://scenes/uniform_circular_motion/uniform_circular_motion.gd" id="1_qhga1"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="8_ilodd"]
 [ext_resource type="Script" uid="uid://bra68pa0ibru6" path="res://scenes/uniform_circular_motion/sphere.gd" id="9_voqfm"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="10_detkr"]
+[ext_resource type="PackedScene" uid="uid://cp2ohwbfhxmkp" path="res://scenes/utils/decal/decal.tscn" id="10_ww3wn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6d6dl"]
 size = Vector3(25, 1, 25)
@@ -209,6 +210,7 @@ mesh = SubResource("SphereMesh_voqfm")
 script = ExtResource("9_voqfm")
 rotor_sphere = NodePath("../../Rotor/Sphere")
 plane = NodePath("..")
+decal_scene = ExtResource("10_ww3wn")
 
 [node name="Cosine" type="Node3D" parent="Wall"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 3.999)
@@ -227,6 +229,7 @@ script = ExtResource("9_voqfm")
 rotor_sphere = NodePath("../../Rotor/Sphere")
 plane = NodePath("..")
 mode = 1
+decal_scene = ExtResource("10_ww3wn")
 
 [node name="Rotor" parent="Wall" node_paths=PackedStringArray("blade", "sphere") instance=ExtResource("2_tj3cp")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.000339985, 0.001, 0)
