@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5art2vnwq8pi"]
+[gd_scene load_steps=8 format=3 uid="uid://b5art2vnwq8pi"]
 
+[ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="1_djxab"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_p2ted"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_doxax"]
 size = Vector3(20, 8, 6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27upa"]
-albedo_texture = ExtResource("2_p2ted")
+albedo_texture = ExtResource("1_djxab")
 uv1_scale = Vector3(20, 6, 6)
 disable_receive_shadows = true
 
