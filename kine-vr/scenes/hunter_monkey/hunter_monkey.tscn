@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://df7s2w6t06bpu"]
+[gd_scene load_steps=35 format=3 uid="uid://df7s2w6t06bpu"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_ep48d"]
 [ext_resource type="Script" uid="uid://beajsl6rmc22i" path="res://scenes/hunter_monkey/hunter_monkey.gd" id="1_s6tcq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bgrpvpbvr3gnp" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_rough_1k.jpg" id="3_njrws"]
 [ext_resource type="Script" uid="uid://bhcwiol7lgw6q" path="res://scenes/hunter_monkey/pivot.gd" id="5_ep48d"]
 [ext_resource type="PackedScene" uid="uid://0etylgnnbicm" path="res://scenes/utils/controller/scenery_controller.tscn" id="5_stpkj"]
+[ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="6_v80yk"]
 [ext_resource type="Script" uid="uid://crxwplfx1pust" path="res://scenes/hunter_monkey/target.gd" id="7_dp2id"]
 [ext_resource type="PackedScene" uid="uid://bdivnb586x0gf" path="res://scenes/utils/interactables/lever.tscn" id="8_6ykcc"]
 [ext_resource type="PackedScene" uid="uid://dnr37vvwt2rxo" path="res://scenes/utils/interactables/slider.tscn" id="9_b2vc3"]
@@ -39,7 +40,7 @@ size = Vector3(1, 10, 115)
 size = Vector3(20, 8, 6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27upa"]
-albedo_texture = ExtResource("1_ep48d")
+albedo_texture = ExtResource("6_v80yk")
 uv1_scale = Vector3(20, 6, 6)
 disable_receive_shadows = true
 
