@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 		# sphere follows rotor
 		set_global_position(Vector3(4, rotor_sphere.get_global_position().y, -4))
 	# cosine mode
-	if mode == 1:
+	elif mode == 1:
 		set_global_position(Vector3(rotor_sphere.get_global_position().x, 0, -4))
 
 
