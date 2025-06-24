@@ -34,7 +34,7 @@ shape = SubResource("CylinderShape3D_knkxw")
 [node name="TeleportMesh" type="Node3D" parent="."]
 
 [node name="Base" type="MeshInstance3D" parent="TeleportMesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
 mesh = SubResource("CylinderMesh_irqos")
 
 [node name="Top" type="MeshInstance3D" parent="TeleportMesh"]
