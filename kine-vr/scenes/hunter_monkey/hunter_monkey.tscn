@@ -164,6 +164,9 @@ timer = NodePath("../ProjectileTimer")
 [node name="ProjectileTimer" type="Timer" parent="Scenery"]
 wait_time = 0.05
 
+[node name="TargetTimer" type="Timer" parent="Scenery"]
+wait_time = 0.05
+
 [node name="Controller" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55, 0, -50)
 
