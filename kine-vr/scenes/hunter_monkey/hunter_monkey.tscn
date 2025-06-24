@@ -159,7 +159,7 @@ collision_layer = 16777216
 script = ExtResource("7_dp2id")
 decal_scene = ExtResource("10_kqoov")
 scenery = NodePath("..")
-timer = NodePath("../ProjectileTimer")
+timer = NodePath("../TargetTimer")
 
 [node name="ProjectileTimer" type="Timer" parent="Scenery"]
 wait_time = 0.05
