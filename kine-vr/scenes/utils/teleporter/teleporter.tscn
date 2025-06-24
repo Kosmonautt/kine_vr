@@ -1,22 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://5ph2vjph6j01"]
+[gd_scene load_steps=6 format=3 uid="uid://5ph2vjph6j01"]
 
 [ext_resource type="Script" uid="uid://dovkkapc1kkdj" path="res://scenes/utils/teleporter/teleporter.gd" id="1_knkxw"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_cseux"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_knkxw"]
+height = 2.56
+radius = 0.75
 
-[sub_resource type="SphereMesh" id="SphereMesh_cseux"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irqos"]
+albedo_color = Color(0.498039, 0.54902, 0.666667, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_irqos"]
+material = SubResource("StandardMaterial3D_irqos")
+top_radius = 0.75
+bottom_radius = 0.85
+height = 0.08
+radial_segments = 16
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_irqos"]
+height = 0.08
+radius = 0.85
 
 [node name="Teleporter" type="Node3D"]
 script = ExtResource("1_knkxw")
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 collision_layer = 0
 collision_mask = 524288
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("SphereShape3D_cseux")
+shape = SubResource("CylinderShape3D_knkxw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
-mesh = SubResource("SphereMesh_cseux")
+[node name="TeleportMesh" type="Node3D" parent="."]
+
+[node name="Base" type="MeshInstance3D" parent="TeleportMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08, 0)
+mesh = SubResource("CylinderMesh_irqos")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TeleportMesh/Base"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportMesh/Base/StaticBody3D"]
+shape = SubResource("CylinderShape3D_irqos")
+
+[node name="Top" type="MeshInstance3D" parent="TeleportMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("CylinderMesh_irqos")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TeleportMesh/Top"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportMesh/Top/StaticBody3D"]
+shape = SubResource("CylinderShape3D_irqos")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

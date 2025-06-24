@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dthkeaxjvhxyh"]
+[gd_scene load_steps=4 format=3 uid="uid://dthkeaxjvhxyh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irqos"]
 albedo_color = Color(0.498039, 0.54902, 0.666667, 1)
@@ -12,10 +12,6 @@ radial_segments = 16
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_irqos"]
 height = 0.08
-radius = 0.85
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_6ru7p"]
-height = 2.8
 radius = 0.85
 
 [node name="Teleport" type="Node3D"]
@@ -37,9 +33,3 @@ mesh = SubResource("CylinderMesh_irqos")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Top/StaticBody3D"]
 shape = SubResource("CylinderShape3D_irqos")
-
-[node name="TeleportArea" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-shape = SubResource("CylinderShape3D_6ru7p")
