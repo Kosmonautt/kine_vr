@@ -217,6 +217,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 1, -56)
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="body_exited" from="Scenery" to="Scenery/Target" method="_on_scenery_body_exited"]
 [connection signal="timeout" from="Scenery/ProjectileTimer" to="Scenery/Projectile" method="_on_timer_timeout"]
+[connection signal="timeout" from="Scenery/TargetTimer" to="Scenery/Target" method="_on_target_timer_timeout"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
 [connection signal="slider_moved" from="Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider" to="Scenery/Pivot" method="_on_interactable_slider_radius_slider_moved"]
 [connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Scenery/Projectile" method="_on_interactable_area_button_button_pressed"]

@@ -34,3 +34,7 @@ func _on_interactable_area_button_button_pressed(_button: Variant) -> void:
 	if can_launch == true:
 		set_gravity_scale(1.0)
 		can_launch = false
+
+
+func _on_target_timer_timeout() -> void:
+	pass # Replace with function body.
