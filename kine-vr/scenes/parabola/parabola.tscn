@@ -130,11 +130,11 @@ direction = NodePath("Direction")
 direction_mesh = NodePath("Direction/MeshInstance3D")
 projectile = NodePath("../Projectile")
 
-[node name="ProjectileProjection" parent="Scenery" node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
+[node name="ProjectileProjectionXY" parent="Scenery" node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 1, 0)
 projectile = NodePath("../Projectile")
 
-[node name="ProjectileProjection2" parent="Scenery" node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
+[node name="ProjectileProjectionZX" parent="Scenery" node_paths=PackedStringArray("projectile") instance=ExtResource("4_5igir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
 projectile = NodePath("../Projectile")
 mode = 2
