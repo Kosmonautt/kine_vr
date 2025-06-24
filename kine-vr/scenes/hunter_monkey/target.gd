@@ -8,7 +8,6 @@ const decal_color: Color = Color(0, 0, 1)
 @export var timer: Timer
 
 var can_launch: bool = true
-
 var respawn_position: Vector3 = INITIAL_POSITION
 
 # Called when the node enters the scene tree for the first time.
