@@ -1,6 +1,7 @@
 extends RigidBody3D
 
 const INITIAL_POSITION: Vector3 = Vector3(0.0, 0.0, 3.0)
+const decal_color: Color = Color(0, 1, 0)
 
 @export var direction_mesh: Node3D
 @export var decal_scene: PackedScene
@@ -70,5 +71,4 @@ func _on_timer_timeout() -> void:
 	# add decal references to list
 	decal_list.append(decal_xy)
 	# color change
-	## decal color
-	#decal_xy.change_color(sine_decal_color)
+	decal_xy.change_color(decal_color)
