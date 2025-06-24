@@ -19,12 +19,6 @@ func _ready() -> void:
 	position = INITIAL_POSITION
 	set_gravity_scale(0.0)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta) -> void:
-	print(decal_list.size())
-
-
 func _on_scenery_body_exited(body: Node3D) -> void:
 	if body == self:
 		position = INITIAL_POSITION
