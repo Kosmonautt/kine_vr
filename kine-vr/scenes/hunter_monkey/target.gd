@@ -3,6 +3,10 @@ extends RigidBody3D
 const INITIAL_POSITION: Vector3 = Vector3(16.0, 4.0, 3.0)
 const decal_color: Color = Color(0, 0, 1)
 
+@export var decal_scene: PackedScene
+@export var scenery: Area3D
+@export var timer: Timer
+
 var can_launch: bool = true
 
 var respawn_position: Vector3 = INITIAL_POSITION

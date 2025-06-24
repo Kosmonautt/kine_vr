@@ -153,10 +153,12 @@ direction_mesh = NodePath("Direction/MeshInstance3D")
 projectile = NodePath("../Projectile")
 target = NodePath("../Target")
 
-[node name="Target" parent="Scenery" instance=ExtResource("2_pk44x")]
+[node name="Target" parent="Scenery" node_paths=PackedStringArray("scenery", "timer") instance=ExtResource("2_pk44x")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16, 3.999, 3)
 collision_layer = 16777216
 script = ExtResource("7_dp2id")
+scenery = NodePath("..")
+timer = NodePath("../Timer")
 
 [node name="Timer" type="Timer" parent="Scenery"]
 wait_time = 0.05
