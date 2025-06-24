@@ -274,7 +274,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, -0.2, 0)
 slider_limit_max = 0.4
 
 [node name="Player" parent="." instance=ExtResource("5_kaps1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 5)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.760406, 0.459229, -0.459229, 0, 0.707107, 0.707107, 0.649448, -0.537688, 0.537688, 0, 0, 0)

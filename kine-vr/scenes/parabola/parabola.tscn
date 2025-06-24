@@ -158,7 +158,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -45)
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("10_oi5j8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0.001, -48)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55.5, 0.001, -49.5)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
