@@ -157,6 +157,7 @@ target = NodePath("../Target")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16, 3.999, 3)
 collision_layer = 16777216
 script = ExtResource("7_dp2id")
+decal_scene = ExtResource("10_kqoov")
 scenery = NodePath("..")
 timer = NodePath("../Timer")
 

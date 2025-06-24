@@ -9,6 +9,7 @@ const decal_color: Color = Color(0, 0, 1)
 
 var can_launch: bool = true
 var respawn_position: Vector3 = INITIAL_POSITION
+var decal_list: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
