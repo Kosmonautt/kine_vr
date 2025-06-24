@@ -1,6 +1,7 @@
 extends RigidBody3D
 
 const INITIAL_POSITION: Vector3 = Vector3(16.0, 4.0, 3.0)
+const decal_color: Color = Color(0, 0, 1)
 
 var can_launch: bool = true
 
