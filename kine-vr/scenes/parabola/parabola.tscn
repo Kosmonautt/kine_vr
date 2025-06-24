@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=30 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Script" uid="uid://bc6a0jfhlnlmw" path="res://scenes/parabola/parabola.gd" id="1_j2chm"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_j2chm"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://scenes/parabola/pivot.gd" id="5_v4dxv"]
 [ext_resource type="PackedScene" uid="uid://0etylgnnbicm" path="res://scenes/utils/controller/scenery_controller.tscn" id="6_2fupf"]
 [ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="6_8ean0"]
+[ext_resource type="PackedScene" uid="uid://cp2ohwbfhxmkp" path="res://scenes/utils/decal/decal.tscn" id="10_6bnd7"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="10_oi5j8"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="15_booeb"]
 
@@ -120,6 +121,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1, 
 collision_layer = 16777216
 script = ExtResource("3_julcx")
 direction_mesh = NodePath("../Pivot/Direction/MeshInstance3D")
+decal_scene = ExtResource("10_6bnd7")
 
 [node name="Pivot" parent="Scenery" node_paths=PackedStringArray("direction", "direction_mesh", "projectile") instance=ExtResource("4_im3vq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 4)

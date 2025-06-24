@@ -7,6 +7,7 @@ const sine_decal_color = Color(0, 1, 0)
 const cosine_decal_color = Color(0, 0, 1)
 
 @export var direction_mesh: Node3D
+@export var decal_scene: PackedScene
 
 var can_launch: bool = true
 
