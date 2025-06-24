@@ -169,7 +169,7 @@ shadow_enabled = true
 environment = SubResource("Environment_k7fxw")
 
 [node name="Teleporter" parent="." instance=ExtResource("15_booeb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 1, -56)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -56)
 
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="timeout" from="Scenery/Timer" to="Scenery/Projectile" method="_on_timer_timeout"]

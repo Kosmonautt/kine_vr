@@ -212,7 +212,7 @@ shadow_enabled = true
 environment = SubResource("Environment_0j5li")
 
 [node name="Teleporter" parent="." instance=ExtResource("17_it3m0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 1, -56)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -56)
 
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="body_exited" from="Scenery" to="Scenery/Target" method="_on_scenery_body_exited"]
