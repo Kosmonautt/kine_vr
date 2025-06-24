@@ -31,6 +31,8 @@ func _on_scenery_body_exited(body: Node3D) -> void:
 		linear_velocity = Vector3.ZERO
 		set_gravity_scale(0.0)
 		can_launch = true
+		# decals stop spawning
+		timer.stop()
 
 
 func _on_interactable_area_button_button_pressed(_button: Variant) -> void:
@@ -39,6 +41,14 @@ func _on_interactable_area_button_button_pressed(_button: Variant) -> void:
 		var launch_direction: Vector3 = direction_mesh.global_position - global_position
 		linear_velocity = launch_direction.normalized() * LAUNCH_SPEED
 		can_launch = false
+		# if decal list is not empty
+		if not decal_list.is_empty():
+			# all decals are deleted
+			for d in decal_list:
+				d.queue_free()
+			# list is emptied
+			decal_list.clear()
+		# decals start spawning
 		timer.start()
 
 
