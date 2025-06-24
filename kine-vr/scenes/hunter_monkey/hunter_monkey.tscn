@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://df7s2w6t06bpu"]
+[gd_scene load_steps=36 format=3 uid="uid://df7s2w6t06bpu"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_ep48d"]
 [ext_resource type="Script" uid="uid://beajsl6rmc22i" path="res://scenes/hunter_monkey/hunter_monkey.gd" id="1_s6tcq"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bdivnb586x0gf" path="res://scenes/utils/interactables/lever.tscn" id="8_6ykcc"]
 [ext_resource type="PackedScene" uid="uid://dnr37vvwt2rxo" path="res://scenes/utils/interactables/slider.tscn" id="9_b2vc3"]
 [ext_resource type="PackedScene" uid="uid://buwtt0qxxv75y" path="res://scenes/utils/interactables/button.tscn" id="9_pmmic"]
+[ext_resource type="PackedScene" uid="uid://cp2ohwbfhxmkp" path="res://scenes/utils/decal/decal.tscn" id="10_kqoov"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="12_b2vc3"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="17_it3m0"]
 
@@ -135,11 +136,14 @@ mesh = SubResource("PlaneMesh_doxax")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 4, 0)
 mesh = SubResource("PlaneMesh_abopq")
 
-[node name="Projectile" parent="Scenery" node_paths=PackedStringArray("direction_mesh") instance=ExtResource("2_pk44x")]
+[node name="Projectile" parent="Scenery" node_paths=PackedStringArray("direction_mesh", "scenery", "timer") instance=ExtResource("2_pk44x")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.001, 3)
 collision_layer = 16777216
 script = ExtResource("3_7qyho")
 direction_mesh = NodePath("../Pivot/Direction/MeshInstance3D")
+decal_scene = ExtResource("10_kqoov")
+scenery = NodePath("..")
+timer = NodePath("../Timer")
 
 [node name="Pivot" parent="Scenery" node_paths=PackedStringArray("direction", "direction_mesh", "projectile", "target") instance=ExtResource("3_7luox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.001, 3)
@@ -153,6 +157,9 @@ target = NodePath("../Target")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16, 3.999, 3)
 collision_layer = 16777216
 script = ExtResource("7_dp2id")
+
+[node name="Timer" type="Timer" parent="Scenery"]
+wait_time = 0.05
 
 [node name="Controller" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55, 0, -50)

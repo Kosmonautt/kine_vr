@@ -3,9 +3,14 @@ extends RigidBody3D
 const INITIAL_POSITION: Vector3 = Vector3(0.0, 0.0, 3.0)
 
 @export var direction_mesh: Node3D
+@export var decal_scene: PackedScene
+@export var scenery: Area3D
+@export var timer: Timer
 
 var launch_speed: float = 10
 var can_launch: bool = true
+var decal_list: Array = []
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
