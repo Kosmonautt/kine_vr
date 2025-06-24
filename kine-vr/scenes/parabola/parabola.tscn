@@ -116,12 +116,14 @@ mesh = SubResource("PlaneMesh_doxax")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 4, 0)
 mesh = SubResource("PlaneMesh_abopq")
 
-[node name="Projectile" parent="Scenery" node_paths=PackedStringArray("direction_mesh") instance=ExtResource("2_xhc3r")]
+[node name="Projectile" parent="Scenery" node_paths=PackedStringArray("direction_mesh", "scenery", "timer") instance=ExtResource("2_xhc3r")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1, 4)
 collision_layer = 16777216
 script = ExtResource("3_julcx")
 direction_mesh = NodePath("../Pivot/Direction/MeshInstance3D")
 decal_scene = ExtResource("10_6bnd7")
+scenery = NodePath("..")
+timer = NodePath("../Timer")
 
 [node name="Pivot" parent="Scenery" node_paths=PackedStringArray("direction", "direction_mesh", "projectile") instance=ExtResource("4_im3vq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 4)
@@ -170,6 +172,7 @@ environment = SubResource("Environment_k7fxw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 1, -56)
 
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
+[connection signal="timeout" from="Scenery/Timer" to="Scenery/Projectile" method="_on_timer_timeout"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_phi_hinge_moved"]
 [connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Scenery/Projectile" method="_on_interactable_area_button_button_pressed"]
