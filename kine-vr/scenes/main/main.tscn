@@ -1,12 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://xobnjksj76nj"]
+[gd_scene load_steps=16 format=3 uid="uid://xobnjksj76nj"]
 
 [ext_resource type="Script" uid="uid://220qqx46024i" path="res://scenes/main/main.gd" id="1_yyfjg"]
-[ext_resource type="Material" uid="uid://5pto5rj667x" path="res://material/main.tres" id="2_l3cfh"]
+[ext_resource type="Texture2D" uid="uid://cpfbcoc4xbihx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Color.png" id="2_l3cfh"]
+[ext_resource type="Texture2D" uid="uid://bvvfl708dvtv2" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_AmbientOcclusion.png" id="3_6q06x"]
+[ext_resource type="Texture2D" uid="uid://c8ngm1rmaolw4" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Displacement.png" id="4_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="5_blune"]
+[ext_resource type="Texture2D" uid="uid://bjqfhvjjyxjga" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_NormalGL.png" id="5_hujxm"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="6_ow5a4"]
+[ext_resource type="Texture2D" uid="uid://ex0moq483qmx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Roughness.png" id="6_yyfjg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yyfjg"]
+albedo_texture = ExtResource("2_l3cfh")
+roughness_texture = ExtResource("6_yyfjg")
+normal_enabled = true
+normal_texture = ExtResource("5_hujxm")
+ao_enabled = true
+ao_light_affect = 0.4
+ao_texture = ExtResource("3_6q06x")
+heightmap_enabled = true
+heightmap_scale = 3.0
+heightmap_texture = ExtResource("4_ow5a4")
+uv1_scale = Vector3(25, 25, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_p1ady"]
-material = ExtResource("2_l3cfh")
+material = SubResource("StandardMaterial3D_yyfjg")
 size = Vector2(25, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lttkb"]

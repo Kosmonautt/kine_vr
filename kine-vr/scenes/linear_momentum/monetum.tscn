@@ -1,26 +1,34 @@
-[gd_scene load_steps=22 format=3 uid="uid://bnisjpdmd6po1"]
+[gd_scene load_steps=24 format=3 uid="uid://bnisjpdmd6po1"]
 
 [ext_resource type="Script" uid="uid://fqe6i7kthpig" path="res://scenes/linear_momentum/monetum.gd" id="1_xsfa6"]
+[ext_resource type="Texture2D" uid="uid://cpfbcoc4xbihx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Color.png" id="2_2nt1c"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="2_83fnu"]
-[ext_resource type="Texture2D" uid="uid://x5vvcnocsuc6" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_diff_1k.jpg" id="2_myyo7"]
-[ext_resource type="Texture2D" uid="uid://dn8cftxp6snf4" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_nor_gl_1k.jpg" id="3_pixqy"]
-[ext_resource type="Texture2D" uid="uid://bgrpvpbvr3gnp" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_rough_1k.jpg" id="3_xa32y"]
+[ext_resource type="Texture2D" uid="uid://bvvfl708dvtv2" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_AmbientOcclusion.png" id="3_1okqf"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="4_idi3l"]
+[ext_resource type="Texture2D" uid="uid://c8ngm1rmaolw4" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Displacement.png" id="4_opb7s"]
+[ext_resource type="Texture2D" uid="uid://bjqfhvjjyxjga" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_NormalGL.png" id="5_aaakq"]
 [ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/utils/scenery.tscn" id="5_pixqy"]
+[ext_resource type="Texture2D" uid="uid://ex0moq483qmx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Roughness.png" id="6_wopgf"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="8_mem3d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rf48c"]
 size = Vector3(50, 1, 25)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_idi3l"]
-albedo_texture = ExtResource("2_myyo7")
-roughness_texture = ExtResource("3_xa32y")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ed7xc"]
+albedo_texture = ExtResource("2_2nt1c")
+roughness_texture = ExtResource("6_wopgf")
 normal_enabled = true
-normal_texture = ExtResource("3_pixqy")
+normal_texture = ExtResource("5_aaakq")
+ao_enabled = true
+ao_light_affect = 0.4
+ao_texture = ExtResource("3_1okqf")
+heightmap_enabled = true
+heightmap_scale = 3.0
+heightmap_texture = ExtResource("4_opb7s")
 uv1_scale = Vector3(50, 25, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_idi3l"]
-material = SubResource("StandardMaterial3D_idi3l")
+material = SubResource("StandardMaterial3D_ed7xc")
 size = Vector2(50, 25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pixqy"]

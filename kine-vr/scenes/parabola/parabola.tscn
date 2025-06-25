@@ -1,19 +1,21 @@
-[gd_scene load_steps=30 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=32 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Script" uid="uid://bc6a0jfhlnlmw" path="res://scenes/parabola/parabola.gd" id="1_j2chm"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_j2chm"]
-[ext_resource type="Texture2D" uid="uid://x5vvcnocsuc6" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_diff_1k.jpg" id="2_k51ul"]
+[ext_resource type="Texture2D" uid="uid://cpfbcoc4xbihx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Color.png" id="2_odx51"]
 [ext_resource type="Script" uid="uid://bwixhl1gcv3qf" path="res://scenes/parabola/scenery.gd" id="2_oi5j8"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="2_xhc3r"]
+[ext_resource type="Texture2D" uid="uid://bvvfl708dvtv2" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_AmbientOcclusion.png" id="3_2qukm"]
 [ext_resource type="Script" uid="uid://b57k5ijliqvi0" path="res://scenes/parabola/projectile.gd" id="3_julcx"]
-[ext_resource type="Texture2D" uid="uid://dn8cftxp6snf4" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_nor_gl_1k.jpg" id="3_k7fxw"]
-[ext_resource type="Texture2D" uid="uid://bgrpvpbvr3gnp" path="res://assets/stone_embedded_tiles_1k/stone_embedded_tiles_rough_1k.jpg" id="3_rsm2s"]
 [ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/utils/projectile_projection/projectile_projection.tscn" id="4_5igir"]
+[ext_resource type="Texture2D" uid="uid://c8ngm1rmaolw4" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Displacement.png" id="4_eo76x"]
 [ext_resource type="PackedScene" uid="uid://qlto2rluch77" path="res://scenes/utils/pivot.tscn" id="4_im3vq"]
 [ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/utils/controller/controller.tscn" id="5_04ykf"]
+[ext_resource type="Texture2D" uid="uid://bjqfhvjjyxjga" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_NormalGL.png" id="5_m30v8"]
 [ext_resource type="Script" uid="uid://dkmg34q7xtnhr" path="res://scenes/parabola/pivot.gd" id="5_v4dxv"]
 [ext_resource type="PackedScene" uid="uid://0etylgnnbicm" path="res://scenes/utils/controller/scenery_controller.tscn" id="6_2fupf"]
 [ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="6_8ean0"]
+[ext_resource type="Texture2D" uid="uid://ex0moq483qmx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Roughness.png" id="6_irvxg"]
 [ext_resource type="PackedScene" uid="uid://cp2ohwbfhxmkp" path="res://scenes/utils/decal/decal.tscn" id="10_6bnd7"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="10_oi5j8"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="15_booeb"]
@@ -21,15 +23,21 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_im3vq"]
 size = Vector3(115, 1, 115)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rsm2s"]
-albedo_texture = ExtResource("2_k51ul")
-roughness_texture = ExtResource("3_rsm2s")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6dm2"]
+albedo_texture = ExtResource("2_odx51")
+roughness_texture = ExtResource("6_irvxg")
 normal_enabled = true
-normal_texture = ExtResource("3_k7fxw")
+normal_texture = ExtResource("5_m30v8")
+ao_enabled = true
+ao_light_affect = 0.4
+ao_texture = ExtResource("3_2qukm")
+heightmap_enabled = true
+heightmap_scale = 3.0
+heightmap_texture = ExtResource("4_eo76x")
 uv1_scale = Vector3(115, 115, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_j2chm"]
-material = SubResource("StandardMaterial3D_rsm2s")
+material = SubResource("StandardMaterial3D_p6dm2")
 size = Vector2(115, 115)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k7fxw"]
