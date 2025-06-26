@@ -8,8 +8,8 @@ extends XRToolsInteractableBody
 @export var viewport_size = Vector2(100.0, 100.0)
 
 
-# Current mouse mask
-var _mouse_mask := 0
+## Current mouse mask
+#var _mouse_mask := 0
 
 # Viewport node
 var _viewport : Viewport
@@ -26,8 +26,8 @@ var _dominant : Node3D
 # Mouse pointer
 var _mouse : Node3D
 
-# Last mouse position
-var _mouse_last := Vector2.ZERO
+## Last mouse position
+#var _mouse_last := Vector2.ZERO
 
 
 func _ready():

@@ -24,7 +24,7 @@ func _ready() -> void:
 	control = $ControlPad/Viewport2dIn3d.get_scene_instance()
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	control.refresh_screen(projectile)
 
 	
