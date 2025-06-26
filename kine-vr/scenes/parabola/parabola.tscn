@@ -75,8 +75,9 @@ sky_material = SubResource("PhysicalSkyMaterial_k7fxw")
 background_mode = 2
 sky = SubResource("Sky_k7fxw")
 
-[node name="Parabola" type="Node3D"]
+[node name="Parabola" type="Node3D" node_paths=PackedStringArray("projectile")]
 script = ExtResource("1_j2chm")
+projectile = NodePath("Scenery/Projectile")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
@@ -186,7 +187,7 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 
 [node name="Viewport2dIn3d" parent="ControlPad" index="1"]
 scene = ExtResource("21_eo76x")
-scene_properties_keys = PackedStringArray("Built-in script", "projectile")
+scene_properties_keys = PackedStringArray("control_pad_display_parabola.gd")
 
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="timeout" from="Scenery/Timer" to="Scenery/Projectile" method="_on_timer_timeout"]
