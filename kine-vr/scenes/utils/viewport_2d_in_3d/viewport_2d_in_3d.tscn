@@ -24,7 +24,10 @@ scene_properties_keys = PackedStringArray()
 metadata/_custom_type_script = "uid://xkhganqakkm2"
 
 [node name="Viewport" type="SubViewport" parent="."]
+disable_3d = true
 transparent_bg = true
+gui_embed_subwindows = true
+size = Vector2i(300, 200)
 render_target_update_mode = 1
 
 [node name="Screen" type="MeshInstance3D" parent="."]
