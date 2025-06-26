@@ -183,7 +183,7 @@ environment = SubResource("Environment_k7fxw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -56)
 
 [node name="ControlPad" parent="." instance=ExtResource("20_2qukm")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -56, 1.2, -50.5)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55.4, 1.6, -49.8)
 
 [node name="Viewport2dIn3d" parent="ControlPad" index="1"]
 scene = ExtResource("21_eo76x")
