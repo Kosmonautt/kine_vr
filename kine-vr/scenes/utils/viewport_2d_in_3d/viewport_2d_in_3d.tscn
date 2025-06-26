@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://caxou70yliqq0"]
+[gd_scene load_steps=7 format=3 uid="uid://caxou70yliqq0"]
 
 [ext_resource type="Script" uid="uid://xkhganqakkm2" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="1_g57xy"]
+[ext_resource type="Script" uid="uid://0haeqojybvg3" path="res://scenes/utils/viewport_2d_in_3d/viewport_2d_in_3d_body.gd" id="2_mgagx"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_g57xy"]
 resource_local_to_scene = true
@@ -9,11 +10,14 @@ size = Vector2(3, 2)
 [sub_resource type="ViewportTexture" id="ViewportTexture_mgagx"]
 viewport_path = NodePath("Viewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g57xy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7aew2"]
 transparency = 1
 cull_mode = 2
 albedo_texture = SubResource("ViewportTexture_mgagx")
 texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7aew2"]
+size = Vector3(3, 2, 0.02)
 
 [node name="Viewport2dIn3d" type="Node3D"]
 script = ExtResource("1_g57xy")
@@ -32,4 +36,12 @@ render_target_update_mode = 1
 
 [node name="Screen" type="MeshInstance3D" parent="."]
 mesh = SubResource("QuadMesh_g57xy")
-surface_material_override/0 = SubResource("StandardMaterial3D_g57xy")
+surface_material_override/0 = SubResource("StandardMaterial3D_7aew2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 5242881
+script = ExtResource("2_mgagx")
+viewport_size = Vector2(300, 200)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_7aew2")
