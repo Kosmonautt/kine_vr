@@ -20,17 +20,6 @@ metadata/_tab_index = 0
 [node name="VBoxContainer" type="VBoxContainer" parent="Data"]
 layout_mode = 2
 
-[node name="ThetaAngle" type="HBoxContainer" parent="Data/VBoxContainer"]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="Data/VBoxContainer/ThetaAngle"]
-layout_mode = 2
-text = "θ: "
-
-[node name="Value" type="Label" parent="Data/VBoxContainer/ThetaAngle"]
-layout_mode = 2
-text = "0°"
-
 [node name="Position" type="HBoxContainer" parent="Data/VBoxContainer"]
 layout_mode = 2
 
@@ -52,5 +41,16 @@ text = "Vel: "
 [node name="Value" type="Label" parent="Data/VBoxContainer/Velocity"]
 layout_mode = 2
 text = "0, 0, 0"
+
+[node name="Angle" type="HBoxContainer" parent="Data/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/VBoxContainer/Angle"]
+layout_mode = 2
+text = "Angle:"
+
+[node name="Value" type="Label" parent="Data/VBoxContainer/Angle"]
+layout_mode = 2
+text = "0°, 0°, 0°"
 
 [connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]
