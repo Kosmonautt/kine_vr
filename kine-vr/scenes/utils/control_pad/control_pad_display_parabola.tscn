@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dshvdpv4cxi6b"]
+
+[node name="ControlPadDisplay" type="TabContainer"]
+current_tab = 0
+
+[node name="Data" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Data"]
+layout_mode = 2
+
+[node name="ThetaAngle" type="HBoxContainer" parent="Data/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/VBoxContainer/ThetaAngle"]
+layout_mode = 2
+text = "θ: "
+
+[node name="Value" type="Label" parent="Data/VBoxContainer/ThetaAngle"]
+layout_mode = 2
+text = "0°"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Data/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "φ: "
+
+[node name="Value" type="Label" parent="Data/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0°"
