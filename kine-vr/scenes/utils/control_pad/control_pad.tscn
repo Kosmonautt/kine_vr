@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://r37l0i45qqol" path="res://scenes/utils/control_pad/control_pad_display.tscn" id="2_l036u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7efr7"]
-size = Vector3(0.16, 0.08, 0.01)
+size = Vector3(0.45, 0.16, 0.01)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7efr7"]
 transparency = 1
@@ -13,7 +13,7 @@ albedo_color = Color(1, 1, 1, 0.156863)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7efr7"]
 material = SubResource("StandardMaterial3D_7efr7")
-size = Vector3(0.16, 0.08, 0.01)
+size = Vector3(0.32, 0.16, 0.01)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkx6h"]
 transparency = 1
@@ -23,7 +23,7 @@ albedo_color = Color(1, 1, 1, 0.156863)
 material = SubResource("StandardMaterial3D_dkx6h")
 top_radius = 0.01
 bottom_radius = 0.01
-height = 0.08
+height = 0.16
 
 [node name="ControlPad" type="RigidBody3D"]
 collision_layer = 4
@@ -37,7 +37,7 @@ metadata/_custom_type_script = "uid://syh0h8f55sih"
 shape = SubResource("BoxShape3D_7efr7")
 
 [node name="Viewport2dIn3d" parent="." instance=ExtResource("1_j4iqb")]
-screen_size = Vector2(0.16, 0.08)
+screen_size = Vector2(0.32, 0.16)
 collision_layer = 4194304
 scene = ExtResource("2_l036u")
 viewport_size = Vector2(400, 200)
@@ -49,9 +49,9 @@ unshaded = true
 mesh = SubResource("BoxMesh_7efr7")
 
 [node name="HandleLeft" type="MeshInstance3D" parent="Panel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0)
 mesh = SubResource("CylinderMesh_7efr7")
 
 [node name="HandleRight" type="MeshInstance3D" parent="Panel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 mesh = SubResource("CylinderMesh_7efr7")
