@@ -17,7 +17,7 @@ albedo_texture = SubResource("ViewportTexture_mgagx")
 texture_filter = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7aew2"]
-size = Vector3(3, 2, 0.02)
+size = Vector3(0.32, 0.16, 0.02)
 
 [node name="Viewport2dIn3d" type="Node3D"]
 script = ExtResource("1_g57xy")
