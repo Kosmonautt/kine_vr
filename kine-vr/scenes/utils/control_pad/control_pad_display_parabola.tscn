@@ -3,6 +3,8 @@
 [node name="ControlPadDisplay" type="TabContainer"]
 current_tab = 0
 
+[node name="RefreshTimer" type="Timer" parent="."]
+
 [node name="Data" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 5
