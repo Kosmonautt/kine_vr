@@ -1,21 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://dshvdpv4cxi6b"]
 
-[sub_resource type="GDScript" id="GDScript_fxepl"]
-script/source = "extends TabContainer
-
-var num: float = 0.0
-
-func _ready() -> void:
-	$Data/VBoxContainer/ThetaAngle/Value.text = \"%8.3f\" % [num]
-
-func _on_refresh_timer_timeout() -> void:
-	num += 0.1
-	$Data/VBoxContainer/ThetaAngle/Value.text = \"%8.3f\" % [num]
-"
+[ext_resource type="Script" uid="uid://dpemagjii244i" path="res://scenes/utils/control_pad/control_pad_display_parabola.gd" id="1_eury4"]
 
 [node name="ControlPadDisplay" type="TabContainer"]
 current_tab = 0
-script = SubResource("GDScript_fxepl")
+script = ExtResource("1_eury4")
 
 [node name="RefreshTimer" type="Timer" parent="."]
 autostart = true
