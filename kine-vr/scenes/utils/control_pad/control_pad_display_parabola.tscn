@@ -1,7 +1,20 @@
-[gd_scene format=3 uid="uid://dshvdpv4cxi6b"]
+[gd_scene load_steps=2 format=3 uid="uid://dshvdpv4cxi6b"]
+
+[sub_resource type="GDScript" id="GDScript_fxepl"]
+script/source = "extends TabContainer
+
+@export var projectile: RigidBody3D
+
+func _ready() -> void:
+	$Data/VBoxContainer/ThetaAngle/Value.text = \"Test\"
+
+func _on_refresh_timer_timeout() -> void:
+	pass # Replace with function body.
+"
 
 [node name="ControlPadDisplay" type="TabContainer"]
 current_tab = 0
+script = SubResource("GDScript_fxepl")
 
 [node name="RefreshTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -39,3 +52,5 @@ text = "φ: "
 [node name="Value" type="Label" parent="Data/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "0°"
+
+[connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]
