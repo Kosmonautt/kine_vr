@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://l8h0a417elon"]
+[gd_scene load_steps=5 format=3 uid="uid://l8h0a417elon"]
 
+[ext_resource type="Script" uid="uid://syh0h8f55sih" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_7efr7"]
 [ext_resource type="PackedScene" uid="uid://caxou70yliqq0" path="res://scenes/utils/viewport_2d_in_3d/viewport_2d_in_3d.tscn" id="1_j4iqb"]
 [ext_resource type="PackedScene" uid="uid://r37l0i45qqol" path="res://scenes/utils/control_pad/control_pad_display.tscn" id="2_l036u"]
 
-[node name="ControlPad" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_7efr7"]
+size = Vector3(0.16, 0.08, 0.01)
+
+[node name="ControlPad" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
+gravity_scale = 0.0
+continuous_cd = true
+script = ExtResource("1_7efr7")
+metadata/_custom_type_script = "uid://syh0h8f55sih"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_7efr7")
 
 [node name="Viewport2dIn3d" parent="." instance=ExtResource("1_j4iqb")]
 screen_size = Vector2(0.16, 0.08)
