@@ -4,6 +4,8 @@
 current_tab = 0
 
 [node name="RefreshTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
 
 [node name="Data" type="MarginContainer" parent="."]
 layout_mode = 2
