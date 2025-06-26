@@ -40,14 +40,14 @@ text = "θ: "
 layout_mode = 2
 text = "0°"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Data/VBoxContainer"]
+[node name="PhiAngle" type="HBoxContainer" parent="Data/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/VBoxContainer/HBoxContainer"]
+[node name="Name" type="Label" parent="Data/VBoxContainer/PhiAngle"]
 layout_mode = 2
 text = "φ: "
 
-[node name="Value" type="Label" parent="Data/VBoxContainer/HBoxContainer"]
+[node name="Value" type="Label" parent="Data/VBoxContainer/PhiAngle"]
 layout_mode = 2
 text = "0°"
 
