@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=34 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Script" uid="uid://bc6a0jfhlnlmw" path="res://scenes/parabola/parabola.gd" id="1_j2chm"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_j2chm"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="10_oi5j8"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="15_booeb"]
 [ext_resource type="PackedScene" uid="uid://l8h0a417elon" path="res://scenes/utils/control_pad/control_pad.tscn" id="20_2qukm"]
+[ext_resource type="PackedScene" uid="uid://dshvdpv4cxi6b" path="res://scenes/utils/control_pad/control_pad_display_parabola.tscn" id="21_eo76x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_im3vq"]
 size = Vector3(115, 1, 115)
@@ -183,6 +184,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -56)
 [node name="ControlPad" parent="." instance=ExtResource("20_2qukm")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -56, 1.2, -50.5)
 
+[node name="Viewport2dIn3d" parent="ControlPad" index="1"]
+scene = ExtResource("21_eo76x")
+scene_properties_keys = PackedStringArray("Built-in script", "projectile")
+
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="timeout" from="Scenery/Timer" to="Scenery/Projectile" method="_on_timer_timeout"]
 [connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
@@ -206,3 +211,4 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 [editable path="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider/HandleOrigin"]
 [editable path="SceneryController/Pole/Panel/SliderZ"]
 [editable path="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="ControlPad"]
