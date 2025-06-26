@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://l8h0a417elon"]
+[gd_scene load_steps=9 format=3 uid="uid://l8h0a417elon"]
 
 [ext_resource type="Script" uid="uid://syh0h8f55sih" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_7efr7"]
 [ext_resource type="PackedScene" uid="uid://caxou70yliqq0" path="res://scenes/utils/viewport_2d_in_3d/viewport_2d_in_3d.tscn" id="1_j4iqb"]
@@ -14,6 +14,16 @@ albedo_color = Color(1, 1, 1, 0.156863)
 [sub_resource type="BoxMesh" id="BoxMesh_7efr7"]
 material = SubResource("StandardMaterial3D_7efr7")
 size = Vector3(0.16, 0.08, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkx6h"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.156863)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7efr7"]
+material = SubResource("StandardMaterial3D_dkx6h")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.08
 
 [node name="ControlPad" type="RigidBody3D"]
 collision_layer = 4
@@ -37,3 +47,11 @@ unshaded = true
 
 [node name="Panel" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_7efr7")
+
+[node name="HandleLeft" type="MeshInstance3D" parent="Panel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0)
+mesh = SubResource("CylinderMesh_7efr7")
+
+[node name="HandleRight" type="MeshInstance3D" parent="Panel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+mesh = SubResource("CylinderMesh_7efr7")
