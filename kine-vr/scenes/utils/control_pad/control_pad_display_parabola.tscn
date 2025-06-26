@@ -25,7 +25,7 @@ layout_mode = 2
 
 [node name="Name" type="Label" parent="Data/VBoxContainer/Position"]
 layout_mode = 2
-text = "Pos: "
+text = "Position(x, y, z) [m]:    "
 
 [node name="Value" type="Label" parent="Data/VBoxContainer/Position"]
 layout_mode = 2
@@ -36,7 +36,7 @@ layout_mode = 2
 
 [node name="Name" type="Label" parent="Data/VBoxContainer/Velocity"]
 layout_mode = 2
-text = "Vel: "
+text = "Velocity(x, y, z) [m/s]: "
 
 [node name="Value" type="Label" parent="Data/VBoxContainer/Velocity"]
 layout_mode = 2
@@ -47,10 +47,10 @@ layout_mode = 2
 
 [node name="Name" type="Label" parent="Data/VBoxContainer/Angle"]
 layout_mode = 2
-text = "Angle:"
+text = "Rotation(x, y, z) [°]:     "
 
 [node name="Value" type="Label" parent="Data/VBoxContainer/Angle"]
 layout_mode = 2
-text = "0°, 0°, 0°"
+text = "0, 0, 0"
 
 [connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]
