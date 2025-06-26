@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://xobnjksj76nj"]
+[gd_scene load_steps=17 format=3 uid="uid://xobnjksj76nj"]
 
 [ext_resource type="Script" uid="uid://220qqx46024i" path="res://scenes/main/main.gd" id="1_yyfjg"]
 [ext_resource type="Texture2D" uid="uid://cpfbcoc4xbihx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Color.png" id="2_l3cfh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bjqfhvjjyxjga" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_NormalGL.png" id="5_hujxm"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="6_ow5a4"]
 [ext_resource type="Texture2D" uid="uid://ex0moq483qmx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Roughness.png" id="6_yyfjg"]
+[ext_resource type="PackedScene" uid="uid://l8h0a417elon" path="res://scenes/utils/control_pad/control_pad.tscn" id="9_b1x3f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yyfjg"]
 albedo_texture = ExtResource("2_l3cfh")
@@ -103,3 +104,6 @@ destination = 4
 [node name="TeleporterLinearMomentum" parent="Teleporters" instance=ExtResource("6_ow5a4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
 destination = 5
+
+[node name="ControlPad" parent="." instance=ExtResource("9_b1x3f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
