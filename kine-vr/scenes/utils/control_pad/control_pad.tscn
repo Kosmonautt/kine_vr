@@ -1,10 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://l8h0a417elon"]
+[gd_scene load_steps=7 format=3 uid="uid://l8h0a417elon"]
 
 [ext_resource type="Script" uid="uid://syh0h8f55sih" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_7efr7"]
 [ext_resource type="PackedScene" uid="uid://caxou70yliqq0" path="res://scenes/utils/viewport_2d_in_3d/viewport_2d_in_3d.tscn" id="1_j4iqb"]
 [ext_resource type="PackedScene" uid="uid://r37l0i45qqol" path="res://scenes/utils/control_pad/control_pad_display.tscn" id="2_l036u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7efr7"]
+size = Vector3(0.16, 0.08, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7efr7"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.392157)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7efr7"]
+material = SubResource("StandardMaterial3D_7efr7")
 size = Vector3(0.16, 0.08, 0.01)
 
 [node name="ControlPad" type="RigidBody3D"]
@@ -26,3 +34,6 @@ viewport_size = Vector2(400, 200)
 update_mode = 2
 throttle_fps = 15.0
 unshaded = true
+
+[node name="Panel" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_7efr7")
