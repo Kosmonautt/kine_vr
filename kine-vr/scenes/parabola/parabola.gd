@@ -25,7 +25,7 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	control.refresh_screen(projectile.rotation_degrees.x)
+	control.refresh_screen(projectile)
 
 	
 	
