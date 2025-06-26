@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://l8h0a417elon"]
+[gd_scene load_steps=3 format=3 uid="uid://l8h0a417elon"]
+
+[ext_resource type="PackedScene" uid="uid://caxou70yliqq0" path="res://scenes/utils/viewport_2d_in_3d/viewport_2d_in_3d.tscn" id="1_j4iqb"]
+[ext_resource type="PackedScene" uid="uid://r37l0i45qqol" path="res://scenes/utils/control_pad/control_pad_display.tscn" id="2_l036u"]
 
 [node name="ControlPad" type="Node3D"]
+
+[node name="Viewport2dIn3d" parent="." instance=ExtResource("1_j4iqb")]
+screen_size = Vector2(0.16, 0.08)
+collision_layer = 4194304
+scene = ExtResource("2_l036u")
+viewport_size = Vector2(400, 200)
+update_mode = 2
+throttle_fps = 15.0
+unshaded = true
