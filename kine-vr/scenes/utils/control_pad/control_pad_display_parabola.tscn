@@ -6,9 +6,6 @@
 current_tab = 0
 script = ExtResource("1_eury4")
 
-[node name="RefreshTimer" type="Timer" parent="."]
-autostart = true
-
 [node name="Data" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 5
@@ -52,5 +49,3 @@ text = "Rotation(x, y, z) [°]:     "
 [node name="Value" type="Label" parent="Data/VBoxContainer/Angle"]
 layout_mode = 2
 text = "0, 0, 0"
-
-[connection signal="timeout" from="RefreshTimer" to="." method="_on_refresh_timer_timeout"]
