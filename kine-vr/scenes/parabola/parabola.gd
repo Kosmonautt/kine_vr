@@ -5,6 +5,7 @@ var xr_interface: XRInterface
 var control: TabContainer
 
 @export var projectile: RigidBody3D
+@export var refresh_timer: Timer
 
 func _ready() -> void:
 	Engine.max_fps = 90
@@ -23,9 +24,7 @@ func _ready() -> void:
 	
 	control = $ControlPad/Viewport2dIn3d.get_scene_instance()
 	
-
-func _process(_delta: float) -> void:
+	
+func _on_refresh_timer_timeout() -> void:
 	control.refresh_screen(projectile)
-
-	
-	
+	refresh_timer.start()

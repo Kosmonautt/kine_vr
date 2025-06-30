@@ -75,9 +75,10 @@ sky_material = SubResource("PhysicalSkyMaterial_k7fxw")
 background_mode = 2
 sky = SubResource("Sky_k7fxw")
 
-[node name="Parabola" type="Node3D" node_paths=PackedStringArray("projectile")]
+[node name="Parabola" type="Node3D" node_paths=PackedStringArray("projectile", "refresh_timer")]
 script = ExtResource("1_j2chm")
 projectile = NodePath("Scenery/Projectile")
+refresh_timer = NodePath("ControlPad/RefreshTimer")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
@@ -197,6 +198,7 @@ scene_properties_keys = PackedStringArray("control_pad_display_parabola.gd")
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_x_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_y_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_z_slider_moved"]
+[connection signal="timeout" from="ControlPad/RefreshTimer" to="." method="_on_refresh_timer_timeout"]
 
 [editable path="Scenery/Pivot"]
 [editable path="Controller"]
