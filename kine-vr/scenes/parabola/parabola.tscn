@@ -78,7 +78,7 @@ sky = SubResource("Sky_k7fxw")
 [node name="Parabola" type="Node3D" node_paths=PackedStringArray("projectile", "refresh_timer")]
 script = ExtResource("1_j2chm")
 projectile = NodePath("Scenery/Projectile")
-refresh_timer = NodePath("ControlPad/RefreshTimer")
+refresh_timer = NodePath("Interface/ControlPad/RefreshTimer")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
@@ -156,15 +156,6 @@ mode = 2
 [node name="Timer" type="Timer" parent="Scenery"]
 wait_time = 0.05
 
-[node name="Controller" parent="." instance=ExtResource("5_04ykf")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55, 0, -50)
-
-[node name="GrabPointHandLeft" parent="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HingeBody/MeshInstance3D" index="0"]
-transform = Transform3D(0.365998, 0.906308, -0.211309, -0.5, 0, -0.866025, -0.784886, 0.422618, 0.453154, 0.04, 0.075, 0)
-
-[node name="GrabPointHandRight" parent="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HingeBody/MeshInstance3D" index="1"]
-transform = Transform3D(-0.540992, -0.831012, -0.129409, 0.469846, -0.17101, -0.866025, 0.697547, -0.529316, 0.482963, -0.04, 0.075, -0.045)
-
 [node name="SceneryController" parent="." instance=ExtResource("6_2fupf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -45)
 visible = false
@@ -183,30 +174,35 @@ environment = SubResource("Environment_k7fxw")
 [node name="Teleporter" parent="." instance=ExtResource("15_booeb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -56)
 
-[node name="ControlPad" parent="." instance=ExtResource("20_2qukm")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55.4, 1.6, -49.8)
+[node name="Interface" type="Node3D" parent="."]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55, 0, -50)
 
-[node name="Viewport2dIn3d" parent="ControlPad" index="1"]
+[node name="Controller" parent="Interface" instance=ExtResource("5_04ykf")]
+
+[node name="GrabPointHandLeft" parent="Interface/Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HingeBody/MeshInstance3D" index="0"]
+transform = Transform3D(0.365998, 0.906308, -0.211309, -0.5, 0, -0.866025, -0.784886, 0.422618, 0.453154, 0.04, 0.075, 0)
+
+[node name="GrabPointHandRight" parent="Interface/Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HingeBody/MeshInstance3D" index="1"]
+transform = Transform3D(-0.540992, -0.831012, -0.129409, 0.469846, -0.17101, -0.866025, 0.697547, -0.529316, 0.482963, -0.04, 0.075, -0.045)
+
+[node name="ControlPad" parent="Interface" instance=ExtResource("20_2qukm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, -0.05)
+
+[node name="Viewport2dIn3d" parent="Interface/ControlPad" index="1"]
 scene = ExtResource("21_eo76x")
 scene_properties_keys = PackedStringArray("control_pad_display_rigid_body.gd")
 
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="timeout" from="Scenery/Timer" to="Scenery/Projectile" method="_on_timer_timeout"]
-[connection signal="hinge_moved" from="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
-[connection signal="hinge_moved" from="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_phi_hinge_moved"]
-[connection signal="button_pressed" from="Controller/Pole/Panel/Button/InteractableAreaButton" to="Scenery/Projectile" method="_on_interactable_area_button_button_pressed"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_x_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_y_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_z_slider_moved"]
-[connection signal="timeout" from="ControlPad/RefreshTimer" to="." method="_on_refresh_timer_timeout"]
+[connection signal="hinge_moved" from="Interface/Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
+[connection signal="hinge_moved" from="Interface/Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_phi_hinge_moved"]
+[connection signal="button_pressed" from="Interface/Controller/Pole/Panel/Button/InteractableAreaButton" to="Scenery/Projectile" method="_on_interactable_area_button_button_pressed"]
+[connection signal="timeout" from="Interface/ControlPad/RefreshTimer" to="." method="_on_refresh_timer_timeout"]
 
 [editable path="Scenery/Pivot"]
-[editable path="Controller"]
-[editable path="Controller/Pole/Panel/LeverTheta"]
-[editable path="Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever/HandleOrigin"]
-[editable path="Controller/Pole/Panel/LeverPhi"]
-[editable path="Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HandleOrigin"]
-[editable path="Controller/Pole/Panel/Button"]
 [editable path="SceneryController"]
 [editable path="SceneryController/Pole/Panel/SliderX"]
 [editable path="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider/HandleOrigin"]
@@ -214,4 +210,10 @@ scene_properties_keys = PackedStringArray("control_pad_display_rigid_body.gd")
 [editable path="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider/HandleOrigin"]
 [editable path="SceneryController/Pole/Panel/SliderZ"]
 [editable path="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider/HandleOrigin"]
-[editable path="ControlPad"]
+[editable path="Interface/Controller"]
+[editable path="Interface/Controller/Pole/Panel/LeverTheta"]
+[editable path="Interface/Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever/HandleOrigin"]
+[editable path="Interface/Controller/Pole/Panel/LeverPhi"]
+[editable path="Interface/Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HandleOrigin"]
+[editable path="Interface/Controller/Pole/Panel/Button"]
+[editable path="Interface/ControlPad"]
