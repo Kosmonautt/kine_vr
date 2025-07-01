@@ -24,6 +24,8 @@ func _ready() -> void:
 	
 	control = $ControlPad/Viewport2dIn3d.get_scene_instance()
 	
+	control.set_label_name("Projectile")
+	
 	
 func _on_refresh_timer_timeout() -> void:
 	control.refresh_screen(projectile)

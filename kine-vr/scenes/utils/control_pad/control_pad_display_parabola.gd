@@ -13,4 +13,7 @@ func refresh_screen(projectile: RigidBody3D) -> void:
 	$Data/VBoxContainer/Position/Value.text = pos_str
 	$Data/VBoxContainer/Velocity/Value.text = vel_str
 	$Data/VBoxContainer/Angle/Value.text = rot_str
+
+func set_label_name(name: String) -> void:
+	$Data/VBoxContainer/Name.text = name
 	
