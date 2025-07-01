@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="10_oi5j8"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="15_booeb"]
 [ext_resource type="PackedScene" uid="uid://l8h0a417elon" path="res://scenes/utils/control_pad/control_pad.tscn" id="20_2qukm"]
-[ext_resource type="PackedScene" uid="uid://dshvdpv4cxi6b" path="res://scenes/utils/control_pad/control_pad_display_parabola.tscn" id="21_eo76x"]
+[ext_resource type="PackedScene" uid="uid://dshvdpv4cxi6b" path="res://scenes/utils/control_pad/control_pad_display_rigid_body.tscn" id="21_eo76x"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_im3vq"]
 size = Vector3(115, 1, 115)
@@ -188,7 +188,7 @@ transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 
 
 [node name="Viewport2dIn3d" parent="ControlPad" index="1"]
 scene = ExtResource("21_eo76x")
-scene_properties_keys = PackedStringArray("control_pad_display_parabola.gd")
+scene_properties_keys = PackedStringArray("control_pad_display_rigid_body.gd")
 
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="timeout" from="Scenery/Timer" to="Scenery/Projectile" method="_on_timer_timeout"]

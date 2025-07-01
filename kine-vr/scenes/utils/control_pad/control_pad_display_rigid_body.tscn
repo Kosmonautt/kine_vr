@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://dshvdpv4cxi6b"]
 
-[ext_resource type="Script" uid="uid://dpemagjii244i" path="res://scenes/utils/control_pad/control_pad_display_parabola.gd" id="1_eury4"]
+[ext_resource type="Script" uid="uid://dpemagjii244i" path="res://scenes/utils/control_pad/control_pad_display_rigid_body.gd" id="1_hvnbb"]
 
 [node name="ControlPadDisplay" type="TabContainer"]
 current_tab = 0
-script = ExtResource("1_eury4")
+script = ExtResource("1_hvnbb")
 
 [node name="Data" type="MarginContainer" parent="."]
 layout_mode = 2
