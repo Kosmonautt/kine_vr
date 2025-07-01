@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://df7s2w6t06bpu"]
+[gd_scene load_steps=40 format=3 uid="uid://df7s2w6t06bpu"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_ep48d"]
 [ext_resource type="Script" uid="uid://beajsl6rmc22i" path="res://scenes/hunter_monkey/hunter_monkey.gd" id="1_s6tcq"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://cp2ohwbfhxmkp" path="res://scenes/utils/decal/decal.tscn" id="10_kqoov"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="12_b2vc3"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="17_it3m0"]
+[ext_resource type="PackedScene" uid="uid://l8h0a417elon" path="res://scenes/utils/control_pad/control_pad.tscn" id="22_apheu"]
+[ext_resource type="PackedScene" uid="uid://dshvdpv4cxi6b" path="res://scenes/utils/control_pad/control_pad_display_rigid_body.tscn" id="23_ie4g0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pmmic"]
 size = Vector3(115, 1, 115)
@@ -93,8 +95,12 @@ sky_material = SubResource("PhysicalSkyMaterial_0j5li")
 background_mode = 2
 sky = SubResource("Sky_0j5li")
 
-[node name="HunterMonkey" type="Node3D"]
+[node name="HunterMonkey" type="Node3D" node_paths=PackedStringArray("projectile", "target", "projectile_refresh_timer", "target_refresh_timer")]
 script = ExtResource("1_s6tcq")
+projectile = NodePath("Scenery/Projectile")
+target = NodePath("Scenery/Target")
+projectile_refresh_timer = NodePath("ControlPadProjectile/RefreshTimer")
+target_refresh_timer = NodePath("ControlPadTarget/RefreshTimer")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
@@ -222,6 +228,20 @@ environment = SubResource("Environment_0j5li")
 [node name="Teleporter" parent="." instance=ExtResource("17_it3m0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -56)
 
+[node name="ControlPadProjectile" parent="." instance=ExtResource("22_apheu")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55.4, 1.6, -50.1)
+
+[node name="Viewport2dIn3d" parent="ControlPadProjectile" index="1"]
+scene = ExtResource("23_ie4g0")
+scene_properties_keys = PackedStringArray("control_pad_display_rigid_body.gd")
+
+[node name="ControlPadTarget" parent="." instance=ExtResource("22_apheu")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -54.9, 1.6, -49.58)
+
+[node name="Viewport2dIn3d" parent="ControlPadTarget" index="1"]
+scene = ExtResource("23_ie4g0")
+scene_properties_keys = PackedStringArray("control_pad_display_rigid_body.gd")
+
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="body_exited" from="Scenery" to="Scenery/Target" method="_on_scenery_body_exited"]
 [connection signal="timeout" from="Scenery/ProjectileTimer" to="Scenery/Projectile" method="_on_timer_timeout"]
@@ -234,6 +254,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -56)
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_x_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_y_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_z_slider_moved"]
+[connection signal="timeout" from="ControlPadProjectile/RefreshTimer" to="." method="_on_projectile_refresh_timer_timeout"]
+[connection signal="timeout" from="ControlPadTarget/RefreshTimer" to="." method="_on_target_refresh_timer_timeout"]
 
 [editable path="Scenery/Pivot"]
 [editable path="Controller/Pole/Panel/LeverTheta"]
@@ -250,3 +272,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -56)
 [editable path="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider/HandleOrigin"]
 [editable path="SceneryController/Pole/Panel/SliderZ"]
 [editable path="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="ControlPadProjectile"]
+[editable path="ControlPadTarget"]
