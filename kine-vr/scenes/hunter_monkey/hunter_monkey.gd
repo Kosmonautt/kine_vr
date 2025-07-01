@@ -25,10 +25,10 @@ func _ready() -> void:
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
 	
-	projectile_control = $ControlPadProjectile/Viewport2dIn3d.get_scene_instance()
+	projectile_control = $Interface/ControlPadProjectile/Viewport2dIn3d.get_scene_instance()
 	projectile_control.set_label_name("Projectile")
 	
-	target_control = $ControlPadTarget/Viewport2dIn3d.get_scene_instance()
+	target_control = $Interface/ControlPadTarget/Viewport2dIn3d.get_scene_instance()
 	target_control.set_label_name("Target")
 	
 	
