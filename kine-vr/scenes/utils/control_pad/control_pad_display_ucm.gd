@@ -1,10 +1,6 @@
 extends TabContainer
 
-func refresh_screen(radius: float, angular_speed: float, rotation_deegrees: float) -> void:#
-	#$Data/VBoxContainer/Position/Value.text = pos_str
-	#$Data/VBoxContainer/Velocity/Value.text = vel_str
-	#$Data/VBoxContainer/Angle/Value.text = rot_str
-	
+func refresh_screen(radius: float, angular_speed: float, rotation_deegrees: float) -> void:#	
 	var rad: float = radius
 	var rot: float = rotation_deegrees
 	var rot_speed: float = rad_to_deg(angular_speed)

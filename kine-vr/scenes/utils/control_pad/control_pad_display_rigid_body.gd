@@ -1,7 +1,5 @@
 extends TabContainer
 
-var num: float = 0.0
-
 func refresh_screen(projectile: RigidBody3D) -> void:
 	var pos: Vector3 = projectile.get_position()
 	var vel: Vector3 = projectile.get_linear_velocity()
