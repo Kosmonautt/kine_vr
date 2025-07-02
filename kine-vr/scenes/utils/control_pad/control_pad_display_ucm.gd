@@ -4,7 +4,7 @@ func refresh_screen(radius: float, angular_speed: float, rotation_deegrees: floa
 	var rad: float = radius
 	var rot: float = rotation_deegrees
 	var rot_speed: float = rad_to_deg(angular_speed)
-	var tan_speed: float = rot_speed * rad
+	var tan_speed: float = angular_speed * rad
 	var per: float = (2*PI)/angular_speed
 	var fre: float = 1/per
 	var rad_str := "%8.3f" % [rad]
