@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://dffrcd63007q7"]
+[gd_scene load_steps=52 format=3 uid="uid://dffrcd63007q7"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_6p47d"]
 [ext_resource type="Script" uid="uid://dyn2iuog4gaie" path="res://scenes/uniform_circular_motion/uniform_circular_motion.gd" id="1_qhga1"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="10_detkr"]
 [ext_resource type="PackedScene" uid="uid://cp2ohwbfhxmkp" path="res://scenes/utils/decal/decal.tscn" id="10_ww3wn"]
 [ext_resource type="PackedScene" uid="uid://l8h0a417elon" path="res://scenes/utils/control_pad/control_pad.tscn" id="19_xfncr"]
+[ext_resource type="PackedScene" uid="uid://bm740c8pjp4dk" path="res://scenes/utils/control_pad/control_pad_display_UCM.tscn" id="20_up1jy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6d6dl"]
 size = Vector3(25, 1, 25)
@@ -151,8 +152,10 @@ albedo_color = Color(1, 1, 1, 0.156863)
 material = SubResource("StandardMaterial3D_eq701")
 size = Vector3(1.5, 0.5, 0.05)
 
-[node name="UniformCircularMotion" type="Node3D"]
+[node name="UniformCircularMotion" type="Node3D" node_paths=PackedStringArray("rotor", "refresh_timer")]
 script = ExtResource("1_qhga1")
+rotor = NodePath("Wall/Rotor")
+refresh_timer = NodePath("Interface/ControlPad/RefreshTimer")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
@@ -301,14 +304,21 @@ slider_limit_max = 0.4
 [node name="ControlPad" parent="Interface" instance=ExtResource("19_xfncr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, 0)
 
+[node name="Viewport2dIn3d" parent="Interface/ControlPad" index="1"]
+scene = ExtResource("20_up1jy")
+viewport_size = Vector2(480, 240)
+scene_properties_keys = PackedStringArray("control_pad_display_ucm.gd")
+
 [connection signal="timeout" from="Wall/Timer" to="Wall/Sine/Sphere" method="_on_timer_timeout"]
 [connection signal="timeout" from="Wall/Timer" to="Wall/Cosine/Sphere" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Wall/Despawner" to="Wall/Despawner" method="_on_area_entered"]
 [connection signal="slider_moved" from="Interface/Controller/Pole/Panel/SliderAngularSpeed/SliderOrigin/InteractableSlider" to="Wall/Rotor" method="_on_interactable_slider_angular_speed_slider_moved"]
 [connection signal="slider_moved" from="Interface/Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider" to="Wall/Rotor" method="_on_interactable_slider_radius_slider_moved"]
+[connection signal="timeout" from="Interface/ControlPad/RefreshTimer" to="." method="_on_refresh_timer_timeout"]
 
 [editable path="Wall/Rotor"]
 [editable path="Interface/Controller/Pole/Panel/SliderAngularSpeed"]
 [editable path="Interface/Controller/Pole/Panel/SliderAngularSpeed/SliderOrigin/InteractableSlider/HandleOrigin"]
 [editable path="Interface/Controller/Pole/Panel/SliderRadius"]
 [editable path="Interface/Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="Interface/ControlPad"]

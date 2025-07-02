@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bm740c8pjp4dk"]
 
-[ext_resource type="Script" uid="uid://dpemagjii244i" path="res://scenes/utils/control_pad/control_pad_display_rigid_body.gd" id="1_nqpue"]
+[ext_resource type="Script" uid="uid://dw0h0j45snewa" path="res://scenes/utils/control_pad/control_pad_display_ucm.gd" id="1_nqpue"]
 
 [node name="ControlPadDisplay" type="TabContainer"]
 current_tab = 0
@@ -20,17 +20,6 @@ layout_mode = 2
 [node name="Name" type="Label" parent="Data/VBoxContainer"]
 layout_mode = 2
 text = "Name"
-
-[node name="Position" type="HBoxContainer" parent="Data/VBoxContainer"]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="Data/VBoxContainer/Position"]
-layout_mode = 2
-text = "Position(x, y, z) [m]:    "
-
-[node name="Value" type="Label" parent="Data/VBoxContainer/Position"]
-layout_mode = 2
-text = "0, 0, 0"
 
 [node name="Radius" type="HBoxContainer" parent="Data/VBoxContainer"]
 layout_mode = 2

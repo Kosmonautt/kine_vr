@@ -2,6 +2,11 @@ extends Node3D
 
 var xr_interface: XRInterface
 
+var control: TabContainer
+
+@export var rotor: Node3D
+@export var refresh_timer: Timer
+
 func _ready() -> void:
 	Engine.max_fps = 90
 	
@@ -16,3 +21,11 @@ func _ready() -> void:
 		get_viewport().use_xr = true
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
+
+	control = $Interface/ControlPad/Viewport2dIn3d.get_scene_instance()
+
+	control.set_label_name("Rotor")
+
+func _on_refresh_timer_timeout() -> void:
+	control.refresh_screen(rotor.radius, rotor.angular_speed, rotor.rotation_degrees.y)
+	refresh_timer.start()
