@@ -2,7 +2,7 @@ extends TabContainer
 
 func refresh_screen(radius: float, angular_speed: float, rotation_deegrees: float) -> void:#	
 	var rad: float = radius
-	var rot: float = rotation_deegrees
+	var rot: float = natural_degrees(rotation_deegrees)
 	var rot_speed: float = rad_to_deg(angular_speed)
 	var tan_speed: float = angular_speed * rad
 	var per: float = (2*PI)/angular_speed
@@ -23,3 +23,10 @@ func refresh_screen(radius: float, angular_speed: float, rotation_deegrees: floa
 
 func set_label_name(name: String) -> void:
 	$Data/VBoxContainer/Name.text = name
+
+# changes degrees from [0, 1, ..., 180, -180, ..., -179, ..., -1, -0] to [0, 360]
+func natural_degrees(degrees: float) -> float:
+	if degrees < 0:
+		degrees = 360 + degrees
+	
+	return degrees
