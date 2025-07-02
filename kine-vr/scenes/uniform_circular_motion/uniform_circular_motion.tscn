@@ -123,6 +123,15 @@ height = 0.25
 radius = 0.125
 height = 0.25
 
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_qfw4u"]
+
+[sub_resource type="Sky" id="Sky_detkr"]
+sky_material = SubResource("PhysicalSkyMaterial_qfw4u")
+
+[sub_resource type="Environment" id="Environment_qfw4u"]
+background_mode = 2
+sky = SubResource("Sky_detkr")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e06ql"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.156863)
@@ -140,15 +149,6 @@ albedo_color = Color(1, 1, 1, 0.156863)
 [sub_resource type="BoxMesh" id="BoxMesh_um401"]
 material = SubResource("StandardMaterial3D_eq701")
 size = Vector3(1.5, 0.5, 0.05)
-
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_qfw4u"]
-
-[sub_resource type="Sky" id="Sky_detkr"]
-sky_material = SubResource("PhysicalSkyMaterial_qfw4u")
-
-[sub_resource type="Environment" id="Environment_qfw4u"]
-background_mode = 2
-sky = SubResource("Sky_detkr")
 
 [node name="UniformCircularMotion" type="Node3D"]
 script = ExtResource("1_qhga1")
@@ -258,29 +258,6 @@ sphere = NodePath("Sphere")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.16415e-10)
 mesh = SubResource("SphereMesh_ilodd")
 
-[node name="Controller" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
-
-[node name="Pole" type="MeshInstance3D" parent="Controller"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("CylinderMesh_60fnl")
-
-[node name="Panel" type="MeshInstance3D" parent="Controller/Pole"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.5, 0.07)
-mesh = SubResource("BoxMesh_um401")
-
-[node name="SliderAngularSpeed" parent="Controller/Pole/Panel" instance=ExtResource("4_6d6dl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, -0.2, 0)
-
-[node name="InteractableSlider" parent="Controller/Pole/Panel/SliderAngularSpeed/SliderOrigin" index="0"]
-slider_limit_max = 0.4
-
-[node name="SliderRadius" parent="Controller/Pole/Panel" instance=ExtResource("4_6d6dl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, -0.2, 0)
-
-[node name="InteractableSlider" parent="Controller/Pole/Panel/SliderRadius/SliderOrigin" index="0"]
-slider_limit_max = 0.4
-
 [node name="Player" parent="." instance=ExtResource("5_kaps1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 5)
 
@@ -295,14 +272,39 @@ environment = SubResource("Environment_qfw4u")
 [node name="Teleporter" parent="." instance=ExtResource("10_detkr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
 
+[node name="Interface" type="Node3D" parent="."]
+
+[node name="Controller" type="Node3D" parent="Interface"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="Pole" type="MeshInstance3D" parent="Interface/Controller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_60fnl")
+
+[node name="Panel" type="MeshInstance3D" parent="Interface/Controller/Pole"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.5, 0.07)
+mesh = SubResource("BoxMesh_um401")
+
+[node name="SliderAngularSpeed" parent="Interface/Controller/Pole/Panel" instance=ExtResource("4_6d6dl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, -0.2, 0)
+
+[node name="InteractableSlider" parent="Interface/Controller/Pole/Panel/SliderAngularSpeed/SliderOrigin" index="0"]
+slider_limit_max = 0.4
+
+[node name="SliderRadius" parent="Interface/Controller/Pole/Panel" instance=ExtResource("4_6d6dl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, -0.2, 0)
+
+[node name="InteractableSlider" parent="Interface/Controller/Pole/Panel/SliderRadius/SliderOrigin" index="0"]
+slider_limit_max = 0.4
+
 [connection signal="timeout" from="Wall/Timer" to="Wall/Sine/Sphere" method="_on_timer_timeout"]
 [connection signal="timeout" from="Wall/Timer" to="Wall/Cosine/Sphere" method="_on_timer_timeout"]
 [connection signal="area_entered" from="Wall/Despawner" to="Wall/Despawner" method="_on_area_entered"]
-[connection signal="slider_moved" from="Controller/Pole/Panel/SliderAngularSpeed/SliderOrigin/InteractableSlider" to="Wall/Rotor" method="_on_interactable_slider_angular_speed_slider_moved"]
-[connection signal="slider_moved" from="Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider" to="Wall/Rotor" method="_on_interactable_slider_radius_slider_moved"]
+[connection signal="slider_moved" from="Interface/Controller/Pole/Panel/SliderAngularSpeed/SliderOrigin/InteractableSlider" to="Wall/Rotor" method="_on_interactable_slider_angular_speed_slider_moved"]
+[connection signal="slider_moved" from="Interface/Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider" to="Wall/Rotor" method="_on_interactable_slider_radius_slider_moved"]
 
 [editable path="Wall/Rotor"]
-[editable path="Controller/Pole/Panel/SliderAngularSpeed"]
-[editable path="Controller/Pole/Panel/SliderAngularSpeed/SliderOrigin/InteractableSlider/HandleOrigin"]
-[editable path="Controller/Pole/Panel/SliderRadius"]
-[editable path="Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="Interface/Controller/Pole/Panel/SliderAngularSpeed"]
+[editable path="Interface/Controller/Pole/Panel/SliderAngularSpeed/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="Interface/Controller/Pole/Panel/SliderRadius"]
+[editable path="Interface/Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider/HandleOrigin"]
