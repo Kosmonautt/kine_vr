@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://df7s2w6t06bpu"]
+[gd_scene load_steps=37 format=3 uid="uid://df7s2w6t06bpu"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_ep48d"]
 [ext_resource type="Script" uid="uid://beajsl6rmc22i" path="res://scenes/hunter_monkey/hunter_monkey.gd" id="1_s6tcq"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cp2ohwbfhxmkp" path="res://scenes/utils/decal/decal.tscn" id="10_kqoov"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="12_b2vc3"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="17_it3m0"]
+[ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/utils/controller/controller.tscn" id="21_e5jvk"]
 [ext_resource type="PackedScene" uid="uid://l8h0a417elon" path="res://scenes/utils/control_pad/control_pad.tscn" id="22_apheu"]
 [ext_resource type="PackedScene" uid="uid://dshvdpv4cxi6b" path="res://scenes/utils/control_pad/control_pad_display_rigid_body.tscn" id="23_ie4g0"]
 
@@ -76,24 +77,6 @@ sky_material = SubResource("PhysicalSkyMaterial_0j5li")
 [sub_resource type="Environment" id="Environment_0j5li"]
 background_mode = 2
 sky = SubResource("Sky_0j5li")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e06ql"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.156863)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_60fnl"]
-material = SubResource("StandardMaterial3D_e06ql")
-top_radius = 0.05
-bottom_radius = 0.05
-height = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq701"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.156863)
-
-[sub_resource type="BoxMesh" id="BoxMesh_um401"]
-material = SubResource("StandardMaterial3D_eq701")
-size = Vector3(1.5, 0.5, 0.05)
 
 [node name="HunterMonkey" type="Node3D" node_paths=PackedStringArray("projectile", "target", "projectile_refresh_timer", "target_refresh_timer")]
 script = ExtResource("1_s6tcq")
@@ -202,44 +185,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -56)
 [node name="Interface" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55, 0, -50)
 
-[node name="Controller" type="Node3D" parent="Interface"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Controller" parent="Interface" instance=ExtResource("21_e5jvk")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1, 0)
 
-[node name="Pole" type="MeshInstance3D" parent="Interface/Controller"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("CylinderMesh_60fnl")
+[node name="ThetaLever" parent="Interface/Controller" instance=ExtResource("8_6ykcc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.075, 0)
 
-[node name="Panel" type="MeshInstance3D" parent="Interface/Controller/Pole"]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.5, 0.07)
-mesh = SubResource("BoxMesh_um401")
+[node name="RadiusSlider" parent="Interface/Controller" instance=ExtResource("9_b2vc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.075, 0)
 
-[node name="LeverTheta" parent="Interface/Controller/Pole/Panel" instance=ExtResource("8_6ykcc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+[node name="InteractableSlider" parent="Interface/Controller/RadiusSlider/SliderOrigin" index="0"]
+slider_limit_max = 0.2
 
-[node name="SliderRadius" parent="Interface/Controller/Pole/Panel" instance=ExtResource("9_b2vc3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.2, 0)
+[node name="SpeedSlider" parent="Interface/Controller" instance=ExtResource("9_b2vc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.075, 0)
 
-[node name="InteractableSlider" parent="Interface/Controller/Pole/Panel/SliderRadius/SliderOrigin" index="0"]
-slider_limit_max = 0.4
+[node name="InteractableSlider" parent="Interface/Controller/SpeedSlider/SliderOrigin" index="0"]
+slider_limit_max = 0.2
 
-[node name="Button" parent="Interface/Controller/Pole/Panel" instance=ExtResource("9_pmmic")]
-transform = Transform3D(1, 0, 0, 0, -8.9407e-08, -1, 0, 1, -8.9407e-08, 0.15, 0, 0.05)
-
-[node name="SliderSpeed" parent="Interface/Controller/Pole/Panel" instance=ExtResource("9_b2vc3")]
-transform = Transform3D(1, 0, 0, 0, 1, -2.98023e-08, 0, -2.98023e-08, 1, 0.5, -0.2, 0)
-
-[node name="InteractableSlider" parent="Interface/Controller/Pole/Panel/SliderSpeed/SliderOrigin" index="0"]
-slider_limit_max = 0.4
+[node name="Button" parent="Interface/Controller" instance=ExtResource("9_pmmic")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.15, 0.0499992)
 
 [node name="ControlPadProjectile" parent="Interface" instance=ExtResource("22_apheu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.34, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 1.35, -0.021)
 
 [node name="Viewport2dIn3d" parent="Interface/ControlPadProjectile" index="1"]
 scene = ExtResource("23_ie4g0")
 scene_properties_keys = PackedStringArray("control_pad_display_rigid_body.gd")
 
 [node name="ControlPadTarget" parent="Interface" instance=ExtResource("22_apheu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.35, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1.35, 0)
 
 [node name="Viewport2dIn3d" parent="Interface/ControlPadTarget" index="1"]
 scene = ExtResource("23_ie4g0")
@@ -252,11 +227,11 @@ scene_properties_keys = PackedStringArray("control_pad_display_rigid_body.gd")
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_x_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_y_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_z_slider_moved"]
-[connection signal="hinge_moved" from="Interface/Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
-[connection signal="slider_moved" from="Interface/Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider" to="Scenery/Pivot" method="_on_interactable_slider_radius_slider_moved"]
-[connection signal="button_pressed" from="Interface/Controller/Pole/Panel/Button/InteractableAreaButton" to="Scenery/Projectile" method="_on_interactable_area_button_button_pressed"]
-[connection signal="button_pressed" from="Interface/Controller/Pole/Panel/Button/InteractableAreaButton" to="Scenery/Target" method="_on_interactable_area_button_button_pressed"]
-[connection signal="slider_moved" from="Interface/Controller/Pole/Panel/SliderSpeed/SliderOrigin/InteractableSlider" to="Scenery/Projectile" method="_on_interactable_slider_speed_slider_moved"]
+[connection signal="hinge_moved" from="Interface/Controller/ThetaLever/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
+[connection signal="slider_moved" from="Interface/Controller/RadiusSlider/SliderOrigin/InteractableSlider" to="Scenery/Pivot" method="_on_interactable_slider_radius_slider_moved"]
+[connection signal="slider_moved" from="Interface/Controller/SpeedSlider/SliderOrigin/InteractableSlider" to="Scenery/Projectile" method="_on_interactable_slider_speed_slider_moved"]
+[connection signal="button_pressed" from="Interface/Controller/Button/InteractableAreaButton" to="Scenery/Projectile" method="_on_interactable_area_button_button_pressed"]
+[connection signal="button_pressed" from="Interface/Controller/Button/InteractableAreaButton" to="Scenery/Target" method="_on_interactable_area_button_button_pressed"]
 [connection signal="timeout" from="Interface/ControlPadProjectile/RefreshTimer" to="." method="_on_projectile_refresh_timer_timeout"]
 [connection signal="timeout" from="Interface/ControlPadTarget/RefreshTimer" to="." method="_on_target_refresh_timer_timeout"]
 
@@ -268,12 +243,12 @@ scene_properties_keys = PackedStringArray("control_pad_display_rigid_body.gd")
 [editable path="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider/HandleOrigin"]
 [editable path="SceneryController/Pole/Panel/SliderZ"]
 [editable path="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider/HandleOrigin"]
-[editable path="Interface/Controller/Pole/Panel/LeverTheta"]
-[editable path="Interface/Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever/HandleOrigin"]
-[editable path="Interface/Controller/Pole/Panel/SliderRadius"]
-[editable path="Interface/Controller/Pole/Panel/SliderRadius/SliderOrigin/InteractableSlider/HandleOrigin"]
-[editable path="Interface/Controller/Pole/Panel/Button"]
-[editable path="Interface/Controller/Pole/Panel/SliderSpeed"]
-[editable path="Interface/Controller/Pole/Panel/SliderSpeed/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="Interface/Controller/ThetaLever"]
+[editable path="Interface/Controller/ThetaLever/LeverOrigin/InteractableLever/HandleOrigin"]
+[editable path="Interface/Controller/RadiusSlider"]
+[editable path="Interface/Controller/RadiusSlider/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="Interface/Controller/SpeedSlider"]
+[editable path="Interface/Controller/SpeedSlider/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="Interface/Controller/Button"]
 [editable path="Interface/ControlPadProjectile"]
 [editable path="Interface/ControlPadTarget"]

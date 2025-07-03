@@ -46,8 +46,8 @@ func _on_interactable_area_button_button_pressed(_button: Variant) -> void:
 
 
 func _on_interactable_slider_speed_slider_moved(p: Variant) -> void:
-	# position [0.0, 0.4] meters to [0.0, 1.0]
-	var percentage: float = smoothstep(0.0, 1.0, p)
+	# position [0.0, 0.2] meters to [0.0, 1.0]
+	var percentage: float = smoothstep(0.0, 0.2, p)
 	
 	# number [0.0, 1.0] transformed to [10.0, 100.0] meters/s
 	launch_speed = lerp(10.0, 100.0, percentage)
