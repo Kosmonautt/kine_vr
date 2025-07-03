@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://10gt8y7a3au2"]
+[gd_scene load_steps=8 format=3 uid="uid://10gt8y7a3au2"]
+
+[ext_resource type="Script" uid="uid://syh0h8f55sih" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_5frw4"]
+[ext_resource type="Script" uid="uid://daq70hlwit8ih" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="2_mbkos"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eq701"]
 transparency = 1
@@ -6,11 +9,55 @@ albedo_color = Color(1, 1, 1, 0.156863)
 
 [sub_resource type="BoxMesh" id="BoxMesh_um401"]
 material = SubResource("StandardMaterial3D_eq701")
-size = Vector3(0.6, 0.5, 0.05)
+size = Vector3(0.6, 0.6, 0.05)
 
-[node name="Controller" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkx6h"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.156863)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5frw4"]
+material = SubResource("StandardMaterial3D_dkx6h")
+top_radius = 0.01
+bottom_radius = 0.01
+height = 0.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5frw4"]
+size = Vector3(0.95, 0.6, 0.05)
+
+[node name="Controller" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
+gravity_scale = 0.0
+linear_damp_mode = 1
+linear_damp = 200.0
+angular_damp_mode = 1
+angular_damp = 200.0
+script = ExtResource("1_5frw4")
+second_hand_grab = 2
+metadata/_custom_type_script = "uid://syh0h8f55sih"
 
 [node name="Panel" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_um401")
 skeleton = NodePath("")
+
+[node name="HandleLeft" type="MeshInstance3D" parent="Panel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, 0, 0)
+mesh = SubResource("CylinderMesh_5frw4")
+
+[node name="HandleRight" type="MeshInstance3D" parent="Panel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 0, 0)
+mesh = SubResource("CylinderMesh_5frw4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5frw4")
+
+[node name="XRToolsGrabPointHandLeft" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.432128, 0, -0.0813491)
+script = ExtResource("2_mbkos")
+metadata/_custom_type_script = "uid://daq70hlwit8ih"
+
+[node name="XRToolsGrabPointHandRight" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.431303, 0, -0.0821165)
+script = ExtResource("2_mbkos")
+hand = 1
+metadata/_custom_type_script = "uid://daq70hlwit8ih"
