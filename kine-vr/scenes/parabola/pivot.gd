@@ -4,7 +4,7 @@ extends Node3D
 @export var direction_mesh: Node3D
 @export var projectile: Node3D
 
-func _on_interactable_lever_theta_hinge_moved(angle: Variant) -> void:
+func _on_interactable_theta_lever_hinge_moved(angle: Variant) -> void:
 	# angle [-45, 45] degrees to [0.0, 1.0]
 	var percentage: float = smoothstep(45.0, -45.0, angle)
 	
@@ -16,7 +16,7 @@ func _on_interactable_lever_theta_hinge_moved(angle: Variant) -> void:
 	projectile.look_at(direction_mesh.global_position, Vector3.UP)
 
 
-func _on_interactable_lever_phi_hinge_moved(angle: Variant) -> void:
+func _on_interactable_phi_lever_hinge_moved(angle: Variant) -> void:
 	# angle [-45, 45] degrees to [0.0, 1.0]
 	var percentage: float = smoothstep(-45.0, 45.0, angle)
 

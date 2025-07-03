@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://d0cykuljffr0m"]
+[gd_scene load_steps=36 format=3 uid="uid://d0cykuljffr0m"]
 
 [ext_resource type="Script" uid="uid://bc6a0jfhlnlmw" path="res://scenes/parabola/parabola.gd" id="1_j2chm"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="2_j2chm"]
@@ -20,7 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="10_oi5j8"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="15_booeb"]
 [ext_resource type="PackedScene" uid="uid://l8h0a417elon" path="res://scenes/utils/control_pad/control_pad.tscn" id="20_2qukm"]
+[ext_resource type="PackedScene" uid="uid://bdivnb586x0gf" path="res://scenes/utils/interactables/lever.tscn" id="20_m30v8"]
 [ext_resource type="PackedScene" uid="uid://dshvdpv4cxi6b" path="res://scenes/utils/control_pad/control_pad_display_rigid_body.tscn" id="21_eo76x"]
+[ext_resource type="PackedScene" uid="uid://buwtt0qxxv75y" path="res://scenes/utils/interactables/button.tscn" id="21_irvxg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_im3vq"]
 size = Vector3(115, 1, 115)
@@ -178,12 +180,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -56)
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55, 0, -50)
 
 [node name="Controller" parent="Interface" instance=ExtResource("5_04ykf")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1, 0)
 
-[node name="GrabPointHandLeft" parent="Interface/Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HingeBody/MeshInstance3D" index="0"]
-transform = Transform3D(0.365998, 0.906308, -0.211309, -0.5, 0, -0.866025, -0.784886, 0.422618, 0.453154, 0.04, 0.075, 0)
+[node name="ThetaLever" parent="Interface/Controller" instance=ExtResource("20_m30v8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.075, 0)
 
-[node name="GrabPointHandRight" parent="Interface/Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HingeBody/MeshInstance3D" index="1"]
-transform = Transform3D(-0.540992, -0.831012, -0.129409, 0.469846, -0.17101, -0.866025, 0.697547, -0.529316, 0.482963, -0.04, 0.075, -0.045)
+[node name="PhiLever" parent="Interface/Controller" instance=ExtResource("20_m30v8")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.15, 0.075, 0)
+
+[node name="Button" parent="Interface/Controller" instance=ExtResource("21_irvxg")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.1, 0.05)
 
 [node name="ControlPad" parent="Interface" instance=ExtResource("20_2qukm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, -0.05)
@@ -197,9 +203,9 @@ scene_properties_keys = PackedStringArray("control_pad_display_rigid_body.gd")
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_x_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_y_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_z_slider_moved"]
-[connection signal="hinge_moved" from="Interface/Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
-[connection signal="hinge_moved" from="Interface/Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_phi_hinge_moved"]
-[connection signal="button_pressed" from="Interface/Controller/Pole/Panel/Button/InteractableAreaButton" to="Scenery/Projectile" method="_on_interactable_area_button_button_pressed"]
+[connection signal="hinge_moved" from="Interface/Controller/ThetaLever/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_theta_lever_hinge_moved"]
+[connection signal="hinge_moved" from="Interface/Controller/PhiLever/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_phi_lever_hinge_moved"]
+[connection signal="button_pressed" from="Interface/Controller/Button/InteractableAreaButton" to="Scenery/Projectile" method="_on_interactable_area_button_button_pressed"]
 [connection signal="timeout" from="Interface/ControlPad/RefreshTimer" to="." method="_on_refresh_timer_timeout"]
 
 [editable path="Scenery/Pivot"]
@@ -210,10 +216,9 @@ scene_properties_keys = PackedStringArray("control_pad_display_rigid_body.gd")
 [editable path="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider/HandleOrigin"]
 [editable path="SceneryController/Pole/Panel/SliderZ"]
 [editable path="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider/HandleOrigin"]
-[editable path="Interface/Controller"]
-[editable path="Interface/Controller/Pole/Panel/LeverTheta"]
-[editable path="Interface/Controller/Pole/Panel/LeverTheta/LeverOrigin/InteractableLever/HandleOrigin"]
-[editable path="Interface/Controller/Pole/Panel/LeverPhi"]
-[editable path="Interface/Controller/Pole/Panel/LeverPhi/LeverOrigin/InteractableLever/HandleOrigin"]
-[editable path="Interface/Controller/Pole/Panel/Button"]
+[editable path="Interface/Controller/ThetaLever"]
+[editable path="Interface/Controller/ThetaLever/LeverOrigin/InteractableLever/HandleOrigin"]
+[editable path="Interface/Controller/PhiLever"]
+[editable path="Interface/Controller/PhiLever/LeverOrigin/InteractableLever/HandleOrigin"]
+[editable path="Interface/Controller/Button"]
 [editable path="Interface/ControlPad"]
