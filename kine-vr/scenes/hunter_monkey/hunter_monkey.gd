@@ -2,13 +2,11 @@ extends Node3D
 
 var xr_interface: XRInterface
 
-var projectile_control: TabContainer
-var target_control: TabContainer
+var control: TabContainer
 
 @export var projectile: RigidBody3D
 @export var target: RigidBody3D
-@export var projectile_refresh_timer: Timer
-@export var target_refresh_timer: Timer
+@export var refresh_timer: Timer
 
 func _ready() -> void:
 	Engine.max_fps = 90
@@ -25,18 +23,10 @@ func _ready() -> void:
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
 	
-	projectile_control = $Interface/ControlPadProjectile/Viewport2dIn3d.get_scene_instance()
-	projectile_control.set_label_name("Projectile")
-	
-	target_control = $Interface/ControlPadTarget/Viewport2dIn3d.get_scene_instance()
-	target_control.set_label_name("Target")
-	
+	control = $Interface/ControlPad/Viewport2dIn3d.get_scene_instance()
+	control.set_label_name("Projectile", 0)
+	control.set_label_name("Target", 1)
 	
 func _on_projectile_refresh_timer_timeout() -> void:
-	projectile_control.refresh_screen(projectile)
-	projectile_refresh_timer.start()
-
-
-func _on_target_refresh_timer_timeout() -> void:
-	target_control.refresh_screen(target)
-	target_refresh_timer.start()
+	control.refresh_screen(projectile, target)
+	refresh_timer.start()
