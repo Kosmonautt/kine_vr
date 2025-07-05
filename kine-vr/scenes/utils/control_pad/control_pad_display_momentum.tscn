@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=3 uid="uid://c52d3ty8pu5uc"]
+
+[ext_resource type="Script" uid="uid://dw0h0j45snewa" path="res://scenes/utils/control_pad/control_pad_display_ucm.gd" id="1_7oipo"]
+
+[node name="ControlPadDisplay" type="TabContainer"]
+current_tab = 0
+script = ExtResource("1_7oipo")
+
+[node name="Data" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Data"]
+layout_mode = 2
+
+[node name="NameFirst" type="Label" parent="Data/VBoxContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="LinearVelocityFirst" type="HBoxContainer" parent="Data/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/VBoxContainer/LinearVelocityFirst"]
+layout_mode = 2
+text = "Linear Velocity [m/s]:    "
+
+[node name="Value" type="Label" parent="Data/VBoxContainer/LinearVelocityFirst"]
+layout_mode = 2
+text = "0"
+
+[node name="MassFirst" type="HBoxContainer" parent="Data/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/VBoxContainer/MassFirst"]
+layout_mode = 2
+text = "Mass [m/s]:    "
+
+[node name="Value" type="Label" parent="Data/VBoxContainer/MassFirst"]
+layout_mode = 2
+text = "0"
+
+[node name="LinearMomentumFirst" type="HBoxContainer" parent="Data/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/VBoxContainer/LinearMomentumFirst"]
+layout_mode = 2
+text = "Linear Momentum [kg·m/s]:    "
+
+[node name="Value" type="Label" parent="Data/VBoxContainer/LinearMomentumFirst"]
+layout_mode = 2
+text = "0"
+
+[node name="NameSecond" type="Label" parent="Data/VBoxContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="LinearVelocitySecond" type="HBoxContainer" parent="Data/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/VBoxContainer/LinearVelocitySecond"]
+layout_mode = 2
+text = "Linear Velocity [m/s]:    "
+
+[node name="Value" type="Label" parent="Data/VBoxContainer/LinearVelocitySecond"]
+layout_mode = 2
+text = "0"
+
+[node name="MassSecond" type="HBoxContainer" parent="Data/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/VBoxContainer/MassSecond"]
+layout_mode = 2
+text = "Mass [m/s]:    "
+
+[node name="Value" type="Label" parent="Data/VBoxContainer/MassSecond"]
+layout_mode = 2
+text = "0"
+
+[node name="LinearMomentumSecond" type="HBoxContainer" parent="Data/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/VBoxContainer/LinearMomentumSecond"]
+layout_mode = 2
+text = "Linear Momentum [kg·m/s]:    "
+
+[node name="Value" type="Label" parent="Data/VBoxContainer/LinearMomentumSecond"]
+layout_mode = 2
+text = "0"
+
+[node name="LinearMomentumSecond2" type="HBoxContainer" parent="Data/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/VBoxContainer/LinearMomentumSecond2"]
+layout_mode = 2
+text = "Total Linear Momentum [kg·m/s]:    "
+
+[node name="Value" type="Label" parent="Data/VBoxContainer/LinearMomentumSecond2"]
+layout_mode = 2
+text = "0"
