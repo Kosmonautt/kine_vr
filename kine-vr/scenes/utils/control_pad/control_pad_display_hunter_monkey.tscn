@@ -1,0 +1,153 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvatshjqt8vfw"]
+
+[ext_resource type="Script" uid="uid://b6muiq0hxe0es" path="res://scenes/utils/control_pad/control_pad_display_hunter_monkey.gd" id="1_i24om"]
+
+[node name="ControlPadDisplay" type="TabContainer"]
+current_tab = 0
+script = ExtResource("1_i24om")
+
+[node name="Data" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Data"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Data/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="Position" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer/Position"]
+layout_mode = 2
+text = "Position(x, y, z) [m]:    "
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer/Position"]
+layout_mode = 2
+text = "000.00, 000.00, 000.00"
+
+[node name="Velocity" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer/Velocity"]
+layout_mode = 2
+text = "Velocity(x, y, z) [m/s]: "
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer/Velocity"]
+layout_mode = 2
+text = "000.00, 000.00, 000.00"
+
+[node name="Angle" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer/Angle"]
+layout_mode = 2
+text = "Rotation(x, y, z) [°]:     "
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer/Angle"]
+layout_mode = 2
+text = "000.00, 000.00, 000.00"
+
+[node name="VSeparator" type="HSeparator" parent="Data/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Name"
+
+[node name="Position" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer2/Position"]
+layout_mode = 2
+text = "Position(x, y, z) [m]:    "
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer2/Position"]
+layout_mode = 2
+text = "000.00, 000.00, 000.00"
+
+[node name="Velocity" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer2/Velocity"]
+layout_mode = 2
+text = "Velocity(x, y, z) [m/s]: "
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer2/Velocity"]
+layout_mode = 2
+text = "000.00, 000.00, 000.00"
+
+[node name="Angle" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer2/Angle"]
+layout_mode = 2
+text = "Rotation(x, y, z) [°]:     "
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/VBoxContainer2/Angle"]
+layout_mode = 2
+text = "000.00, 000.00, 000.00"
+
+[node name="VSeparator" type="VSeparator" parent="Data/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainerControls" type="VBoxContainer" parent="Data/HBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainerControls"]
+layout_mode = 2
+text = "Controls:
+Left Lever: Angle
+Medium Slider: Distance
+Right Slider: Launch Speed
+Button: Launch Projectile"
+
+[node name="HSeparator" type="HSeparator" parent="Data/HBoxContainer/VBoxContainerControls"]
+layout_mode = 2
+
+[node name="Angle" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainerControls"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainerControls/Angle"]
+layout_mode = 2
+text = "Rotation(x) [°]:"
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainerControls/Angle"]
+layout_mode = 2
+text = "000.00"
+
+[node name="Distance" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainerControls"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainerControls/Distance"]
+layout_mode = 2
+text = "Distance [m]: 000.00"
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainerControls/Distance"]
+layout_mode = 2
+
+[node name="LaunchSpeed" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainerControls"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainerControls/LaunchSpeed"]
+layout_mode = 2
+text = "Launch Speed [m/s]:"
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainerControls/LaunchSpeed"]
+layout_mode = 2
+text = "000.00"

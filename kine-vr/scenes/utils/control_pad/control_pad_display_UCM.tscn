@@ -14,75 +14,90 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Data"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Data"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Data/HBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Name"
 
-[node name="Radius" type="HBoxContainer" parent="Data/VBoxContainer"]
+[node name="Radius" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/VBoxContainer/Radius"]
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/Radius"]
 layout_mode = 2
 text = "Radius [m]:    "
 
-[node name="Value" type="Label" parent="Data/VBoxContainer/Radius"]
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/Radius"]
 layout_mode = 2
 text = "0"
 
-[node name="Rotation" type="HBoxContainer" parent="Data/VBoxContainer"]
+[node name="Rotation" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/VBoxContainer/Rotation"]
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/Rotation"]
 layout_mode = 2
 text = "Rotation [°]:  "
 
-[node name="Value" type="Label" parent="Data/VBoxContainer/Rotation"]
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/Rotation"]
 layout_mode = 2
 text = "0"
 
-[node name="RotationSpeed" type="HBoxContainer" parent="Data/VBoxContainer"]
+[node name="RotationSpeed" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/VBoxContainer/RotationSpeed"]
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/RotationSpeed"]
 layout_mode = 2
 text = "Rotation Speed [°/s]:  "
 
-[node name="Value" type="Label" parent="Data/VBoxContainer/RotationSpeed"]
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/RotationSpeed"]
 layout_mode = 2
 text = "0"
 
-[node name="TangentialSpeed" type="HBoxContainer" parent="Data/VBoxContainer"]
+[node name="TangentialSpeed" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/VBoxContainer/TangentialSpeed"]
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/TangentialSpeed"]
 layout_mode = 2
 text = "Tangential Speed [m/s]:  "
 
-[node name="Value" type="Label" parent="Data/VBoxContainer/TangentialSpeed"]
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/TangentialSpeed"]
 layout_mode = 2
 text = "0"
 
-[node name="Frequency" type="HBoxContainer" parent="Data/VBoxContainer"]
+[node name="Frequency" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/VBoxContainer/Frequency"]
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/Frequency"]
 layout_mode = 2
 text = "Frequency [hz]:  "
 
-[node name="Value" type="Label" parent="Data/VBoxContainer/Frequency"]
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/Frequency"]
 layout_mode = 2
 text = "0"
 
-[node name="Period" type="HBoxContainer" parent="Data/VBoxContainer"]
+[node name="Period" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/VBoxContainer/Period"]
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/Period"]
 layout_mode = 2
 text = "Period [s]:  "
 
-[node name="Value" type="Label" parent="Data/VBoxContainer/Period"]
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/Period"]
 layout_mode = 2
 text = "0"
+
+[node name="VSeparator" type="VSeparator" parent="Data/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainerControls" type="VBoxContainer" parent="Data/HBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainerControls"]
+layout_mode = 2
+text = "Controls:
+Left Slider: Angular Speed
+Right Slider: Radius"

@@ -6,13 +6,14 @@ extends Node3D
 @export var target: Node3D
 
 var radius: float = 8.0
+var theta: float = 0.0
 
 func _on_interactable_lever_theta_hinge_moved(angle: Variant) -> void:
 	# angle [-45, 45] degrees to [0.0, 1.0]
 	var percentage: float = smoothstep(45.0, -45.0, angle)
 	
 	# number [0.0, 1.0] transformed to [-PI/2, PI/2] radians
-	var theta: float = lerp(0.0, PI/2, percentage)
+	theta = lerp(0.0, PI/2, percentage)
 	
 	# set z rotation angle
 	direction.rotation.z = theta

@@ -5,6 +5,7 @@ var xr_interface: XRInterface
 var control: TabContainer
 
 @export var projectile: RigidBody3D
+@export var pivot: Node3D
 @export var refresh_timer: Timer
 
 func _ready() -> void:
@@ -28,5 +29,5 @@ func _ready() -> void:
 	
 	
 func _on_refresh_timer_timeout() -> void:
-	control.refresh_screen(projectile)
+	control.refresh_screen(projectile, pivot.theta, pivot.phi)
 	refresh_timer.start()
