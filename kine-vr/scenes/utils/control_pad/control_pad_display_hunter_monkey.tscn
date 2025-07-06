@@ -114,7 +114,8 @@ layout_mode = 2
 text = "Controls:
 Left Lever: Angle
 Medium Slider: Distance
-Right Slider: Launch Speed"
+Right Slider: Launch Speed
+Button: Launch Projectile"
 
 [node name="HSeparator" type="HSeparator" parent="Data/HBoxContainer/VBoxContainerControls"]
 layout_mode = 2
