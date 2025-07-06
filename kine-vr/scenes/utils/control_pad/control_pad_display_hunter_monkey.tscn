@@ -14,88 +14,88 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 metadata/_tab_index = 0
 
-[node name="HBoxContainer" type="VBoxContainer" parent="Data"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Data"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Data/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Data/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer"]
+[node name="Name" type="Label" parent="Data/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Name"
 
-[node name="Position" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
+[node name="Position" type="HBoxContainer" parent="Data/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/Position"]
+[node name="Name" type="Label" parent="Data/VBoxContainer/VBoxContainer/Position"]
 layout_mode = 2
 text = "Position(x, y, z) [m]:    "
 
-[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/Position"]
+[node name="Value" type="Label" parent="Data/VBoxContainer/VBoxContainer/Position"]
 layout_mode = 2
-text = "0, 0, 0"
+text = "000.00, 000.00, 000.00"
 
-[node name="Velocity" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
+[node name="Velocity" type="HBoxContainer" parent="Data/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/Velocity"]
+[node name="Name" type="Label" parent="Data/VBoxContainer/VBoxContainer/Velocity"]
 layout_mode = 2
 text = "Velocity(x, y, z) [m/s]: "
 
-[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/Velocity"]
+[node name="Value" type="Label" parent="Data/VBoxContainer/VBoxContainer/Velocity"]
 layout_mode = 2
-text = "0, 0, 0"
+text = "000.00, 000.00, 000.00"
 
-[node name="Angle" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
+[node name="Angle" type="HBoxContainer" parent="Data/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/Angle"]
+[node name="Name" type="Label" parent="Data/VBoxContainer/VBoxContainer/Angle"]
 layout_mode = 2
 text = "Rotation(x, y, z) [°]:     "
 
-[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/Angle"]
+[node name="Value" type="Label" parent="Data/VBoxContainer/VBoxContainer/Angle"]
 layout_mode = 2
-text = "0, 0, 0"
+text = "000.00, 000.00, 000.00"
 
-[node name="VSeparator" type="HSeparator" parent="Data/HBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="Data/HBoxContainer"]
+[node name="VSeparator" type="HSeparator" parent="Data/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer2"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Data/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Name"
 
-[node name="Position" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer2"]
+[node name="Position" type="HBoxContainer" parent="Data/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer2/Position"]
+[node name="Name" type="Label" parent="Data/VBoxContainer/VBoxContainer2/Position"]
 layout_mode = 2
 text = "Position(x, y, z) [m]:    "
 
-[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer2/Position"]
+[node name="Value" type="Label" parent="Data/VBoxContainer/VBoxContainer2/Position"]
 layout_mode = 2
-text = "0, 0, 0"
+text = "000.00, 000.00, 000.00"
 
-[node name="Velocity" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer2"]
+[node name="Velocity" type="HBoxContainer" parent="Data/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer2/Velocity"]
+[node name="Name" type="Label" parent="Data/VBoxContainer/VBoxContainer2/Velocity"]
 layout_mode = 2
 text = "Velocity(x, y, z) [m/s]: "
 
-[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer2/Velocity"]
+[node name="Value" type="Label" parent="Data/VBoxContainer/VBoxContainer2/Velocity"]
 layout_mode = 2
-text = "0, 0, 0"
+text = "000.00, 000.00, 000.00"
 
-[node name="Angle" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer2"]
+[node name="Angle" type="HBoxContainer" parent="Data/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer2/Angle"]
+[node name="Name" type="Label" parent="Data/VBoxContainer/VBoxContainer2/Angle"]
 layout_mode = 2
 text = "Rotation(x, y, z) [°]:     "
 
-[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer2/Angle"]
+[node name="Value" type="Label" parent="Data/VBoxContainer/VBoxContainer2/Angle"]
 layout_mode = 2
-text = "0, 0, 0"
+text = "000.00, 000.00, 000.00"
