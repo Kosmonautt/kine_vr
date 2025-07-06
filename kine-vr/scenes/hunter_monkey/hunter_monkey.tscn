@@ -211,7 +211,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, -0.021)
 [node name="Viewport2dIn3d" parent="Interface/ControlPad" index="1"]
 scene = ExtResource("24_1jyns")
 viewport_size = Vector2(600, 300)
-scene_properties_keys = PackedStringArray("control_pad_display_rigid_body.gd")
+scene_properties_keys = PackedStringArray("control_pad_display_hunter_monkey.gd")
 
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="body_exited" from="Scenery" to="Scenery/Target" method="_on_scenery_body_exited"]
