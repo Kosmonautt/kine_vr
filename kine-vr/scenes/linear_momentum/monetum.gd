@@ -5,6 +5,9 @@ extends Node3D
 
 var xr_interface: XRInterface
 
+const projectile1_initial_position: Vector3 = Vector3(1.0, 2.5, 1.5)
+const projectile2_initial_position: Vector3 = Vector3(13.0, 2.5, 1.5)
+
 func _ready() -> void:
 	Engine.max_fps = 90
 	
@@ -38,6 +41,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_scenery_body_exited(body: Node3D) -> void:
 	if body == projectile1:
-		print("left exited")
+		projectile1.set_linear_velocity(Vector3.ZERO)
+		projectile1.set_position(projectile1_initial_position)
 	elif body == projectile2:
-		print("right exited")
+		projectile2.set_linear_velocity(Vector3.ZERO)
+		projectile2.set_position(projectile2_initial_position)
