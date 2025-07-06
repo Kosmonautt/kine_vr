@@ -33,4 +33,11 @@ func _physics_process(delta: float) -> void:
 	var energy_message: String = energy_format % [p1ke, p1gpe, p1ke + p1gpe]
 	
 	#print(message)
-	print(energy_message)
+	#print(energy_message)
+
+
+func _on_scenery_body_exited(body: Node3D) -> void:
+	if body == projectile1:
+		print("left exited")
+	elif body == projectile2:
+		print("right exited")

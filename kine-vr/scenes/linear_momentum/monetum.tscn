@@ -107,6 +107,7 @@ shape = SubResource("BoxShape3D_mem3d")
 
 [node name="Scenery" parent="." instance=ExtResource("5_pixqy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0.001, -10)
+collision_mask = 16777216
 
 [node name="CollisionShape3D" parent="Scenery" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 4, 3)
@@ -150,5 +151,7 @@ environment = SubResource("Environment_pixqy")
 
 [node name="Teleporter" parent="." instance=ExtResource("8_mem3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
+
+[connection signal="body_exited" from="Scenery" to="." method="_on_scenery_body_exited"]
 
 [editable path="Scenery"]
