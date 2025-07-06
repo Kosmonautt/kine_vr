@@ -6,6 +6,7 @@ var control: TabContainer
 
 @export var projectile: RigidBody3D
 @export var target: RigidBody3D
+@export var pivot: Node3D
 @export var refresh_timer: Timer
 
 func _ready() -> void:
@@ -28,5 +29,5 @@ func _ready() -> void:
 	control.set_label_name("Target", 1)
 	
 func _on_projectile_refresh_timer_timeout() -> void:
-	control.refresh_screen(projectile, target)
+	control.refresh_screen(projectile, target, pivot.theta, pivot.radius, projectile.launch_speed)
 	refresh_timer.start()

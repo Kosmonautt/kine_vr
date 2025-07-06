@@ -78,10 +78,11 @@ sky_material = SubResource("PhysicalSkyMaterial_0j5li")
 background_mode = 2
 sky = SubResource("Sky_0j5li")
 
-[node name="HunterMonkey" type="Node3D" node_paths=PackedStringArray("projectile", "target", "refresh_timer")]
+[node name="HunterMonkey" type="Node3D" node_paths=PackedStringArray("projectile", "target", "pivot", "refresh_timer")]
 script = ExtResource("1_s6tcq")
 projectile = NodePath("Scenery/Projectile")
 target = NodePath("Scenery/Target")
+pivot = NodePath("Scenery/Pivot")
 refresh_timer = NodePath("Interface/ControlPad/RefreshTimer")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
