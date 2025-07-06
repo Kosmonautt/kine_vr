@@ -24,20 +24,20 @@ func _ready() -> void:
 		print("OpenXR not initialized, please check if your headset is connected")
 
 func _physics_process(delta: float) -> void:
-	var message_format: String = "p1 momentum: %f  p2 momentum: %f total momentum: %f p1 Ee: %f"
-	var energy_format: String = "KE: %f, PE: %f, E: %f"
-	var p1momentum: float = projectile1.get_mass() * projectile1.get_linear_velocity().x
-	var p2momentum: float = projectile2.get_mass() * projectile2.get_linear_velocity().x
-	var p1ke: float = (projectile1.get_mass() * pow(projectile1.linear_velocity.length(), 2) )/2
-	var p2ke: float = (projectile2.get_mass() * pow(projectile2.linear_velocity.length(), 2) )/2
-	var p1gpe: float = projectile1.get_mass() * 9.8 * (projectile1.get_position().y - 0.5) 
-	var p2gpe: float = projectile2.get_mass() * 9.8 * (projectile2.get_position().y - 0.5)
-	var message: String = message_format % [p1momentum, p2momentum, p1momentum + p2momentum, p1ke + p1gpe]
-	var energy_message: String = energy_format % [p1ke, p1gpe, p1ke + p1gpe]
+	var message_format: String = "p1 momentum: %f  p2 momentum: %f total momentum: %f total KE: %f"
+	var p1momentum: float = get_linear_momentum(projectile1)
+	var p2momentum: float = get_linear_momentum(projectile2)
+	var p1ke: float = get_kinetic_energy(projectile1)
+	var p2ke: float = get_kinetic_energy(projectile2)
+	var message: String = message_format % [p1momentum, p2momentum, p1momentum + p2momentum, p1ke + p2ke ]
 	
-	#print(message)
-	#print(energy_message)
+	print(message)
 
+func get_linear_momentum(projectile: RigidBody3D) -> float:
+	return projectile.get_mass() * projectile.get_linear_velocity().x
+
+func get_kinetic_energy(projectile: RigidBody3D) -> float:
+	return (projectile.get_mass() * pow(projectile.linear_velocity.length(), 2) )/2
 
 func _on_scenery_body_exited(body: Node3D) -> void:
 	if body == projectile1:
