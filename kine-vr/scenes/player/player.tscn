@@ -21,7 +21,7 @@ tracker = &"left_hand"
 [node name="LeftPhysicsHand" parent="LeftHand" instance=ExtResource("1_dqkch")]
 
 [node name="MovementDirect" parent="LeftHand" instance=ExtResource("4_tuyoq")]
-max_speed = 1.5
+max_speed = 1.0
 strafe = true
 
 [node name="FunctionPickup" parent="LeftHand" instance=ExtResource("5_fjrip")]
@@ -45,6 +45,7 @@ ranged_enable = false
 
 [node name="XRToolsMovementSprint" type="Node" parent="." groups=["movement_providers"]]
 script = ExtResource("7_qek5x")
+sprint_type = 1
 metadata/_custom_type_script = "uid://drwgrsiips70j"
 
 [node name="PlayerBody" parent="." instance=ExtResource("3_qhqgy")]
