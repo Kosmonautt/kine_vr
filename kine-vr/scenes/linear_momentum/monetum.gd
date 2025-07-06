@@ -37,7 +37,7 @@ func get_linear_momentum(projectile: RigidBody3D) -> float:
 	return projectile.get_mass() * projectile.get_linear_velocity().x
 
 func get_kinetic_energy(projectile: RigidBody3D) -> float:
-	return (projectile.get_mass() * pow(projectile.linear_velocity.length(), 2) )/2
+	return (projectile.get_mass() * pow(projectile.get_linear_velocity().length(), 2))/2
 
 func _on_scenery_body_exited(body: Node3D) -> void:
 	if body == projectile1:
