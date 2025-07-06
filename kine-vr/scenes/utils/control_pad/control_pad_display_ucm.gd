@@ -14,15 +14,15 @@ func refresh_screen(radius: float, angular_speed: float, rotation_deegrees: floa
 	var per_str := "%8.3f" % [per]
 	var fre_Str := "%8.3f" % [fre]
 	
-	$Data/VBoxContainer/Radius/Value.text = rad_str
-	$Data/VBoxContainer/Rotation/Value.text = rot_str
-	$Data/VBoxContainer/RotationSpeed/Value.text = rot_speed_str
-	$Data/VBoxContainer/TangentialSpeed/Value.text = tan_speed_str
-	$Data/VBoxContainer/Period/Value.text = per_str
-	$Data/VBoxContainer/Frequency/Value.text = fre_Str
+	$Data/HBoxContainer/VBoxContainer/Radius/Value.text = rad_str
+	$Data/HBoxContainer/VBoxContainer/Rotation/Value.text = rot_str
+	$Data/HBoxContainer/VBoxContainer/RotationSpeed/Value.text = rot_speed_str
+	$Data/HBoxContainer/VBoxContainer/TangentialSpeed/Value.text = tan_speed_str
+	$Data/HBoxContainer/VBoxContainer/Period/Value.text = per_str
+	$Data/HBoxContainer/VBoxContainer/Frequency/Value.text = fre_Str
 
 func set_label_name(name: String) -> void:
-	$Data/VBoxContainer/Name.text = name
+	$Data/HBoxContainer/VBoxContainer/Name.text = name
 
 # changes degrees from [0, 1, ..., 180, -180, ..., -179, ..., -1, -0] to [0, 360]
 func natural_degrees(degrees: float) -> float:
