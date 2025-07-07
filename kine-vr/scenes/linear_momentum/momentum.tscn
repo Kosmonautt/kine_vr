@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bnisjpdmd6po1"]
+[gd_scene load_steps=33 format=3 uid="uid://bnisjpdmd6po1"]
 
 [ext_resource type="Script" uid="uid://fqe6i7kthpig" path="res://scenes/linear_momentum/momentum.gd" id="1_styb3"]
 [ext_resource type="Texture2D" uid="uid://cpfbcoc4xbihx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Color.png" id="2_rnkyq"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/utils/controller/controller.tscn" id="13_1gr61"]
 [ext_resource type="PackedScene" uid="uid://dnr37vvwt2rxo" path="res://scenes/utils/interactables/slider.tscn" id="14_txcd1"]
 [ext_resource type="PackedScene" uid="uid://buwtt0qxxv75y" path="res://scenes/utils/interactables/button.tscn" id="15_0716a"]
+[ext_resource type="PackedScene" uid="uid://l8h0a417elon" path="res://scenes/utils/control_pad/control_pad.tscn" id="16_rnkyq"]
+[ext_resource type="PackedScene" uid="uid://c52d3ty8pu5uc" path="res://scenes/utils/control_pad/control_pad_display_momentum.tscn" id="17_srgiv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rf48c"]
 size = Vector3(35, 1, 20)
@@ -187,6 +189,13 @@ slider_limit_max = 0.2
 [node name="LaunchButton" parent="Interface/Controller" instance=ExtResource("15_0716a")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.15, 0)
 
+[node name="ControlPad" parent="Interface" instance=ExtResource("16_rnkyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.5)
+
+[node name="Viewport2dIn3d" parent="Interface/ControlPad" index="1"]
+scene = ExtResource("17_srgiv")
+viewport_size = Vector2(700, 350)
+
 [connection signal="body_exited" from="Scenery" to="." method="_on_scenery_body_exited"]
 [connection signal="slider_moved" from="Interface/Controller/SliderMassLeft/SliderOrigin/InteractableSlider" to="." method="_on_interactable_mass_left_slider_moved"]
 [connection signal="slider_moved" from="Interface/Controller/SliderSpeedLeft/SliderOrigin/InteractableSlider" to="." method="_on_interactable_velocity_left_slider_moved"]
@@ -203,3 +212,4 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.
 [editable path="Interface/Controller/SliderSpeedRight"]
 [editable path="Interface/Controller/SliderSpeedRight/SliderOrigin/InteractableSlider/HandleOrigin"]
 [editable path="Interface/Controller/LaunchButton"]
+[editable path="Interface/ControlPad"]
