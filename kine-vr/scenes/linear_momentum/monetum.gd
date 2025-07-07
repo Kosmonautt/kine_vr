@@ -36,8 +36,10 @@ func _physics_process(delta: float) -> void:
 func get_linear_momentum(projectile: RigidBody3D) -> float:
 	return projectile.get_mass() * projectile.get_linear_velocity().x
 
+
 func get_kinetic_energy(projectile: RigidBody3D) -> float:
 	return (projectile.get_mass() * pow(projectile.get_linear_velocity().length(), 2))/2
+
 
 func _on_scenery_body_exited(body: Node3D) -> void:
 	if body == projectile1:
@@ -46,3 +48,39 @@ func _on_scenery_body_exited(body: Node3D) -> void:
 	elif body == projectile2:
 		projectile2.set_linear_velocity(Vector3.ZERO)
 		projectile2.set_position(projectile2_initial_position)
+
+
+func _on_interactable_mass_left_slider_moved(position: Variant) -> void:
+	# position [0.0, 0.2] meters to [0.0, 1.0]
+	var percentage: float = smoothstep(0.0, 0.2, position)
+	
+	# number [0.0, 1.0] transformed to [1.0, 20.0] kg
+	projectile1.set_mass(lerp(1.0, 20.0, percentage))
+
+
+func _on_interactable_mass_right_slider_moved(position: Variant) -> void:
+	# position [0.0, 0.2] meters to [0.0, 1.0]
+	var percentage: float = smoothstep(0.0, 0.2, position)
+	
+	# number [0.0, 1.0] transformed to [1.0, 20.0] kg
+	projectile2.set_mass(lerp(1.0, 20.0, percentage))
+
+
+func _on_interactable_velocity_left_slider_moved(position: Variant) -> void:
+	# position [0.0, 0.2] meters to [0.0, 1.0]
+	var percentage: float = smoothstep(0.0, 0.2, position)
+	
+	# number [0.0, 1.0] transformed to [1.0, 10.0] m/s
+	var linear_velocity_x: float = lerp(1.0, 10.0, percentage)
+	
+	projectile1.set_linear_velocity(Vector3(linear_velocity_x, 0.0, 0.0))
+
+
+func _on_interactable_velocity_right_slider_moved(position: Variant) -> void:
+	# position [0.0, 0.2] meters to [0.0, 1.0]
+	var percentage: float = smoothstep(0.0, 0.2, position)
+	
+	# number [0.0, 1.0] transformed to [1.0, 10.0] m/s
+	var linear_velocity_x: float = lerp(1.0, 10.0, percentage)
+	
+	projectile2.set_linear_velocity(Vector3(linear_velocity_x, 0.0, 0.0))

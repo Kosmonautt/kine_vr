@@ -188,6 +188,10 @@ slider_limit_max = 0.2
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.15, 0)
 
 [connection signal="body_exited" from="Scenery" to="." method="_on_scenery_body_exited"]
+[connection signal="slider_moved" from="Interface/Controller/SliderMassLeft/SliderOrigin/InteractableSlider" to="." method="_on_interactable_mass_left_slider_moved"]
+[connection signal="slider_moved" from="Interface/Controller/SliderSpeedLeft/SliderOrigin/InteractableSlider" to="." method="_on_interactable_velocity_left_slider_moved"]
+[connection signal="slider_moved" from="Interface/Controller/SliderMassRight/SliderOrigin/InteractableSlider" to="." method="_on_interactable_mass_right_slider_moved"]
+[connection signal="slider_moved" from="Interface/Controller/SliderSpeedRight/SliderOrigin/InteractableSlider" to="." method="_on_interactable_velocity_right_slider_moved"]
 
 [editable path="Scenery"]
 [editable path="Interface/Controller/SliderMassLeft"]
