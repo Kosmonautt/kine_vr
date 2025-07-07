@@ -1,11 +1,15 @@
 extends Node3D
 
-@export var projectile_left: RigidBody3D
-@export var projectile_right: RigidBody3D
 
 var xr_interface: XRInterface
+
+var control: TabContainer
 var left_initial_velocity_x: float = 0.0
 var right_initial_velocity_x: float = 0.0
+
+@export var projectile_left: RigidBody3D
+@export var projectile_right: RigidBody3D
+@export var refresh_timer: Timer
 
 const projectile_left_initial_position: Vector3 = Vector3(1.0, 2.5, 1.5)
 const projectile_right_initial_position: Vector3 = Vector3(13.0, 2.5, 1.5)
@@ -25,22 +29,9 @@ func _ready() -> void:
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
 
-func _physics_process(delta: float) -> void:
-	var message_format: String = "p1 momentum: %f  p2 momentum: %f total momentum: %f total KE: %f"
-	var p1momentum: float = get_linear_momentum(projectile_left)
-	var p2momentum: float = get_linear_momentum(projectile_right)
-	var p1ke: float = get_kinetic_energy(projectile_left)
-	var p2ke: float = get_kinetic_energy(projectile_right)
-	var message: String = message_format % [p1momentum, p2momentum, p1momentum + p2momentum, p1ke + p2ke ]
-	
-	print(message)
-
-func get_linear_momentum(projectile: RigidBody3D) -> float:
-	return projectile.get_mass() * projectile.get_linear_velocity().x
-
-
-func get_kinetic_energy(projectile: RigidBody3D) -> float:
-	return (projectile.get_mass() * pow(projectile.get_linear_velocity().length(), 2))/2
+	control = $Interface/ControlPad/Viewport2dIn3d.get_scene_instance()
+	control.set_label_name("Left Projectile", 0)
+	control.set_label_name("Right Projectile", 1)
 
 
 func _on_scenery_body_exited(body: Node3D) -> void:
@@ -88,3 +79,8 @@ func _on_interactable_area_button_button_pressed(button: Variant) -> void:
 	# set velocities for both projectiles
 	projectile_left.set_linear_velocity(Vector3(left_initial_velocity_x, 0.0, 0.0))
 	projectile_right.set_linear_velocity(Vector3(right_initial_velocity_x, 0.0, 0.0))
+
+
+func _on_refresh_timer_timeout() -> void:
+	control.refresh_screen(projectile_left, projectile_right, left_initial_velocity_x, right_initial_velocity_x)
+	refresh_timer.start()
