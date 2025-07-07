@@ -80,8 +80,8 @@ sky = SubResource("Sky_mem3d")
 
 [node name="Monetum" type="Node3D" node_paths=PackedStringArray("projectile1", "projectile2")]
 script = ExtResource("1_xsfa6")
-projectile1 = NodePath("Scenery/Projectile1")
-projectile2 = NodePath("Scenery/Projectile2")
+projectile1 = NodePath("Scenery/ProjectileLeft")
+projectile2 = NodePath("Scenery/ProjectileRight")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
@@ -125,7 +125,7 @@ mesh = SubResource("PlaneMesh_opb7s")
 [node name="Wall" parent="Scenery/Mesh" index="1"]
 mesh = SubResource("PlaneMesh_aaakq")
 
-[node name="Projectile1" parent="Scenery" instance=ExtResource("2_83fnu")]
+[node name="ProjectileLeft" parent="Scenery" instance=ExtResource("2_83fnu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.5, 1.5)
 collision_layer = 16777216
 collision_mask = 16777216
@@ -133,7 +133,7 @@ physics_material_override = SubResource("PhysicsMaterial_83fnu")
 gravity_scale = 0.0
 linear_velocity = Vector3(5, 0, 0)
 
-[node name="Projectile2" parent="Scenery" instance=ExtResource("2_83fnu")]
+[node name="ProjectileRight" parent="Scenery" instance=ExtResource("2_83fnu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2.5, 1.5)
 collision_layer = 16777216
 collision_mask = 16777216
