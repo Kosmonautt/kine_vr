@@ -1,12 +1,12 @@
 extends Node3D
 
-@export var projectile1: RigidBody3D
-@export var projectile2: RigidBody3D
+@export var projectile_left: RigidBody3D
+@export var projectile_right: RigidBody3D
 
 var xr_interface: XRInterface
 
-const projectile1_initial_position: Vector3 = Vector3(1.0, 2.5, 1.5)
-const projectile2_initial_position: Vector3 = Vector3(13.0, 2.5, 1.5)
+const projectile_left_initial_position: Vector3 = Vector3(1.0, 2.5, 1.5)
+const projectile_right_initial_position: Vector3 = Vector3(13.0, 2.5, 1.5)
 
 func _ready() -> void:
 	Engine.max_fps = 90
@@ -25,10 +25,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var message_format: String = "p1 momentum: %f  p2 momentum: %f total momentum: %f total KE: %f"
-	var p1momentum: float = get_linear_momentum(projectile1)
-	var p2momentum: float = get_linear_momentum(projectile2)
-	var p1ke: float = get_kinetic_energy(projectile1)
-	var p2ke: float = get_kinetic_energy(projectile2)
+	var p1momentum: float = get_linear_momentum(projectile_left)
+	var p2momentum: float = get_linear_momentum(projectile_right)
+	var p1ke: float = get_kinetic_energy(projectile_left)
+	var p2ke: float = get_kinetic_energy(projectile_right)
 	var message: String = message_format % [p1momentum, p2momentum, p1momentum + p2momentum, p1ke + p2ke ]
 	
 	print(message)
@@ -42,12 +42,12 @@ func get_kinetic_energy(projectile: RigidBody3D) -> float:
 
 
 func _on_scenery_body_exited(body: Node3D) -> void:
-	if body == projectile1:
-		projectile1.set_linear_velocity(Vector3.ZERO)
-		projectile1.set_position(projectile1_initial_position)
-	elif body == projectile2:
-		projectile2.set_linear_velocity(Vector3.ZERO)
-		projectile2.set_position(projectile2_initial_position)
+	if body == projectile_left:
+		projectile_left.set_linear_velocity(Vector3.ZERO)
+		projectile_left.set_position(projectile_left_initial_position)
+	elif body == projectile_right:
+		projectile_right.set_linear_velocity(Vector3.ZERO)
+		projectile_right.set_position(projectile_right_initial_position)
 
 
 func _on_interactable_mass_left_slider_moved(position: Variant) -> void:
@@ -55,7 +55,7 @@ func _on_interactable_mass_left_slider_moved(position: Variant) -> void:
 	var percentage: float = smoothstep(0.0, 0.2, position)
 	
 	# number [0.0, 1.0] transformed to [1.0, 20.0] kg
-	projectile1.set_mass(lerp(1.0, 20.0, percentage))
+	projectile_left.set_mass(lerp(1.0, 20.0, percentage))
 
 
 func _on_interactable_mass_right_slider_moved(position: Variant) -> void:
@@ -63,7 +63,7 @@ func _on_interactable_mass_right_slider_moved(position: Variant) -> void:
 	var percentage: float = smoothstep(0.0, 0.2, position)
 	
 	# number [0.0, 1.0] transformed to [1.0, 20.0] kg
-	projectile2.set_mass(lerp(1.0, 20.0, percentage))
+	projectile_right.set_mass(lerp(1.0, 20.0, percentage))
 
 
 func _on_interactable_velocity_left_slider_moved(position: Variant) -> void:
@@ -73,7 +73,7 @@ func _on_interactable_velocity_left_slider_moved(position: Variant) -> void:
 	# number [0.0, 1.0] transformed to [1.0, 10.0] m/s
 	var linear_velocity_x: float = lerp(1.0, 10.0, percentage)
 	
-	projectile1.set_linear_velocity(Vector3(linear_velocity_x, 0.0, 0.0))
+	projectile_left.set_linear_velocity(Vector3(linear_velocity_x, 0.0, 0.0))
 
 
 func _on_interactable_velocity_right_slider_moved(position: Variant) -> void:
@@ -83,4 +83,4 @@ func _on_interactable_velocity_right_slider_moved(position: Variant) -> void:
 	# number [0.0, 1.0] transformed to [1.0, 10.0] m/s
 	var linear_velocity_x: float = lerp(1.0, 10.0, percentage)
 	
-	projectile2.set_linear_velocity(Vector3(linear_velocity_x, 0.0, 0.0))
+	projectile_right.set_linear_velocity(Vector3(linear_velocity_x, 0.0, 0.0))

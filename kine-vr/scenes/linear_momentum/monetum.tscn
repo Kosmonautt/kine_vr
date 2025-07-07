@@ -78,10 +78,10 @@ sky_material = SubResource("PhysicalSkyMaterial_pixqy")
 background_mode = 2
 sky = SubResource("Sky_mem3d")
 
-[node name="Monetum" type="Node3D" node_paths=PackedStringArray("projectile1", "projectile2")]
+[node name="Monetum" type="Node3D" node_paths=PackedStringArray("projectile_left", "projectile_right")]
 script = ExtResource("1_xsfa6")
-projectile1 = NodePath("Scenery/ProjectileLeft")
-projectile2 = NodePath("Scenery/ProjectileRight")
+projectile_left = NodePath("Scenery/ProjectileLeft")
+projectile_right = NodePath("Scenery/ProjectileRight")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
