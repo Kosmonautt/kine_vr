@@ -133,7 +133,6 @@ collision_layer = 16777216
 collision_mask = 16777216
 physics_material_override = SubResource("PhysicsMaterial_83fnu")
 gravity_scale = 0.0
-linear_velocity = Vector3(5, 0, 0)
 
 [node name="ProjectileRight" parent="Scenery" instance=ExtResource("10_do7e0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2.5, 1.5)

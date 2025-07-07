@@ -4,6 +4,8 @@ extends Node3D
 @export var projectile_right: RigidBody3D
 
 var xr_interface: XRInterface
+var left_initial_velocity_x: float
+var right_initial_velocity_x: float
 
 const projectile_left_initial_position: Vector3 = Vector3(1.0, 2.5, 1.5)
 const projectile_right_initial_position: Vector3 = Vector3(13.0, 2.5, 1.5)
