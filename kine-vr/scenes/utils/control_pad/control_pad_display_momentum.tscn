@@ -11,90 +11,158 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Data"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Data"]
 layout_mode = 2
 
-[node name="NameFirst" type="Label" parent="Data/VBoxContainer"]
-layout_mode = 2
-text = "Name"
-
-[node name="LinearVelocityFirst" type="HBoxContainer" parent="Data/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Data/HBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/VBoxContainer/LinearVelocityFirst"]
-layout_mode = 2
-text = "Linear Velocity [m/s]:    "
-
-[node name="Value" type="Label" parent="Data/VBoxContainer/LinearVelocityFirst"]
-layout_mode = 2
-text = "0"
-
-[node name="MassFirst" type="HBoxContainer" parent="Data/VBoxContainer"]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="Data/VBoxContainer/MassFirst"]
-layout_mode = 2
-text = "Mass [m/s]:    "
-
-[node name="Value" type="Label" parent="Data/VBoxContainer/MassFirst"]
-layout_mode = 2
-text = "0"
-
-[node name="LinearMomentumFirst" type="HBoxContainer" parent="Data/VBoxContainer"]
-layout_mode = 2
-
-[node name="Name" type="Label" parent="Data/VBoxContainer/LinearMomentumFirst"]
-layout_mode = 2
-text = "Linear Momentum [kg·m/s]:    "
-
-[node name="Value" type="Label" parent="Data/VBoxContainer/LinearMomentumFirst"]
-layout_mode = 2
-text = "0"
-
-[node name="NameSecond" type="Label" parent="Data/VBoxContainer"]
+[node name="NameFirst" type="Label" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Name"
 
-[node name="LinearVelocitySecond" type="HBoxContainer" parent="Data/VBoxContainer"]
+[node name="LinearVelocityFirst" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/VBoxContainer/LinearVelocitySecond"]
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/LinearVelocityFirst"]
 layout_mode = 2
 text = "Linear Velocity [m/s]:    "
 
-[node name="Value" type="Label" parent="Data/VBoxContainer/LinearVelocitySecond"]
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/LinearVelocityFirst"]
 layout_mode = 2
-text = "0"
+text = "000.00"
 
-[node name="MassSecond" type="HBoxContainer" parent="Data/VBoxContainer"]
+[node name="MassFirst" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/VBoxContainer/MassSecond"]
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/MassFirst"]
 layout_mode = 2
 text = "Mass [m/s]:    "
 
-[node name="Value" type="Label" parent="Data/VBoxContainer/MassSecond"]
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/MassFirst"]
 layout_mode = 2
-text = "0"
+text = "000.00"
 
-[node name="LinearMomentumSecond" type="HBoxContainer" parent="Data/VBoxContainer"]
+[node name="LinearMomentumFirst" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/VBoxContainer/LinearMomentumSecond"]
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/LinearMomentumFirst"]
 layout_mode = 2
 text = "Linear Momentum [kg·m/s]:    "
 
-[node name="Value" type="Label" parent="Data/VBoxContainer/LinearMomentumSecond"]
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/LinearMomentumFirst"]
 layout_mode = 2
-text = "0"
+text = "000.00"
 
-[node name="LinearMomentumSecond2" type="HBoxContainer" parent="Data/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Name" type="Label" parent="Data/VBoxContainer/LinearMomentumSecond2"]
+[node name="NameSecond" type="Label" parent="Data/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="LinearVelocitySecond" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/LinearVelocitySecond"]
+layout_mode = 2
+text = "Linear Velocity [m/s]:    "
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/LinearVelocitySecond"]
+layout_mode = 2
+text = "000.00"
+
+[node name="MassSecond" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/MassSecond"]
+layout_mode = 2
+text = "Mass [m/s]:    "
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/MassSecond"]
+layout_mode = 2
+text = "000.00"
+
+[node name="LinearMomentumSecond" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/LinearMomentumSecond"]
+layout_mode = 2
+text = "Linear Momentum [kg·m/s]:    "
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/LinearMomentumSecond"]
+layout_mode = 2
+text = "000.00"
+
+[node name="LinearMomentumSecond2" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/LinearMomentumSecond2"]
 layout_mode = 2
 text = "Total Linear Momentum [kg·m/s]:    "
 
-[node name="Value" type="Label" parent="Data/VBoxContainer/LinearMomentumSecond2"]
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/LinearMomentumSecond2"]
 layout_mode = 2
-text = "0"
+text = "000.00"
+
+[node name="VSeparator" type="VSeparator" parent="Data/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainerControl" type="VBoxContainer" parent="Data/HBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainerControl"]
+layout_mode = 2
+text = "Controls:
+First Slider: Left Projectile Mass
+Second Slider: Left Projectile Velocity
+Third Slider: Right Projectile Mass
+Fourth Slider: Right Projectile Velocity
+Button: Launch Projectile"
+
+[node name="HSeparator" type="HSeparator" parent="Data/HBoxContainer/VBoxContainerControl"]
+layout_mode = 2
+
+[node name="LeftMass" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainerControl"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainerControl/LeftMass"]
+layout_mode = 2
+text = "Left Projectile Mass:"
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainerControl/LeftMass"]
+layout_mode = 2
+text = "000.00"
+
+[node name="LeftVelocity" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainerControl"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainerControl/LeftVelocity"]
+layout_mode = 2
+text = "Left Projectile Velocity:"
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainerControl/LeftVelocity"]
+layout_mode = 2
+text = "000.00"
+
+[node name="RightMass" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainerControl"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainerControl/RightMass"]
+layout_mode = 2
+text = "Right Projectile Mass:"
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainerControl/RightMass"]
+layout_mode = 2
+text = "000.00"
+
+[node name="RightVelocity" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainerControl"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainerControl/RightVelocity"]
+layout_mode = 2
+text = "Right Projectile Velocity:"
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainerControl/RightVelocity"]
+layout_mode = 2
+text = "000.00"
