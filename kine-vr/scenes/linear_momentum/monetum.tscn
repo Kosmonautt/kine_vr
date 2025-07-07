@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bnisjpdmd6po1"]
+[gd_scene load_steps=30 format=3 uid="uid://bnisjpdmd6po1"]
 
 [ext_resource type="Script" uid="uid://fqe6i7kthpig" path="res://scenes/linear_momentum/monetum.gd" id="1_xsfa6"]
 [ext_resource type="Texture2D" uid="uid://cpfbcoc4xbihx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Color.png" id="2_2nt1c"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="8_1okqf"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="8_mem3d"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="9_opb7s"]
+[ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/utils/controller/controller.tscn" id="13_aaakq"]
+[ext_resource type="PackedScene" uid="uid://dnr37vvwt2rxo" path="res://scenes/utils/interactables/slider.tscn" id="14_wopgf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rf48c"]
 size = Vector3(35, 1, 20)
@@ -139,7 +141,7 @@ physics_material_override = SubResource("PhysicsMaterial_xsfa6")
 gravity_scale = 0.0
 
 [node name="Player" parent="." instance=ExtResource("4_idi3l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0.5)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
@@ -152,6 +154,43 @@ environment = SubResource("Environment_pixqy")
 [node name="Teleporter" parent="." instance=ExtResource("8_mem3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
 
+[node name="Interface" type="Node3D" parent="."]
+
+[node name="Controller" parent="Interface" instance=ExtResource("13_aaakq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.315)
+
+[node name="SliderMassLeft" parent="Interface/Controller" instance=ExtResource("14_wopgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.225, 0.07, 0)
+
+[node name="InteractableSlider" parent="Interface/Controller/SliderMassLeft/SliderOrigin" index="0"]
+slider_limit_max = 0.2
+
+[node name="SliderSpeedLeft" parent="Interface/Controller" instance=ExtResource("14_wopgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075, 0.07, 0)
+
+[node name="InteractableSlider" parent="Interface/Controller/SliderSpeedLeft/SliderOrigin" index="0"]
+slider_limit_max = 0.2
+
+[node name="SliderMassRight" parent="Interface/Controller" instance=ExtResource("14_wopgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075, 0.07, 0)
+
+[node name="InteractableSlider" parent="Interface/Controller/SliderMassRight/SliderOrigin" index="0"]
+slider_limit_max = 0.2
+
+[node name="SliderSpeedRight" parent="Interface/Controller" instance=ExtResource("14_wopgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225, 0.07, 0)
+
+[node name="InteractableSlider" parent="Interface/Controller/SliderSpeedRight/SliderOrigin" index="0"]
+slider_limit_max = 0.2
+
 [connection signal="body_exited" from="Scenery" to="." method="_on_scenery_body_exited"]
 
 [editable path="Scenery"]
+[editable path="Interface/Controller/SliderMassLeft"]
+[editable path="Interface/Controller/SliderMassLeft/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="Interface/Controller/SliderSpeedLeft"]
+[editable path="Interface/Controller/SliderSpeedLeft/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="Interface/Controller/SliderMassRight"]
+[editable path="Interface/Controller/SliderMassRight/SliderOrigin/InteractableSlider/HandleOrigin"]
+[editable path="Interface/Controller/SliderSpeedRight"]
+[editable path="Interface/Controller/SliderSpeedRight/SliderOrigin/InteractableSlider/HandleOrigin"]
