@@ -4,8 +4,8 @@ extends Node3D
 @export var projectile_right: RigidBody3D
 
 var xr_interface: XRInterface
-var left_initial_velocity_x: float
-var right_initial_velocity_x: float
+var left_initial_velocity_x: float = 0.0
+var right_initial_velocity_x: float = 0.0
 
 const projectile_left_initial_position: Vector3 = Vector3(1.0, 2.5, 1.5)
 const projectile_right_initial_position: Vector3 = Vector3(13.0, 2.5, 1.5)
@@ -86,3 +86,9 @@ func _on_interactable_velocity_right_slider_moved(position: Variant) -> void:
 	var linear_velocity_x: float = lerp(1.0, 10.0, percentage)
 	
 	projectile_right.set_linear_velocity(Vector3(linear_velocity_x, 0.0, 0.0))
+
+
+func _on_interactable_area_button_button_pressed(button: Variant) -> void:
+	# set velocities for both projectiles
+	projectile_left.set_linear_velocity(Vector3(left_initial_velocity_x, 0.0, 0.0))
+	projectile_right.set_linear_velocity(Vector3(right_initial_velocity_x, 0.0, 0.0))

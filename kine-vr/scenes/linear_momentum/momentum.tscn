@@ -200,6 +200,7 @@ viewport_size = Vector2(700, 350)
 [connection signal="slider_moved" from="Interface/Controller/SliderSpeedLeft/SliderOrigin/InteractableSlider" to="." method="_on_interactable_velocity_left_slider_moved"]
 [connection signal="slider_moved" from="Interface/Controller/SliderMassRight/SliderOrigin/InteractableSlider" to="." method="_on_interactable_mass_right_slider_moved"]
 [connection signal="slider_moved" from="Interface/Controller/SliderSpeedRight/SliderOrigin/InteractableSlider" to="." method="_on_interactable_velocity_right_slider_moved"]
+[connection signal="button_pressed" from="Interface/Controller/LaunchButton/InteractableAreaButton" to="." method="_on_interactable_area_button_button_pressed"]
 
 [editable path="Scenery"]
 [editable path="Interface/Controller/SliderMassLeft"]
