@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="10_6oo03"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_adyim"]
-size = Vector3(50, 1, 25)
+size = Vector3(35, 1, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_je1wj"]
 albedo_texture = ExtResource("2_t13uy")
@@ -31,13 +31,13 @@ uv1_scale = Vector3(50, 25, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xvbri"]
 material = SubResource("StandardMaterial3D_je1wj")
-size = Vector2(50, 25)
+size = Vector2(35, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mi5n7"]
-size = Vector3(1, 10, 25)
+size = Vector3(1, 10, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6oo03"]
-size = Vector3(50, 10, 1)
+size = Vector3(35, 10, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kxshb"]
 size = Vector3(6, 2, 1)
@@ -73,19 +73,19 @@ shape = SubResource("BoxShape3D_adyim")
 mesh = SubResource("PlaneMesh_xvbri")
 
 [node name="WallCollision1" type="CollisionShape3D" parent="Boundary"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.5, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 5, 0)
 shape = SubResource("BoxShape3D_mi5n7")
 
 [node name="WallCollision2" type="CollisionShape3D" parent="Boundary"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 5, 0)
 shape = SubResource("BoxShape3D_mi5n7")
 
 [node name="WallCollision3" type="CollisionShape3D" parent="Boundary"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 10)
 shape = SubResource("BoxShape3D_6oo03")
 
 [node name="WallCollision4" type="CollisionShape3D" parent="Boundary"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -10)
 shape = SubResource("BoxShape3D_6oo03")
 
 [node name="Scenery" parent="." instance=ExtResource("2_rumb4")]
