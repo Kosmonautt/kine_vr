@@ -1,35 +1,35 @@
 [gd_scene load_steps=31 format=3 uid="uid://bnisjpdmd6po1"]
 
-[ext_resource type="Script" uid="uid://fqe6i7kthpig" path="res://scenes/linear_momentum/monetum.gd" id="1_xsfa6"]
-[ext_resource type="Texture2D" uid="uid://cpfbcoc4xbihx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Color.png" id="2_2nt1c"]
-[ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="2_83fnu"]
-[ext_resource type="Texture2D" uid="uid://bvvfl708dvtv2" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_AmbientOcclusion.png" id="3_1okqf"]
-[ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="4_idi3l"]
-[ext_resource type="Texture2D" uid="uid://c8ngm1rmaolw4" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Displacement.png" id="4_opb7s"]
-[ext_resource type="Texture2D" uid="uid://bjqfhvjjyxjga" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_NormalGL.png" id="5_aaakq"]
-[ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/utils/scenery.tscn" id="5_pixqy"]
-[ext_resource type="Texture2D" uid="uid://ex0moq483qmx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Roughness.png" id="6_wopgf"]
-[ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="8_1okqf"]
-[ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="8_mem3d"]
-[ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="9_opb7s"]
-[ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/utils/controller/controller.tscn" id="13_aaakq"]
-[ext_resource type="PackedScene" uid="uid://dnr37vvwt2rxo" path="res://scenes/utils/interactables/slider.tscn" id="14_wopgf"]
-[ext_resource type="PackedScene" uid="uid://buwtt0qxxv75y" path="res://scenes/utils/interactables/button.tscn" id="15_ed7xc"]
+[ext_resource type="Script" uid="uid://fqe6i7kthpig" path="res://scenes/linear_momentum/momentum.gd" id="1_styb3"]
+[ext_resource type="Texture2D" uid="uid://cpfbcoc4xbihx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Color.png" id="2_rnkyq"]
+[ext_resource type="Texture2D" uid="uid://bvvfl708dvtv2" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_AmbientOcclusion.png" id="3_srgiv"]
+[ext_resource type="Texture2D" uid="uid://c8ngm1rmaolw4" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Displacement.png" id="4_kmgi4"]
+[ext_resource type="Texture2D" uid="uid://bjqfhvjjyxjga" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_NormalGL.png" id="5_b3mxq"]
+[ext_resource type="Texture2D" uid="uid://ex0moq483qmx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Roughness.png" id="6_kh3us"]
+[ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/utils/scenery.tscn" id="7_dcls7"]
+[ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="8_a61un"]
+[ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="9_60pvr"]
+[ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="10_do7e0"]
+[ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="11_badkx"]
+[ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="12_lopg3"]
+[ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/utils/controller/controller.tscn" id="13_1gr61"]
+[ext_resource type="PackedScene" uid="uid://dnr37vvwt2rxo" path="res://scenes/utils/interactables/slider.tscn" id="14_txcd1"]
+[ext_resource type="PackedScene" uid="uid://buwtt0qxxv75y" path="res://scenes/utils/interactables/button.tscn" id="15_0716a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rf48c"]
 size = Vector3(35, 1, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ed7xc"]
-albedo_texture = ExtResource("2_2nt1c")
-roughness_texture = ExtResource("6_wopgf")
+albedo_texture = ExtResource("2_rnkyq")
+roughness_texture = ExtResource("6_kh3us")
 normal_enabled = true
-normal_texture = ExtResource("5_aaakq")
+normal_texture = ExtResource("5_b3mxq")
 ao_enabled = true
 ao_light_affect = 0.4
-ao_texture = ExtResource("3_1okqf")
+ao_texture = ExtResource("3_srgiv")
 heightmap_enabled = true
 heightmap_scale = 3.0
-heightmap_texture = ExtResource("4_opb7s")
+heightmap_texture = ExtResource("4_kmgi4")
 uv1_scale = Vector3(35, 20, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_idi3l"]
@@ -46,7 +46,7 @@ size = Vector3(1, 10, 35)
 size = Vector3(25, 8, 6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27upa"]
-albedo_texture = ExtResource("8_1okqf")
+albedo_texture = ExtResource("8_a61un")
 uv1_scale = Vector3(20, 6, 6)
 disable_receive_shadows = true
 
@@ -55,7 +55,7 @@ material = SubResource("StandardMaterial3D_27upa")
 size = Vector2(25, 6)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abopq"]
-albedo_texture = ExtResource("9_opb7s")
+albedo_texture = ExtResource("9_60pvr")
 uv1_scale = Vector3(20, 8, 1)
 disable_receive_shadows = true
 
@@ -78,8 +78,8 @@ sky_material = SubResource("PhysicalSkyMaterial_pixqy")
 background_mode = 2
 sky = SubResource("Sky_mem3d")
 
-[node name="Monetum" type="Node3D" node_paths=PackedStringArray("projectile_left", "projectile_right")]
-script = ExtResource("1_xsfa6")
+[node name="Momentum" type="Node3D" node_paths=PackedStringArray("projectile_left", "projectile_right")]
+script = ExtResource("1_styb3")
 projectile_left = NodePath("Scenery/ProjectileLeft")
 projectile_right = NodePath("Scenery/ProjectileRight")
 
@@ -108,7 +108,7 @@ shape = SubResource("BoxShape3D_mem3d")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 5, -10.5)
 shape = SubResource("BoxShape3D_mem3d")
 
-[node name="Scenery" parent="." instance=ExtResource("5_pixqy")]
+[node name="Scenery" parent="." instance=ExtResource("7_dcls7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0.001, -10)
 collision_mask = 16777216
 
@@ -125,7 +125,7 @@ mesh = SubResource("PlaneMesh_opb7s")
 [node name="Wall" parent="Scenery/Mesh" index="1"]
 mesh = SubResource("PlaneMesh_aaakq")
 
-[node name="ProjectileLeft" parent="Scenery" instance=ExtResource("2_83fnu")]
+[node name="ProjectileLeft" parent="Scenery" instance=ExtResource("10_do7e0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.5, 1.5)
 collision_layer = 16777216
 collision_mask = 16777216
@@ -133,7 +133,7 @@ physics_material_override = SubResource("PhysicsMaterial_83fnu")
 gravity_scale = 0.0
 linear_velocity = Vector3(5, 0, 0)
 
-[node name="ProjectileRight" parent="Scenery" instance=ExtResource("2_83fnu")]
+[node name="ProjectileRight" parent="Scenery" instance=ExtResource("10_do7e0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 2.5, 1.5)
 collision_layer = 16777216
 collision_mask = 16777216
@@ -141,7 +141,7 @@ mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_xsfa6")
 gravity_scale = 0.0
 
-[node name="Player" parent="." instance=ExtResource("4_idi3l")]
+[node name="Player" parent="." instance=ExtResource("11_badkx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0.5)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -152,39 +152,39 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pixqy")
 
-[node name="Teleporter" parent="." instance=ExtResource("8_mem3d")]
+[node name="Teleporter" parent="." instance=ExtResource("12_lopg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
 
 [node name="Interface" type="Node3D" parent="."]
 
-[node name="Controller" parent="Interface" instance=ExtResource("13_aaakq")]
+[node name="Controller" parent="Interface" instance=ExtResource("13_1gr61")]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1, -0.315)
 
-[node name="SliderMassLeft" parent="Interface/Controller" instance=ExtResource("14_wopgf")]
+[node name="SliderMassLeft" parent="Interface/Controller" instance=ExtResource("14_txcd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.225, 0.07, 0)
 
 [node name="InteractableSlider" parent="Interface/Controller/SliderMassLeft/SliderOrigin" index="0"]
 slider_limit_max = 0.2
 
-[node name="SliderSpeedLeft" parent="Interface/Controller" instance=ExtResource("14_wopgf")]
+[node name="SliderSpeedLeft" parent="Interface/Controller" instance=ExtResource("14_txcd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075, 0.07, 0)
 
 [node name="InteractableSlider" parent="Interface/Controller/SliderSpeedLeft/SliderOrigin" index="0"]
 slider_limit_max = 0.2
 
-[node name="SliderMassRight" parent="Interface/Controller" instance=ExtResource("14_wopgf")]
+[node name="SliderMassRight" parent="Interface/Controller" instance=ExtResource("14_txcd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075, 0.07, 0)
 
 [node name="InteractableSlider" parent="Interface/Controller/SliderMassRight/SliderOrigin" index="0"]
 slider_limit_max = 0.2
 
-[node name="SliderSpeedRight" parent="Interface/Controller" instance=ExtResource("14_wopgf")]
+[node name="SliderSpeedRight" parent="Interface/Controller" instance=ExtResource("14_txcd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225, 0.07, 0)
 
 [node name="InteractableSlider" parent="Interface/Controller/SliderSpeedRight/SliderOrigin" index="0"]
 slider_limit_max = 0.2
 
-[node name="LaunchButton" parent="Interface/Controller" instance=ExtResource("15_ed7xc")]
+[node name="LaunchButton" parent="Interface/Controller" instance=ExtResource("15_0716a")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.15, 0)
 
 [connection signal="body_exited" from="Scenery" to="." method="_on_scenery_body_exited"]

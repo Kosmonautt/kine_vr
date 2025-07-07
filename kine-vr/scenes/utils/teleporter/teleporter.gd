@@ -16,6 +16,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		if destination == 4:
 			get_tree().change_scene_to_file("res://scenes/relative_motion/relative_motion.tscn")
 		if destination == 5:
-			get_tree().change_scene_to_file("res://scenes/linear_momentum/monetum.tscn")
+			get_tree().change_scene_to_file("res://scenes/linear_momentum/momentum.tscn")
 		
 		
