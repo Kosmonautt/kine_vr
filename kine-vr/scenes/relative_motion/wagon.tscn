@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dbdoy30y6hk4w" path="res://assets/kenney_prototype-textures/PNG/Green/texture_01.png" id="2_68lq8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_krpfv"]
-size = Vector3(2, 0.15, 3)
+size = Vector3(4, 0.15, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wpp6"]
 transparency = 1
@@ -12,7 +12,7 @@ albedo_color = Color(1, 1, 1, 0.156863)
 
 [sub_resource type="BoxMesh" id="BoxMesh_krpfv"]
 material = SubResource("StandardMaterial3D_6wpp6")
-size = Vector3(2, 0.15, 3)
+size = Vector3(4, 0.15, 5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68lq8"]
 albedo_texture = ExtResource("2_6wpp6")
@@ -31,7 +31,7 @@ uv1_scale = Vector3(3, 4, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mm4mv"]
 material = SubResource("StandardMaterial3D_1svnm")
-size = Vector2(3, 4)
+size = Vector2(5, 4)
 
 [node name="Wagon" type="RigidBody3D"]
 collision_layer = 0
@@ -52,33 +52,33 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
 [node name="Wheel1" type="Node3D" parent="Wheels"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.125, -0.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.125, 1.5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/Wheel1"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_krpfv")
 
 [node name="Wheel2" type="Node3D" parent="Wheels"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.125, 0.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.125, -1.5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/Wheel2"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_krpfv")
 
 [node name="Wheel3" type="Node3D" parent="Wheels"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.125, -0.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.125, -1.5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/Wheel3"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_krpfv")
 
 [node name="Wheel4" type="Node3D" parent="Wheels"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.125, 0.8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.125, 1.5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wheels/Wheel4"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_krpfv")
 
 [node name="Wall" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 1.5, 2, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 2, 2, 0)
 mesh = SubResource("PlaneMesh_mm4mv")
