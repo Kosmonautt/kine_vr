@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dg8fy7pyqqur8"]
+[gd_scene load_steps=30 format=3 uid="uid://dg8fy7pyqqur8"]
 
 [ext_resource type="Script" uid="uid://bb6uk8kjulgnp" path="res://scenes/relative_motion/relative_motion.gd" id="1_kxshb"]
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_qtbu6"]
@@ -64,6 +64,9 @@ size = Vector2(25, 8)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7on3u"]
 bounce = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mhvc8"]
+size = Vector3(25, 8, 6)
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_mi5n7"]
 
@@ -146,6 +149,14 @@ mode = 1
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2, 2, 0)
 projectile = NodePath("../Projectile")
 mode = 1
+
+[node name="Boundary" type="StaticBody3D" parent="Scenery"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 3)
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Scenery/Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("BoxShape3D_mhvc8")
 
 [node name="Player" parent="." instance=ExtResource("6_xvbri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
