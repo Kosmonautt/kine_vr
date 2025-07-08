@@ -103,7 +103,7 @@ destination = 4
 
 [node name="TeleporterLinearMomentum" parent="Teleporters" instance=ExtResource("6_ow5a4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
-destination = 5
+destination = 6
 
 [node name="ControlPad" parent="." instance=ExtResource("9_b1x3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)

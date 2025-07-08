@@ -1,6 +1,6 @@
 extends Node3D
 
-@export_enum("Main", "Parabola" , "Hunter Monkey", "Uniform Circular Motion", "Relative Motion", "Linear Momentum") var destination: int
+@export_enum("Main", "Parabola" , "Hunter Monkey", "Uniform Circular Motion", "Relative Motion", "Relative Motion Wagon", "Linear Momentum") var destination: int
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
@@ -16,6 +16,8 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		if destination == 4:
 			get_tree().change_scene_to_file("res://scenes/relative_motion/relative_motion.tscn")
 		if destination == 5:
+			get_tree().change_scene_to_file("res://scenes/relative_motion/relative_motion_wagon.tscn")
+		if destination == 6:
 			get_tree().change_scene_to_file("res://scenes/linear_momentum/momentum.tscn")
 		
 		

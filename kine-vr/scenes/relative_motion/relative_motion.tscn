@@ -150,6 +150,10 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 2, 2, 
 projectile = NodePath("../Projectile")
 mode = 1
 
+[node name="RelativeMotionTeleporter" parent="Scenery/Wagon" instance=ExtResource("10_6oo03")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0.325, -1.5)
+destination = 4
+
 [node name="Boundary" type="StaticBody3D" parent="Scenery"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 3)
 collision_mask = 0
@@ -171,6 +175,10 @@ environment = SubResource("Environment_mi5n7")
 
 [node name="Teleporter" parent="." instance=ExtResource("10_6oo03")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
+
+[node name="WagonTeleporter" parent="." instance=ExtResource("10_6oo03")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+destination = 5
 
 [connection signal="body_entered" from="Scenery" to="." method="_on_scenery_body_entered"]
 
