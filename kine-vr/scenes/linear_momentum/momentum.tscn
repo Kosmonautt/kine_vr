@@ -174,7 +174,9 @@ slider_limit_max = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075, 0.07, 0)
 
 [node name="InteractableSlider" parent="Interface/Controller/SliderSpeedLeft/SliderOrigin" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
 slider_limit_max = 0.2
+slider_position = 0.1
 
 [node name="SliderMassRight" parent="Interface/Controller" instance=ExtResource("14_txcd1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.075, 0.07, 0)
@@ -186,7 +188,9 @@ slider_limit_max = 0.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225, 0.07, 0)
 
 [node name="InteractableSlider" parent="Interface/Controller/SliderSpeedRight/SliderOrigin" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
 slider_limit_max = 0.2
+slider_position = 0.1
 
 [node name="LaunchButton" parent="Interface/Controller" instance=ExtResource("15_0716a")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.15, 0)
