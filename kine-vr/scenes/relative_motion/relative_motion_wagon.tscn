@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnlpftx4nrd8s"]
+
+[ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_7ca7b"]
+[ext_resource type="Script" uid="uid://cbfx2qu24lnuf" path="res://scenes/relative_motion/relative_motion_wagon.gd" id="1_b5awe"]
+[ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="2_oj1vu"]
+[ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="3_i78nh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i78nh"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i78nh"]
+size = Vector3(4, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dke4t"]
+size = Vector3(4, 6, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rx7nf"]
+size = Vector3(5, 6, 1)
+
+[node name="RelativeMotionWagon" type="Node3D"]
+script = ExtResource("1_b5awe")
+
+[node name="Wagon" parent="." instance=ExtResource("1_7ca7b")]
+collision_layer = 16777216
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="Projectile" parent="Wagon" instance=ExtResource("3_i78nh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+collision_layer = 0
+collision_mask = 16777216
+physics_material_override = SubResource("PhysicsMaterial_i78nh")
+
+[node name="Player" parent="." instance=ExtResource("2_oj1vu")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.5, 0, 0)
+
+[node name="Boundary" type="StaticBody3D" parent="."]
+
+[node name="Floor" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.175, 0)
+shape = SubResource("BoxShape3D_i78nh")
+
+[node name="Wall1" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.325, -3)
+shape = SubResource("BoxShape3D_dke4t")
+
+[node name="Wall2" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.325, 3)
+shape = SubResource("BoxShape3D_dke4t")
+
+[node name="Wall3" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.5, 3.325, 0)
+shape = SubResource("BoxShape3D_rx7nf")
+
+[node name="Wall4" type="CollisionShape3D" parent="Boundary"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5, 3.325, 0)
+shape = SubResource("BoxShape3D_rx7nf")
