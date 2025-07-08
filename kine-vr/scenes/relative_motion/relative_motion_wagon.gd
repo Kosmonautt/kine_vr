@@ -52,9 +52,8 @@ func _process(delta) -> void:
 func _on_scenery_body_entered(body: Node3D) -> void:
 	if body == wagon:
 		map.set_position(Vector3(-6.5, 0.0, 9.5))
-		print("entered")
-
+		
 
 func _on_refresh_timer_timeout() -> void:
-	control.refresh_screen(projectile.get_position() + map.get_position() + scenery.get_position(), projectile.get_linear_velocity() + map.get_linear_velocity(), projectile.get_position(), projectile.get_linear_velocity())
+	control.refresh_screen(projectile.get_position() + Vector3(-map.get_position().z, map.get_position().y, 16.0) + scenery.get_position(), projectile.get_linear_velocity() + Vector3(linear_speed, 0.0, 0.0), projectile.get_position(), projectile.get_linear_velocity())
 	refresh_timer.start()
