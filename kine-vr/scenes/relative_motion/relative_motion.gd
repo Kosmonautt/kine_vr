@@ -18,9 +18,6 @@ var radius: float = 0.125
 var angular_speed: float = linear_speed / radius
 
 func _ready() -> void:
-	wagon.set_linear_velocity(Vector3(linear_speed, 0.0, 0.0))
-	projectile.set_linear_velocity(Vector3(linear_speed, 0.0, 0.0))
-
 	Engine.max_fps = 90
 	
 	xr_interface = XRServer.find_interface("OpenXR")
@@ -35,10 +32,13 @@ func _ready() -> void:
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
 
+	wagon.set_linear_velocity(Vector3(linear_speed, 0.0, 0.0))
+	projectile.set_linear_velocity(Vector3(linear_speed, 0.0, 0.0))
+	
 	control = $ControlPad/Viewport2dIn3d.get_scene_instance()
 	
 	control.set_label_name("Scenery Reference System", 0)
-	control.set_label_name("Wagon Reference System", 0)
+	control.set_label_name("Wagon Reference System", 1)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta) -> void:

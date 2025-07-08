@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dnlpftx4nrd8s"]
+[gd_scene load_steps=32 format=3 uid="uid://dnlpftx4nrd8s"]
 
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_7ca7b"]
 [ext_resource type="Script" uid="uid://cbfx2qu24lnuf" path="res://scenes/relative_motion/relative_motion_wagon.gd" id="1_b5awe"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/utils/scenery.tscn" id="4_dke4t"]
 [ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/utils/projectile_projection/projectile_projection.tscn" id="4_opcf2"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="5_rx7nf"]
+[ext_resource type="PackedScene" uid="uid://l8h0a417elon" path="res://scenes/utils/control_pad/control_pad.tscn" id="6_yy6wq"]
+[ext_resource type="PackedScene" uid="uid://bx8gfpglba3i3" path="res://scenes/utils/control_pad/control_pad_display_relative_motion.tscn" id="7_5k41j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i78nh"]
 friction = 0.0
@@ -91,14 +93,17 @@ sky_material = SubResource("PhysicalSkyMaterial_i78nh")
 background_mode = 2
 sky = SubResource("Sky_i78nh")
 
-[node name="RelativeMotionWagon" type="Node3D" node_paths=PackedStringArray("map", "wagon", "wheel_1", "wheel_2", "wheel_3", "wheel_4")]
+[node name="RelativeMotionWagon" type="Node3D" node_paths=PackedStringArray("map", "scenery", "projectile", "wagon", "wheel_1", "wheel_2", "wheel_3", "wheel_4", "refresh_timer")]
 script = ExtResource("1_b5awe")
 map = NodePath("Map")
+scenery = NodePath("Map/Scenery")
+projectile = NodePath("Wagon/Projectile")
 wagon = NodePath("Wagon")
 wheel_1 = NodePath("Wagon/Wheels/Wheel1")
 wheel_2 = NodePath("Wagon/Wheels/Wheel2")
 wheel_3 = NodePath("Wagon/Wheels/Wheel3")
 wheel_4 = NodePath("Wagon/Wheels/Wheel4")
+refresh_timer = NodePath("Wagon/ControlPad/RefreshTimer")
 
 [node name="Wagon" parent="." instance=ExtResource("1_7ca7b")]
 collision_layer = 16777216
@@ -128,6 +133,14 @@ mode = 1
 [node name="RelativeMotionTeleporter" parent="Wagon" instance=ExtResource("5_rx7nf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.325, -1.5)
 destination = 4
+
+[node name="ControlPad" parent="Wagon" instance=ExtResource("6_yy6wq")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.75, 1.35, 0)
+
+[node name="Viewport2dIn3d" parent="Wagon/ControlPad" index="1"]
+scene = ExtResource("7_5k41j")
+viewport_size = Vector2(600, 300)
+scene_properties_keys = PackedStringArray("control_pad_display_relative_motion.gd")
 
 [node name="Map" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 9.5)
@@ -196,7 +209,9 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i78nh")
 
+[connection signal="timeout" from="Wagon/ControlPad/RefreshTimer" to="." method="_on_refresh_timer_timeout"]
 [connection signal="body_entered" from="Map/Scenery" to="." method="_on_scenery_body_entered"]
 
 [editable path="Wagon"]
+[editable path="Wagon/ControlPad"]
 [editable path="Map/Scenery"]
