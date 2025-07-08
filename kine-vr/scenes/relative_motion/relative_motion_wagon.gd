@@ -1,7 +1,9 @@
 extends Node3D
 
 @export var linear_speed: float = 1.0
+
 @export var map: RigidBody3D
+@export var wagon: RigidBody3D
 @export var wheel_1: Node3D
 @export var wheel_2: Node3D
 @export var wheel_3: Node3D
@@ -36,3 +38,9 @@ func _process(delta) -> void:
 	wheel_2.rotate_x(angular_speed * delta)
 	wheel_3.rotate_x(angular_speed * delta)
 	wheel_4.rotate_x(angular_speed * delta)
+
+
+func _on_scenery_body_entered(body: Node3D) -> void:
+	if body == wagon:
+		map.set_position(Vector3(-6.5, 0.0, 9.5))
+		print("entered")

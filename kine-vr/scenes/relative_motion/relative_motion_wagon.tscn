@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dnlpftx4nrd8s"]
+[gd_scene load_steps=29 format=3 uid="uid://dnlpftx4nrd8s"]
 
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_7ca7b"]
 [ext_resource type="Script" uid="uid://cbfx2qu24lnuf" path="res://scenes/relative_motion/relative_motion_wagon.gd" id="1_b5awe"]
@@ -42,6 +42,9 @@ uv1_scale = Vector3(20, 35, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_i78nh"]
 material = SubResource("StandardMaterial3D_5k41j")
 size = Vector2(20, 35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yy6wq"]
+size = Vector3(1, 8, 6)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5k41j"]
 load_path = "res://.godot/imported/texture_13.png-d8a64638530ca4756d5cf5d168965a0b.s3tc.ctex"
@@ -87,9 +90,10 @@ sky_material = SubResource("PhysicalSkyMaterial_i78nh")
 background_mode = 2
 sky = SubResource("Sky_i78nh")
 
-[node name="RelativeMotionWagon" type="Node3D" node_paths=PackedStringArray("map", "wheel_1", "wheel_2", "wheel_3", "wheel_4")]
+[node name="RelativeMotionWagon" type="Node3D" node_paths=PackedStringArray("map", "wagon", "wheel_1", "wheel_2", "wheel_3", "wheel_4")]
 script = ExtResource("1_b5awe")
 map = NodePath("Map")
+wagon = NodePath("Wagon")
 wheel_1 = NodePath("Wagon/Wheels/Wheel1")
 wheel_2 = NodePath("Wagon/Wheels/Wheel2")
 wheel_3 = NodePath("Wagon/Wheels/Wheel3")
@@ -113,12 +117,19 @@ physics_material_override = SubResource("PhysicsMaterial_i78nh")
 [node name="Map" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 9.5)
 gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
 
 [node name="FloorMesh" type="MeshInstance3D" parent="Map"]
 mesh = SubResource("PlaneMesh_i78nh")
 
 [node name="Scenery" parent="Map" instance=ExtResource("4_dke4t")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, 0.001, -12.5)
+collision_mask = 16777216
+
+[node name="CollisionShape3D" parent="Map/Scenery" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 4, 3)
+shape = SubResource("BoxShape3D_yy6wq")
 
 [node name="Floor" parent="Map/Scenery/Mesh" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 3)
@@ -166,6 +177,8 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i78nh")
+
+[connection signal="body_entered" from="Map/Scenery" to="." method="_on_scenery_body_entered"]
 
 [editable path="Wagon"]
 [editable path="Map/Scenery"]
