@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dg8fy7pyqqur8"]
+[gd_scene load_steps=29 format=3 uid="uid://dg8fy7pyqqur8"]
 
 [ext_resource type="Script" uid="uid://bb6uk8kjulgnp" path="res://scenes/relative_motion/relative_motion.gd" id="1_kxshb"]
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_qtbu6"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bjqfhvjjyxjga" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_NormalGL.png" id="5_iyuji"]
 [ext_resource type="Texture2D" uid="uid://ex0moq483qmx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Roughness.png" id="6_uh041"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="6_xvbri"]
+[ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="8_pj1wv"]
+[ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="9_mhvc8"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="10_6oo03"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_adyim"]
@@ -41,6 +43,24 @@ size = Vector3(35, 10, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t13uy"]
 size = Vector3(1, 8, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27upa"]
+albedo_texture = ExtResource("8_pj1wv")
+uv1_scale = Vector3(25, 6, 7.5)
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pj1wv"]
+material = SubResource("StandardMaterial3D_27upa")
+size = Vector2(25, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abopq"]
+albedo_texture = ExtResource("9_mhvc8")
+uv1_scale = Vector3(25, 10, 1.25)
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mhvc8"]
+material = SubResource("StandardMaterial3D_abopq")
+size = Vector2(25, 8)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7on3u"]
 bounce = 1.0
@@ -89,12 +109,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -10)
 shape = SubResource("BoxShape3D_6oo03")
 
 [node name="Scenery" parent="." instance=ExtResource("2_rumb4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.001, -10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0.001, -10)
 collision_mask = 16777216
 
 [node name="CollisionShape3D" parent="Scenery" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5, 4, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5, 4, 3)
 shape = SubResource("BoxShape3D_t13uy")
+
+[node name="Mesh" parent="Scenery" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0)
+
+[node name="Floor" parent="Scenery/Mesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+mesh = SubResource("PlaneMesh_pj1wv")
+
+[node name="Wall" parent="Scenery/Mesh" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4, 0)
+mesh = SubResource("PlaneMesh_mhvc8")
 
 [node name="Wagon" parent="Scenery" instance=ExtResource("1_qtbu6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 0, 3)
