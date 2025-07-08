@@ -63,16 +63,16 @@ func _on_interactable_velocity_left_slider_moved(position: Variant) -> void:
 	# position [0.0, 0.2] meters to [0.0, 1.0]
 	var percentage: float = smoothstep(0.0, 0.2, position)
 	
-	# number [0.0, 1.0] transformed to [1.0, 10.0] m/s
-	left_initial_velocity_x = lerp(1.0, 10.0, percentage)
+	# number [0.0, 1.0] transformed to [-20.0, 20.0] m/s
+	left_initial_velocity_x = lerp(-20.0, 20.0, percentage)
 
 
 func _on_interactable_velocity_right_slider_moved(position: Variant) -> void:
 	# position [0.0, 0.2] meters to [0.0, 1.0]
 	var percentage: float = smoothstep(0.0, 0.2, position)
 	
-	# number [0.0, 1.0] transformed to [1.0, 10.0] m/s
-	right_initial_velocity_x = lerp(1.0, 10.0, percentage)
+	# number [0.0, 1.0] transformed to [-20.0, 20.0] m/s
+	right_initial_velocity_x = lerp(-20.0, 20.0, percentage)
 
 
 func _on_interactable_area_button_button_pressed(button: Variant) -> void:
