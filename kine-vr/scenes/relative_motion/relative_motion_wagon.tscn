@@ -1,13 +1,70 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnlpftx4nrd8s"]
+[gd_scene load_steps=26 format=3 uid="uid://dnlpftx4nrd8s"]
 
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_7ca7b"]
 [ext_resource type="Script" uid="uid://cbfx2qu24lnuf" path="res://scenes/relative_motion/relative_motion_wagon.gd" id="1_b5awe"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="2_oj1vu"]
 [ext_resource type="PackedScene" uid="uid://bni7glj6di7a4" path="res://scenes/utils/projectile.tscn" id="3_i78nh"]
+[ext_resource type="PackedScene" uid="uid://b5art2vnwq8pi" path="res://scenes/utils/scenery.tscn" id="4_dke4t"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i78nh"]
 friction = 0.0
 bounce = 1.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i78nh"]
+load_path = "res://.godot/imported/PavingStones009_1K-PNG_Color.png-f53a1048afb3f372d338112d0ac5610d.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dke4t"]
+load_path = "res://.godot/imported/PavingStones009_1K-PNG_AmbientOcclusion.png-b12b57571d71baf6b6c0828c67db8135.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rx7nf"]
+load_path = "res://.godot/imported/PavingStones009_1K-PNG_Displacement.png-07b6bdda92fc42380d2ed772b2f940ea.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_opcf2"]
+load_path = "res://.godot/imported/PavingStones009_1K-PNG_NormalGL.png-0aa4a0a0cfe47b8ba91efc96cca74729.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yy6wq"]
+load_path = "res://.godot/imported/PavingStones009_1K-PNG_Roughness.png-16baf11ca69072e5f2f5dbde7fdc4c8f.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5k41j"]
+albedo_texture = SubResource("CompressedTexture2D_i78nh")
+roughness_texture = SubResource("CompressedTexture2D_yy6wq")
+normal_enabled = true
+normal_texture = SubResource("CompressedTexture2D_opcf2")
+ao_enabled = true
+ao_light_affect = 0.4
+ao_texture = SubResource("CompressedTexture2D_dke4t")
+heightmap_enabled = true
+heightmap_scale = 3.0
+heightmap_texture = SubResource("CompressedTexture2D_rx7nf")
+uv1_scale = Vector3(20, 35, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_i78nh"]
+material = SubResource("StandardMaterial3D_5k41j")
+size = Vector2(20, 35)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5k41j"]
+load_path = "res://.godot/imported/texture_13.png-d8a64638530ca4756d5cf5d168965a0b.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nm8sy"]
+albedo_texture = SubResource("CompressedTexture2D_5k41j")
+uv1_scale = Vector3(25, 6, 6)
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3ey4j"]
+material = SubResource("StandardMaterial3D_nm8sy")
+size = Vector2(25, 6)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nm8sy"]
+load_path = "res://.godot/imported/texture_01.png-6bfd3a589f3b4234ff7a58505e18fba9.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ey4j"]
+albedo_texture = SubResource("CompressedTexture2D_nm8sy")
+uv1_scale = Vector3(25, 8, 1)
+disable_receive_shadows = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4g8st"]
+material = SubResource("StandardMaterial3D_3ey4j")
+size = Vector2(25, 8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i78nh"]
 size = Vector3(4, 1, 5)
@@ -17,6 +74,15 @@ size = Vector3(4, 6, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rx7nf"]
 size = Vector3(5, 6, 1)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_i78nh"]
+
+[sub_resource type="Sky" id="Sky_i78nh"]
+sky_material = SubResource("PhysicalSkyMaterial_i78nh")
+
+[sub_resource type="Environment" id="Environment_i78nh"]
+background_mode = 2
+sky = SubResource("Sky_i78nh")
 
 [node name="RelativeMotionWagon" type="Node3D"]
 script = ExtResource("1_b5awe")
@@ -35,6 +101,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 collision_layer = 0
 collision_mask = 16777216
 physics_material_override = SubResource("PhysicsMaterial_i78nh")
+
+[node name="Map" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 9.5)
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Map"]
+mesh = SubResource("PlaneMesh_i78nh")
+
+[node name="Scenery" parent="Map" instance=ExtResource("4_dke4t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10, 0.001, -12.5)
+
+[node name="Floor" parent="Map/Scenery/Mesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 3)
+mesh = SubResource("PlaneMesh_3ey4j")
+
+[node name="Wall" parent="Map/Scenery/Mesh" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 12.5, 4, 0)
+mesh = SubResource("PlaneMesh_4g8st")
 
 [node name="Player" parent="." instance=ExtResource("2_oj1vu")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.5, 0, 0)
@@ -60,3 +143,13 @@ shape = SubResource("BoxShape3D_rx7nf")
 [node name="Wall4" type="CollisionShape3D" parent="Boundary"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.5, 3.325, 0)
 shape = SubResource("BoxShape3D_rx7nf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, 0, 0, 0)
+light_energy = 2.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i78nh")
+
+[editable path="Map/Scenery"]
