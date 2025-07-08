@@ -1,7 +1,10 @@
-[gd_scene format=3 uid="uid://bx8gfpglba3i3"]
+[gd_scene load_steps=2 format=3 uid="uid://bx8gfpglba3i3"]
+
+[ext_resource type="Script" uid="uid://b76m23rv7radq" path="res://scenes/utils/control_pad/control_pad_display_relative_motion.gd" id="1_8v7vf"]
 
 [node name="ControlPadDisplay" type="TabContainer"]
 current_tab = 0
+script = ExtResource("1_8v7vf")
 
 [node name="Data" type="MarginContainer" parent="."]
 layout_mode = 2

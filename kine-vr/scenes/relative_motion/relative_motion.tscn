@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dg8fy7pyqqur8"]
+[gd_scene load_steps=32 format=3 uid="uid://dg8fy7pyqqur8"]
 
 [ext_resource type="Script" uid="uid://bb6uk8kjulgnp" path="res://scenes/relative_motion/relative_motion.gd" id="1_kxshb"]
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_qtbu6"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="8_pj1wv"]
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="9_mhvc8"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="10_6oo03"]
+[ext_resource type="PackedScene" uid="uid://l8h0a417elon" path="res://scenes/utils/control_pad/control_pad.tscn" id="15_iyuji"]
+[ext_resource type="PackedScene" uid="uid://bx8gfpglba3i3" path="res://scenes/utils/control_pad/control_pad_display_relative_motion.tscn" id="16_uh041"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_adyim"]
 size = Vector3(35, 1, 20)
@@ -77,7 +79,7 @@ sky_material = SubResource("PhysicalSkyMaterial_mi5n7")
 background_mode = 2
 sky = SubResource("Sky_6oo03")
 
-[node name="RelativeMotion" type="Node3D" node_paths=PackedStringArray("wagon", "projectile", "wheel_1", "wheel_2", "wheel_3", "wheel_4")]
+[node name="RelativeMotion" type="Node3D" node_paths=PackedStringArray("wagon", "projectile", "wheel_1", "wheel_2", "wheel_3", "wheel_4", "refresh_timer")]
 script = ExtResource("1_kxshb")
 wagon = NodePath("Scenery/Wagon")
 projectile = NodePath("Scenery/Wagon/Projectile")
@@ -85,6 +87,7 @@ wheel_1 = NodePath("Scenery/Wagon/Wheels/Wheel1")
 wheel_2 = NodePath("Scenery/Wagon/Wheels/Wheel2")
 wheel_3 = NodePath("Scenery/Wagon/Wheels/Wheel3")
 wheel_4 = NodePath("Scenery/Wagon/Wheels/Wheel4")
+refresh_timer = NodePath("ControlPad/RefreshTimer")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
@@ -180,7 +183,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 destination = 5
 
+[node name="ControlPad" parent="." instance=ExtResource("15_iyuji")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.35, -0.5)
+
+[node name="Viewport2dIn3d" parent="ControlPad" index="1"]
+scene = ExtResource("16_uh041")
+viewport_size = Vector2(600, 300)
+scene_properties_keys = PackedStringArray("control_pad_display_relative_motion.gd")
+
 [connection signal="body_entered" from="Scenery" to="." method="_on_scenery_body_entered"]
+[connection signal="timeout" from="ControlPad/RefreshTimer" to="." method="_on_refresh_timer_timeout"]
 
 [editable path="Scenery"]
 [editable path="Scenery/Wagon"]
+[editable path="ControlPad"]
