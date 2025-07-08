@@ -54,5 +54,5 @@ func _on_scenery_body_entered(body: Node3D) -> void:
 
 
 func _on_refresh_timer_timeout() -> void:
-	control.refresh_screen(wagon.get_position() + projectile.get_position(), wagon.get_linear_velocity() + projectile.get_linear_velocity(), projectile.get_position(), projectile.get_linear_velocity())
+	control.refresh_screen(wagon.get_position() + projectile.get_position(), projectile.get_linear_velocity(), projectile.get_position(), projectile.get_linear_velocity() - wagon.get_linear_velocity())
 	refresh_timer.start()
