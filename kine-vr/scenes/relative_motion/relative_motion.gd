@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var linear_speed: float = 1
+@export var linear_speed: float = 1.0
 
 @export var wagon: RigidBody3D
 @export var projectile: RigidBody3D

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dnlpftx4nrd8s"]
+[gd_scene load_steps=28 format=3 uid="uid://dnlpftx4nrd8s"]
 
 [ext_resource type="PackedScene" uid="uid://d04d3jk8287so" path="res://scenes/relative_motion/wagon.tscn" id="1_7ca7b"]
 [ext_resource type="Script" uid="uid://cbfx2qu24lnuf" path="res://scenes/relative_motion/relative_motion_wagon.gd" id="1_b5awe"]
@@ -67,6 +67,8 @@ disable_receive_shadows = true
 material = SubResource("StandardMaterial3D_3ey4j")
 size = Vector2(25, 8)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_opcf2"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_i78nh"]
 size = Vector3(4, 1, 5)
 
@@ -85,8 +87,13 @@ sky_material = SubResource("PhysicalSkyMaterial_i78nh")
 background_mode = 2
 sky = SubResource("Sky_i78nh")
 
-[node name="RelativeMotionWagon" type="Node3D"]
+[node name="RelativeMotionWagon" type="Node3D" node_paths=PackedStringArray("map", "wheel_1", "wheel_2", "wheel_3", "wheel_4")]
 script = ExtResource("1_b5awe")
+map = NodePath("Map")
+wheel_1 = NodePath("Wagon/Wheels/Wheel1")
+wheel_2 = NodePath("Wagon/Wheels/Wheel2")
+wheel_3 = NodePath("Wagon/Wheels/Wheel3")
+wheel_4 = NodePath("Wagon/Wheels/Wheel4")
 
 [node name="Wagon" parent="." instance=ExtResource("1_7ca7b")]
 collision_layer = 16777216
@@ -103,8 +110,9 @@ collision_layer = 0
 collision_mask = 16777216
 physics_material_override = SubResource("PhysicsMaterial_i78nh")
 
-[node name="Map" type="Node3D" parent="."]
+[node name="Map" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, 9.5)
+gravity_scale = 0.0
 
 [node name="FloorMesh" type="MeshInstance3D" parent="Map"]
 mesh = SubResource("PlaneMesh_i78nh")
@@ -122,6 +130,9 @@ mesh = SubResource("PlaneMesh_4g8st")
 
 [node name="Teleporter" parent="Map" instance=ExtResource("5_rx7nf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map"]
+shape = SubResource("BoxShape3D_opcf2")
 
 [node name="Player" parent="." instance=ExtResource("2_oj1vu")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.5, 0, 0)
@@ -156,4 +167,5 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_i78nh")
 
+[editable path="Wagon"]
 [editable path="Map/Scenery"]
