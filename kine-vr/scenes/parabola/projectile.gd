@@ -12,6 +12,8 @@ const cosine_decal_color = Color(0, 0, 1)
 @export var timer: Timer
 
 var can_launch: bool = true
+var paused: bool = false
+var paused_linear_velocity: Vector3
 var decal_list: Array = []
 
 # Called when the node enters the scene tree for the first time.
@@ -44,6 +46,20 @@ func _on_interactable_area_button_button_pressed(_button: Variant) -> void:
 			decal_list.clear()
 		# decals start spawning
 		timer.start()
+
+
+func _on_interactable_area_pause_button_pressed(button: Variant) -> void:
+	if not paused:
+		# linear velocity stored
+		paused_linear_velocity = linear_velocity
+		set_gravity_scale(0.0)
+		linear_velocity = Vector3.ZERO
+	elif paused:
+		# linear velocity given back
+		linear_velocity = paused_linear_velocity
+		set_gravity_scale(1.0)
+		
+	paused = not paused
 
 
 func _on_timer_timeout() -> void:
