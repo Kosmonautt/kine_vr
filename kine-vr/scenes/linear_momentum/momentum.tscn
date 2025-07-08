@@ -120,12 +120,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 4, 3)
 shape = SubResource("BoxShape3D_opb7s")
 
 [node name="Mesh" parent="Scenery" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 0, 0)
 
 [node name="Floor" parent="Scenery/Mesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 mesh = SubResource("PlaneMesh_opb7s")
 
 [node name="Wall" parent="Scenery/Mesh" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4, 0)
 mesh = SubResource("PlaneMesh_aaakq")
 
 [node name="ProjectileLeft" parent="Scenery" instance=ExtResource("10_do7e0")]
