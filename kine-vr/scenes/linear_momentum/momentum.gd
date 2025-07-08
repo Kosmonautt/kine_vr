@@ -35,10 +35,9 @@ func _ready() -> void:
 
 
 func _on_scenery_body_exited(body: Node3D) -> void:
-	if body == projectile_left:
+	if (body == projectile_left) or (body == projectile_right):
 		projectile_left.set_linear_velocity(Vector3.ZERO)
 		projectile_left.set_position(projectile_left_initial_position)
-	elif body == projectile_right:
 		projectile_right.set_linear_velocity(Vector3.ZERO)
 		projectile_right.set_position(projectile_right_initial_position)
 
