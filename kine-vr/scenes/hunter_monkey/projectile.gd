@@ -10,6 +10,8 @@ const decal_color: Color = Color(0, 1, 0)
 
 var launch_speed: float = 10
 var can_launch: bool = true
+var paused: bool = false
+var paused_linear_velocity: Vector3
 var decal_list: Array = []
 
 
@@ -51,6 +53,20 @@ func _on_interactable_slider_speed_slider_moved(p: Variant) -> void:
 	
 	# number [0.0, 1.0] transformed to [10.0, 100.0] meters/s
 	launch_speed = lerp(10.0, 100.0, percentage)
+
+
+func _on_interactable_area_pause_button_pressed(button: Variant) -> void:
+	if not paused:
+		# linear velocity stored
+		paused_linear_velocity = linear_velocity
+		set_gravity_scale(0.0)
+		linear_velocity = Vector3.ZERO
+	elif paused:
+		# linear velocity given back
+		linear_velocity = paused_linear_velocity
+		set_gravity_scale(1.0)
+		
+	paused = not paused
 
 
 func _on_timer_timeout() -> void:
