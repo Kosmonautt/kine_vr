@@ -99,5 +99,5 @@ func _on_interactable_area_pause_button_released(button: Variant) -> void:
 
 
 func _on_refresh_timer_timeout() -> void:
-	control.refresh_screen(projectile_left, projectile_right, left_initial_velocity_x, right_initial_velocity_x)
+	control.refresh_screen(projectile_left, projectile_right, left_initial_velocity_x, right_initial_velocity_x, paused)
 	refresh_timer.start()
