@@ -80,11 +80,12 @@ sky_material = SubResource("PhysicalSkyMaterial_pixqy")
 background_mode = 2
 sky = SubResource("Sky_mem3d")
 
-[node name="Momentum" type="Node3D" node_paths=PackedStringArray("projectile_left", "projectile_right", "refresh_timer")]
+[node name="Momentum" type="Node3D" node_paths=PackedStringArray("projectile_left", "projectile_right", "refresh_timer", "time_elapsed_timer")]
 script = ExtResource("1_styb3")
 projectile_left = NodePath("Scenery/ProjectileLeft")
 projectile_right = NodePath("Scenery/ProjectileRight")
 refresh_timer = NodePath("Interface/ControlPad/RefreshTimer")
+time_elapsed_timer = NodePath("Scenery/TimeElapsedTimer")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
@@ -144,6 +145,9 @@ collision_mask = 16777216
 mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_xsfa6")
 gravity_scale = 0.0
+
+[node name="TimeElapsedTimer" type="Timer" parent="Scenery"]
+wait_time = 120.0
 
 [node name="Player" parent="." instance=ExtResource("11_badkx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0.5)

@@ -13,6 +13,7 @@ var right_paused_linear_velocity: Vector3
 @export var projectile_left: RigidBody3D
 @export var projectile_right: RigidBody3D
 @export var refresh_timer: Timer
+@export var time_elapsed_timer: Timer
 
 const projectile_left_initial_position: Vector3 = Vector3(1.0, 2.5, 1.5)
 const projectile_right_initial_position: Vector3 = Vector3(13.0, 2.5, 1.5)
@@ -43,6 +44,8 @@ func _on_scenery_body_exited(body: Node3D) -> void:
 		projectile_left.set_position(projectile_left_initial_position)
 		projectile_right.set_linear_velocity(Vector3.ZERO)
 		projectile_right.set_position(projectile_right_initial_position)
+		# time elapsed stops
+		time_elapsed_timer.stop()
 
 
 func _on_interactable_mass_left_slider_moved(position: Variant) -> void:
@@ -81,6 +84,8 @@ func _on_interactable_area_button_button_pressed(button: Variant) -> void:
 	# set velocities for both projectiles
 	projectile_left.set_linear_velocity(Vector3(left_initial_velocity_x, 0.0, 0.0))
 	projectile_right.set_linear_velocity(Vector3(right_initial_velocity_x, 0.0, 0.0))
+	# time elapsed starts
+	time_elapsed_timer.start()
 
 
 func _on_interactable_area_pause_button_released(button: Variant) -> void:
@@ -90,14 +95,18 @@ func _on_interactable_area_pause_button_released(button: Variant) -> void:
 		right_paused_linear_velocity = projectile_right.get_linear_velocity()
 		projectile_left.set_linear_velocity(Vector3.ZERO)
 		projectile_right.set_linear_velocity(Vector3.ZERO)
+		# time elapsed stops
+		time_elapsed_timer.stop()
 	elif paused:
 		# linear velocity given back
 		projectile_left.set_linear_velocity(left_paused_linear_velocity)
 		projectile_right.set_linear_velocity(right_paused_linear_velocity)
+		# time elapsed starts
+		time_elapsed_timer.start()
 	
 	paused = not paused
 
 
 func _on_refresh_timer_timeout() -> void:
-	control.refresh_screen(projectile_left, projectile_right, left_initial_velocity_x, right_initial_velocity_x, paused)
+	control.refresh_screen(projectile_left, projectile_right, left_initial_velocity_x, right_initial_velocity_x, time_elapsed_timer.get_wait_time() - time_elapsed_timer.get_time_left(), paused)
 	refresh_timer.start()

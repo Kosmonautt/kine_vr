@@ -1,6 +1,6 @@
 extends TabContainer
 
-func refresh_screen(projectile: RigidBody3D, theta: float, phi: float, time_elapsed: float,paused: bool) -> void:
+func refresh_screen(projectile: RigidBody3D, theta: float, phi: float, time_elapsed: float, paused: bool) -> void:
 	if paused:
 		return
 	

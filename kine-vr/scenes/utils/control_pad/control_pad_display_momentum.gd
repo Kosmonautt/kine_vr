@@ -1,6 +1,6 @@
 extends TabContainer
 
-func refresh_screen(projectile_left: RigidBody3D, projectile_right: RigidBody3D, left_launch_velocity: float, right_launch_velocity: float, paused: bool) -> void:
+func refresh_screen(projectile_left: RigidBody3D, projectile_right: RigidBody3D, left_launch_velocity: float, right_launch_velocity: float, time_elapsed: float, paused: bool) -> void:
 	if paused:
 		return
 
@@ -37,6 +37,11 @@ func refresh_screen(projectile_left: RigidBody3D, projectile_right: RigidBody3D,
 	$Data/HBoxContainer/VBoxContainerControl/LeftVelocity/Value.text = con_left_velocity_str
 	$Data/HBoxContainer/VBoxContainerControl/RightMass/Value.text = con_right_mass_str
 	$Data/HBoxContainer/VBoxContainerControl/RightVelocity/Value.text = con_right_velocity_str
+
+	## Time elapsed
+	var time_elapsed_str := "%8.3f" % [time_elapsed]
+	
+	$Data/HBoxContainer/VBoxContainer/TimeElapsed/Value.text = time_elapsed_str
 
 func get_linear_momentum(projectile: RigidBody3D) -> float:
 	return projectile.get_mass() * projectile.get_linear_velocity().x
