@@ -60,9 +60,6 @@ text = "000.00, 000.00, 000.00"
 [node name="HSeparator" type="HSeparator" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
 [node name="TimeElapsed" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 

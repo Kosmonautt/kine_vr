@@ -1,6 +1,6 @@
 extends TabContainer
 
-func refresh_screen(projectile: RigidBody3D, target: RigidBody3D, theta: float, radius: float, launch_speed: float, paused: float) -> void:
+func refresh_screen(projectile: RigidBody3D, target: RigidBody3D, theta: float, radius: float, launch_speed: float, time_elapsed: float, paused: float) -> void:
 	if paused:
 		return
 	
@@ -36,6 +36,11 @@ func refresh_screen(projectile: RigidBody3D, target: RigidBody3D, theta: float, 
 	$Data/HBoxContainer/VBoxContainerControls/Angle/Value.text = con_rot_str
 	$Data/HBoxContainer/VBoxContainerControls/Distance/Value.text = con_dist_str
 	$Data/HBoxContainer/VBoxContainerControls/LaunchSpeed/Value.text = con_launch_speed_str
+
+	## Time elapsed
+	var time_elapsed_str := "%8.3f" % [time_elapsed]
+	
+	$Data/HBoxContainer/VBoxContainer/TimeElapsed/Value.text = time_elapsed_str
 
 func set_label_name(name: String, pos: int) -> void:
 	if pos == 0:
