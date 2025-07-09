@@ -6,6 +6,9 @@ var xr_interface: XRInterface
 var control: TabContainer
 var left_initial_velocity_x: float = 0.0
 var right_initial_velocity_x: float = 0.0
+var paused: bool = false
+var left_paused_linear_velocity: Vector3
+var right_paused_linear_velocity: Vector3
 
 @export var projectile_left: RigidBody3D
 @export var projectile_right: RigidBody3D
@@ -78,6 +81,21 @@ func _on_interactable_area_button_button_pressed(button: Variant) -> void:
 	# set velocities for both projectiles
 	projectile_left.set_linear_velocity(Vector3(left_initial_velocity_x, 0.0, 0.0))
 	projectile_right.set_linear_velocity(Vector3(right_initial_velocity_x, 0.0, 0.0))
+
+
+func _on_interactable_area_pause_button_released(button: Variant) -> void:
+	if not paused:
+		# linear velocity stored
+		left_paused_linear_velocity = projectile_left.get_linear_velocity()
+		right_paused_linear_velocity = projectile_right.get_linear_velocity()
+		projectile_left.set_linear_velocity(Vector3.ZERO)
+		projectile_right.set_linear_velocity(Vector3.ZERO)
+	elif paused:
+		# linear velocity given back
+		projectile_left.set_linear_velocity(left_paused_linear_velocity)
+		projectile_right.set_linear_velocity(right_paused_linear_velocity)
+	
+	paused = not paused
 
 
 func _on_refresh_timer_timeout() -> void:
