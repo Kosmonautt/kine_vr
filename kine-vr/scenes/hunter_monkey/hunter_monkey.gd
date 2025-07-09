@@ -29,5 +29,5 @@ func _ready() -> void:
 	control.set_label_name("Target", 1)
 	
 func _on_projectile_refresh_timer_timeout() -> void:
-	control.refresh_screen(projectile, target, pivot.theta, pivot.radius, projectile.launch_speed)
+	control.refresh_screen(projectile, target, pivot.theta, pivot.radius, projectile.launch_speed, projectile.paused or target.paused)
 	refresh_timer.start()

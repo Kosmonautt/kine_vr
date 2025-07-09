@@ -1,6 +1,9 @@
 extends TabContainer
 
-func refresh_screen(projectile: RigidBody3D, target: RigidBody3D, theta: float, radius: float, launch_speed: float) -> void:
+func refresh_screen(projectile: RigidBody3D, target: RigidBody3D, theta: float, radius: float, launch_speed: float, paused: float) -> void:
+	if paused:
+		return
+	
 	## Projectile data
 	var proj_pos: Vector3 = projectile.get_position()
 	var proj_vel: Vector3 = projectile.get_linear_velocity()
