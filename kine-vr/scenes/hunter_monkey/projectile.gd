@@ -55,7 +55,7 @@ func _on_interactable_slider_speed_slider_moved(p: Variant) -> void:
 	launch_speed = lerp(10.0, 100.0, percentage)
 
 
-func _on_interactable_area_pause_button_pressed(button: Variant) -> void:
+func _on_interactable_area_button_button_released(button: Variant) -> void:
 	if not paused:
 		# linear velocity stored
 		paused_linear_velocity = linear_velocity
@@ -71,8 +71,8 @@ func _on_interactable_area_pause_button_pressed(button: Variant) -> void:
 		decal_timer.start()
 		
 	paused = not paused
-
-
+	
+	
 func _on_timer_timeout() -> void:
 	# decals are spawned
 	var decal_xy = decal_scene.instantiate()

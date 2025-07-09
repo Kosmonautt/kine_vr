@@ -41,9 +41,9 @@ func _on_interactable_area_button_button_pressed(_button: Variant) -> void:
 			decal_list.clear()
 		# decals start spawning
 		decal_timer.start()
-
-
-func _on_interactable_area_pause_button_pressed(button: Variant) -> void:
+	
+	
+func _on_interactable_area_pause_button_released(button: Variant) -> void:
 	if not paused:
 		# linear velocity stored
 		paused_linear_velocity = linear_velocity
