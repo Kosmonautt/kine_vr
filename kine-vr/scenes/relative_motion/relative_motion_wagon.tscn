@@ -9,65 +9,49 @@
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="5_rx7nf"]
 [ext_resource type="PackedScene" uid="uid://l8h0a417elon" path="res://scenes/utils/control_pad/control_pad.tscn" id="6_yy6wq"]
 [ext_resource type="PackedScene" uid="uid://bx8gfpglba3i3" path="res://scenes/utils/control_pad/control_pad_display_relative_motion.tscn" id="7_5k41j"]
+[ext_resource type="Texture2D" uid="uid://cpfbcoc4xbihx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Color.png" id="8_4g8st"]
+[ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="9_3ey4j"]
+[ext_resource type="Texture2D" uid="uid://bvvfl708dvtv2" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_AmbientOcclusion.png" id="9_6fngc"]
+[ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="9_nm8sy"]
+[ext_resource type="Texture2D" uid="uid://ex0moq483qmx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Roughness.png" id="9_q6wwv"]
+[ext_resource type="Texture2D" uid="uid://bjqfhvjjyxjga" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_NormalGL.png" id="9_v4nx0"]
+[ext_resource type="Texture2D" uid="uid://c8ngm1rmaolw4" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Displacement.png" id="10_m3vhy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i78nh"]
 friction = 0.0
 bounce = 1.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i78nh"]
-load_path = "res://.godot/imported/PavingStones009_1K-PNG_Color.png-f53a1048afb3f372d338112d0ac5610d.s3tc.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dke4t"]
-load_path = "res://.godot/imported/PavingStones009_1K-PNG_AmbientOcclusion.png-b12b57571d71baf6b6c0828c67db8135.s3tc.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rx7nf"]
-load_path = "res://.godot/imported/PavingStones009_1K-PNG_Displacement.png-07b6bdda92fc42380d2ed772b2f940ea.s3tc.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_opcf2"]
-load_path = "res://.godot/imported/PavingStones009_1K-PNG_NormalGL.png-0aa4a0a0cfe47b8ba91efc96cca74729.s3tc.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yy6wq"]
-load_path = "res://.godot/imported/PavingStones009_1K-PNG_Roughness.png-16baf11ca69072e5f2f5dbde7fdc4c8f.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5k41j"]
-albedo_texture = SubResource("CompressedTexture2D_i78nh")
-roughness_texture = SubResource("CompressedTexture2D_yy6wq")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q6wwv"]
+albedo_texture = ExtResource("8_4g8st")
+roughness_texture = ExtResource("9_q6wwv")
 normal_enabled = true
-normal_texture = SubResource("CompressedTexture2D_opcf2")
+normal_texture = ExtResource("9_v4nx0")
 ao_enabled = true
 ao_light_affect = 0.4
-ao_texture = SubResource("CompressedTexture2D_dke4t")
+ao_texture = ExtResource("9_6fngc")
 heightmap_enabled = true
 heightmap_scale = 3.0
-heightmap_texture = SubResource("CompressedTexture2D_rx7nf")
+heightmap_texture = ExtResource("10_m3vhy")
 uv1_scale = Vector3(20, 35, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_i78nh"]
-material = SubResource("StandardMaterial3D_5k41j")
+material = SubResource("StandardMaterial3D_q6wwv")
 size = Vector2(20, 35)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yy6wq"]
 size = Vector3(1, 8, 6)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5k41j"]
-load_path = "res://.godot/imported/texture_13.png-d8a64638530ca4756d5cf5d168965a0b.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nm8sy"]
-albedo_texture = SubResource("CompressedTexture2D_5k41j")
-uv1_scale = Vector3(25, 6, 6)
-disable_receive_shadows = true
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4g8st"]
+albedo_texture = ExtResource("9_3ey4j")
+uv1_scale = Vector3(25, 6, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3ey4j"]
-material = SubResource("StandardMaterial3D_nm8sy")
+material = SubResource("StandardMaterial3D_4g8st")
 size = Vector2(25, 6)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nm8sy"]
-load_path = "res://.godot/imported/texture_01.png-6bfd3a589f3b4234ff7a58505e18fba9.s3tc.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ey4j"]
-albedo_texture = SubResource("CompressedTexture2D_nm8sy")
+albedo_texture = ExtResource("9_nm8sy")
 uv1_scale = Vector3(25, 8, 1)
-disable_receive_shadows = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_4g8st"]
 material = SubResource("StandardMaterial3D_3ey4j")
