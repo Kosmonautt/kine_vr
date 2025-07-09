@@ -77,11 +77,12 @@ sky_material = SubResource("PhysicalSkyMaterial_k7fxw")
 background_mode = 2
 sky = SubResource("Sky_k7fxw")
 
-[node name="Parabola" type="Node3D" node_paths=PackedStringArray("projectile", "pivot", "refresh_timer")]
+[node name="Parabola" type="Node3D" node_paths=PackedStringArray("projectile", "pivot", "refresh_timer", "time_elapsed_timer")]
 script = ExtResource("1_j2chm")
 projectile = NodePath("Scenery/Projectile")
 pivot = NodePath("Scenery/Pivot")
 refresh_timer = NodePath("Interface/ControlPad/RefreshTimer")
+time_elapsed_timer = NodePath("Scenery/TimeElapsedTimer")
 
 [node name="Boundary" type="StaticBody3D" parent="."]
 
@@ -131,7 +132,7 @@ mesh = SubResource("PlaneMesh_doxax")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 4, 0)
 mesh = SubResource("PlaneMesh_abopq")
 
-[node name="Projectile" parent="Scenery" node_paths=PackedStringArray("direction_mesh", "scenery", "decal_timer") instance=ExtResource("2_xhc3r")]
+[node name="Projectile" parent="Scenery" node_paths=PackedStringArray("direction_mesh", "scenery", "decal_timer", "time_elapsed_timer") instance=ExtResource("2_xhc3r")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 1, 4)
 collision_layer = 16777216
 script = ExtResource("3_julcx")
@@ -139,6 +140,7 @@ direction_mesh = NodePath("../Pivot/Direction/MeshInstance3D")
 decal_scene = ExtResource("10_6bnd7")
 scenery = NodePath("..")
 decal_timer = NodePath("../DecalTimer")
+time_elapsed_timer = NodePath("../TimeElapsedTimer")
 
 [node name="Pivot" parent="Scenery" node_paths=PackedStringArray("direction", "direction_mesh", "projectile") instance=ExtResource("4_im3vq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 4)
@@ -158,6 +160,9 @@ mode = 2
 
 [node name="DecalTimer" type="Timer" parent="Scenery"]
 wait_time = 0.05
+
+[node name="TimeElapsedTimer" type="Timer" parent="Scenery"]
+wait_time = 120.0
 
 [node name="SceneryController" parent="." instance=ExtResource("6_2fupf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56, 0, -45)

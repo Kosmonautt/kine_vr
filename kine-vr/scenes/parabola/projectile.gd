@@ -10,6 +10,7 @@ const cosine_decal_color = Color(0, 0, 1)
 @export var decal_scene: PackedScene
 @export var scenery: Area3D
 @export var decal_timer: Timer
+@export var time_elapsed_timer: Timer
 
 var can_launch: bool = true
 var paused: bool = false
@@ -29,6 +30,8 @@ func _on_scenery_body_exited(body: Node3D) -> void:
 		can_launch = true
 		# decals stop spawning
 		decal_timer.stop()
+		# time elapsed stops
+		time_elapsed_timer.stop()
 
 
 func _on_interactable_area_button_button_pressed(_button: Variant) -> void:
@@ -46,6 +49,8 @@ func _on_interactable_area_button_button_pressed(_button: Variant) -> void:
 			decal_list.clear()
 		# decals start spawning
 		decal_timer.start()
+		# time elapsed starts
+		time_elapsed_timer.start()
 
 
 func _on_interactable_area_pause_button_released(button: Variant) -> void:
@@ -56,12 +61,16 @@ func _on_interactable_area_pause_button_released(button: Variant) -> void:
 		linear_velocity = Vector3.ZERO
 		# decal timer is stopped to avoid performance problems
 		decal_timer.stop()
+		# time elapsed stops
+		time_elapsed_timer.stop()
 	elif paused:
 		# linear velocity given back
 		linear_velocity = paused_linear_velocity
 		set_gravity_scale(1.0)
 		# decal timer is started again to decals spawn
 		decal_timer.start()
+		# time elapsed starts
+		time_elapsed_timer.start()
 		
 	paused = not paused
 

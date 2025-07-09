@@ -57,6 +57,23 @@ text = "Rotation(x, y, z) [°]:     "
 layout_mode = 2
 text = "000.00, 000.00, 000.00"
 
+[node name="HSeparator" type="HSeparator" parent="Data/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TimeElapsed" type="HBoxContainer" parent="Data/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Data/HBoxContainer/VBoxContainer/TimeElapsed"]
+layout_mode = 2
+text = "Time Elapsed:"
+
+[node name="Value" type="Label" parent="Data/HBoxContainer/VBoxContainer/TimeElapsed"]
+layout_mode = 2
+text = "000.00"
+
 [node name="VSeparator" type="VSeparator" parent="Data/HBoxContainer"]
 layout_mode = 2
 

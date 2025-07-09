@@ -7,6 +7,7 @@ var control: TabContainer
 @export var projectile: RigidBody3D
 @export var pivot: Node3D
 @export var refresh_timer: Timer
+@export var time_elapsed_timer: Timer
 
 func _ready() -> void:
 	Engine.max_fps = 90
@@ -29,5 +30,5 @@ func _ready() -> void:
 	
 	
 func _on_refresh_timer_timeout() -> void:
-	control.refresh_screen(projectile, pivot.theta, pivot.phi, projectile.paused)
+	control.refresh_screen(projectile, pivot.theta, pivot.phi, time_elapsed_timer.get_wait_time() - time_elapsed_timer.get_time_left() ,projectile.paused)
 	refresh_timer.start()
