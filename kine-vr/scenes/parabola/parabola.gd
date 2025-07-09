@@ -8,6 +8,8 @@ var control: TabContainer
 @export var pivot: Node3D
 @export var refresh_timer: Timer
 
+var paused: bool = false
+
 func _ready() -> void:
 	Engine.max_fps = 90
 	
@@ -28,6 +30,10 @@ func _ready() -> void:
 	control.set_label_name("Projectile")
 	
 	
+func _on_interactable_area_pause_button_released(button: Variant) -> void:
+	paused = not paused
+	
+	
 func _on_refresh_timer_timeout() -> void:
-	control.refresh_screen(projectile, pivot.theta, pivot.phi)
+	control.refresh_screen(projectile, pivot.theta, pivot.phi, paused)
 	refresh_timer.start()
