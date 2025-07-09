@@ -133,14 +133,14 @@ mesh = SubResource("PlaneMesh_doxax")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 4, 0)
 mesh = SubResource("PlaneMesh_abopq")
 
-[node name="Projectile" parent="Scenery" node_paths=PackedStringArray("direction_mesh", "scenery", "timer") instance=ExtResource("2_pk44x")]
+[node name="Projectile" parent="Scenery" node_paths=PackedStringArray("direction_mesh", "scenery", "decal_timer") instance=ExtResource("2_pk44x")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.001, 3)
 collision_layer = 16777216
 script = ExtResource("3_7qyho")
 direction_mesh = NodePath("../Pivot/Direction/MeshInstance3D")
 decal_scene = ExtResource("10_kqoov")
 scenery = NodePath("..")
-timer = NodePath("../ProjectileTimer")
+decal_timer = NodePath("../DecalProjectileTimer")
 
 [node name="Pivot" parent="Scenery" node_paths=PackedStringArray("direction", "direction_mesh", "projectile", "target") instance=ExtResource("3_7luox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.001, 3)
@@ -150,18 +150,18 @@ direction_mesh = NodePath("Direction/MeshInstance3D")
 projectile = NodePath("../Projectile")
 target = NodePath("../Target")
 
-[node name="Target" parent="Scenery" node_paths=PackedStringArray("scenery", "timer") instance=ExtResource("2_pk44x")]
+[node name="Target" parent="Scenery" node_paths=PackedStringArray("scenery", "decal_timer") instance=ExtResource("2_pk44x")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16, 3.999, 3)
 collision_layer = 16777216
 script = ExtResource("7_dp2id")
 decal_scene = ExtResource("10_kqoov")
 scenery = NodePath("..")
-timer = NodePath("../TargetTimer")
+decal_timer = NodePath("../DecalTargetTimer")
 
-[node name="ProjectileTimer" type="Timer" parent="Scenery"]
+[node name="DecalProjectileTimer" type="Timer" parent="Scenery"]
 wait_time = 0.05
 
-[node name="TargetTimer" type="Timer" parent="Scenery"]
+[node name="DecalTargetTimer" type="Timer" parent="Scenery"]
 wait_time = 0.05
 
 [node name="SceneryController" parent="." instance=ExtResource("5_stpkj")]
@@ -219,8 +219,8 @@ scene_properties_keys = PackedStringArray("control_pad_display_hunter_monkey.gd"
 
 [connection signal="body_exited" from="Scenery" to="Scenery/Projectile" method="_on_scenery_body_exited"]
 [connection signal="body_exited" from="Scenery" to="Scenery/Target" method="_on_scenery_body_exited"]
-[connection signal="timeout" from="Scenery/ProjectileTimer" to="Scenery/Projectile" method="_on_timer_timeout"]
-[connection signal="timeout" from="Scenery/TargetTimer" to="Scenery/Target" method="_on_target_timer_timeout"]
+[connection signal="timeout" from="Scenery/DecalProjectileTimer" to="Scenery/Projectile" method="_on_timer_timeout"]
+[connection signal="timeout" from="Scenery/DecalTargetTimer" to="Scenery/Target" method="_on_target_timer_timeout"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_x_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_y_slider_moved"]
 [connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_z_slider_moved"]

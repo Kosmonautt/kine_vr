@@ -5,7 +5,7 @@ const decal_color: Color = Color(0, 0, 1)
 
 @export var decal_scene: PackedScene
 @export var scenery: Area3D
-@export var timer: Timer
+@export var decal_timer: Timer
 
 var can_launch: bool = true
 var paused: bool = false
@@ -25,7 +25,7 @@ func _on_scenery_body_exited(body: Node3D) -> void:
 		set_gravity_scale(0.0)
 		can_launch = true
 		# decals stop spawning
-		timer.stop()
+		decal_timer.stop()
 
 
 func _on_interactable_area_button_button_pressed(_button: Variant) -> void:
@@ -40,7 +40,7 @@ func _on_interactable_area_button_button_pressed(_button: Variant) -> void:
 			# list is emptied
 			decal_list.clear()
 		# decals start spawning
-		timer.start()
+		decal_timer.start()
 
 
 func _on_interactable_area_pause_button_pressed(button: Variant) -> void:
@@ -49,10 +49,14 @@ func _on_interactable_area_pause_button_pressed(button: Variant) -> void:
 		paused_linear_velocity = linear_velocity
 		set_gravity_scale(0.0)
 		linear_velocity = Vector3.ZERO
+		# decal timer is stopped to avoid performance problems
+		decal_timer.stop()
 	elif paused:
 		# linear velocity given back
 		linear_velocity = paused_linear_velocity
 		set_gravity_scale(1.0)
+		# decal timer is started again to decals spawn
+		decal_timer.start()
 		
 	paused = not paused
 	
