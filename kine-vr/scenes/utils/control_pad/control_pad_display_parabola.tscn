@@ -82,7 +82,8 @@ layout_mode = 2
 text = "Controls:
 Left Lever: Vertical Rotation
 Right Lever: Horizontal Rotation
-Button: Launch Projectile"
+Button: Launch Projectile
+Small Button: Pause"
 
 [node name="HSeparator" type="HSeparator" parent="Data/HBoxContainer/VBoxContainerControls"]
 layout_mode = 2
