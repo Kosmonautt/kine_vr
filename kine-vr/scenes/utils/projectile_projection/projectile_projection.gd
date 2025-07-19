@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var projectile: Node3D
+@export var projectile: RigidBody3D
 @export_enum("XY", "YZ", "ZX",) var mode: int
 
 # Called when the node enters the scene tree for the first time.

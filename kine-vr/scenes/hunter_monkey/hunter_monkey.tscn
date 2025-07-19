@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://df7s2w6t06bpu"]
+[gd_scene load_steps=38 format=3 uid="uid://df7s2w6t06bpu"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_ep48d"]
 [ext_resource type="Script" uid="uid://beajsl6rmc22i" path="res://scenes/hunter_monkey/hunter_monkey.gd" id="1_s6tcq"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://buwtt0qxxv75y" path="res://scenes/utils/interactables/button.tscn" id="9_pmmic"]
 [ext_resource type="PackedScene" uid="uid://cp2ohwbfhxmkp" path="res://scenes/utils/decal/decal.tscn" id="10_kqoov"]
 [ext_resource type="PackedScene" uid="uid://cnk6ayhk71ay" path="res://scenes/player/player.tscn" id="12_b2vc3"]
+[ext_resource type="PackedScene" uid="uid://buss7ukafa06w" path="res://scenes/utils/projectile_projection/projectile_projection.tscn" id="13_bgt66"]
 [ext_resource type="PackedScene" uid="uid://5ph2vjph6j01" path="res://scenes/utils/teleporter/teleporter.tscn" id="17_it3m0"]
 [ext_resource type="PackedScene" uid="uid://10gt8y7a3au2" path="res://scenes/utils/controller/controller.tscn" id="21_e5jvk"]
 [ext_resource type="PackedScene" uid="uid://l8h0a417elon" path="res://scenes/utils/control_pad/control_pad.tscn" id="22_apheu"]
@@ -135,7 +136,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 10, 4,
 mesh = SubResource("PlaneMesh_abopq")
 
 [node name="Projectile" parent="Scenery" node_paths=PackedStringArray("direction_mesh", "scenery", "decal_timer", "time_elapsed_timer") instance=ExtResource("2_pk44x")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -0.001, 3)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 3)
 collision_layer = 16777216
 script = ExtResource("3_7qyho")
 direction_mesh = NodePath("../Pivot/Direction/MeshInstance3D")
@@ -143,6 +144,10 @@ decal_scene = ExtResource("10_kqoov")
 scenery = NodePath("..")
 decal_timer = NodePath("../DecalProjectileTimer")
 time_elapsed_timer = NodePath("../TimeElapsedTimer")
+
+[node name="ProjectileProjection" parent="Scenery" node_paths=PackedStringArray("projectile") instance=ExtResource("13_bgt66")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+projectile = NodePath("../Projectile")
 
 [node name="Pivot" parent="Scenery" node_paths=PackedStringArray("direction", "direction_mesh", "projectile", "target") instance=ExtResource("3_7luox")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.001, 3)
@@ -153,12 +158,16 @@ projectile = NodePath("../Projectile")
 target = NodePath("../Target")
 
 [node name="Target" parent="Scenery" node_paths=PackedStringArray("scenery", "decal_timer") instance=ExtResource("2_pk44x")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16, 3.999, 3)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 16, 4, 3)
 collision_layer = 16777216
 script = ExtResource("7_dp2id")
 decal_scene = ExtResource("10_kqoov")
 scenery = NodePath("..")
 decal_timer = NodePath("../DecalTargetTimer")
+
+[node name="TargetProjection" parent="Scenery" node_paths=PackedStringArray("projectile") instance=ExtResource("13_bgt66")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 16, 4, 0)
+projectile = NodePath("../Target")
 
 [node name="DecalProjectileTimer" type="Timer" parent="Scenery"]
 wait_time = 0.05
