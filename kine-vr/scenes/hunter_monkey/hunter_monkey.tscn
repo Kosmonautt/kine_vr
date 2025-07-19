@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://df7s2w6t06bpu"]
+[gd_scene load_steps=37 format=3 uid="uid://df7s2w6t06bpu"]
 
 [ext_resource type="Texture2D" uid="uid://c4f3r8edupnyw" path="res://assets/kenney_prototype-textures/PNG/Red/texture_01.png" id="1_ep48d"]
 [ext_resource type="Script" uid="uid://beajsl6rmc22i" path="res://scenes/hunter_monkey/hunter_monkey.gd" id="1_s6tcq"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://c8ngm1rmaolw4" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Displacement.png" id="4_ie4g0"]
 [ext_resource type="Texture2D" uid="uid://bjqfhvjjyxjga" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_NormalGL.png" id="5_1jyns"]
 [ext_resource type="Script" uid="uid://bhcwiol7lgw6q" path="res://scenes/hunter_monkey/pivot.gd" id="5_ep48d"]
-[ext_resource type="PackedScene" uid="uid://0etylgnnbicm" path="res://scenes/utils/controller/scenery_controller.tscn" id="5_stpkj"]
 [ext_resource type="Texture2D" uid="uid://ex0moq483qmx" path="res://assets/PavingStones009_1K-PNG/PavingStones009_1K-PNG_Roughness.png" id="6_bgt66"]
 [ext_resource type="Texture2D" uid="uid://b6a2ce7s3xq5i" path="res://assets/kenney_prototype-textures/PNG/Dark/texture_13.png" id="6_v80yk"]
 [ext_resource type="Script" uid="uid://crxwplfx1pust" path="res://scenes/hunter_monkey/target.gd" id="7_dp2id"]
@@ -178,10 +177,6 @@ wait_time = 0.05
 [node name="TimeElapsedTimer" type="Timer" parent="Scenery"]
 wait_time = 120.0
 
-[node name="SceneryController" parent="." instance=ExtResource("5_stpkj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10)
-visible = false
-
 [node name="Player" parent="." instance=ExtResource("12_b2vc3")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -55.5, 0.001, -49.5)
 
@@ -235,9 +230,6 @@ scene_properties_keys = PackedStringArray("control_pad_display_hunter_monkey.gd"
 [connection signal="body_exited" from="Scenery" to="Scenery/Target" method="_on_scenery_body_exited"]
 [connection signal="timeout" from="Scenery/DecalProjectileTimer" to="Scenery/Projectile" method="_on_timer_timeout"]
 [connection signal="timeout" from="Scenery/DecalTargetTimer" to="Scenery/Target" method="_on_target_timer_timeout"]
-[connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_x_slider_moved"]
-[connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_y_slider_moved"]
-[connection signal="slider_moved" from="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider" to="Scenery" method="_on_interactable_slider_z_slider_moved"]
 [connection signal="hinge_moved" from="Interface/Controller/ThetaLever/LeverOrigin/InteractableLever" to="Scenery/Pivot" method="_on_interactable_lever_theta_hinge_moved"]
 [connection signal="slider_moved" from="Interface/Controller/RadiusSlider/SliderOrigin/InteractableSlider" to="Scenery/Pivot" method="_on_interactable_slider_radius_slider_moved"]
 [connection signal="slider_moved" from="Interface/Controller/SpeedSlider/SliderOrigin/InteractableSlider" to="Scenery/Projectile" method="_on_interactable_slider_speed_slider_moved"]
@@ -248,13 +240,6 @@ scene_properties_keys = PackedStringArray("control_pad_display_hunter_monkey.gd"
 [connection signal="timeout" from="Interface/ControlPad/RefreshTimer" to="." method="_on_projectile_refresh_timer_timeout"]
 
 [editable path="Scenery/Pivot"]
-[editable path="SceneryController"]
-[editable path="SceneryController/Pole/Panel/SliderX"]
-[editable path="SceneryController/Pole/Panel/SliderX/SliderOrigin/InteractableSlider/HandleOrigin"]
-[editable path="SceneryController/Pole/Panel/SliderY"]
-[editable path="SceneryController/Pole/Panel/SliderY/SliderOrigin/InteractableSlider/HandleOrigin"]
-[editable path="SceneryController/Pole/Panel/SliderZ"]
-[editable path="SceneryController/Pole/Panel/SliderZ/SliderOrigin/InteractableSlider/HandleOrigin"]
 [editable path="Interface/Controller/ThetaLever"]
 [editable path="Interface/Controller/ThetaLever/LeverOrigin/InteractableLever/HandleOrigin"]
 [editable path="Interface/Controller/RadiusSlider"]
