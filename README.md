@@ -1,1 +1,1 @@
-# kine_vr
+# Kine VR
